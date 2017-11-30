@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="it.polito.security.esp.ui.category"
+            name="ESP">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.services">
+      <serviceFactory
+            factoryClass="it.polito.security.esp.ui.ESPServiceFactory">
+         <service
+               serviceClass="it.polito.security.esp.ui.ESPService">
+         </service>
+      </serviceFactory>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="it.polito.security.esp.ui.editors.KBEditor"
+            contributorClass="it.polito.security.esp.ui.editors.KBEditorContributor"
+            filenames="kb.owl"
+            icon="icons/kb.png"
+            id="it.polito.security.esp.ui.editors.KBEditor"
+            name="ESP KB Editor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="it.polito.security.esp.ui.category"
+            class="it.polito.security.esp.ui.wizards.NewWizard"
+            icon="icons/newProject.png"
+            id="it.polito.security.esp.ui.newWizard"
+            name="ESP Software Protection Project"
+            project="true">
+      </wizard>
+   </extension>
+   <extension
+         id="it.polito.security.esp.ui.nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="it.polito.security.esp.ui.wizards.Nature">
+         </run>
+      </runtime>
+   </extension>
+   <extension
+         point="org.eclipse.ui.ide.projectNatureImages">
+      <image
+            icon="icons/nature.png"
+            id="it.polito.security.esp.ui.imageNature"
+            natureId="it.polito.security.esp.ui.nature">
+      </image>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="it.polito.security.esp.ui.category"
+            name="ESP">
+      </category>
+   </extension>
+   <extension
+         point="org.eclipse.ui.services">
+      <serviceFactory
+            factoryClass="it.polito.security.esp.ui.ESPServiceFactory">
+         <service
+               serviceClass="it.polito.security.esp.ui.ESPService">
+         </service>
+      </serviceFactory>
+   </extension>
+
+</plugin>

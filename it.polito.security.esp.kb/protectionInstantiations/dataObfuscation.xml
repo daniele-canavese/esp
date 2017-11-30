@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Data obfuscation protection instantiation - ver 0.1 - 04-21-2016 Author: FBK (tiella@fbk.eu) General notation: - some 
+	overhead values are marked with a comment TBV which means To Be Validated. - range(variable) is a number so that along any 
+	execution of the program it holds that: abs(variable) <= range(variable) - x^y means x to the power of y -->
+<protectionInstantiationsList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://protectionInstantiation.kb.esp.security.polito.it" xsi:schemaLocation="http://protectionInstantiation.kb.esp.security.polito.it ../schema/protectionInstantiation.xsd ">
+	<!-- - #vars# an integer number >= 4, keep it small (i.e. fix it to 4) - #random# must be a positive integer <= 2^sizeof(variable)-1 
+		- #nbits# = sizeof(#random#) - #random# must be a positive integer <= 2^sizeof(variable)-1 - #min# and #max# are two integers 
+		that satisfy: 1. range(variable) < #min#*#min# 2. #max#*#max# < 2^sizeof(variable) 3. there should be some numbers between 
+		min and max -->
+	<protectionInstantiation>
+		<protectionInstantiationName>Data Obfuscation (data to procedure)</protectionInstantiationName>
+		<protectionName>dataObfuscation</protectionName>
+		<variableAnnotation>data_to_proc, algorithm(mealy_lutable)</variableAnnotation>
+		<toolForDeployment>TXL</toolForDeployment>
+		<clientTimeOverhead>0.025</clientTimeOverhead>
+		<clientMemoryOverhead>0.0</clientMemoryOverhead>
+		<serverTimeOverhead>0</serverTimeOverhead>
+		<serverMemoryOverhead>0</serverMemoryOverhead>
+		<networkOverhead>0.0</networkOverhead>
+	</protectionInstantiation>
+	<!-- <protectionInstantiation>
+		<protectionInstantiationName>Data Obfuscation (xor masking, random seed)</protectionInstantiationName>
+		<protectionName>dataObfuscation</protectionName>
+		<variableAnnotation>xor, mask(constant(#random#))</variableAnnotation>
+		<toolForDeployment>TXL</toolForDeployment>
+		<clientTimeOverhead>0.01</clientTimeOverhead>
+		<clientMemoryOverhead>0.0</clientMemoryOverhead>
+		<serverTimeOverhead>0</serverTimeOverhead>
+		<serverMemoryOverhead>0</serverMemoryOverhead>
+		<networkOverhead>0</networkOverhead>
+	</protectionInstantiation> -->
+	<!-- <protectionInstantiation>
+		<protectionInstantiationName>Data Obfuscation (xor masking, dynamic mask)</protectionInstantiationName>
+		<protectionName>dataObfuscation</protectionName>
+		<variableAnnotation>xor, mask(dynamic)</variableAnnotation>
+		<toolForDeployment>TXL</toolForDeployment>
+		<clientTimeOverhead>0.02</clientTimeOverhead>
+		<clientMemoryOverhead>0.0</clientMemoryOverhead>
+		<serverTimeOverhead>0</serverTimeOverhead>
+		<serverMemoryOverhead>0</serverMemoryOverhead>
+		<networkOverhead>0</networkOverhead>
+	</protectionInstantiation> -->
+	<protectionInstantiation>
+		<protectionInstantiationName>Data Obfuscation (xor masking, opaque constant)</protectionInstantiationName>
+		<protectionName>dataObfuscation</protectionName>
+		<variableAnnotation>xor, mask(constant(#random#)), opaque(clique, #vars#, #nbits#)</variableAnnotation>
+		<toolForDeployment>TXL</toolForDeployment>
+		<clientTimeOverhead>0.01</clientTimeOverhead>
+		<clientMemoryOverhead>0.0</clientMemoryOverhead>
+		<serverTimeOverhead>0</serverTimeOverhead>
+		<serverMemoryOverhead>0</serverMemoryOverhead>
+		<networkOverhead>0.0</networkOverhead>
+	</protectionInstantiation>
+	<!-- <protectionInstantiation>
+		<protectionInstantiationName>Data Obfuscation (residue number coding, random seed)</protectionInstantiationName>
+		<protectionName>dataObfuscation</protectionName>
+		<variableAnnotation>rnc, base(random(#min#, #max#))</variableAnnotation>
+		<toolForDeployment>TXL</toolForDeployment>
+		<clientTimeOverhead>0.02</clientTimeOverhead>
+		<clientMemoryOverhead>0.0</clientMemoryOverhead>
+		<serverTimeOverhead>0</serverTimeOverhead>
+		<serverMemoryOverhead>0</serverMemoryOverhead>
+		<networkOverhead>0.0</networkOverhead>
+	</protectionInstantiation> -->
+	<protectionInstantiation>
+		<protectionInstantiationName>Data Obfuscation (residue number coding, opaque constant)</protectionInstantiationName>
+		<protectionName>dataObfuscation</protectionName>
+		<variableAnnotation>rnc, base(random(#min#, #max#)), opaque(clique, #vars#, #nbits#)</variableAnnotation>
+		<toolForDeployment>TXL</toolForDeployment>
+		<clientTimeOverhead>0.02</clientTimeOverhead>
+		<clientMemoryOverhead>0.0</clientMemoryOverhead>
+		<serverTimeOverhead>0</serverTimeOverhead>
+		<serverMemoryOverhead>0</serverMemoryOverhead>
+		<networkOverhead>0.0</networkOverhead>
+	</protectionInstantiation>
+</protectionInstantiationsList>

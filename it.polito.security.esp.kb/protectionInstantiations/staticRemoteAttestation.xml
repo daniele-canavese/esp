@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protectionInstantiationsList xmlns="http://protectionInstantiation.kb.esp.security.polito.it"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://protectionInstantiation.kb.esp.security.polito.it ../schema/protectionInstantiation.xsd ">
+	<protectionInstantiation>
+		<protectionInstantiationName>Static Remote Attestation</protectionInstantiationName>
+		<protectionName>staticRemoteAttestation</protectionName>
+		<codeRegionAnnotation>remote_attestation, static_ra_region, attestator(#label#), attest_at_startup(true)</codeRegionAnnotation>
+		<attestatorAnnotation>remote_attestation, static_ra(#random(RW_NORMAL, RA_GOLDBACH)#, HF_SHA256 , #random(NI_3, NI_4)#, NG_1, MA_1, DS_1), label(#label#), frequency(10)</attestatorAnnotation>
+		<toolForDeployment>Diablo</toolForDeployment>
+		<toolForDeployment>ACCL</toolForDeployment>
+		<clientTimeOverhead>0.0156</clientTimeOverhead>
+		<clientMemoryOverhead>62 + 42 + nr_of_blocks * 12</clientMemoryOverhead>
+		<serverTimeOverhead>0.001 / 60</serverTimeOverhead>
+		<serverMemoryOverhead>0</serverMemoryOverhead>
+		<networkOverhead>(80 + 32) / 60 * 86400</networkOverhead>
+	</protectionInstantiation>
+</protectionInstantiationsList>

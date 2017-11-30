@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protectionInstantiationsList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://protectionInstantiation.kb.esp.security.polito.it" xsi:schemaLocation="../schema/protectionInstantiation.xsd">
+	<!--
+	     * The overhead is as always an approximation, but in this case I think you could almost approximate it with 1.0005 or so, or measuring the exact value on one benchmark ;-)
+	     * This computation here DOES NOT SUPPORT call_depth. Taking into account call_depth would be too hard: it would depend on the size of call tree below that particular function
+	     * The approximations made here are:
+	       - you only have 1 such region/annotation per source function. IMPORTANT: in the source, the call_stack_check annotation should span the entire function!
+	       - this will correspond exactly to one call stack check being inserted by Diablo.
+	       - Still, the #nr_bbls_dynamic_size# gives not the number of function calls of the annotated region. So an ESTIMATE: the number of function calls is ~~ #nr_bbls_dynamic_size# / 8. This
+	         should be measured!
+	       The above assumptions are not really correct, but I think it should be close enough in practice.
+
+	       We have two versions of the call stack check, but the largest one inserts 6 instructions, we'll take that as upper bound.
+	-->
+	<protectionInstantiation>
+		<protectionInstantiationName>Call Stack Checks</protectionInstantiationName>
+		<protectionName>callStackChecks</protectionName>
+		<codeRegionAnnotation>call_stack_check</codeRegionAnnotation>
+		<clientTimeOverhead>(1 + 6 / 8) / 100</clientTimeOverhead>
+ 		<clientMemoryOverhead>0</clientMemoryOverhead>
+		<serverTimeOverhead>0</serverTimeOverhead>
+ 		<serverMemoryOverhead>0</serverMemoryOverhead>
+ 		<networkOverhead>0</networkOverhead>
+	</protectionInstantiation>
+</protectionInstantiationsList>

@@ -1,22 +1,10 @@
-# Compiled class file
 *.class
-
-# Log file
 *.log
-
-# BlueJ files
-*.ctxt
-
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Package Files #
-*.jar
-*.war
-*.ear
-*.zip
-*.tar.gz
-*.rar
-
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+it.polito.security.esp/bin
+it.polito.security.esp.kb/bin
+it.polito.security.esp.rules/bin
+it.polito.security.esp.rules.ide/bin
+it.polito.security.esp.rules.ui/bin
+it.polito.security.esp.ui/bin
+it.polito.security.esp.util/bin

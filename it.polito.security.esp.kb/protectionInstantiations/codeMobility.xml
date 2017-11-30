@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protectionInstantiationsList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://protectionInstantiation.kb.esp.security.polito.it" xsi:schemaLocation="../schema/protectionInstantiation.xsd">
+	<protectionInstantiation>
+		<protectionInstantiationName>Code Mobility</protectionInstantiationName>
+		<protectionName>codeMobility</protectionName>
+		<codeRegionAnnotation>code_mobility, status(mobile)</codeRegionAnnotation>
+		<clientTimeOverhead>0.02</clientTimeOverhead>
+ 		<clientMemoryOverhead>nr_of_mobile_blocks * (4 * 2 + 24 + 4)</clientMemoryOverhead>
+		<serverTimeOverhead>0.002</serverTimeOverhead>
+ 		<serverMemoryOverhead>nr_of_mobile_bytes</serverMemoryOverhead>
+ 		<networkOverhead>nr_of_mobile_bytes</networkOverhead>
+	</protectionInstantiation>
+</protectionInstantiationsList>

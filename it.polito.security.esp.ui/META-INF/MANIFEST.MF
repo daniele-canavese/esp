@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ESP UI
+Bundle-SymbolicName: it.polito.security.esp.ui;singleton:=true
+Bundle-Version: 0.0.1.qualifier
+Bundle-Vendor: Politecnico di Torino
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Require-Bundle: org.eclipse.ui;bundle-version="3.7.0",
+ org.eclipse.core.resources;bundle-version="3.7.101",
+ org.eclipse.core.runtime;bundle-version="3.7.0",
+ org.eclipse.ui.ide;bundle-version="3.7.0",
+ it.polito.security.ontologies;bundle-version="0.2.0",
+ it.polito.security.esp.kb;bundle-version="0.0.1",
+ com.google.inject;bundle-version="3.0.0",
+ org.eclipse.ui.forms;bundle-version="3.7.101",
+ org.eclipse.ui.editors;bundle-version="3.11.0",
+ org.eclipse.xtext.ui;bundle-version="2.10.0",
+ it.polito.security.esp.rules.ui;bundle-version="1.0.0",
+ it.polito.security.esp;bundle-version="0.0.1",
+ it.polito.security.esp.util;bundle-version="0.0.1",
+ org.eclipse.nebula.widgets.nattable.core;bundle-version="1.5.0",
+ org.eclipse.nebula.widgets.nattable.extension.glazedlists;bundle-version="1.5.0",
+ ca.odell.glazedlists;bundle-version="1.9.0",
+ it.polito.security.esp.rules;bundle-version="0.0.1"
+Bundle-Activator: it.polito.security.esp.ui.Activator

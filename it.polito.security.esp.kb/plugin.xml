@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension-point id="ontologies" name="ontologies" schema="schema/ontologies.exsd"/>
+   <extension-point id="prolog" name="prolog" schema="schema/prolog.exsd"/>
+   <extension-point id="protectionInstantiations" name="prolog" schema="schema/protectionInstantiations.exsd"/>
+   <extension-point id="architectures" name="architectures" schema="schema/architectures.exsd"/>
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated kb -->
+      <package
+            uri="it.polito.security.esp.kb"
+            class="it.polito.security.esp.kb.KbPackage"
+            genModel="xcore/kb.xcore"/>
+   </extension>
+   <extension
+         point="it.polito.security.esp.kb.ontologies">
+      <ontology
+            owlFile="owl/kb.owl">
+      </ontology>
+   </extension>
+   <extension
+         point="it.polito.security.esp.kb.prolog">
+      <prologFile
+            plFile="pl/baseAttacks.pl">
+      </prologFile>
+      <prologFile
+            plFile="pl/stealAttacks.pl">
+      </prologFile>
+   </extension>
+   <extension
+         point="it.polito.security.esp.kb.protectionInstantiations">
+      <protectionInstantiationFile
+            xmlFile="protectionInstantiations/antiDebugging.xml">
+      </protectionInstantiationFile>
+      <protectionInstantiationFile
+            xmlFile="protectionInstantiations/binaryCodeControlFlowObfuscation.xml">
+      </protectionInstantiationFile>
+      <protectionInstantiationFile
+            xmlFile="protectionInstantiations/callStackChecks.xml">
+      </protectionInstantiationFile>
+      <protectionInstantiationFile
+            xmlFile="protectionInstantiations/whiteBoxCryptography.xml">
+      </protectionInstantiationFile>
+      <protectionInstantiationFile
+            xmlFile="protectionInstantiations/staticRemoteAttestation.xml">
+      </protectionInstantiationFile>
+      <protectionInstantiationFile
+            xmlFile="protectionInstantiations/codeMobility.xml">
+      </protectionInstantiationFile>
+      <protectionInstantiationFile
+            xmlFile="protectionInstantiations/dataObfuscation.xml">
+      </protectionInstantiationFile>
+   </extension>
+   <extension
+         point="it.polito.security.esp.kb.architectures">
+      <architecture
+            name="ARMv7-a"
+            sizeOfDouble="8"
+            sizeOfFloat="4"
+            sizeOfInt="4"
+            sizeOfLongDouble="8"
+            sizeOfLongInt="4"
+            sizeOfLongLongInt="8"
+            sizeOfShortInt="2">
+      </architecture>
+   </extension>
+
+</plugin>
