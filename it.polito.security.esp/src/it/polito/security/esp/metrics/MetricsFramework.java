@@ -13,6 +13,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Random;
 import java.util.Set;
 import java.util.logging.Logger;
 
@@ -40,6 +41,7 @@ import it.polito.security.esp.kb.Protection;
 import it.polito.security.esp.kb.ProtectionInstantiation;
 import it.polito.security.esp.kb.Solution;
 import it.polito.security.esp.kb.SolutionSequence;
+import it.polito.security.esp.kb.UseType;
 import it.polito.security.esp.l1p.IntegerTupleWalker;
 import it.polito.security.esp.util.Strings;
 
@@ -767,10 +769,20 @@ public class MetricsFramework
 						double v = 0.0;
 						if (oldMetrics.containsKey(METRICS[(k - 1) / degree]))
 							v = oldMetrics.get(METRICS[(k - 1) / degree]);
-						value += i.getValue().get(k) * Math.pow(v, (k - 1) % degree + 1);
+//						if(i.getValue().get(k) * Math.pow(v, (k - 1) % degree + 1)>0)
+							value += i.getValue().get(k) * Math.pow(v, (k - 1) % degree + 1);
 					}
-				if (!Double.isFinite(value) || value < 0.0)
-					value = 0.0;
+//				if (!Double.isFinite(value) || value < 0.0)
+////					value = 0.0;
+//					if (oldMetrics.containsKey(i.getKey()))
+//						value = oldMetrics.get(i.getKey());
+//				{
+					Random r = new Random(esp.getModel().getPreferences().getL2pFunctionSplittingSeed());
+					if(oldMetrics.get(i.getKey())!=null)
+						value =  oldMetrics.get(i.getKey()) + (oldMetrics.get(i.getKey()) * (r.nextDouble() / 100.0));
+					else if (!Double.isFinite(value) || value < 0.0)
+						value = 0.0;
+//				}
 				metrics.put(i.getKey(), value);
 			}
 		}
@@ -874,9 +886,42 @@ public class MetricsFramework
 		try
 		{
 			StaticVariableSet<Double> variables = new StaticVariableSet<Double>();
-			for (String i : METRICS)
-				variables.set(i, getEstimatedMetric(reference, solution, applicationPart, i));
+//			if(applicationPart.isCode())
+				for (String i : METRICS)
+					variables.set(i, getEstimatedMetric(reference, solution, applicationPart, i));
 
+			
+			if(formula.contains("sum_total_dimension_strings_lit_in_func")||
+					formula.contains("no_strings_lit_in_func")||
+					formula.contains("no_int_lit_in_func"))
+			{
+				ApplicationPart function = applicationPart;
+				while(!function.getType().equals(ApplicationPartType.FUNCTION))
+					function = function.getDeclaringCode();
+				
+				int[] literalMetrics = esp.getCDTConnector().findLiteralMetrics(function, null, null);
+				variables.set("no_int_lit_in_func", Double.valueOf(literalMetrics[0]));
+				variables.set("no_strings_lit_in_func", Double.valueOf(literalMetrics[1]));
+				variables.set("sum_total_dimension_strings_lit_in_func", Double.valueOf(literalMetrics[2]));
+				
+			}
+			
+			if(formula.contains("var_uses"))
+			{
+				Integer varUsesCount = applicationPart.getTargetOf().size();
+				variables.set("no_int_lit_in_func", Double.valueOf(varUsesCount));
+			}
+			
+			//find metric of the declaring function if the part is a variable
+			if(formula.contains("function_nr_ins_static"))
+			{
+				ApplicationPart function = applicationPart;
+				while(!function.getType().equals(ApplicationPartType.FUNCTION))
+					function = function.getDeclaringCode();
+				
+				variables.set("function_nr_ins_static", getEstimatedMetric(reference, solution, function, "nr_ins_static"));
+			}
+			
 			DoubleEvaluator evaluator = new DoubleEvaluator();
 			double result = evaluator.evaluate(formula, variables);
 			if (!Double.isFinite(result))
@@ -905,6 +950,12 @@ public class MetricsFramework
 	{
 		double overhead = 0.0;
 
+//		String solutionString="";
+//		
+//		for (List<AppliedProtectionInstantiation> i : solution)
+//			for (AppliedProtectionInstantiation j : i)
+//				solutionString+=j;
+		
 		for (List<AppliedProtectionInstantiation> i : solution)
 			for (AppliedProtectionInstantiation j : i)
 				if (applicationPart == null || j.getApplicationPart() == applicationPart)
@@ -934,9 +985,12 @@ public class MetricsFramework
 							o *= local / total;
 						}
 
+//					log.info(j+" in "+solutionString);
+//					log.info(o + "+" + overhead);
 					overhead += o;
 				}
 
+//		log.info(overhead +" final overhead for "+ solutionString);
 		return overhead;
 	}
 

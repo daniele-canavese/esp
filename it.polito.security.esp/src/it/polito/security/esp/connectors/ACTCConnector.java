@@ -72,18 +72,37 @@ public class ACTCConnector
 	public void build(String logFileName) throws IOException, CoreException
 	{
 		Preferences preferences = esp.getModel().getPreferences();
-
+		String dockerRoot = preferences.getCommandACTC().split(" ")[2].replace("~",System.getProperty("user.home")).substring(0, preferences.getCommandACTC().split(" ")[2].replace("~",System.getProperty("user.home")).lastIndexOf(File.separatorChar));
+		//docker-compose up -d
+		StringBuilder upCommandSB = new StringBuilder();
+		List<String> upCommand = new ArrayList<>();
+		upCommand.add("cd");
+		upCommand.add(dockerRoot);
+		upCommand.add("&&");
+		upCommand.add(preferences.getCommandACTC().split(" ")[0]);
+		upCommand.add("up");
+		upCommand.add("-d");
+		if(esp.getRunner().run(upCommand,upCommandSB)!=0)		
+			throw new IOException("Cannot start ACTC Docker: "+upCommandSB);
+				
+		//ACTC Clean
 		log.info("ACTC build started");
 		long start = System.currentTimeMillis();
 		List<String> command = new ArrayList<>();
 		command.add("cd");
 		command.add(preferences.getWorkingDirectory());
 		command.add("&&");
-		command.add(preferences.getCommandACTC());
+		for(String s: preferences.getCommandACTC().split(" "))
+		{
+			if(s.startsWith("~"))
+				command.add(s.replace("~",System.getProperty("user.home")));
+			else
+				command.add(s);
+		}
 		command.add("-d");
 		command.add("-v");
 		command.add("-f");
-		command.add(preferences.getActcConfigurationFile());
+		command.add(preferences.getActcConfigurationFile().replace(dockerRoot, ""));
 		StringBuilder sb = new StringBuilder();
 		int exitValue = esp.getRunner().run(command, sb);
 		if (logFileName != null)
@@ -134,16 +153,38 @@ public class ACTCConnector
 	public void clean() throws IOException
 	{
 		Preferences preferences = esp.getModel().getPreferences();
-
+		String dockerRoot = preferences.getCommandACTC().split(" ")[2].replace("~",System.getProperty("user.home")).substring(0, preferences.getCommandACTC().split(" ")[2].replace("~",System.getProperty("user.home")).lastIndexOf(File.separatorChar));
+		
+		//docker-compose up -d
+		StringBuilder upCommandSB = new StringBuilder();
+		List<String> upCommand = new ArrayList<>();
+		upCommand.add("cd");
+		upCommand.add(dockerRoot);
+		upCommand.add("&&");
+		upCommand.add(preferences.getCommandACTC().split(" ")[0]);
+		upCommand.add("up");
+		upCommand.add("-d");
+		if(esp.getRunner().run(upCommand,upCommandSB)!=0)		
+			throw new IOException("Cannot start ACTC Docker: "+upCommandSB);
+				
+		//ACTC Clean
 		List<String> command = new ArrayList<>();
 		command.add("cd");
 		command.add(preferences.getWorkingDirectory());
 		command.add("&&");
-		command.add(preferences.getCommandACTC());
+		for(String s: preferences.getCommandACTC().split(" "))
+		{
+			if(s.startsWith("~"))
+				command.add(s.replace("~",System.getProperty("user.home")));
+			else
+				command.add(s);
+		}
 		command.add("clean");
 		command.add("-f");
-		command.add(preferences.getActcConfigurationFile());
-		int status = esp.getRunner().run(command);
+		command.add(preferences.getActcConfigurationFile().replace(dockerRoot, ""));
+		StringBuilder sb = new StringBuilder();
+		int status = esp.getRunner().run(command,sb);
+		System.out.println(sb);
 		esp.getRunner().deleteDirectory(preferences.getWorkingDirectory() + esp.getRunner().getSeparator() + "build");
 		esp.getRunner().deleteFile(preferences.getWorkingDirectory() + esp.getRunner().getSeparator() + ".actc.db");
 		esp.getRunner().deleteFile(preferences.getWorkingDirectory() + esp.getRunner().getSeparator() + preferences.getEspPatchFile());
@@ -211,9 +252,15 @@ public class ACTCConnector
 			for (ProtectionInstantiationsList.ProtectionInstantiation pi : list.getProtectionInstantiation())
 			{
 				Protection protection = null;
+				boolean exitDueToProtDisabled = false;
 				for (Protection protection2 : esp.getModel().getProtections())
 					if (protection2.getId().equals(pi.getProtectionName()))
 					{
+						if(!protection2.isEnabled())
+						{
+							exitDueToProtDisabled=true;
+							break;
+						}
 						boolean exit = false;
 						for (ProtectionInstantiation pi2 : protection2.getInstantiations())
 							if (pi2.getName().equals(pi.getProtectionInstantiationName()))
@@ -228,6 +275,8 @@ public class ACTCConnector
 						protection = protection2;
 						break;
 					}
+				if (exitDueToProtDisabled)
+					continue;
 				if (protection == null)
 				{
 					log.severe("Unable to import " + pi.getProtectionInstantiationName() + " from file " + f.getAbsolutePath()
@@ -254,6 +303,10 @@ public class ACTCConnector
 					pi2.setVerifierAnnotation(pi.getVerifierAnnotation());
 				else
 					pi2.setVerifierAnnotation("");
+				if (pi.getToolCommand()!= null)
+					pi2.setToolCommand(pi.getToolCommand());
+				else
+					pi2.setToolCommand("");
 				if (pi.getClientMemoryOverhead() != null)
 					pi2.setClientMemoryOverhead(pi.getClientMemoryOverhead());
 				else
@@ -338,7 +391,7 @@ public class ACTCConnector
 				if (part != null)
 				{
 					ApplicationPartMetricSet set = KbFactory.eINSTANCE.createApplicationPartMetricSet();
-					if (part.getType() == ApplicationPartType.CODE_REGION || part.getType() == ApplicationPartType.ATTESTATOR)
+					if (part.getType() == ApplicationPartType.CODE_REGION)// || part.getType() == ApplicationPartType.ATTESTATOR)
 					{
 						set.setApplicationPart(part);
 						for (Entry<String, Double> j : i.getValue().entrySet())

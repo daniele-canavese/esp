@@ -324,7 +324,8 @@ public class StateEvaluator
 				variables.set(i + "$vanilla", vanillaMetric);
 			}
 
-			return evaluator.evaluate(formula, variables);
+			double retValue = evaluator.evaluate(formula, variables);
+			return retValue;
 		}
 		catch (Exception e)
 		{

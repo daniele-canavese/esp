@@ -4,10 +4,8 @@ package it.polito.security.esp.kb;
 
 import org.eclipse.emf.common.util.EList;
 
-import it.polito.security.ontologies.annotations.*;
-
 import org.eclipse.emf.ecore.EObject;
-
+import it.polito.security.ontologies.annotations.*;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Applied Protection Instantiation</b></em>'.
@@ -30,6 +28,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link it.polito.security.esp.kb.AppliedProtectionInstantiation#getCodeAnnotation <em>Code Annotation</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.AppliedProtectionInstantiation#getVerifierAnnotation <em>Verifier Annotation</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.AppliedProtectionInstantiation#getAttestatorAnnotation <em>Attestator Annotation</em>}</li>
+ *   <li>{@link it.polito.security.esp.kb.AppliedProtectionInstantiation#getToolCommand <em>Tool Command</em>}</li>
  * </ul>
  *
  * @see it.polito.security.esp.kb.KbPackage#getAppliedProtectionInstantiation()
@@ -54,10 +53,10 @@ import org.eclipse.emf.ecore.EObject;
 		@MapsToDataProperty(id = KbPackage.APPLIED_PROTECTION_INSTANTIATION__CODE_ANNOTATION, iri = "http://security.polito.it/esp/kb#hasCodeAnnotation"),
 		@MapsToDataProperty(id = KbPackage.APPLIED_PROTECTION_INSTANTIATION__VERIFIER_ANNOTATION, iri = "http://security.polito.it/esp/kb#hasVerifierAnnotation"),
 		@MapsToDataProperty(id = KbPackage.APPLIED_PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION, iri = "http://security.polito.it/esp/kb#hasAttestatorAnnotation"),	
+		@MapsToDataProperty(id = KbPackage.APPLIED_PROTECTION_INSTANTIATION__TOOL_COMMAND, iri = "http://security.polito.it/esp/kb#hasToolCommand"),	
 	}
 )
-public interface AppliedProtectionInstantiation extends EObject
-{
+public interface AppliedProtectionInstantiation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Protection Instantiation</b></em>' reference.
 	 * <!-- begin-user-doc -->
@@ -254,13 +253,37 @@ public interface AppliedProtectionInstantiation extends EObject
 	void setAttestatorAnnotation(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Tool Command</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The protection tool command.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Tool Command</em>' attribute.
+	 * @see #setToolCommand(String)
+	 * @see it.polito.security.esp.kb.KbPackage#getAppliedProtectionInstantiation_ToolCommand()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getToolCommand();
+
+	/**
+	 * Sets the value of the '{@link it.polito.security.esp.kb.AppliedProtectionInstantiation#getToolCommand <em>Tool Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Tool Command</em>' attribute.
+	 * @see #getToolCommand()
+	 * @generated
+	 */
+	void setToolCommand(String value);
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
 	 * Translates the object into a string.
 	 * <!-- end-model-doc -->
 	 * @model unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.util.HashSet%><<%it.polito.security.esp.kb.ApplicationPart%>> locations = new <%java.util.HashSet%><<%it.polito.security.esp.kb.ApplicationPart%>>();\n<%it.polito.security.esp.kb.ApplicationPart%> _applicationPart = this.getApplicationPart();\nlocations.add(_applicationPart);\n<%it.polito.security.esp.kb.ApplicationPart%> _applicationPart_1 = this.getApplicationPart();\n<%org.eclipse.emf.common.util.EList%><<%it.polito.security.esp.kb.ApplicationPartSet%>> _sets = _applicationPart_1.getSets();\nfor (final <%it.polito.security.esp.kb.ApplicationPartSet%> i : _sets)\n{\n\t<%it.polito.security.esp.kb.ProtectionInstantiation%> _protectionInstantiation = this.getProtectionInstantiation();\n\t<%it.polito.security.esp.kb.Protection%> _protection = _protectionInstantiation.getProtection();\n\t<%org.eclipse.emf.common.util.EList%><<%it.polito.security.esp.kb.ActionType%>> _actions = _protection.getActions();\n\t<%it.polito.security.esp.kb.ActionType%> _action = i.getAction();\n\tboolean _contains = _actions.contains(_action);\n\tif (_contains)\n\t{\n\t\t<%org.eclipse.emf.common.util.EList%><<%it.polito.security.esp.kb.ApplicationPart%>> _applicationParts = i.getApplicationParts();\n\t\tlocations.addAll(_applicationParts);\n\t}\n}\n<%org.eclipse.emf.common.util.EList%><<%it.polito.security.esp.kb.SecondLevelMotivation%>> _secondLevelMotivation = this.getSecondLevelMotivation();\nint _size = _secondLevelMotivation.size();\nboolean _equals = (_size == 0);\nif (_equals)\n{\n\t<%it.polito.security.esp.kb.ProtectionInstantiation%> _protectionInstantiation_1 = this.getProtectionInstantiation();\n\t<%java.lang.String%> _plus = (_protectionInstantiation_1 + \" @ \");\n\t<%java.lang.String%> _join = <%it.security.polito.esp.util.Strings%>.join(locations, \", \");\n\treturn (_plus + _join);\n}\nelse\n{\n\t<%it.polito.security.esp.kb.ProtectionInstantiation%> _protectionInstantiation_2 = this.getProtectionInstantiation();\n\t<%java.lang.String%> _plus_1 = (_protectionInstantiation_2 + \" @ \");\n\t<%java.lang.String%> _join_1 = <%it.security.polito.esp.util.Strings%>.join(locations, \", \");\n\t<%java.lang.String%> _plus_2 = (_plus_1 + _join_1);\n\t<%java.lang.String%> _plus_3 = (_plus_2 + \" [\");\n\t<%org.eclipse.emf.common.util.EList%><<%it.polito.security.esp.kb.SecondLevelMotivation%>> _secondLevelMotivation_1 = this.getSecondLevelMotivation();\n\t<%it.polito.security.esp.kb.SecondLevelMotivation%> _get = _secondLevelMotivation_1.get(0);\n\t<%it.polito.security.esp.kb.SecondLevelMotivationType%> _motivationType = _get.getMotivationType();\n\t<%java.lang.String%> _plus_4 = (_plus_3 + _motivationType);\n\treturn (_plus_4 + \"]\");\n}'"
 	 * @generated
 	 */
 	String toString();
@@ -272,7 +295,6 @@ public interface AppliedProtectionInstantiation extends EObject
 	 * Retrieves the object hash code.
 	 * <!-- end-model-doc -->
 	 * @model unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='int result = 17;\n<%it.polito.security.esp.kb.ProtectionInstantiation%> _protectionInstantiation = this.getProtectionInstantiation();\nint _hashCode = _protectionInstantiation.hashCode();\nint _plus = ((31 * result) + _hashCode);\nresult = _plus;\n<%it.polito.security.esp.kb.ApplicationPart%> _applicationPart = this.getApplicationPart();\nint _hashCode_1 = _applicationPart.hashCode();\nint _plus_1 = ((31 * result) + _hashCode_1);\nresult = _plus_1;\n<%java.lang.String%> _variableAnnotation = this.getVariableAnnotation();\nint _hashCode_2 = _variableAnnotation.hashCode();\nint _plus_2 = ((31 * result) + _hashCode_2);\nresult = _plus_2;\n<%java.lang.String%> _codeAnnotation = this.getCodeAnnotation();\nint _hashCode_3 = _codeAnnotation.hashCode();\nint _plus_3 = ((31 * result) + _hashCode_3);\nresult = _plus_3;\n<%java.lang.String%> _verifierAnnotation = this.getVerifierAnnotation();\nint _hashCode_4 = _verifierAnnotation.hashCode();\nint _plus_4 = ((31 * result) + _hashCode_4);\nresult = _plus_4;\n<%java.lang.String%> _attestatorAnnotation = this.getAttestatorAnnotation();\nint _hashCode_5 = _attestatorAnnotation.hashCode();\nint _plus_5 = ((31 * result) + _hashCode_5);\nresult = _plus_5;\nreturn result;'"
 	 * @generated
 	 */
 	int hashCode();
@@ -284,7 +306,6 @@ public interface AppliedProtectionInstantiation extends EObject
 	 * Compares another object with the current one.
 	 * <!-- end-model-doc -->
 	 * @model unique="false" objectUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='boolean _equals = <%com.google.common.base.Objects%>.equal(object, null);\nif (_equals)\n{\n\treturn false;\n}\nelse\n{\n\tif ((object instanceof <%it.polito.security.esp.kb.AppliedProtectionInstantiation%>))\n\t{\n\t\treturn (<%org.eclipse.emf.ecore.util.EcoreUtil%>.equals(this.getProtectionInstantiation(), ((<%it.polito.security.esp.kb.AppliedProtectionInstantiation%>)object).getProtectionInstantiation()) && \n\t\t\t<%org.eclipse.emf.ecore.util.EcoreUtil%>.equals(this.getApplicationPart(), ((<%it.polito.security.esp.kb.AppliedProtectionInstantiation%>)object).getApplicationPart()));\n\t}\n\telse\n\t{\n\t\treturn false;\n\t}\n}'"
 	 * @generated
 	 */
 	boolean equals(Object object);

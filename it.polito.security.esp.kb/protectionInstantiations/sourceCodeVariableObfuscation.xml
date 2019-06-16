@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<protectionInstantiationsList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://protectionInstantiation.kb.esp.security.polito.it" xsi:schemaLocation="../schema/protectionInstantiation.xsd">
+	
+	<!-- 11 instr each time the variable must be decoded, 6 instr to encode it = average of 9 instr for each access to the var -->
+ 	<protectionInstantiation>
+		<protectionInstantiationName>Tigress Source Code Variable Obfuscation</protectionInstantiationName>
+		<protectionName>sourceCodeVariableObfuscation</protectionName>
+		<toolCommand>--Transform=EncodeData --Prefix=_ESP_#func#_ --LocalVariables=#container_func#:#var#</toolCommand>
+		<clientTimeOverhead>9 * var_uses / 1000<!--  function_nr_ins_static--></clientTimeOverhead> 
+		<serverTimeOverhead>0</serverTimeOverhead>
+ 		<clientMemoryOverhead>0</clientMemoryOverhead>
+ 		<serverMemoryOverhead>0</serverMemoryOverhead>
+ 		<networkOverhead>0</networkOverhead>
+	</protectionInstantiation>
+
+
+</protectionInstantiationsList>

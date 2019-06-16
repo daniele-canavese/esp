@@ -135,9 +135,9 @@ public class ProtectionFinder
 		for (AppliedProtectionInstantiation api : esp.getModel().getAppliedProtectionInstantiations())
 		{
 			if (api.getAttestatorAnnotation() == null)
-				log.finest(api.getApplicationPart() + " " + api.getProtectionInstantiation() + " " + api.hashCode());
+				log.finer(api.getApplicationPart() + " " + api.getProtectionInstantiation() + " " + api.hashCode());
 			else
-				log.finest(api.getApplicationPart() + " " + api.getProtectionInstantiation() + " " + api.getAttestatorAnnotation() + " "
+				log.finer(api.getApplicationPart() + " " + api.getProtectionInstantiation() + " " + api.getAttestatorAnnotation() + " "
 						+ api.hashCode());
 		}
 	}
@@ -401,8 +401,76 @@ public class ProtectionFinder
 					stringBuilder.append(part1.getName() + " ");
 				log.fine("added set " + stringBuilder.toString());
 			}
+			
+			
 		}
 
+		if (pi.getName().contains("Tigress"))
+		{
+			appliedProtectionInstantiation.setCodeAnnotation(null);
+			String[] annParts = pi.getToolCommand().split("#");
+			String newAnn = "";
+//			Random random = new Random();
+//			Long randomNumber = 0L;
+//			Long max = 0L;
+			for (String annPart : annParts)
+			{
+				String newAnnPart = annPart;
+//				if (annPart.equals("random"))
+//				{
+//					Long upperBound = 1L;
+//					upperBound = Long.rotateLeft(upperBound, part.getDatumSize() * 8);
+//					--upperBound;
+//					randomNumber = random.nextLong();
+//					randomNumber &= upperBound;
+//					newAnnPart = randomNumber.toString();
+//				}
+//				else if (annPart.equals("vars"))
+//					newAnnPart = "4";
+//				else if (annPart.equals("nbits"))
+//				{
+//					Long sizeOfRandomNumber = (Long.numberOfTrailingZeros((Long.highestOneBit(randomNumber))) + 1L);
+//					newAnnPart = sizeOfRandomNumber.toString();
+//				}
+//				else if (annPart.equals("min"))
+//				{
+//					Integer sizeOfVariableInt = (part.getDatumSize() * 8);
+//					Double sizeOfVariable = sizeOfVariableInt.doubleValue();
+//					Double twoPowSizeOfVariable = Math.pow(2.0, sizeOfVariable);
+//					Double twoPowSizeOfVariableSqrt = Math.sqrt(twoPowSizeOfVariable);
+//					Double twoPowSizeOfVariableSqrtFloor = Math.floor(twoPowSizeOfVariableSqrt);
+//					max = twoPowSizeOfVariableSqrtFloor.longValue();
+//
+//					Integer upperBound = part.getDatumUpperBound();
+//					Double upperBoundSqrt = Math.sqrt(upperBound);
+//					Double upperBoundSqrtFloor = Math.floor(upperBoundSqrt);
+//					Long min = upperBoundSqrtFloor.longValue() + 1L;
+//					newAnnPart = min.toString();
+//				}
+//				else if (annPart.equals("max"))
+//					newAnnPart = max.toString();
+				
+				if(annPart.equals("func"))
+				{
+					ApplicationPart function = part;
+					while(function.getDeclaringCode()!=null)
+					{
+						function = function.getDeclaringCode();
+					}
+					if(function.getType().equals(ApplicationPartType.FUNCTION))
+						newAnnPart = function.getName();					
+				}
+//				'#container_func#:#var#'
+				else if(annPart.equals("container_func"))
+					newAnnPart = part.getDeclaringCode().getName();
+				else if(annPart.equals("var"))
+					newAnnPart = part.getName();
+				
+				newAnn += newAnnPart;
+			}
+			appliedProtectionInstantiation.setToolCommand(newAnn);
+		}
+		
 		return appliedProtectionInstantiation;
 	}
 
@@ -424,7 +492,20 @@ public class ProtectionFinder
 			if (part.getStartLine() > function.getBody().getStartLine() || part.getEndLine() < function.getBody().getEndLine())
 				return false;
 		}
-
+		if (pi.getProtection().getFlags().contains(ProtectionFlag.NO_CONTAINED_CODE_REGIONS))
+		{
+			for(ApplicationPart containedCodeRegion: part.getApplicationParts())
+				if(containedCodeRegion.isCode())
+					return false;
+		}
+		if (pi.getProtection().getFlags().contains(ProtectionFlag.NO_CONTAINED_ASSETS))
+		{
+			ApplicationPart function = part.getDeclaringCode();
+			while (function.getType() != ApplicationPartType.FUNCTION)
+				function = function.getDeclaringCode();
+			if(function.getAssets().size()>1)
+				return false;
+		}
 		return true;
 	}
 

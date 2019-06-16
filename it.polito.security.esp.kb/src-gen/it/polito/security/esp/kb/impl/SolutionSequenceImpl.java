@@ -76,7 +76,12 @@ public class SolutionSequenceImpl extends MinimalEObjectImpl.Container implement
 	{
 		if (appliedProtectionInstantiations == null)
 		{
-			appliedProtectionInstantiations = new EObjectResolvingEList<AppliedProtectionInstantiation>(AppliedProtectionInstantiation.class, this, KbPackage.SOLUTION_SEQUENCE__APPLIED_PROTECTION_INSTANTIATIONS);
+			appliedProtectionInstantiations = new EObjectResolvingEList<AppliedProtectionInstantiation>(AppliedProtectionInstantiation.class, this, KbPackage.SOLUTION_SEQUENCE__APPLIED_PROTECTION_INSTANTIATIONS){
+				@Override
+				public boolean isUnique() {
+					return false;
+				}
+			};
 		}
 		return appliedProtectionInstantiations;
 	}

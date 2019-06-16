@@ -26,6 +26,7 @@ import it.polito.security.esp.kb.ApplicationPartType;
 import it.polito.security.esp.kb.AppliedProtectionInstantiation;
 import it.polito.security.esp.kb.CodeBlock;
 import it.polito.security.esp.kb.Protection;
+import it.polito.security.esp.kb.ProtectionFlag;
 import it.polito.security.esp.kb.ProtectionInstantiation;
 import it.polito.security.esp.kb.SecondLevelMotivation;
 import it.polito.security.esp.kb.SecondLevelMotivationType;
@@ -172,7 +173,7 @@ public class SecondLevelProtectionFinder {
 			log.fine("Time = " + (stop - start) + " ms");
 			generateModel();
 //			optimizer.exportModel("/home/leonardo/solution/model.sav");
-//			optimizer.exportModel("/home/dani/model.lp");
+			optimizer.exportModel("/home/leo89r/model.lp");
 			//esp.saveBackup();
 //			if(esp.getModel().getApplicationPartsCount()>0)
 //				return;
@@ -1538,11 +1539,11 @@ public class SecondLevelProtectionFinder {
 		onlyL1PApisList.add(onlyL1PApis);
 		
 		long alpha = System.currentTimeMillis();
-		double onlyL1PCTO = esp.getMetricsFramework().getClientTimeOverhead(firstLevelSolution, onlyL1PApisList, null);
-		double onlyL1PSTO = esp.getMetricsFramework().getServerTimeOverhead(firstLevelSolution, onlyL1PApisList, null);
-		double onlyL1PCMO = esp.getMetricsFramework().getClientMemoryOverhead(firstLevelSolution, onlyL1PApisList, null);
-		double onlyL1PSMO = esp.getMetricsFramework().getServerMemoryOverhead(firstLevelSolution, onlyL1PApisList, null);
-		double onlyL1PNeO = esp.getMetricsFramework().getNetworkOverhead(firstLevelSolution, onlyL1PApisList, null);
+		double onlyL1PCTO = esp.getMetricsFramework().getClientTimeOverhead(esp.getModel().getVanillaSolution(), onlyL1PApisList, null);
+		double onlyL1PSTO = esp.getMetricsFramework().getServerTimeOverhead(esp.getModel().getVanillaSolution(), onlyL1PApisList, null);
+		double onlyL1PCMO = esp.getMetricsFramework().getClientMemoryOverhead(esp.getModel().getVanillaSolution(), onlyL1PApisList, null);
+		double onlyL1PSMO = esp.getMetricsFramework().getServerMemoryOverhead(esp.getModel().getVanillaSolution(), onlyL1PApisList, null);
+		double onlyL1PNeO = esp.getMetricsFramework().getNetworkOverhead(esp.getModel().getVanillaSolution(), onlyL1PApisList, null);
 		long omega = System.currentTimeMillis();
 		System.out.println("overheadz: " + (omega - alpha));
 		
@@ -1552,11 +1553,11 @@ public class SecondLevelProtectionFinder {
 		log.info("Only L1P Server Memory Overhead: "+onlyL1PSMO);
 		log.info("Only L1P Network Overhead: "+onlyL1PNeO);
 		
-		maxClientTimeOverhead = (esp.getModel().getPreferences().getClientTimeOverhead()/100) - onlyL1PCTO;
-		maxServerTimeOverhead = (esp.getModel().getPreferences().getServerTimeOverhead()/100) - onlyL1PSTO;
-		maxClientMemoryOverhead = ((double) esp.getModel().getPreferences().getClientMemoryOverhead()) - onlyL1PCMO;
-		maxServerMemoryOverhead = ((double) esp.getModel().getPreferences().getServerMemoryOverhead()) - onlyL1PSMO;
-		maxNetworkOverhead = ((double) esp.getModel().getPreferences().getNetworkOverhead()) - onlyL1PNeO;
+		maxClientTimeOverhead = (esp.getModel().getPreferences().getClientTimeOverhead());// - onlyL1PCTO;
+		maxServerTimeOverhead = (esp.getModel().getPreferences().getServerTimeOverhead());// - onlyL1PSTO;
+		maxClientMemoryOverhead = ((double) esp.getModel().getPreferences().getClientMemoryOverhead());// - onlyL1PCMO;
+		maxServerMemoryOverhead = ((double) esp.getModel().getPreferences().getServerMemoryOverhead());// - onlyL1PSMO;
+		maxNetworkOverhead = ((double) esp.getModel().getPreferences().getNetworkOverhead());// - onlyL1PNeO;
 		
 		log.info("Maximum L2P model Client Time Overhead: "+maxClientTimeOverhead);
 		log.info("Maximum L2P model Server Time Overhead: "+maxServerTimeOverhead);
@@ -2850,7 +2851,7 @@ public class SecondLevelProtectionFinder {
 //		Random seedRandom = new Random();
 //		long seed = seedRandom.nextLong();
 		
-		List<ApplicationPart> attestatorsFunctions = new LinkedList<>();
+		List<ApplicationPart> excludedFunctions = new LinkedList<>();
 		for(ApplicationPart attestatorPart : esp.getModel().getAllApplicationParts())
 			if(attestatorPart.getType().equals(ApplicationPartType.ATTESTATOR))
 			{
@@ -2860,12 +2861,26 @@ public class SecondLevelProtectionFinder {
 					function = function.getDeclaringCode();
 				}
 				if(function.getType().equals(ApplicationPartType.FUNCTION))
-					attestatorsFunctions.add(function);
+					excludedFunctions.add(function);
 			}
+		
+		for(SolutionSequence ss: firstLevelSolution.getSolutionSequences())
+			for(AppliedProtectionInstantiation api: ss.getAppliedProtectionInstantiations())
+				if(api.getProtectionInstantiation().getProtection().getFlags().contains(ProtectionFlag.NO_CONTAINED_CODE_REGIONS) ||
+					api.getProtectionInstantiation().getProtection().getFlags().contains(ProtectionFlag.NO_CONTAINED_ASSETS)	)
+				{
+					ApplicationPart function = api.getApplicationPart();
+					while(function.getDeclaringCode()!=null)
+					{
+						function = function.getDeclaringCode();
+					}
+					if(function.getType().equals(ApplicationPartType.FUNCTION))
+						excludedFunctions.add(function);
+				}
 		
 		//Find code blocks in every compilation unit
 		for(ApplicationPart function : esp.getModel().getApplicationParts())
-			if(function.isCode() && !function.isInSystemFile() && !function.isContainsIfdef() && !attestatorsFunctions.contains(function))
+			if(function.isCode() && !function.isInSystemFile() && !function.isContainsIfdef() && !excludedFunctions.contains(function))
 				analyzeCodeBlock(function.getBody(), function, 0);
 		
 //		CDTConnector connector = new CDTConnector(esp);
@@ -2927,7 +2942,7 @@ public class SecondLevelProtectionFinder {
 	}
 	
 	/**
-	 * Adds to the internal model the application parts corresponding to the nested blocks of the passed block, calling itself recursively until the desidered depthLevel is found;
+	 * Adds to the internal model the application parts corresponding to the nested blocks of the passed block, calling itself recursively until the desired depthLevel is found;
 	 * @param analyzedCodeBlock
 	 * 				The code block that must be analyzed.
 	 * @param analyzedCodePart

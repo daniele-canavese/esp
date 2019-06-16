@@ -2,9 +2,11 @@ package it.polito.security.esp.ui.editors;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.jface.layout.GridDataFactory;
 import org.eclipse.nebula.widgets.nattable.layer.LabelStack;
 import org.eclipse.nebula.widgets.nattable.layer.LayerUtil;
@@ -24,7 +26,9 @@ import org.eclipse.ui.forms.widgets.ExpandableComposite;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 
 import it.polito.security.esp.ESP;
+import it.polito.security.esp.kb.AppliedProtectionInstantiation;
 import it.polito.security.esp.kb.Solution;
+import it.polito.security.esp.kb.SolutionSequence;
 import it.polito.security.esp.ui.Activator;
 import it.polito.security.esp.ui.NoteWidget;
 import it.polito.security.esp.ui.dialogs.KeyValueDialog;
@@ -170,6 +174,17 @@ public class SolutionsPage extends FormPage implements ESPEventListener
 					pairs.add(new Pair<>("Client memory overhead", String.format("%+.0f bytes", solution.getClientMemoryOverhead())));
 					pairs.add(new Pair<>("Server memory overhead", String.format("%+.0f bytes", solution.getServerMemoryOverhead())));
 					pairs.add(new Pair<>("Network overhead", String.format("%+.3f bytes in 24 hours", solution.getNetworkOverhead())));
+					
+					List<AppliedProtectionInstantiation> sol = new LinkedList<AppliedProtectionInstantiation>();
+					for(SolutionSequence solSeq : solution.getSolutionSequences())
+						sol.addAll(solSeq.getAppliedProtectionInstantiations());
+					
+					List<String> solAnn = sol.stream().map((AppliedProtectionInstantiation api) ->
+								api.toString()+" -> "+api.getCodeAnnotation() + "/" + api.getVariableAnnotation() + "/" + api.getToolCommand()
+							).collect(java.util.stream.Collectors.toList());
+					
+					
+					pairs.add(new Pair<>("Annotations/commands:", solAnn));
 					KeyValueDialog dialog = new KeyValueDialog(solutionsTreeNatTable.getShell(), "Solution: " + solution.getId(), pairs);
 					dialog.open();
 				}

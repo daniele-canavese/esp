@@ -2,13 +2,11 @@
  */
 package it.polito.security.esp.kb.impl;
 
-import com.google.common.base.Objects;
-
-import it.polito.security.esp.kb.KbPackage;
 import it.polito.security.esp.kb.ApplicationPart;
 import it.polito.security.esp.kb.ApplicationPartSet;
 import it.polito.security.esp.kb.AppliedProtectionInstantiation;
 import it.polito.security.esp.kb.AttackMitigation;
+import it.polito.security.esp.kb.KbPackage;
 import it.polito.security.esp.kb.ProtectionInstantiation;
 import it.polito.security.esp.kb.ProtectionObjective;
 import it.polito.security.esp.kb.SecondLevelMotivation;
@@ -51,12 +49,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link it.polito.security.esp.kb.impl.AppliedProtectionInstantiationImpl#getCodeAnnotation <em>Code Annotation</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.impl.AppliedProtectionInstantiationImpl#getVerifierAnnotation <em>Verifier Annotation</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.impl.AppliedProtectionInstantiationImpl#getAttestatorAnnotation <em>Attestator Annotation</em>}</li>
+ *   <li>{@link it.polito.security.esp.kb.impl.AppliedProtectionInstantiationImpl#getToolCommand <em>Tool Command</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Container implements AppliedProtectionInstantiation
-{
+public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Container implements AppliedProtectionInstantiation {
 	/**
 	 * The cached value of the '{@link #getProtectionInstantiation() <em>Protection Instantiation</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -188,12 +186,31 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	protected String attestatorAnnotation = ATTESTATOR_ANNOTATION_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #getToolCommand() <em>Tool Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToolCommand()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TOOL_COMMAND_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getToolCommand() <em>Tool Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToolCommand()
+	 * @generated
+	 * @ordered
+	 */
+	protected String toolCommand = TOOL_COMMAND_EDEFAULT;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected AppliedProtectionInstantiationImpl()
-	{
+	protected AppliedProtectionInstantiationImpl() {
 		super();
 	}
 
@@ -203,8 +220,7 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return KbPackage.Literals.APPLIED_PROTECTION_INSTANTIATION;
 	}
 
@@ -213,14 +229,12 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProtectionInstantiation getProtectionInstantiation()
-	{
-		if (protectionInstantiation != null && protectionInstantiation.eIsProxy())
-		{
+	@Override
+	public ProtectionInstantiation getProtectionInstantiation() {
+		if (protectionInstantiation != null && protectionInstantiation.eIsProxy()) {
 			InternalEObject oldProtectionInstantiation = (InternalEObject)protectionInstantiation;
 			protectionInstantiation = (ProtectionInstantiation)eResolveProxy(oldProtectionInstantiation);
-			if (protectionInstantiation != oldProtectionInstantiation)
-			{
+			if (protectionInstantiation != oldProtectionInstantiation) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KbPackage.APPLIED_PROTECTION_INSTANTIATION__PROTECTION_INSTANTIATION, oldProtectionInstantiation, protectionInstantiation));
 			}
@@ -233,8 +247,7 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ProtectionInstantiation basicGetProtectionInstantiation()
-	{
+	public ProtectionInstantiation basicGetProtectionInstantiation() {
 		return protectionInstantiation;
 	}
 
@@ -243,8 +256,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProtectionInstantiation(ProtectionInstantiation newProtectionInstantiation)
-	{
+	@Override
+	public void setProtectionInstantiation(ProtectionInstantiation newProtectionInstantiation) {
 		ProtectionInstantiation oldProtectionInstantiation = protectionInstantiation;
 		protectionInstantiation = newProtectionInstantiation;
 		if (eNotificationRequired())
@@ -256,14 +269,12 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ApplicationPart getApplicationPart()
-	{
-		if (applicationPart != null && applicationPart.eIsProxy())
-		{
+	@Override
+	public ApplicationPart getApplicationPart() {
+		if (applicationPart != null && applicationPart.eIsProxy()) {
 			InternalEObject oldApplicationPart = (InternalEObject)applicationPart;
 			applicationPart = (ApplicationPart)eResolveProxy(oldApplicationPart);
-			if (applicationPart != oldApplicationPart)
-			{
+			if (applicationPart != oldApplicationPart) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, KbPackage.APPLIED_PROTECTION_INSTANTIATION__APPLICATION_PART, oldApplicationPart, applicationPart));
 			}
@@ -276,8 +287,7 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ApplicationPart basicGetApplicationPart()
-	{
+	public ApplicationPart basicGetApplicationPart() {
 		return applicationPart;
 	}
 
@@ -286,8 +296,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setApplicationPart(ApplicationPart newApplicationPart)
-	{
+	@Override
+	public void setApplicationPart(ApplicationPart newApplicationPart) {
 		ApplicationPart oldApplicationPart = applicationPart;
 		applicationPart = newApplicationPart;
 		if (eNotificationRequired())
@@ -299,10 +309,9 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<ProtectionObjective> getProtectionObjectives()
-	{
-		if (protectionObjectives == null)
-		{
+	@Override
+	public EList<ProtectionObjective> getProtectionObjectives() {
+		if (protectionObjectives == null) {
 			protectionObjectives = new EObjectResolvingEList<ProtectionObjective>(ProtectionObjective.class, this, KbPackage.APPLIED_PROTECTION_INSTANTIATION__PROTECTION_OBJECTIVES);
 		}
 		return protectionObjectives;
@@ -313,10 +322,9 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AttackMitigation> getAttackMitigations()
-	{
-		if (attackMitigations == null)
-		{
+	@Override
+	public EList<AttackMitigation> getAttackMitigations() {
+		if (attackMitigations == null) {
 			attackMitigations = new EObjectResolvingEList<AttackMitigation>(AttackMitigation.class, this, KbPackage.APPLIED_PROTECTION_INSTANTIATION__ATTACK_MITIGATIONS);
 		}
 		return attackMitigations;
@@ -327,10 +335,9 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<SecondLevelMotivation> getSecondLevelMotivation()
-	{
-		if (secondLevelMotivation == null)
-		{
+	@Override
+	public EList<SecondLevelMotivation> getSecondLevelMotivation() {
+		if (secondLevelMotivation == null) {
 			secondLevelMotivation = new EObjectResolvingEList<SecondLevelMotivation>(SecondLevelMotivation.class, this, KbPackage.APPLIED_PROTECTION_INSTANTIATION__SECOND_LEVEL_MOTIVATION);
 		}
 		return secondLevelMotivation;
@@ -341,8 +348,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getVariableAnnotation()
-	{
+	@Override
+	public String getVariableAnnotation() {
 		return variableAnnotation;
 	}
 
@@ -351,8 +358,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVariableAnnotation(String newVariableAnnotation)
-	{
+	@Override
+	public void setVariableAnnotation(String newVariableAnnotation) {
 		String oldVariableAnnotation = variableAnnotation;
 		variableAnnotation = newVariableAnnotation;
 		if (eNotificationRequired())
@@ -364,8 +371,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCodeAnnotation()
-	{
+	@Override
+	public String getCodeAnnotation() {
 		return codeAnnotation;
 	}
 
@@ -374,8 +381,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCodeAnnotation(String newCodeAnnotation)
-	{
+	@Override
+	public void setCodeAnnotation(String newCodeAnnotation) {
 		String oldCodeAnnotation = codeAnnotation;
 		codeAnnotation = newCodeAnnotation;
 		if (eNotificationRequired())
@@ -387,8 +394,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getVerifierAnnotation()
-	{
+	@Override
+	public String getVerifierAnnotation() {
 		return verifierAnnotation;
 	}
 
@@ -397,8 +404,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVerifierAnnotation(String newVerifierAnnotation)
-	{
+	@Override
+	public void setVerifierAnnotation(String newVerifierAnnotation) {
 		String oldVerifierAnnotation = verifierAnnotation;
 		verifierAnnotation = newVerifierAnnotation;
 		if (eNotificationRequired())
@@ -410,8 +417,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getAttestatorAnnotation()
-	{
+	@Override
+	public String getAttestatorAnnotation() {
 		return attestatorAnnotation;
 	}
 
@@ -420,8 +427,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAttestatorAnnotation(String newAttestatorAnnotation)
-	{
+	@Override
+	public void setAttestatorAnnotation(String newAttestatorAnnotation) {
 		String oldAttestatorAnnotation = attestatorAnnotation;
 		attestatorAnnotation = newAttestatorAnnotation;
 		if (eNotificationRequired())
@@ -433,30 +440,49 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String toString()
-	{
+	@Override
+	public String getToolCommand() {
+		return toolCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setToolCommand(String newToolCommand) {
+		String oldToolCommand = toolCommand;
+		toolCommand = newToolCommand;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KbPackage.APPLIED_PROTECTION_INSTANTIATION__TOOL_COMMAND, oldToolCommand, toolCommand));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
 		HashSet<ApplicationPart> locations = new HashSet<ApplicationPart>();
 		locations.add(this.getApplicationPart());
 		EList<ApplicationPartSet> _sets = this.getApplicationPart().getSets();
-		for (final ApplicationPartSet i : _sets)
-		{
+		for (final ApplicationPartSet i : _sets) {
 			boolean _contains = this.getProtectionInstantiation().getProtection().getActions().contains(i.getAction());
-			if (_contains)
-			{
+			if (_contains) {
 				locations.addAll(i.getApplicationParts());
 			}
 		}
 		int _size = this.getSecondLevelMotivation().size();
 		boolean _equals = (_size == 0);
-		if (_equals)
-		{
+		if (_equals) {
 			ProtectionInstantiation _protectionInstantiation = this.getProtectionInstantiation();
 			String _plus = (_protectionInstantiation + " @ ");
 			String _join = Strings.join(locations, ", ");
 			return (_plus + _join);
 		}
-		else
-		{
+		else {
 			ProtectionInstantiation _protectionInstantiation_1 = this.getProtectionInstantiation();
 			String _plus_1 = (_protectionInstantiation_1 + " @ ");
 			String _join_1 = Strings.join(locations, ", ");
@@ -473,8 +499,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int hashCode()
-	{
+	@Override
+	public int hashCode() {
 		int result = 17;
 		int _hashCode = this.getProtectionInstantiation().hashCode();
 		int _plus = ((31 * result) + _hashCode);
@@ -490,22 +516,17 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean equals(final Object object)
-	{
-		boolean _equals = Objects.equal(object, null);
-		if (_equals)
-		{
+	@Override
+	public boolean equals(final Object object) {
+		if ((object == null)) {
 			return false;
 		}
-		else
-		{
-			if ((object instanceof AppliedProtectionInstantiation))
-			{
+		else {
+			if ((object instanceof AppliedProtectionInstantiation)) {
 				return (EcoreUtil.equals(this.getProtectionInstantiation(), ((AppliedProtectionInstantiation)object).getProtectionInstantiation()) && 
 					EcoreUtil.equals(this.getApplicationPart(), ((AppliedProtectionInstantiation)object).getApplicationPart()));
 			}
-			else
-			{
+			else {
 				return false;
 			}
 		}
@@ -517,10 +538,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__PROTECTION_INSTANTIATION:
 				if (resolve) return getProtectionInstantiation();
 				return basicGetProtectionInstantiation();
@@ -541,6 +560,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 				return getVerifierAnnotation();
 			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION:
 				return getAttestatorAnnotation();
+			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__TOOL_COMMAND:
+				return getToolCommand();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -552,10 +573,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 */
 	@SuppressWarnings("unchecked")
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__PROTECTION_INSTANTIATION:
 				setProtectionInstantiation((ProtectionInstantiation)newValue);
 				return;
@@ -586,6 +605,9 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION:
 				setAttestatorAnnotation((String)newValue);
 				return;
+			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__TOOL_COMMAND:
+				setToolCommand((String)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -596,10 +618,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__PROTECTION_INSTANTIATION:
 				setProtectionInstantiation((ProtectionInstantiation)null);
 				return;
@@ -627,6 +647,9 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION:
 				setAttestatorAnnotation(ATTESTATOR_ANNOTATION_EDEFAULT);
 				return;
+			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__TOOL_COMMAND:
+				setToolCommand(TOOL_COMMAND_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -637,10 +660,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__PROTECTION_INSTANTIATION:
 				return protectionInstantiation != null;
 			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__APPLICATION_PART:
@@ -659,6 +680,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 				return VERIFIER_ANNOTATION_EDEFAULT == null ? verifierAnnotation != null : !VERIFIER_ANNOTATION_EDEFAULT.equals(verifierAnnotation);
 			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION:
 				return ATTESTATOR_ANNOTATION_EDEFAULT == null ? attestatorAnnotation != null : !ATTESTATOR_ANNOTATION_EDEFAULT.equals(attestatorAnnotation);
+			case KbPackage.APPLIED_PROTECTION_INSTANTIATION__TOOL_COMMAND:
+				return TOOL_COMMAND_EDEFAULT == null ? toolCommand != null : !TOOL_COMMAND_EDEFAULT.equals(toolCommand);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -669,10 +692,8 @@ public class AppliedProtectionInstantiationImpl extends MinimalEObjectImpl.Conta
 	 * @generated
 	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException
-	{
-		switch (operationID)
-		{
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
 			case KbPackage.APPLIED_PROTECTION_INSTANTIATION___TO_STRING:
 				return toString();
 			case KbPackage.APPLIED_PROTECTION_INSTANTIATION___HASH_CODE:

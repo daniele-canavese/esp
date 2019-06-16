@@ -1,14 +1,4 @@
 <?xml version="1.0"?>
-
-
-<!DOCTYPE Ontology [
-    <!ENTITY xsd "http://www.w3.org/2001/XMLSchema#" >
-    <!ENTITY xml "http://www.w3.org/XML/1998/namespace" >
-    <!ENTITY rdfs "http://www.w3.org/2000/01/rdf-schema#" >
-    <!ENTITY rdf "http://www.w3.org/1999/02/22-rdf-syntax-ns#" >
-]>
-
-
 <Ontology xmlns="http://www.w3.org/2002/07/owl#"
      xml:base="http://security.polito.it/esp/kb"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -16,7 +6,7 @@
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
      ontologyIRI="http://security.polito.it/esp/kb">
-    <Prefix name="" IRI="http://security.polito.it/esp/kb"/>
+    <Prefix name="" IRI="http://security.polito.it/esp/kb#"/>
     <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
     <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
     <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
@@ -311,10 +301,16 @@
         <DataProperty IRI="#hasCommandACTC"/>
     </Declaration>
     <Declaration>
+        <DataProperty IRI="#hasCommandCilly"/>
+    </Declaration>
+    <Declaration>
         <DataProperty IRI="#hasCommandDot"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasCommandPerl"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasCommandTigress"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasCost"/>
@@ -522,6 +518,9 @@
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasStartLine"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#hasToolCommand"/>
     </Declaration>
     <Declaration>
         <DataProperty IRI="#hasValue"/>
@@ -926,6 +925,12 @@
         <NamedIndividual IRI="#multiThreadedCryptography.mitigation0"/>
     </Declaration>
     <Declaration>
+        <NamedIndividual IRI="#noContainedAssets"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#noContainedCodeRegions"/>
+    </Declaration>
+    <Declaration>
         <NamedIndividual IRI="#nonLinearFitter"/>
     </Declaration>
     <Declaration>
@@ -999,6 +1004,45 @@
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#sniffing.guru"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation.mitigation0"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation.mitigation1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation.mitigation0"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation.mitigation1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation0"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation1"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation2"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeVirtualization.mitigation0"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#sourceCodeVirtualization.mitigation1"/>
     </Declaration>
     <Declaration>
         <NamedIndividual IRI="#spectrumDigitalTIXDS510"/>
@@ -1587,6 +1631,14 @@
         <NamedIndividual IRI="#multiThreadedCryptography.mitigation0"/>
     </ClassAssertion>
     <ClassAssertion>
+        <Class IRI="#ProtectionFlag"/>
+        <NamedIndividual IRI="#noContainedAssets"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ProtectionFlag"/>
+        <NamedIndividual IRI="#noContainedCodeRegions"/>
+    </ClassAssertion>
+    <ClassAssertion>
         <Class IRI="#FitterType"/>
         <NamedIndividual IRI="#nonLinearFitter"/>
     </ClassAssertion>
@@ -1685,6 +1737,58 @@
     <ClassAssertion>
         <Class IRI="#AttackStepProbability"/>
         <NamedIndividual IRI="#sniffing.guru"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Protection"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttackMitigation"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation.mitigation0"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttackMitigation"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation.mitigation1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Protection"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttackMitigation"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation.mitigation0"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttackMitigation"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation.mitigation1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Protection"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttackMitigation"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation0"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttackMitigation"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation1"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttackMitigation"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation2"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Protection"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttackMitigation"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization.mitigation0"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#AttackMitigation"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization.mitigation1"/>
     </ClassAssertion>
     <ClassAssertion>
         <Class IRI="#AttackerTool"/>
@@ -1867,7 +1971,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#blocks"/>
         <NamedIndividual IRI="#antiDebugging"/>
-        <NamedIndividual IRI="#staticTamperingTool"/>
+        <NamedIndividual IRI="#debugger"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#blocks"/>
@@ -1877,7 +1981,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#blocks"/>
         <NamedIndividual IRI="#antiDebugging"/>
-        <NamedIndividual IRI="#debugger"/>
+        <NamedIndividual IRI="#staticTamperingTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#cannotBePrecededBy"/>
@@ -1912,7 +2016,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#antiDebugging"/>
-        <NamedIndividual IRI="#whiteBoxCryptography"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
@@ -1922,27 +2026,42 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#antiDebugging"/>
-        <NamedIndividual IRI="#staticRemoteAttestation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
-        <NamedIndividual IRI="#antiDebugging"/>
         <NamedIndividual IRI="#dataObfuscation"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#antiDebugging"/>
-        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#antiDebugging"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#antiDebugging"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#antiDebugging"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#antiDebugging"/>
+        <NamedIndividual IRI="#staticRemoteAttestation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#antiDebugging"/>
+        <NamedIndividual IRI="#whiteBoxCryptography"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSusceptibleTo"/>
         <NamedIndividual IRI="#antiDebugging"/>
         <NamedIndividual IRI="#dynamicAnalysisTool"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#mitigates"/>
-        <NamedIndividual IRI="#antiDebugging"/>
-        <NamedIndividual IRI="#antiDebugging.mitigation3"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#mitigates"/>
@@ -1958,6 +2077,11 @@
         <ObjectProperty IRI="#mitigates"/>
         <NamedIndividual IRI="#antiDebugging"/>
         <NamedIndividual IRI="#antiDebugging.mitigation2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mitigates"/>
+        <NamedIndividual IRI="#antiDebugging"/>
+        <NamedIndividual IRI="#antiDebugging.mitigation3"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#shouldBePrecededBy"/>
@@ -2047,6 +2171,21 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#blocks"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#binaryMatchingTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#decompiler"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#disassembler"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
         <NamedIndividual IRI="#procedureMatchingTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -2057,22 +2196,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#blocks"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <NamedIndividual IRI="#disassembler"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#blocks"/>
-        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
         <NamedIndividual IRI="#staticTamperingTool"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#blocks"/>
-        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <NamedIndividual IRI="#binaryMatchingTool"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#blocks"/>
-        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <NamedIndividual IRI="#decompiler"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#cannotBePrecededBy"/>
@@ -2127,27 +2251,32 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
         <NamedIndividual IRI="#whiteBoxCryptography"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isSusceptibleTo"/>
-        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <NamedIndividual IRI="#dynamicAnalysisTool"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isSusceptibleTo"/>
-        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <NamedIndividual IRI="#staticTamperingTool"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isSusceptibleTo"/>
-        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <NamedIndividual IRI="#fuzzer"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSusceptibleTo"/>
@@ -2160,14 +2289,29 @@
         <NamedIndividual IRI="#disassembler"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#mitigates"/>
+        <ObjectProperty IRI="#isSusceptibleTo"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation.mitigation1"/>
+        <NamedIndividual IRI="#dynamicAnalysisTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSusceptibleTo"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#fuzzer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSusceptibleTo"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#staticTamperingTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#mitigates"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation.mitigation0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mitigates"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation.mitigation1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#shouldBePrecededBy"/>
@@ -2237,12 +2381,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#blocks"/>
         <NamedIndividual IRI="#callStackChecks"/>
-        <NamedIndividual IRI="#internalCommunicationManipulationTool"/>
+        <NamedIndividual IRI="#debugger"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#blocks"/>
         <NamedIndividual IRI="#callStackChecks"/>
-        <NamedIndividual IRI="#debugger"/>
+        <NamedIndividual IRI="#internalCommunicationManipulationTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#blocks"/>
@@ -2287,6 +2431,26 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#callStackChecks"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#callStackChecks"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#callStackChecks"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#callStackChecks"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#callStackChecks"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -2297,12 +2461,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSusceptibleTo"/>
         <NamedIndividual IRI="#callStackChecks"/>
-        <NamedIndividual IRI="#staticTamperingTool"/>
+        <NamedIndividual IRI="#debugger"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSusceptibleTo"/>
         <NamedIndividual IRI="#callStackChecks"/>
-        <NamedIndividual IRI="#debugger"/>
+        <NamedIndividual IRI="#staticTamperingTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#mitigates"/>
@@ -2312,12 +2476,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#shouldNotBePrecededBy"/>
         <NamedIndividual IRI="#callStackChecks"/>
-        <NamedIndividual IRI="#dataObfuscation"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#shouldNotBePrecededBy"/>
         <NamedIndividual IRI="#callStackChecks"/>
-        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasEfficacy"/>
@@ -2402,7 +2566,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#blocks"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#staticAnalysisTool"/>
+        <NamedIndividual IRI="#externalCommunicationManipulationTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#blocks"/>
@@ -2412,12 +2576,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#blocks"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#externalCommunicationManipulationTool"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#enforces"/>
-        <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#hardConfidentiality"/>
+        <NamedIndividual IRI="#staticAnalysisTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#enforces"/>
@@ -2427,12 +2586,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#enforces"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#privacy"/>
+        <NamedIndividual IRI="#hardConfidentiality"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasProperty"/>
+        <ObjectProperty IRI="#enforces"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#wholeFunction"/>
+        <NamedIndividual IRI="#privacy"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProperty"/>
@@ -2440,6 +2599,11 @@
         <NamedIndividual IRI="#onePerFunction"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProperty"/>
+        <NamedIndividual IRI="#codeMobility"/>
+        <NamedIndividual IRI="#wholeFunction"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasSecondLevelRepetitionUsefulness"/>
         <NamedIndividual IRI="#codeMobility"/>
         <NamedIndividual IRI="#high"/>
@@ -2457,17 +2621,37 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#callStackChecks"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
-        <NamedIndividual IRI="#codeMobility"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#whiteBoxCryptography"/>
+        <NamedIndividual IRI="#callStackChecks"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#codeMobility"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#codeMobility"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#codeMobility"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#codeMobility"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#codeMobility"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
@@ -2477,17 +2661,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#dataObfuscation"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isSusceptibleTo"/>
-        <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#externalCommunicationManipulationTool"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isSusceptibleTo"/>
-        <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#dynamicAnalysisTool"/>
+        <NamedIndividual IRI="#whiteBoxCryptography"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSusceptibleTo"/>
@@ -2497,17 +2671,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSusceptibleTo"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#fuzzer"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isSusceptibleTo"/>
-        <NamedIndividual IRI="#codeMobility"/>
         <NamedIndividual IRI="#decompiler"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isSusceptibleTo"/>
-        <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#internalCommunicationManipulationTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSusceptibleTo"/>
@@ -2515,14 +2679,34 @@
         <NamedIndividual IRI="#disassembler"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#mitigates"/>
+        <ObjectProperty IRI="#isSusceptibleTo"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <NamedIndividual IRI="#codeMobility.mitigation1"/>
+        <NamedIndividual IRI="#dynamicAnalysisTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSusceptibleTo"/>
+        <NamedIndividual IRI="#codeMobility"/>
+        <NamedIndividual IRI="#externalCommunicationManipulationTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSusceptibleTo"/>
+        <NamedIndividual IRI="#codeMobility"/>
+        <NamedIndividual IRI="#fuzzer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSusceptibleTo"/>
+        <NamedIndividual IRI="#codeMobility"/>
+        <NamedIndividual IRI="#internalCommunicationManipulationTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#mitigates"/>
         <NamedIndividual IRI="#codeMobility"/>
         <NamedIndividual IRI="#codeMobility.mitigation0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mitigates"/>
+        <NamedIndividual IRI="#codeMobility"/>
+        <NamedIndividual IRI="#codeMobility.mitigation1"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#shouldBePrecededBy"/>
@@ -2582,6 +2766,11 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#blocks"/>
         <NamedIndividual IRI="#dataObfuscation"/>
+        <NamedIndividual IRI="#binaryMatchingTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
         <NamedIndividual IRI="#dynamicAnalysisTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -2590,19 +2779,9 @@
         <NamedIndividual IRI="#staticTamperingTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#blocks"/>
-        <NamedIndividual IRI="#dataObfuscation"/>
-        <NamedIndividual IRI="#binaryMatchingTool"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#cannotBePrecededBy"/>
         <NamedIndividual IRI="#dataObfuscation"/>
         <NamedIndividual IRI="#whiteBoxCryptography"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#enforces"/>
-        <NamedIndividual IRI="#dataObfuscation"/>
-        <NamedIndividual IRI="#privacy"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#enforces"/>
@@ -2615,9 +2794,9 @@
         <NamedIndividual IRI="#hardConfidentiality"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isApplicableTo"/>
+        <ObjectProperty IRI="#enforces"/>
         <NamedIndividual IRI="#dataObfuscation"/>
-        <NamedIndividual IRI="#staticIntegerArrayDatum"/>
+        <NamedIndividual IRI="#privacy"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isApplicableTo"/>
@@ -2625,29 +2804,34 @@
         <NamedIndividual IRI="#integerDatum"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isApplicableTo"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+        <NamedIndividual IRI="#staticIntegerArrayDatum"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#dataObfuscation"/>
         <NamedIndividual IRI="#whiteBoxCryptography"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isSusceptibleTo"/>
-        <NamedIndividual IRI="#dataObfuscation"/>
-        <NamedIndividual IRI="#disassembler"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isSusceptibleTo"/>
-        <NamedIndividual IRI="#dataObfuscation"/>
-        <NamedIndividual IRI="#internalCommunicationManipulationTool"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isSusceptibleTo"/>
-        <NamedIndividual IRI="#dataObfuscation"/>
-        <NamedIndividual IRI="#dynamicAnalysisTool"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isSusceptibleTo"/>
-        <NamedIndividual IRI="#dataObfuscation"/>
-        <NamedIndividual IRI="#staticTamperingTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSusceptibleTo"/>
@@ -2660,9 +2844,29 @@
         <NamedIndividual IRI="#decompiler"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSusceptibleTo"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+        <NamedIndividual IRI="#disassembler"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSusceptibleTo"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+        <NamedIndividual IRI="#dynamicAnalysisTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSusceptibleTo"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+        <NamedIndividual IRI="#internalCommunicationManipulationTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSusceptibleTo"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+        <NamedIndividual IRI="#staticTamperingTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#mitigates"/>
         <NamedIndividual IRI="#dataObfuscation"/>
-        <NamedIndividual IRI="#dataObfuscation.mitigation2"/>
+        <NamedIndividual IRI="#dataObfuscation.mitigation0"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#mitigates"/>
@@ -2672,7 +2876,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#mitigates"/>
         <NamedIndividual IRI="#dataObfuscation"/>
-        <NamedIndividual IRI="#dataObfuscation.mitigation0"/>
+        <NamedIndividual IRI="#dataObfuscation.mitigation2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasEfficacy"/>
@@ -2722,6 +2926,11 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProbability"/>
         <NamedIndividual IRI="#dynamicStructureAndDataAnalysis"/>
+        <NamedIndividual IRI="#dynamicStructureAndDataAnalysis.expert"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProbability"/>
+        <NamedIndividual IRI="#dynamicStructureAndDataAnalysis"/>
         <NamedIndividual IRI="#dynamicStructureAndDataAnalysis.geek"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -2730,19 +2939,14 @@
         <NamedIndividual IRI="#dynamicStructureAndDataAnalysis.guru"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasProbability"/>
+        <ObjectProperty IRI="#uses"/>
         <NamedIndividual IRI="#dynamicStructureAndDataAnalysis"/>
-        <NamedIndividual IRI="#dynamicStructureAndDataAnalysis.expert"/>
+        <NamedIndividual IRI="#debugger"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#uses"/>
         <NamedIndividual IRI="#dynamicStructureAndDataAnalysis"/>
         <NamedIndividual IRI="#dynamicAnalysisTool"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#uses"/>
-        <NamedIndividual IRI="#dynamicStructureAndDataAnalysis"/>
-        <NamedIndividual IRI="#debugger"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasEfficacy"/>
@@ -2797,12 +3001,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProbability"/>
         <NamedIndividual IRI="#dynamicTampering"/>
-        <NamedIndividual IRI="#dynamicTampering.guru"/>
+        <NamedIndividual IRI="#dynamicTampering.geek"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProbability"/>
         <NamedIndividual IRI="#dynamicTampering"/>
-        <NamedIndividual IRI="#dynamicTampering.geek"/>
+        <NamedIndividual IRI="#dynamicTampering.guru"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#uses"/>
@@ -2932,22 +3136,22 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isTypeOf"/>
         <NamedIndividual IRI="#idaPro"/>
-        <NamedIndividual IRI="#disassembler"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isTypeOf"/>
-        <NamedIndividual IRI="#idaPro"/>
-        <NamedIndividual IRI="#staticTamperingTool"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isTypeOf"/>
-        <NamedIndividual IRI="#idaPro"/>
         <NamedIndividual IRI="#debugger"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isTypeOf"/>
         <NamedIndividual IRI="#idaPro"/>
+        <NamedIndividual IRI="#disassembler"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isTypeOf"/>
+        <NamedIndividual IRI="#idaPro"/>
         <NamedIndividual IRI="#procedureMatchingTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isTypeOf"/>
+        <NamedIndividual IRI="#idaPro"/>
+        <NamedIndividual IRI="#staticTamperingTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasExpertise"/>
@@ -3137,7 +3341,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProbability"/>
         <NamedIndividual IRI="#sniffing"/>
-        <NamedIndividual IRI="#sniffing.geek"/>
+        <NamedIndividual IRI="#sniffing.amateur"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProbability"/>
@@ -3147,7 +3351,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProbability"/>
         <NamedIndividual IRI="#sniffing"/>
-        <NamedIndividual IRI="#sniffing.amateur"/>
+        <NamedIndividual IRI="#sniffing.geek"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProbability"/>
@@ -3200,6 +3404,541 @@
         <NamedIndividual IRI="#guru"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#binaryMatchingTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#procedureMatchingTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#antiDebugging"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#callStackChecks"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#codeMobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#staticRemoteAttestation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#whiteBoxCryptography"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#confidentiality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#hardConfidentiality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#privacy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProperty"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#noContainedCodeRegions"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProperty"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#wholeFunction"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSecondLevelCallGraphEnlargmentUsefulness"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#none"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSecondLevelEnlargmentUsefulness"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#none"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSecondLevelRepetitionUsefulness"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#high"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isApplicableTo"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#codeRegion"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mitigates"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation.mitigation0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mitigates"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation.mitigation1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasEfficacy"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation.mitigation0"/>
+        <NamedIndividual IRI="#high"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#refersTo"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation.mitigation0"/>
+        <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasEfficacy"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation.mitigation1"/>
+        <NamedIndividual IRI="#medium"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#refersTo"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation.mitigation1"/>
+        <NamedIndividual IRI="#staticTampering"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#binaryMatchingTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#procedureMatchingTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#antiDebugging"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#callStackChecks"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#codeMobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#staticRemoteAttestation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#whiteBoxCryptography"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#confidentiality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#hardConfidentiality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#privacy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProperty"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#noContainedCodeRegions"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProperty"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#wholeFunction"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSecondLevelCallGraphEnlargmentUsefulness"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#none"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSecondLevelEnlargmentUsefulness"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#none"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSecondLevelRepetitionUsefulness"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#high"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isApplicableTo"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#codeRegion"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mitigates"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation.mitigation0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mitigates"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation.mitigation1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasEfficacy"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation.mitigation0"/>
+        <NamedIndividual IRI="#medium"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#refersTo"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation.mitigation0"/>
+        <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasEfficacy"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation.mitigation1"/>
+        <NamedIndividual IRI="#low"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#refersTo"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation.mitigation1"/>
+        <NamedIndividual IRI="#staticTampering"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#binaryMatchingTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#antiDebugging"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#callStackChecks"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#codeMobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#staticRemoteAttestation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#whiteBoxCryptography"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#confidentiality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#hardConfidentiality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#privacy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSecondLevelCallGraphEnlargmentUsefulness"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#none"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSecondLevelEnlargmentUsefulness"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#none"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSecondLevelRepetitionUsefulness"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#high"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isApplicableTo"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#integerDatum"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isApplicableTo"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#staticIntegerArrayDatum"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mitigates"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mitigates"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mitigates"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation2"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasEfficacy"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation0"/>
+        <NamedIndividual IRI="#medium"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#refersTo"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation0"/>
+        <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasEfficacy"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation1"/>
+        <NamedIndividual IRI="#medium"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#refersTo"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation1"/>
+        <NamedIndividual IRI="#staticTampering"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasEfficacy"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation2"/>
+        <NamedIndividual IRI="#medium"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#refersTo"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation2"/>
+        <NamedIndividual IRI="#dynamicStructureAndDataAnalysis"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#decompiler"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#disassembler"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#procedureMatchingTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#blocks"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#staticTamperingTool"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#antiDebugging"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#callStackChecks"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#codeMobility"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#staticRemoteAttestation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#cannotBePrecededBy"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#whiteBoxCryptography"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#confidentiality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#hardConfidentiality"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#integrity"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#enforces"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#privacy"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProperty"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#noContainedAssets"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProperty"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#noContainedCodeRegions"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProperty"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#wholeFunction"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSecondLevelCallGraphEnlargmentUsefulness"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#none"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSecondLevelEnlargmentUsefulness"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#none"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasSecondLevelRepetitionUsefulness"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#high"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isApplicableTo"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#codeRegion"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mitigates"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization.mitigation0"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#mitigates"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization.mitigation1"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasEfficacy"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization.mitigation0"/>
+        <NamedIndividual IRI="#high"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#refersTo"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization.mitigation0"/>
+        <NamedIndividual IRI="#staticTampering"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasEfficacy"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization.mitigation1"/>
+        <NamedIndividual IRI="#medium"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#refersTo"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization.mitigation1"/>
+        <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasExpertise"/>
         <NamedIndividual IRI="#spectrumDigitalTIXDS510"/>
         <NamedIndividual IRI="#expert"/>
@@ -3222,12 +3961,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProbability"/>
         <NamedIndividual IRI="#spoofing"/>
-        <NamedIndividual IRI="#spoofing.guru"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasProbability"/>
-        <NamedIndividual IRI="#spoofing"/>
-        <NamedIndividual IRI="#spoofing.geek"/>
+        <NamedIndividual IRI="#spoofing.amateur"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProbability"/>
@@ -3237,7 +3971,12 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProbability"/>
         <NamedIndividual IRI="#spoofing"/>
-        <NamedIndividual IRI="#spoofing.amateur"/>
+        <NamedIndividual IRI="#spoofing.geek"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProbability"/>
+        <NamedIndividual IRI="#spoofing"/>
+        <NamedIndividual IRI="#spoofing.guru"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#uses"/>
@@ -3317,17 +4056,32 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
-        <NamedIndividual IRI="#whiteBoxCryptography"/>
+        <NamedIndividual IRI="#dataObfuscation"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
-        <NamedIndividual IRI="#dataObfuscation"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#isSusceptibleTo"/>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
-        <NamedIndividual IRI="#decompiler"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#staticRemoteAttestation"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#staticRemoteAttestation"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#staticRemoteAttestation"/>
+        <NamedIndividual IRI="#whiteBoxCryptography"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSusceptibleTo"/>
@@ -3342,6 +4096,11 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSusceptibleTo"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
+        <NamedIndividual IRI="#decompiler"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isSusceptibleTo"/>
+        <NamedIndividual IRI="#staticRemoteAttestation"/>
         <NamedIndividual IRI="#disassembler"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -3352,7 +4111,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#mitigates"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
-        <NamedIndividual IRI="#staticRemoteAttestation.mitigation2"/>
+        <NamedIndividual IRI="#staticRemoteAttestation.mitigation0"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#mitigates"/>
@@ -3362,7 +4121,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#mitigates"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
-        <NamedIndividual IRI="#staticRemoteAttestation.mitigation0"/>
+        <NamedIndividual IRI="#staticRemoteAttestation.mitigation2"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasEfficacy"/>
@@ -3397,11 +4156,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProbability"/>
         <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery"/>
-        <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery.guru"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasProbability"/>
-        <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery"/>
         <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery.amateur"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -3415,9 +4169,14 @@
         <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery.geek"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProbability"/>
+        <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery"/>
+        <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery.guru"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
         <ObjectProperty IRI="#uses"/>
         <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery"/>
-        <NamedIndividual IRI="#procedureMatchingTool"/>
+        <NamedIndividual IRI="#decompiler"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#uses"/>
@@ -3427,7 +4186,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#uses"/>
         <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery"/>
-        <NamedIndividual IRI="#decompiler"/>
+        <NamedIndividual IRI="#procedureMatchingTool"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasEfficacy"/>
@@ -3472,11 +4231,6 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasProbability"/>
         <NamedIndividual IRI="#staticTampering"/>
-        <NamedIndividual IRI="#staticTampering.guru"/>
-    </ObjectPropertyAssertion>
-    <ObjectPropertyAssertion>
-        <ObjectProperty IRI="#hasProbability"/>
-        <NamedIndividual IRI="#staticTampering"/>
         <NamedIndividual IRI="#staticTampering.amateur"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
@@ -3488,6 +4242,11 @@
         <ObjectProperty IRI="#hasProbability"/>
         <NamedIndividual IRI="#staticTampering"/>
         <NamedIndividual IRI="#staticTampering.geek"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#hasProbability"/>
+        <NamedIndividual IRI="#staticTampering"/>
+        <NamedIndividual IRI="#staticTampering.guru"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#uses"/>
@@ -3627,7 +4386,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasAction"/>
         <NamedIndividual IRI="#whiteBoxCryptography"/>
-        <NamedIndividual IRI="#encryptAES128-CBC"/>
+        <NamedIndividual IRI="#decryptAES128-CBC"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasAction"/>
@@ -3637,7 +4396,7 @@
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasAction"/>
         <NamedIndividual IRI="#whiteBoxCryptography"/>
-        <NamedIndividual IRI="#decryptAES128-CBC"/>
+        <NamedIndividual IRI="#encryptAES128-CBC"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#hasAction"/>
@@ -3663,6 +4422,26 @@
         <ObjectProperty IRI="#isApplicableTo"/>
         <NamedIndividual IRI="#whiteBoxCryptography"/>
         <NamedIndividual IRI="#cryptographicKey"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#whiteBoxCryptography"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#whiteBoxCryptography"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#whiteBoxCryptography"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#isPrecededInTheACTCBy"/>
+        <NamedIndividual IRI="#whiteBoxCryptography"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
     </ObjectPropertyAssertion>
     <ObjectPropertyAssertion>
         <ObjectProperty IRI="#isSusceptibleTo"/>
@@ -3752,1077 +4531,1242 @@
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#Patchdiff2"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#Patchdiff2"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Patchediff2</Literal>
+        <Literal>Patchediff2</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasId"/>
         <NamedIndividual IRI="#antiDebugging"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">antiDebugging</Literal>
+        <Literal>antiDebugging</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#antiDebugging"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">anti-debugging</Literal>
+        <Literal>anti-debugging</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isAutomaticallyDeployable"/>
         <NamedIndividual IRI="#antiDebugging"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isEnabled"/>
         <NamedIndividual IRI="#antiDebugging"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSecondLevel"/>
         <NamedIndividual IRI="#antiDebugging"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSingleton"/>
         <NamedIndividual IRI="#antiDebugging"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#antiDebugging.mitigation0"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">antiDebugging.mitigation0</Literal>
+        <Literal>antiDebugging.mitigation0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#antiDebugging.mitigation1"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">antiDebugging.mitigation1</Literal>
+        <Literal>antiDebugging.mitigation1</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#antiDebugging.mitigation2"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">antiDebugging.mitigation2</Literal>
+        <Literal>antiDebugging.mitigation2</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#antiDebugging.mitigation3"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">antiDebugging.mitigation3</Literal>
+        <Literal>antiDebugging.mitigation3</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#armDSTREAM"/>
-        <Literal datatypeIRI="&xsd;integer">3300</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3300</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#armDSTREAM"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">ARM DSTREAM</Literal>
+        <Literal>ARM DSTREAM</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#bap"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#bap"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">BAP</Literal>
+        <Literal>BAP</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#binDiff"/>
-        <Literal datatypeIRI="&xsd;integer">200</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">200</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#binDiff"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">BinDiff</Literal>
+        <Literal>BinDiff</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#binSlayer"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#binSlayer"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">BinSlayer</Literal>
+        <Literal>BinSlayer</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasId"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">binaryCodeControlFlowObfuscation</Literal>
+        <Literal>binaryCodeControlFlowObfuscation</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">binary code control flow obfuscation</Literal>
+        <Literal>binary code control flow obfuscation</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isAutomaticallyDeployable"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isEnabled"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSecondLevel"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSingleton"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation.mitigation0"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">binaryCodeControlFlowObfuscation.mitigation0</Literal>
+        <Literal>binaryCodeControlFlowObfuscation.mitigation0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#binaryCodeControlFlowObfuscation.mitigation1"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">binaryCodeControlFlowObfuscation.mitigation1</Literal>
+        <Literal>binaryCodeControlFlowObfuscation.mitigation1</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#binaryDifferDarunGrin"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#binaryDifferDarunGrin"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Binary Differ/DarunGrim</Literal>
+        <Literal>Binary Differ/DarunGrim</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#binaryMatchingTool"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">binary matching tool</Literal>
+        <Literal>binary matching tool</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#boomerang"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#boomerang"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Boomerang</Literal>
+        <Literal>Boomerang</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasId"/>
         <NamedIndividual IRI="#callStackChecks"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">callStackChecks</Literal>
+        <Literal>callStackChecks</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#callStackChecks"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">call stack checks</Literal>
+        <Literal>call stack checks</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isAutomaticallyDeployable"/>
         <NamedIndividual IRI="#callStackChecks"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isEnabled"/>
         <NamedIndividual IRI="#callStackChecks"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSecondLevel"/>
         <NamedIndividual IRI="#callStackChecks"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSingleton"/>
         <NamedIndividual IRI="#callStackChecks"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#callStackChecks.mitigation0"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">callStackChecks.mitigation0</Literal>
+        <Literal>callStackChecks.mitigation0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#clientServerCodeSplittingViaBarrierSlicing.mitigation0"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">clientServerCodeSplittingViaBarrierSlicing.mitigation0</Literal>
+        <Literal>clientServerCodeSplittingViaBarrierSlicing.mitigation0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#clientServerCodeSplittingViaBarrierSlicing.mitigation1"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">clientServerCodeSplittingViaBarrierSlicing.mitigation1</Literal>
+        <Literal>clientServerCodeSplittingViaBarrierSlicing.mitigation1</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#clientServerCodeSplittingViaBarrierSlicing.mitigation2"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">clientServerCodeSplittingViaBarrierSlicing.mitigation2</Literal>
+        <Literal>clientServerCodeSplittingViaBarrierSlicing.mitigation2</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#clientSideCodeSplittingViaSoftVM.mitigation0"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">clientSideCodeSplittingViaSoftVM.mitigation0</Literal>
+        <Literal>clientSideCodeSplittingViaSoftVM.mitigation0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#clientSideCodeSplittingViaSoftVM.mitigation1"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">clientSideCodeSplittingViaSoftVM.mitigation1</Literal>
+        <Literal>clientSideCodeSplittingViaSoftVM.mitigation1</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#codeGuards.mitigation0"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">codeGuards.mitigation0</Literal>
+        <Literal>codeGuards.mitigation0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#codeGuards.mitigation1"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">codeGuards.mitigation1</Literal>
+        <Literal>codeGuards.mitigation1</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasId"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">codeMobility</Literal>
+        <Literal>codeMobility</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">code mobility</Literal>
+        <Literal>code mobility</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isAutomaticallyDeployable"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isEnabled"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSecondLevel"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSingleton"/>
         <NamedIndividual IRI="#codeMobility"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#codeMobility.mitigation0"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">codeMobility.mitigation0</Literal>
+        <Literal>codeMobility.mitigation0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#codeMobility.mitigation1"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">codeMobility.mitigation1</Literal>
+        <Literal>codeMobility.mitigation1</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#codeRegion"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">code</Literal>
+        <Literal>code</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#codeSurfer"/>
-        <Literal datatypeIRI="&xsd;integer">5995</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">5995</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#codeSurfer"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">CodeSurfer</Literal>
+        <Literal>CodeSurfer</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#controlFlowGraphTagging.mitigation0"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">controlFlowGraphTagging.mitigation0</Literal>
+        <Literal>controlFlowGraphTagging.mitigation0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#controlFlowGraphTagging.mitigation1"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">controlFlowGraphTagging.mitigation1</Literal>
+        <Literal>controlFlowGraphTagging.mitigation1</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#cryptographicKey"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">cryptographic key</Literal>
+        <Literal>cryptographic key</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasId"/>
         <NamedIndividual IRI="#dataObfuscation"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dataObfuscation</Literal>
+        <Literal>dataObfuscation</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dataObfuscation"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">data obfuscation</Literal>
+        <Literal>data obfuscation</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isAutomaticallyDeployable"/>
         <NamedIndividual IRI="#dataObfuscation"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isEnabled"/>
         <NamedIndividual IRI="#dataObfuscation"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSecondLevel"/>
         <NamedIndividual IRI="#dataObfuscation"/>
-        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSingleton"/>
         <NamedIndividual IRI="#dataObfuscation"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dataObfuscation.mitigation0"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dataObfuscation.mitigation0</Literal>
+        <Literal>dataObfuscation.mitigation0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dataObfuscation.mitigation1"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dataObfuscation.mitigation1</Literal>
+        <Literal>dataObfuscation.mitigation1</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dataObfuscation.mitigation2"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dataObfuscation.mitigation2</Literal>
+        <Literal>dataObfuscation.mitigation2</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#debugger"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">debugger</Literal>
+        <Literal>debugger</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#decompiler"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">decompiler</Literal>
+        <Literal>decompiler</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#disassembler"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">disassembler</Literal>
+        <Literal>disassembler</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#dynInst"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynInst"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">DynInst</Literal>
+        <Literal>DynInst</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynamicAnalysisTool"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dynamic analysis tool</Literal>
+        <Literal>dynamic analysis tool</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynamicStructureAndDataAnalysis"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dynamic structure and data analysis</Literal>
+        <Literal>dynamic structure and data analysis</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasRegex"/>
         <NamedIndividual IRI="#dynamicStructureAndDataAnalysis"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">^dynamicallyLocate\(.+\)$</Literal>
+        <Literal>^dynamicallyLocate\(.+\)$</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynamicStructureAndDataAnalysis.amateur"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dynamicStructureAndDataAnalysis.amateur</Literal>
+        <Literal>dynamicStructureAndDataAnalysis.amateur</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynamicStructureAndDataAnalysis.expert"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dynamicStructureAndDataAnalysis.expert</Literal>
+        <Literal>dynamicStructureAndDataAnalysis.expert</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynamicStructureAndDataAnalysis.geek"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dynamicStructureAndDataAnalysis.geek</Literal>
+        <Literal>dynamicStructureAndDataAnalysis.geek</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynamicStructureAndDataAnalysis.guru"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dynamicStructureAndDataAnalysis.guru</Literal>
+        <Literal>dynamicStructureAndDataAnalysis.guru</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynamicTampering"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dynamic tampering</Literal>
+        <Literal>dynamic tampering</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasRegex"/>
         <NamedIndividual IRI="#dynamicTampering"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">^(dynamicallyChange|injectCode)\(.+\)$</Literal>
+        <Literal>^(dynamicallyChange|injectCode)\(.+\)$</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynamicTampering.amateur"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dynamicTampering.amateur</Literal>
+        <Literal>dynamicTampering.amateur</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynamicTampering.expert"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dynamicTampering.expert</Literal>
+        <Literal>dynamicTampering.expert</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynamicTampering.geek"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dynamicTampering.geek</Literal>
+        <Literal>dynamicTampering.geek</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynamicTampering.guru"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dynamicTampering.guru</Literal>
+        <Literal>dynamicTampering.guru</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#dynamicTamperingTool"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">dynamic tampering tool</Literal>
+        <Literal>dynamic tampering tool</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#eresi"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#eresi"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">ERESI</Literal>
+        <Literal>ERESI</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#ettercap"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#ettercap"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">ettercap</Literal>
+        <Literal>ettercap</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#evolutionaryFuzzingSystem"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#evolutionaryFuzzingSystem"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Evolutionary Fuzzing System</Literal>
+        <Literal>Evolutionary Fuzzing System</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#externalCommunicationManipulationTool"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">external communication manipulation tool</Literal>
+        <Literal>external communication manipulation tool</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#fuzzer"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">fuzzer</Literal>
+        <Literal>fuzzer</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#gdb"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#gdb"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">gdb</Literal>
+        <Literal>gdb</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#hexRaysDecompiler"/>
-        <Literal datatypeIRI="&xsd;integer">2700</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2700</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#hexRaysDecompiler"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Hex-Rays Decompiler</Literal>
+        <Literal>Hex-Rays Decompiler</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#hopperv3"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#hopperv3"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Hopper v3</Literal>
+        <Literal>Hopper v3</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#ht"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#ht"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">HT</Literal>
+        <Literal>HT</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#idaPro"/>
-        <Literal datatypeIRI="&xsd;integer">449</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">449</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#idaPro"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">IDA Pro</Literal>
+        <Literal>IDA Pro</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#immunityDebugger"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#immunityDebugger"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Immunity Debugger</Literal>
+        <Literal>Immunity Debugger</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#integerDatum"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">integer datum</Literal>
+        <Literal>integer datum</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#internalCommunicationManipulationTool"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">internal communication manipulation tool</Literal>
+        <Literal>internal communication manipulation tool</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#jakstab"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#jakstab"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Jakstab</Literal>
+        <Literal>Jakstab</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#klee"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#klee"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">KLEE</Literal>
+        <Literal>KLEE</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#kleeburpFreeEdition"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#kleeburpFreeEdition"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">KLEEBurp Free Edition</Literal>
+        <Literal>KLEEBurp Free Edition</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#kryptoAnalizerKanal"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#kryptoAnalizerKanal"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Krypto Analyzer Kanal</Literal>
+        <Literal>Krypto Analyzer Kanal</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#lauterbachTRACE32Family"/>
-        <Literal datatypeIRI="&xsd;integer">6500</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">6500</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#lauterbachTRACE32Family"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Lauterbach TRACE32 Family</Literal>
+        <Literal>Lauterbach TRACE32 Family</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#ltrace"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#ltrace"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">ltrace</Literal>
+        <Literal>ltrace</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#mattPietrksAPISPY32"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#mattPietrksAPISPY32"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Matt Pietrek&apos;s APISPY32</Literal>
+        <Literal>Matt Pietrek&apos;s APISPY32</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#metasm"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#metasm"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">metasm</Literal>
+        <Literal>metasm</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#multiThreadedCryptography.mitigation0"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">multiThreadedCryptography.mitigation0</Literal>
+        <Literal>multiThreadedCryptography.mitigation0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#nuMegaBoundschecker"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#nuMegaBoundschecker"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">NuMega Boundschecker</Literal>
+        <Literal>NuMega Boundschecker</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#ollyDbg"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#ollyDbg"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">OllyDbg</Literal>
+        <Literal>OllyDbg</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#peTools"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#peTools"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">PE Tools</Literal>
+        <Literal>PE Tools</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#peach"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#peach"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Peach</Literal>
+        <Literal>Peach</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#peachBurpProfessional"/>
-        <Literal datatypeIRI="&xsd;integer">299</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">299</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#peachBurpProfessional"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Peach Burp Professional</Literal>
+        <Literal>Peach Burp Professional</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#peiD"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#peiD"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">PEiD</Literal>
+        <Literal>PEiD</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#procedureMatchingTool"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">procedure matching tool</Literal>
+        <Literal>procedure matching tool</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#rohitabcomAPIMonitor"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#rohitabcomAPIMonitor"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">rohitab.com API Monitor</Literal>
+        <Literal>rohitab.com API Monitor</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#smartDec"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#smartDec"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">SmartDec</Literal>
+        <Literal>SmartDec</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#sniffing"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">sniffing</Literal>
+        <Literal>sniffing</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasRegex"/>
         <NamedIndividual IRI="#sniffing"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">^sniff.+\(.+\)$</Literal>
+        <Literal>^sniff.+\(.+\)$</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#sniffing.amateur"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">sniffing.amateur</Literal>
+        <Literal>sniffing.amateur</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#sniffing.expert"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">sniffing.expert</Literal>
+        <Literal>sniffing.expert</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#sniffing.geek"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">sniffing.geek</Literal>
+        <Literal>sniffing.geek</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#sniffing.guru"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">sniffing.guru</Literal>
+        <Literal>sniffing.guru</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasId"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <Literal>sourceCodeControlFlowObfuscation</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <Literal>source code control flow obfuscation</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isAutomaticallyDeployable"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isEnabled"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isSecondLevel"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isSingleton"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation.mitigation0"/>
+        <Literal>sourceCodeControlFlowObfuscation.mitigation0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeControlFlowObfuscation.mitigation1"/>
+        <Literal>sourceCodeControlFlowObfuscation.mitigation1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasId"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <Literal>sourceCodeLiteralObfuscation</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <Literal>source code literal obfuscation</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isAutomaticallyDeployable"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isEnabled"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isSecondLevel"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isSingleton"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation.mitigation0"/>
+        <Literal>sourceCodeLiteralObfuscation.mitigation0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeLiteralObfuscation.mitigation1"/>
+        <Literal>sourceCodeLiteralObfuscation.mitigation1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasId"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <Literal>sourceCodeVariableObfuscation</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <Literal>source code variable obfuscation</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isAutomaticallyDeployable"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isEnabled"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isSecondLevel"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isSingleton"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation0"/>
+        <Literal>sourceCodeVariableObfuscation.mitigation0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation1"/>
+        <Literal>sourceCodeVariableObfuscation.mitigation1</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeVariableObfuscation.mitigation2"/>
+        <Literal>sourceCodeVariableObfuscation.mitigation2</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasId"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <Literal>sourceCodeVirtualization</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <Literal>source code virtualization</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isAutomaticallyDeployable"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isEnabled"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isSecondLevel"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#isSingleton"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization.mitigation0"/>
+        <Literal>sourceCodeVirtualization.mitigation0</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#hasName"/>
+        <NamedIndividual IRI="#sourceCodeVirtualization.mitigation1"/>
+        <Literal>sourceCodeVirtualization.mitigation1</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#spectrumDigitalTIXDS510"/>
-        <Literal datatypeIRI="&xsd;integer">905</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">905</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#spectrumDigitalTIXDS510"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Spectrum Digital TI XDS510</Literal>
+        <Literal>Spectrum Digital TI XDS510</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#spikeFile"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#spikeFile"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">SPIKEfile</Literal>
+        <Literal>SPIKEfile</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#spoofing"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">spoofing</Literal>
+        <Literal>spoofing</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasRegex"/>
         <NamedIndividual IRI="#spoofing"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">^sendFake.+\(.+\)$</Literal>
+        <Literal>^sendFake.+\(.+\)$</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#spoofing.amateur"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">spoofing.amateur</Literal>
+        <Literal>spoofing.amateur</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#spoofing.expert"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">spoofing.expert</Literal>
+        <Literal>spoofing.expert</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#spoofing.geek"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">spoofing.geek</Literal>
+        <Literal>spoofing.geek</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#spoofing.guru"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">spoofing.guru</Literal>
+        <Literal>spoofing.guru</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticAnalysisTool"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">static analysis tool</Literal>
+        <Literal>static analysis tool</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasId"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">staticRemoteAttestation</Literal>
+        <Literal>staticRemoteAttestation</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">static remote attestation</Literal>
+        <Literal>static remote attestation</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isAutomaticallyDeployable"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isEnabled"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSecondLevel"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
-        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSingleton"/>
         <NamedIndividual IRI="#staticRemoteAttestation"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticRemoteAttestation.mitigation0"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">staticRemoteAttestation.mitigation0</Literal>
+        <Literal>staticRemoteAttestation.mitigation0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticRemoteAttestation.mitigation1"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">staticRemoteAttestation.mitigation1</Literal>
+        <Literal>staticRemoteAttestation.mitigation1</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticRemoteAttestation.mitigation2"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">staticRemoteAttestation.mitigation2</Literal>
+        <Literal>staticRemoteAttestation.mitigation2</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">static structural code and data recovery</Literal>
+        <Literal>static structural code and data recovery</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasRegex"/>
         <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">^staticallyLocate\(.+\)$</Literal>
+        <Literal>^staticallyLocate\(.+\)$</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery.amateur"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">staticStructuralCodeAndDataRecovery.amateur</Literal>
+        <Literal>staticStructuralCodeAndDataRecovery.amateur</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery.expert"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">staticStructuralCodeAndDataRecovery.expert</Literal>
+        <Literal>staticStructuralCodeAndDataRecovery.expert</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery.geek"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">staticStructuralCodeAndDataRecovery.geek</Literal>
+        <Literal>staticStructuralCodeAndDataRecovery.geek</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticStructuralCodeAndDataRecovery.guru"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">staticStructuralCodeAndDataRecovery.guru</Literal>
+        <Literal>staticStructuralCodeAndDataRecovery.guru</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticTampering"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">static tampering</Literal>
+        <Literal>static tampering</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasRegex"/>
         <NamedIndividual IRI="#staticTampering"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">^staticallyChange\(.+\)$</Literal>
+        <Literal>^staticallyChange\(.+\)$</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticTampering.amateur"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">staticTampering.amateur</Literal>
+        <Literal>staticTampering.amateur</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticTampering.expert"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">staticTampering.expert</Literal>
+        <Literal>staticTampering.expert</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticTampering.geek"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">staticTampering.geek</Literal>
+        <Literal>staticTampering.geek</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticTampering.guru"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">staticTampering.guru</Literal>
+        <Literal>staticTampering.guru</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#staticTamperingTool"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">static tampering tool</Literal>
+        <Literal>static tampering tool</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#strace"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#strace"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">strace</Literal>
+        <Literal>strace</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#sysinternalsProcessMonitor"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#sysinternalsProcessMonitor"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Sysinternals Process Monitor</Literal>
+        <Literal>Sysinternals Process Monitor</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#tcpdump"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#tcpdump"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">tcpdump</Literal>
+        <Literal>tcpdump</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#tinCanToolsFlyswatter"/>
-        <Literal datatypeIRI="&xsd;integer">45</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">45</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#tinCanToolsFlyswatter"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Tin Can Tools Flyswatter</Literal>
+        <Literal>Tin Can Tools Flyswatter</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#traceAnalysisTool"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">trace analysis tool</Literal>
+        <Literal>trace analysis tool</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#turbodiff"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#turbodiff"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Turbodiff</Literal>
+        <Literal>Turbodiff</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#unstrip"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#unstrip"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Unstrip</Literal>
+        <Literal>Unstrip</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#viviset"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#viviset"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Vivisect</Literal>
+        <Literal>Vivisect</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasId"/>
         <NamedIndividual IRI="#whiteBoxCryptography"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">whiteBoxCryptography</Literal>
+        <Literal>whiteBoxCryptography</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#whiteBoxCryptography"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">white box cryptography</Literal>
+        <Literal>white box cryptography</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isAutomaticallyDeployable"/>
         <NamedIndividual IRI="#whiteBoxCryptography"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isEnabled"/>
         <NamedIndividual IRI="#whiteBoxCryptography"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSecondLevel"/>
         <NamedIndividual IRI="#whiteBoxCryptography"/>
-        <Literal datatypeIRI="&xsd;boolean">false</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">false</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#isSingleton"/>
         <NamedIndividual IRI="#whiteBoxCryptography"/>
-        <Literal datatypeIRI="&xsd;boolean">true</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#boolean">true</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#whiteBoxCryptography.mitigation0"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">nonRenewableWhiteBoxCryptography.mitigation0</Literal>
+        <Literal>nonRenewableWhiteBoxCryptography.mitigation0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#whiteBoxCryptography.mitigation1"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">nonRenewableWhiteBoxCryptography.mitigation1</Literal>
+        <Literal>nonRenewableWhiteBoxCryptography.mitigation1</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#winDgb"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#winDgb"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">WinDbg</Literal>
+        <Literal>WinDbg</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#wireshark"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#wireshark"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Wireshark</Literal>
+        <Literal>Wireshark</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#xCon"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#xCon"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">xCon</Literal>
+        <Literal>xCon</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasCost"/>
         <NamedIndividual IRI="#yodasProtector"/>
-        <Literal datatypeIRI="&xsd;integer">0</Literal>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">0</Literal>
     </DataPropertyAssertion>
     <DataPropertyAssertion>
         <DataProperty IRI="#hasName"/>
         <NamedIndividual IRI="#yodasProtector"/>
-        <Literal datatypeIRI="&rdf;PlainLiteral">Yoda&apos;s Protector</Literal>
+        <Literal>Yoda&apos;s Protector</Literal>
     </DataPropertyAssertion>
     <SubDataPropertyOf>
         <DataProperty IRI="#hasDatumLowerBound"/>
@@ -4832,5 +5776,5 @@
 
 
 
-<!-- Generated by the OWL API (version 3.5.1) http://owlapi.sourceforge.net -->
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
 

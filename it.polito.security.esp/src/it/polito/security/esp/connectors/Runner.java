@@ -8,20 +8,28 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.Vector;
+import java.util.logging.Logger;
 
+import org.apache.commons.io.IOExceptionWithCause;
+
+import com.google.common.collect.Lists;
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.ChannelSftp.LsEntry;
 import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpException;
 
 import it.polito.security.esp.ESP;
 import it.polito.security.esp.kb.Preferences;
+import it.polito.security.esp.l2p.SecondLevelProtectionFinder;
 import it.polito.security.esp.util.Strings;
 
 /**
@@ -145,8 +153,9 @@ public class Runner
 	 */
 	public int run(List<String> command, StringBuilder sb) throws IOException
 	{
+		
 		Exception last = null;
-		for (int i = 0; i < MAX_TRIES; ++i)
+//		for (int i = 0; i < MAX_TRIES; ++i)
 			try
 			{
 				open();
@@ -178,13 +187,32 @@ public class Runner
 				{
 					ProcessBuilder processBuilder = new ProcessBuilder(command);
 					processBuilder.redirectErrorStream(true);
-					processBuilder.inheritIO();
-
+//					processBuilder.inheritIO();
+					
+					log.info(command.toString());
+					
+					ArrayList<Integer> cdIndex = new ArrayList<Integer>();
+					for(int i=0; i<command.size(); i++)
+						if(command.get(i).equals("cd"))
+							cdIndex.add(i);
+					for(int i : cdIndex)
+					{
+						command.remove(i); //remove cd
+						processBuilder.directory(new File(command.remove(i))); //remove working dir
+						if(command.size()>i)
+							command.remove(i); //remove &&
+					}
+										
 					Process process = processBuilder.start();
+//					process.waitFor();
 					BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 					String line;
 					while ((line = reader.readLine()) != null)
+					{
 						sb.append(line);
+						if(!line.endsWith("\n"))
+							sb.append("\n");
+					}
 					reader.close();
 
 					return process.waitFor();
@@ -234,7 +262,7 @@ public class Runner
 				{
 					List<String> lines = Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8);
 
-					return Strings.join(lines, "");
+					return Strings.join(lines, "\n");
 				}
 			}
 			catch (Exception e)
@@ -246,6 +274,52 @@ public class Runner
 		throw new IOException(last);
 	}
 
+	/**
+	 * Reads a file.
+	 * @param path
+	 *            The file path.
+	 * @return The file content.
+	 * @throws IOException
+	 *             If an I/O error occurs.
+	 */
+	public List<String> readFileAsList(String path) throws IOException
+	{
+		Exception last = null;
+		for (int i = 0; i < MAX_TRIES; ++i)
+			try
+			{
+				open();
+				Preferences preferences = esp.getModel().getPreferences();
+				if (preferences.isRemoteConnection())
+				{
+					ChannelSftp channel = (ChannelSftp) session.openChannel("sftp");
+					channel.connect();
+
+					StringBuilder sb = new StringBuilder();
+					int c;
+					InputStreamReader reader = new InputStreamReader(channel.get(path));
+					while ((c = reader.read()) >= 0)
+						sb.append((char)c);
+					channel.disconnect();
+					reader.close();
+
+					return Arrays.stream(sb.toString().split("\n")).collect(java.util.stream.Collectors.toList());
+				}
+				else
+				{
+					return Files.readAllLines(Paths.get(path), StandardCharsets.UTF_8);
+				}
+			}
+			catch (Exception e)
+			{
+				last = e;
+				close();
+			}
+
+		throw new IOException(last);
+	}
+
+	
 	/**
 	 * Copies a file.
 	 * @param source
@@ -324,6 +398,45 @@ public class Runner
 		throw new IOException(last);
 	}
 
+	/**
+	 * Creates a directory.
+	 * @param path
+	 * 			The path in which the directory must be created.
+	 * @param dirName
+	 * 			The name of the created directory
+	 * @throws IOException
+	 *          If an I/O error occurs.
+	 */
+	public void createDirectory(String path, String dirName) throws IOException
+	{
+		Exception last = null;
+		for (int i = 0; i < MAX_TRIES; ++i)
+			try
+			{
+				open();
+				Preferences preferences = esp.getModel().getPreferences();
+				if (preferences.isRemoteConnection())
+				{
+					ChannelSftp channel = (ChannelSftp) session.openChannel("sftp");
+					channel.connect();
+
+					channel.mkdir(path+getSeparator()+dirName);
+
+					channel.disconnect();
+				}
+				else
+					Files.createDirectory(Paths.get(path,dirName));
+				return;
+			}
+			catch (Exception e)
+			{
+				last = e;
+				close();
+			}
+
+		throw new IOException(last);
+	}
+	
 	/**
 	 * List the first file in a directory with a certain extension. This method is not recursive.
 	 * @param directory
@@ -432,7 +545,7 @@ public class Runner
 	 * @param path
 	 *            The directory path.
 	 */
-	public void deleteDirectory(String path)
+	public void deleteDirectory(String path) throws IOException
 	{
 		for (int i = 0; i < MAX_TRIES; ++i)
 			try
@@ -451,7 +564,7 @@ public class Runner
 				else
 					delete(new File(path));
 			}
-			catch (Exception e)
+			catch (JSchException|SftpException e)
 			{
 				close();
 			}
@@ -488,13 +601,21 @@ public class Runner
 	 * @param file
 	 *            The file.
 	 **/
-	private void delete(File file) throws SftpException
+	private void delete(File file) throws IOException
 	{
 		if (file.isDirectory())
+		{
 			for (File i : file.listFiles())
 				delete(i);
+			Files.deleteIfExists(file.toPath());
+		}
+		else
+			Files.deleteIfExists(file.toPath());
 	}
 
 	/** The number of channel tries to perform before giving up. **/
 	private static final int MAX_TRIES = 10;
+	
+	/** The logger. **/
+	private static Logger log = Logger.getLogger(SecondLevelProtectionFinder.class.getName());
 }

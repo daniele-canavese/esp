@@ -12,8 +12,7 @@ import org.eclipse.emf.ecore.EFactory;
  * @see it.polito.security.esp.kb.KbPackage
  * @generated
  */
-public interface KbFactory extends EFactory
-{
+public interface KbFactory extends EFactory {
 	/**
 	 * The singleton instance of the factory.
 	 * <!-- begin-user-doc -->

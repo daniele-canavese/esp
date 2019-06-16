@@ -38,6 +38,8 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link it.polito.security.esp.kb.impl.PreferencesImpl#getRemotePort <em>Remote Port</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.impl.PreferencesImpl#getRemoteFileSeparator <em>Remote File Separator</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.impl.PreferencesImpl#getCommandACTC <em>Command ACTC</em>}</li>
+ *   <li>{@link it.polito.security.esp.kb.impl.PreferencesImpl#getCommandTigress <em>Command Tigress</em>}</li>
+ *   <li>{@link it.polito.security.esp.kb.impl.PreferencesImpl#getCommandCilly <em>Command Cilly</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.impl.PreferencesImpl#getCommandPerl <em>Command Perl</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.impl.PreferencesImpl#getCommandDot <em>Command Dot</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.impl.PreferencesImpl#getMetricsFile <em>Metrics File</em>}</li>
@@ -98,8 +100,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public class PreferencesImpl extends MinimalEObjectImpl.Container implements Preferences
-{
+public class PreferencesImpl extends MinimalEObjectImpl.Container implements Preferences {
 	/**
 	 * The default value of the '{@link #getWorkingDirectory() <em>Working Directory</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -208,7 +209,7 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean REMOTE_CONNECTION_EDEFAULT = true;
+	protected static final boolean REMOTE_CONNECTION_EDEFAULT = false;
 
 	/**
 	 * The cached value of the '{@link #isRemoteConnection() <em>Remote Connection</em>}' attribute.
@@ -328,7 +329,7 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String COMMAND_ACTC_EDEFAULT = "/opt/ACTC/actc.py";
+	protected static final String COMMAND_ACTC_EDEFAULT = "docker-compose -f ~/git/framework/docker-compose.yml exec -T actc /opt/ACTC/actc.py";
 
 	/**
 	 * The cached value of the '{@link #getCommandACTC() <em>Command ACTC</em>}' attribute.
@@ -339,6 +340,46 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * @ordered
 	 */
 	protected String commandACTC = COMMAND_ACTC_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCommandTigress() <em>Command Tigress</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommandTigress()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMAND_TIGRESS_EDEFAULT = "docker-compose -f ~/git/framework/docker-compose.yml exec -T actc env TIGRESS_HOME=/projects/tigress-unstable PATH=$PATH:/projects/tigress-unstable /projects/tigress-unstable/tigress";
+
+	/**
+	 * The cached value of the '{@link #getCommandTigress() <em>Command Tigress</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommandTigress()
+	 * @generated
+	 * @ordered
+	 */
+	protected String commandTigress = COMMAND_TIGRESS_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getCommandCilly() <em>Command Cilly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommandCilly()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMAND_CILLY_EDEFAULT = "docker-compose -f ~/git/framework/docker-compose.yml exec -T actc env TIGRESS_HOME=/projects/tigress-unstable PATH=$PATH:/projects/tigress-unstable /projects/tigress-unstable/cilly";
+
+	/**
+	 * The cached value of the '{@link #getCommandCilly() <em>Command Cilly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getCommandCilly()
+	 * @generated
+	 * @ordered
+	 */
+	protected String commandCilly = COMMAND_CILLY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getCommandPerl() <em>Command Perl</em>}' attribute.
@@ -1465,8 +1506,7 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected PreferencesImpl()
-	{
+	protected PreferencesImpl() {
 		super();
 	}
 
@@ -1476,8 +1516,7 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return KbPackage.Literals.PREFERENCES;
 	}
 
@@ -1486,8 +1525,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getWorkingDirectory()
-	{
+	@Override
+	public String getWorkingDirectory() {
 		return workingDirectory;
 	}
 
@@ -1496,8 +1535,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setWorkingDirectory(String newWorkingDirectory)
-	{
+	@Override
+	public void setWorkingDirectory(String newWorkingDirectory) {
 		String oldWorkingDirectory = workingDirectory;
 		workingDirectory = newWorkingDirectory;
 		if (eNotificationRequired())
@@ -1509,8 +1548,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getActcConfigurationFile()
-	{
+	@Override
+	public String getActcConfigurationFile() {
 		return actcConfigurationFile;
 	}
 
@@ -1519,8 +1558,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setActcConfigurationFile(String newActcConfigurationFile)
-	{
+	@Override
+	public void setActcConfigurationFile(String newActcConfigurationFile) {
 		String oldActcConfigurationFile = actcConfigurationFile;
 		actcConfigurationFile = newActcConfigurationFile;
 		if (eNotificationRequired())
@@ -1532,8 +1571,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getEspPatchFile()
-	{
+	@Override
+	public String getEspPatchFile() {
 		return espPatchFile;
 	}
 
@@ -1542,8 +1581,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEspPatchFile(String newEspPatchFile)
-	{
+	@Override
+	public void setEspPatchFile(String newEspPatchFile) {
 		String oldEspPatchFile = espPatchFile;
 		espPatchFile = newEspPatchFile;
 		if (eNotificationRequired())
@@ -1555,8 +1594,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getEspJSONFile()
-	{
+	@Override
+	public String getEspJSONFile() {
 		return espJSONFile;
 	}
 
@@ -1565,8 +1604,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEspJSONFile(String newEspJSONFile)
-	{
+	@Override
+	public void setEspJSONFile(String newEspJSONFile) {
 		String oldEspJSONFile = espJSONFile;
 		espJSONFile = newEspJSONFile;
 		if (eNotificationRequired())
@@ -1578,8 +1617,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getArchitecture()
-	{
+	@Override
+	public String getArchitecture() {
 		return architecture;
 	}
 
@@ -1588,8 +1627,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setArchitecture(String newArchitecture)
-	{
+	@Override
+	public void setArchitecture(String newArchitecture) {
 		String oldArchitecture = architecture;
 		architecture = newArchitecture;
 		if (eNotificationRequired())
@@ -1601,8 +1640,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isRemoteConnection()
-	{
+	@Override
+	public boolean isRemoteConnection() {
 		return remoteConnection;
 	}
 
@@ -1611,8 +1650,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRemoteConnection(boolean newRemoteConnection)
-	{
+	@Override
+	public void setRemoteConnection(boolean newRemoteConnection) {
 		boolean oldRemoteConnection = remoteConnection;
 		remoteConnection = newRemoteConnection;
 		if (eNotificationRequired())
@@ -1624,8 +1663,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRemoteUsername()
-	{
+	@Override
+	public String getRemoteUsername() {
 		return remoteUsername;
 	}
 
@@ -1634,8 +1673,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRemoteUsername(String newRemoteUsername)
-	{
+	@Override
+	public void setRemoteUsername(String newRemoteUsername) {
 		String oldRemoteUsername = remoteUsername;
 		remoteUsername = newRemoteUsername;
 		if (eNotificationRequired())
@@ -1647,8 +1686,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRemotePassword()
-	{
+	@Override
+	public String getRemotePassword() {
 		return remotePassword;
 	}
 
@@ -1657,8 +1696,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRemotePassword(String newRemotePassword)
-	{
+	@Override
+	public void setRemotePassword(String newRemotePassword) {
 		String oldRemotePassword = remotePassword;
 		remotePassword = newRemotePassword;
 		if (eNotificationRequired())
@@ -1670,8 +1709,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRemoteHost()
-	{
+	@Override
+	public String getRemoteHost() {
 		return remoteHost;
 	}
 
@@ -1680,8 +1719,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRemoteHost(String newRemoteHost)
-	{
+	@Override
+	public void setRemoteHost(String newRemoteHost) {
 		String oldRemoteHost = remoteHost;
 		remoteHost = newRemoteHost;
 		if (eNotificationRequired())
@@ -1693,8 +1732,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getRemotePort()
-	{
+	@Override
+	public int getRemotePort() {
 		return remotePort;
 	}
 
@@ -1703,8 +1742,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRemotePort(int newRemotePort)
-	{
+	@Override
+	public void setRemotePort(int newRemotePort) {
 		int oldRemotePort = remotePort;
 		remotePort = newRemotePort;
 		if (eNotificationRequired())
@@ -1716,8 +1755,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getRemoteFileSeparator()
-	{
+	@Override
+	public String getRemoteFileSeparator() {
 		return remoteFileSeparator;
 	}
 
@@ -1726,8 +1765,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRemoteFileSeparator(String newRemoteFileSeparator)
-	{
+	@Override
+	public void setRemoteFileSeparator(String newRemoteFileSeparator) {
 		String oldRemoteFileSeparator = remoteFileSeparator;
 		remoteFileSeparator = newRemoteFileSeparator;
 		if (eNotificationRequired())
@@ -1739,8 +1778,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCommandACTC()
-	{
+	@Override
+	public String getCommandACTC() {
 		return commandACTC;
 	}
 
@@ -1749,8 +1788,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCommandACTC(String newCommandACTC)
-	{
+	@Override
+	public void setCommandACTC(String newCommandACTC) {
 		String oldCommandACTC = commandACTC;
 		commandACTC = newCommandACTC;
 		if (eNotificationRequired())
@@ -1762,8 +1801,54 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCommandPerl()
-	{
+	@Override
+	public String getCommandTigress() {
+		return commandTigress;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCommandTigress(String newCommandTigress) {
+		String oldCommandTigress = commandTigress;
+		commandTigress = newCommandTigress;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KbPackage.PREFERENCES__COMMAND_TIGRESS, oldCommandTigress, commandTigress));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCommandCilly() {
+		return commandCilly;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCommandCilly(String newCommandCilly) {
+		String oldCommandCilly = commandCilly;
+		commandCilly = newCommandCilly;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KbPackage.PREFERENCES__COMMAND_CILLY, oldCommandCilly, commandCilly));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCommandPerl() {
 		return commandPerl;
 	}
 
@@ -1772,8 +1857,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCommandPerl(String newCommandPerl)
-	{
+	@Override
+	public void setCommandPerl(String newCommandPerl) {
 		String oldCommandPerl = commandPerl;
 		commandPerl = newCommandPerl;
 		if (eNotificationRequired())
@@ -1785,8 +1870,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCommandDot()
-	{
+	@Override
+	public String getCommandDot() {
 		return commandDot;
 	}
 
@@ -1795,8 +1880,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCommandDot(String newCommandDot)
-	{
+	@Override
+	public void setCommandDot(String newCommandDot) {
 		String oldCommandDot = commandDot;
 		commandDot = newCommandDot;
 		if (eNotificationRequired())
@@ -1808,8 +1893,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getMetricsFile()
-	{
+	@Override
+	public String getMetricsFile() {
 		return metricsFile;
 	}
 
@@ -1818,8 +1903,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMetricsFile(String newMetricsFile)
-	{
+	@Override
+	public void setMetricsFile(String newMetricsFile) {
 		String oldMetricsFile = metricsFile;
 		metricsFile = newMetricsFile;
 		if (eNotificationRequired())
@@ -1831,8 +1916,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMetricsTransformationDegree()
-	{
+	@Override
+	public int getMetricsTransformationDegree() {
 		return metricsTransformationDegree;
 	}
 
@@ -1841,8 +1926,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMetricsTransformationDegree(int newMetricsTransformationDegree)
-	{
+	@Override
+	public void setMetricsTransformationDegree(int newMetricsTransformationDegree) {
 		int oldMetricsTransformationDegree = metricsTransformationDegree;
 		metricsTransformationDegree = newMetricsTransformationDegree;
 		if (eNotificationRequired())
@@ -1854,8 +1939,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getMetricsPseudoInverseSensitivity()
-	{
+	@Override
+	public double getMetricsPseudoInverseSensitivity() {
 		return metricsPseudoInverseSensitivity;
 	}
 
@@ -1864,8 +1949,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMetricsPseudoInverseSensitivity(double newMetricsPseudoInverseSensitivity)
-	{
+	@Override
+	public void setMetricsPseudoInverseSensitivity(double newMetricsPseudoInverseSensitivity) {
 		double oldMetricsPseudoInverseSensitivity = metricsPseudoInverseSensitivity;
 		metricsPseudoInverseSensitivity = newMetricsPseudoInverseSensitivity;
 		if (eNotificationRequired())
@@ -1877,8 +1962,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getMetricsDerivativeSensitivity()
-	{
+	@Override
+	public double getMetricsDerivativeSensitivity() {
 		return metricsDerivativeSensitivity;
 	}
 
@@ -1887,8 +1972,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMetricsDerivativeSensitivity(double newMetricsDerivativeSensitivity)
-	{
+	@Override
+	public void setMetricsDerivativeSensitivity(double newMetricsDerivativeSensitivity) {
 		double oldMetricsDerivativeSensitivity = metricsDerivativeSensitivity;
 		metricsDerivativeSensitivity = newMetricsDerivativeSensitivity;
 		if (eNotificationRequired())
@@ -1900,8 +1985,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public FitterType getMetricsFitter()
-	{
+	@Override
+	public FitterType getMetricsFitter() {
 		return metricsFitter;
 	}
 
@@ -1910,8 +1995,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMetricsFitter(FitterType newMetricsFitter)
-	{
+	@Override
+	public void setMetricsFitter(FitterType newMetricsFitter) {
 		FitterType oldMetricsFitter = metricsFitter;
 		metricsFitter = newMetricsFitter == null ? METRICS_FITTER_EDEFAULT : newMetricsFitter;
 		if (eNotificationRequired())
@@ -1923,8 +2008,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMetricsNonLinearMaximumIterations()
-	{
+	@Override
+	public int getMetricsNonLinearMaximumIterations() {
 		return metricsNonLinearMaximumIterations;
 	}
 
@@ -1933,8 +2018,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMetricsNonLinearMaximumIterations(int newMetricsNonLinearMaximumIterations)
-	{
+	@Override
+	public void setMetricsNonLinearMaximumIterations(int newMetricsNonLinearMaximumIterations) {
 		int oldMetricsNonLinearMaximumIterations = metricsNonLinearMaximumIterations;
 		metricsNonLinearMaximumIterations = newMetricsNonLinearMaximumIterations;
 		if (eNotificationRequired())
@@ -1946,8 +2031,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getMetricsNonLinearStepSize()
-	{
+	@Override
+	public double getMetricsNonLinearStepSize() {
 		return metricsNonLinearStepSize;
 	}
 
@@ -1956,8 +2041,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMetricsNonLinearStepSize(double newMetricsNonLinearStepSize)
-	{
+	@Override
+	public void setMetricsNonLinearStepSize(double newMetricsNonLinearStepSize) {
 		double oldMetricsNonLinearStepSize = metricsNonLinearStepSize;
 		metricsNonLinearStepSize = newMetricsNonLinearStepSize;
 		if (eNotificationRequired())
@@ -1969,8 +2054,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getMetricsNonLinearMinimumError()
-	{
+	@Override
+	public double getMetricsNonLinearMinimumError() {
 		return metricsNonLinearMinimumError;
 	}
 
@@ -1979,8 +2064,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMetricsNonLinearMinimumError(double newMetricsNonLinearMinimumError)
-	{
+	@Override
+	public void setMetricsNonLinearMinimumError(double newMetricsNonLinearMinimumError) {
 		double oldMetricsNonLinearMinimumError = metricsNonLinearMinimumError;
 		metricsNonLinearMinimumError = newMetricsNonLinearMinimumError;
 		if (eNotificationRequired())
@@ -1992,8 +2077,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getMetricsNonLinearMinimumChange()
-	{
+	@Override
+	public double getMetricsNonLinearMinimumChange() {
 		return metricsNonLinearMinimumChange;
 	}
 
@@ -2002,8 +2087,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMetricsNonLinearMinimumChange(double newMetricsNonLinearMinimumChange)
-	{
+	@Override
+	public void setMetricsNonLinearMinimumChange(double newMetricsNonLinearMinimumChange) {
 		double oldMetricsNonLinearMinimumChange = metricsNonLinearMinimumChange;
 		metricsNonLinearMinimumChange = newMetricsNonLinearMinimumChange;
 		if (eNotificationRequired())
@@ -2015,8 +2100,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isParserHeaderParsing()
-	{
+	@Override
+	public boolean isParserHeaderParsing() {
 		return parserHeaderParsing;
 	}
 
@@ -2025,8 +2110,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParserHeaderParsing(boolean newParserHeaderParsing)
-	{
+	@Override
+	public void setParserHeaderParsing(boolean newParserHeaderParsing) {
 		boolean oldParserHeaderParsing = parserHeaderParsing;
 		parserHeaderParsing = newParserHeaderParsing;
 		if (eNotificationRequired())
@@ -2038,8 +2123,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isParserSystemFilesIgnoration()
-	{
+	@Override
+	public boolean isParserSystemFilesIgnoration() {
 		return parserSystemFilesIgnoration;
 	}
 
@@ -2048,8 +2133,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setParserSystemFilesIgnoration(boolean newParserSystemFilesIgnoration)
-	{
+	@Override
+	public void setParserSystemFilesIgnoration(boolean newParserSystemFilesIgnoration) {
 		boolean oldParserSystemFilesIgnoration = parserSystemFilesIgnoration;
 		parserSystemFilesIgnoration = newParserSystemFilesIgnoration;
 		if (eNotificationRequired())
@@ -2061,8 +2146,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getAttacksTimeLimit()
-	{
+	@Override
+	public int getAttacksTimeLimit() {
 		return attacksTimeLimit;
 	}
 
@@ -2071,8 +2156,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAttacksTimeLimit(int newAttacksTimeLimit)
-	{
+	@Override
+	public void setAttacksTimeLimit(int newAttacksTimeLimit) {
 		int oldAttacksTimeLimit = attacksTimeLimit;
 		attacksTimeLimit = newAttacksTimeLimit;
 		if (eNotificationRequired())
@@ -2084,8 +2169,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getAttacksMaximumDepth()
-	{
+	@Override
+	public int getAttacksMaximumDepth() {
 		return attacksMaximumDepth;
 	}
 
@@ -2094,8 +2179,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAttacksMaximumDepth(int newAttacksMaximumDepth)
-	{
+	@Override
+	public void setAttacksMaximumDepth(int newAttacksMaximumDepth) {
 		int oldAttacksMaximumDepth = attacksMaximumDepth;
 		attacksMaximumDepth = newAttacksMaximumDepth;
 		if (eNotificationRequired())
@@ -2107,8 +2192,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isAttacksIncludedProtectionObjectivesRemoval()
-	{
+	@Override
+	public boolean isAttacksIncludedProtectionObjectivesRemoval() {
 		return attacksIncludedProtectionObjectivesRemoval;
 	}
 
@@ -2117,8 +2202,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAttacksIncludedProtectionObjectivesRemoval(boolean newAttacksIncludedProtectionObjectivesRemoval)
-	{
+	@Override
+	public void setAttacksIncludedProtectionObjectivesRemoval(boolean newAttacksIncludedProtectionObjectivesRemoval) {
 		boolean oldAttacksIncludedProtectionObjectivesRemoval = attacksIncludedProtectionObjectivesRemoval;
 		attacksIncludedProtectionObjectivesRemoval = newAttacksIncludedProtectionObjectivesRemoval;
 		if (eNotificationRequired())
@@ -2130,8 +2215,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Level getProtectionsMinimumAttackMitigation()
-	{
+	@Override
+	public Level getProtectionsMinimumAttackMitigation() {
 		return protectionsMinimumAttackMitigation;
 	}
 
@@ -2140,8 +2225,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProtectionsMinimumAttackMitigation(Level newProtectionsMinimumAttackMitigation)
-	{
+	@Override
+	public void setProtectionsMinimumAttackMitigation(Level newProtectionsMinimumAttackMitigation) {
 		Level oldProtectionsMinimumAttackMitigation = protectionsMinimumAttackMitigation;
 		protectionsMinimumAttackMitigation = newProtectionsMinimumAttackMitigation == null ? PROTECTIONS_MINIMUM_ATTACK_MITIGATION_EDEFAULT : newProtectionsMinimumAttackMitigation;
 		if (eNotificationRequired())
@@ -2153,8 +2238,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getMaxAttestatorsPerProtectionInstantiation()
-	{
+	@Override
+	public int getMaxAttestatorsPerProtectionInstantiation() {
 		return maxAttestatorsPerProtectionInstantiation;
 	}
 
@@ -2163,8 +2248,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setMaxAttestatorsPerProtectionInstantiation(int newMaxAttestatorsPerProtectionInstantiation)
-	{
+	@Override
+	public void setMaxAttestatorsPerProtectionInstantiation(int newMaxAttestatorsPerProtectionInstantiation) {
 		int oldMaxAttestatorsPerProtectionInstantiation = maxAttestatorsPerProtectionInstantiation;
 		maxAttestatorsPerProtectionInstantiation = newMaxAttestatorsPerProtectionInstantiation;
 		if (eNotificationRequired())
@@ -2176,8 +2261,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getClientTimeOverhead()
-	{
+	@Override
+	public double getClientTimeOverhead() {
 		return clientTimeOverhead;
 	}
 
@@ -2186,8 +2271,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClientTimeOverhead(double newClientTimeOverhead)
-	{
+	@Override
+	public void setClientTimeOverhead(double newClientTimeOverhead) {
 		double oldClientTimeOverhead = clientTimeOverhead;
 		clientTimeOverhead = newClientTimeOverhead;
 		if (eNotificationRequired())
@@ -2199,8 +2284,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getServerTimeOverhead()
-	{
+	@Override
+	public double getServerTimeOverhead() {
 		return serverTimeOverhead;
 	}
 
@@ -2209,8 +2294,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setServerTimeOverhead(double newServerTimeOverhead)
-	{
+	@Override
+	public void setServerTimeOverhead(double newServerTimeOverhead) {
 		double oldServerTimeOverhead = serverTimeOverhead;
 		serverTimeOverhead = newServerTimeOverhead;
 		if (eNotificationRequired())
@@ -2222,8 +2307,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getClientMemoryOverhead()
-	{
+	@Override
+	public int getClientMemoryOverhead() {
 		return clientMemoryOverhead;
 	}
 
@@ -2232,8 +2317,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClientMemoryOverhead(int newClientMemoryOverhead)
-	{
+	@Override
+	public void setClientMemoryOverhead(int newClientMemoryOverhead) {
 		int oldClientMemoryOverhead = clientMemoryOverhead;
 		clientMemoryOverhead = newClientMemoryOverhead;
 		if (eNotificationRequired())
@@ -2245,8 +2330,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getServerMemoryOverhead()
-	{
+	@Override
+	public int getServerMemoryOverhead() {
 		return serverMemoryOverhead;
 	}
 
@@ -2255,8 +2340,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setServerMemoryOverhead(int newServerMemoryOverhead)
-	{
+	@Override
+	public void setServerMemoryOverhead(int newServerMemoryOverhead) {
 		int oldServerMemoryOverhead = serverMemoryOverhead;
 		serverMemoryOverhead = newServerMemoryOverhead;
 		if (eNotificationRequired())
@@ -2268,8 +2353,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getNetworkOverhead()
-	{
+	@Override
+	public int getNetworkOverhead() {
 		return networkOverhead;
 	}
 
@@ -2278,8 +2363,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNetworkOverhead(int newNetworkOverhead)
-	{
+	@Override
+	public void setNetworkOverhead(int newNetworkOverhead) {
 		int oldNetworkOverhead = networkOverhead;
 		networkOverhead = newNetworkOverhead;
 		if (eNotificationRequired())
@@ -2291,8 +2376,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL1pSolutionsCount()
-	{
+	@Override
+	public int getL1pSolutionsCount() {
 		return l1pSolutionsCount;
 	}
 
@@ -2301,8 +2386,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pSolutionsCount(int newL1pSolutionsCount)
-	{
+	@Override
+	public void setL1pSolutionsCount(int newL1pSolutionsCount) {
 		int oldL1pSolutionsCount = l1pSolutionsCount;
 		l1pSolutionsCount = newL1pSolutionsCount;
 		if (eNotificationRequired())
@@ -2314,8 +2399,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL1pTimeLimit()
-	{
+	@Override
+	public int getL1pTimeLimit() {
 		return l1pTimeLimit;
 	}
 
@@ -2324,8 +2409,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pTimeLimit(int newL1pTimeLimit)
-	{
+	@Override
+	public void setL1pTimeLimit(int newL1pTimeLimit) {
 		int oldL1pTimeLimit = l1pTimeLimit;
 		l1pTimeLimit = newL1pTimeLimit;
 		if (eNotificationRequired())
@@ -2337,8 +2422,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL1pSolutionsLimit()
-	{
+	@Override
+	public int getL1pSolutionsLimit() {
 		return l1pSolutionsLimit;
 	}
 
@@ -2347,8 +2432,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pSolutionsLimit(int newL1pSolutionsLimit)
-	{
+	@Override
+	public void setL1pSolutionsLimit(int newL1pSolutionsLimit) {
 		int oldL1pSolutionsLimit = l1pSolutionsLimit;
 		l1pSolutionsLimit = newL1pSolutionsLimit;
 		if (eNotificationRequired())
@@ -2360,8 +2445,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pGapLimit()
-	{
+	@Override
+	public double getL1pGapLimit() {
 		return l1pGapLimit;
 	}
 
@@ -2370,8 +2455,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pGapLimit(double newL1pGapLimit)
-	{
+	@Override
+	public void setL1pGapLimit(double newL1pGapLimit) {
 		double oldL1pGapLimit = l1pGapLimit;
 		l1pGapLimit = newL1pGapLimit;
 		if (eNotificationRequired())
@@ -2383,8 +2468,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pClientTimeOverheadPercentage()
-	{
+	@Override
+	public double getL1pClientTimeOverheadPercentage() {
 		return l1pClientTimeOverheadPercentage;
 	}
 
@@ -2393,8 +2478,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pClientTimeOverheadPercentage(double newL1pClientTimeOverheadPercentage)
-	{
+	@Override
+	public void setL1pClientTimeOverheadPercentage(double newL1pClientTimeOverheadPercentage) {
 		double oldL1pClientTimeOverheadPercentage = l1pClientTimeOverheadPercentage;
 		l1pClientTimeOverheadPercentage = newL1pClientTimeOverheadPercentage;
 		if (eNotificationRequired())
@@ -2406,8 +2491,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pServerTimeOverheadPercentage()
-	{
+	@Override
+	public double getL1pServerTimeOverheadPercentage() {
 		return l1pServerTimeOverheadPercentage;
 	}
 
@@ -2416,8 +2501,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pServerTimeOverheadPercentage(double newL1pServerTimeOverheadPercentage)
-	{
+	@Override
+	public void setL1pServerTimeOverheadPercentage(double newL1pServerTimeOverheadPercentage) {
 		double oldL1pServerTimeOverheadPercentage = l1pServerTimeOverheadPercentage;
 		l1pServerTimeOverheadPercentage = newL1pServerTimeOverheadPercentage;
 		if (eNotificationRequired())
@@ -2429,8 +2514,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pClientMemoryOverheadPercentage()
-	{
+	@Override
+	public double getL1pClientMemoryOverheadPercentage() {
 		return l1pClientMemoryOverheadPercentage;
 	}
 
@@ -2439,8 +2524,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pClientMemoryOverheadPercentage(double newL1pClientMemoryOverheadPercentage)
-	{
+	@Override
+	public void setL1pClientMemoryOverheadPercentage(double newL1pClientMemoryOverheadPercentage) {
 		double oldL1pClientMemoryOverheadPercentage = l1pClientMemoryOverheadPercentage;
 		l1pClientMemoryOverheadPercentage = newL1pClientMemoryOverheadPercentage;
 		if (eNotificationRequired())
@@ -2452,8 +2537,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pServerMemoryOverheadPercentage()
-	{
+	@Override
+	public double getL1pServerMemoryOverheadPercentage() {
 		return l1pServerMemoryOverheadPercentage;
 	}
 
@@ -2462,8 +2547,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pServerMemoryOverheadPercentage(double newL1pServerMemoryOverheadPercentage)
-	{
+	@Override
+	public void setL1pServerMemoryOverheadPercentage(double newL1pServerMemoryOverheadPercentage) {
 		double oldL1pServerMemoryOverheadPercentage = l1pServerMemoryOverheadPercentage;
 		l1pServerMemoryOverheadPercentage = newL1pServerMemoryOverheadPercentage;
 		if (eNotificationRequired())
@@ -2475,8 +2560,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pNetworkOverheadPercentage()
-	{
+	@Override
+	public double getL1pNetworkOverheadPercentage() {
 		return l1pNetworkOverheadPercentage;
 	}
 
@@ -2485,8 +2570,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pNetworkOverheadPercentage(double newL1pNetworkOverheadPercentage)
-	{
+	@Override
+	public void setL1pNetworkOverheadPercentage(double newL1pNetworkOverheadPercentage) {
 		double oldL1pNetworkOverheadPercentage = l1pNetworkOverheadPercentage;
 		l1pNetworkOverheadPercentage = newL1pNetworkOverheadPercentage;
 		if (eNotificationRequired())
@@ -2498,8 +2583,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isL1pDiscouragedPrecedencesIgnoration()
-	{
+	@Override
+	public boolean isL1pDiscouragedPrecedencesIgnoration() {
 		return l1pDiscouragedPrecedencesIgnoration;
 	}
 
@@ -2508,8 +2593,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pDiscouragedPrecedencesIgnoration(boolean newL1pDiscouragedPrecedencesIgnoration)
-	{
+	@Override
+	public void setL1pDiscouragedPrecedencesIgnoration(boolean newL1pDiscouragedPrecedencesIgnoration) {
 		boolean oldL1pDiscouragedPrecedencesIgnoration = l1pDiscouragedPrecedencesIgnoration;
 		l1pDiscouragedPrecedencesIgnoration = newL1pDiscouragedPrecedencesIgnoration;
 		if (eNotificationRequired())
@@ -2521,8 +2606,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isL1pEncouragedPrecedencesFocusing()
-	{
+	@Override
+	public boolean isL1pEncouragedPrecedencesFocusing() {
 		return l1pEncouragedPrecedencesFocusing;
 	}
 
@@ -2531,8 +2616,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pEncouragedPrecedencesFocusing(boolean newL1pEncouragedPrecedencesFocusing)
-	{
+	@Override
+	public void setL1pEncouragedPrecedencesFocusing(boolean newL1pEncouragedPrecedencesFocusing) {
 		boolean oldL1pEncouragedPrecedencesFocusing = l1pEncouragedPrecedencesFocusing;
 		l1pEncouragedPrecedencesFocusing = newL1pEncouragedPrecedencesFocusing;
 		if (eNotificationRequired())
@@ -2544,8 +2629,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isL1pUseACTCPrecedences()
-	{
+	@Override
+	public boolean isL1pUseACTCPrecedences() {
 		return l1pUseACTCPrecedences;
 	}
 
@@ -2554,8 +2639,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pUseACTCPrecedences(boolean newL1pUseACTCPrecedences)
-	{
+	@Override
+	public void setL1pUseACTCPrecedences(boolean newL1pUseACTCPrecedences) {
 		boolean oldL1pUseACTCPrecedences = l1pUseACTCPrecedences;
 		l1pUseACTCPrecedences = newL1pUseACTCPrecedences;
 		if (eNotificationRequired())
@@ -2567,8 +2652,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isL1pIgnoreApplicationPartOrder()
-	{
+	@Override
+	public boolean isL1pIgnoreApplicationPartOrder() {
 		return l1pIgnoreApplicationPartOrder;
 	}
 
@@ -2577,8 +2662,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pIgnoreApplicationPartOrder(boolean newL1pIgnoreApplicationPartOrder)
-	{
+	@Override
+	public void setL1pIgnoreApplicationPartOrder(boolean newL1pIgnoreApplicationPartOrder) {
 		boolean oldL1pIgnoreApplicationPartOrder = l1pIgnoreApplicationPartOrder;
 		l1pIgnoreApplicationPartOrder = newL1pIgnoreApplicationPartOrder;
 		if (eNotificationRequired())
@@ -2590,8 +2675,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL1pMaximumInstantiationsPerProtectionObjective()
-	{
+	@Override
+	public int getL1pMaximumInstantiationsPerProtectionObjective() {
 		return l1pMaximumInstantiationsPerProtectionObjective;
 	}
 
@@ -2600,8 +2685,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pMaximumInstantiationsPerProtectionObjective(int newL1pMaximumInstantiationsPerProtectionObjective)
-	{
+	@Override
+	public void setL1pMaximumInstantiationsPerProtectionObjective(int newL1pMaximumInstantiationsPerProtectionObjective) {
 		int oldL1pMaximumInstantiationsPerProtectionObjective = l1pMaximumInstantiationsPerProtectionObjective;
 		l1pMaximumInstantiationsPerProtectionObjective = newL1pMaximumInstantiationsPerProtectionObjective;
 		if (eNotificationRequired())
@@ -2613,8 +2698,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL1pMainSearchMaximumDepth()
-	{
+	@Override
+	public int getL1pMainSearchMaximumDepth() {
 		return l1pMainSearchMaximumDepth;
 	}
 
@@ -2623,8 +2708,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pMainSearchMaximumDepth(int newL1pMainSearchMaximumDepth)
-	{
+	@Override
+	public void setL1pMainSearchMaximumDepth(int newL1pMainSearchMaximumDepth) {
 		int oldL1pMainSearchMaximumDepth = l1pMainSearchMaximumDepth;
 		l1pMainSearchMaximumDepth = newL1pMainSearchMaximumDepth;
 		if (eNotificationRequired())
@@ -2636,8 +2721,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pMultiTreeMultiplier()
-	{
+	@Override
+	public double getL1pMultiTreeMultiplier() {
 		return l1pMultiTreeMultiplier;
 	}
 
@@ -2646,8 +2731,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pMultiTreeMultiplier(double newL1pMultiTreeMultiplier)
-	{
+	@Override
+	public void setL1pMultiTreeMultiplier(double newL1pMultiTreeMultiplier) {
 		double oldL1pMultiTreeMultiplier = l1pMultiTreeMultiplier;
 		l1pMultiTreeMultiplier = newL1pMultiTreeMultiplier;
 		if (eNotificationRequired())
@@ -2659,8 +2744,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pInitialAlpha()
-	{
+	@Override
+	public double getL1pInitialAlpha() {
 		return l1pInitialAlpha;
 	}
 
@@ -2669,8 +2754,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pInitialAlpha(double newL1pInitialAlpha)
-	{
+	@Override
+	public void setL1pInitialAlpha(double newL1pInitialAlpha) {
 		double oldL1pInitialAlpha = l1pInitialAlpha;
 		l1pInitialAlpha = newL1pInitialAlpha;
 		if (eNotificationRequired())
@@ -2682,8 +2767,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pInitialBeta()
-	{
+	@Override
+	public double getL1pInitialBeta() {
 		return l1pInitialBeta;
 	}
 
@@ -2692,8 +2777,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pInitialBeta(double newL1pInitialBeta)
-	{
+	@Override
+	public void setL1pInitialBeta(double newL1pInitialBeta) {
 		double oldL1pInitialBeta = l1pInitialBeta;
 		l1pInitialBeta = newL1pInitialBeta;
 		if (eNotificationRequired())
@@ -2705,8 +2790,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pResearchDelta()
-	{
+	@Override
+	public double getL1pResearchDelta() {
 		return l1pResearchDelta;
 	}
 
@@ -2715,8 +2800,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pResearchDelta(double newL1pResearchDelta)
-	{
+	@Override
+	public void setL1pResearchDelta(double newL1pResearchDelta) {
 		double oldL1pResearchDelta = l1pResearchDelta;
 		l1pResearchDelta = newL1pResearchDelta;
 		if (eNotificationRequired())
@@ -2728,8 +2813,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL1pTranspositionTableMaximumSize()
-	{
+	@Override
+	public int getL1pTranspositionTableMaximumSize() {
 		return l1pTranspositionTableMaximumSize;
 	}
 
@@ -2738,8 +2823,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pTranspositionTableMaximumSize(int newL1pTranspositionTableMaximumSize)
-	{
+	@Override
+	public void setL1pTranspositionTableMaximumSize(int newL1pTranspositionTableMaximumSize) {
 		int oldL1pTranspositionTableMaximumSize = l1pTranspositionTableMaximumSize;
 		l1pTranspositionTableMaximumSize = newL1pTranspositionTableMaximumSize;
 		if (eNotificationRequired())
@@ -2751,8 +2836,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pFutilityMargin()
-	{
+	@Override
+	public double getL1pFutilityMargin() {
 		return l1pFutilityMargin;
 	}
 
@@ -2761,8 +2846,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pFutilityMargin(double newL1pFutilityMargin)
-	{
+	@Override
+	public void setL1pFutilityMargin(double newL1pFutilityMargin) {
 		double oldL1pFutilityMargin = l1pFutilityMargin;
 		l1pFutilityMargin = newL1pFutilityMargin;
 		if (eNotificationRequired())
@@ -2774,8 +2859,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pExtendedFutilityMargin()
-	{
+	@Override
+	public double getL1pExtendedFutilityMargin() {
 		return l1pExtendedFutilityMargin;
 	}
 
@@ -2784,8 +2869,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pExtendedFutilityMargin(double newL1pExtendedFutilityMargin)
-	{
+	@Override
+	public void setL1pExtendedFutilityMargin(double newL1pExtendedFutilityMargin) {
 		double oldL1pExtendedFutilityMargin = l1pExtendedFutilityMargin;
 		l1pExtendedFutilityMargin = newL1pExtendedFutilityMargin;
 		if (eNotificationRequired())
@@ -2797,8 +2882,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL1pRazoringMargin()
-	{
+	@Override
+	public double getL1pRazoringMargin() {
 		return l1pRazoringMargin;
 	}
 
@@ -2807,8 +2892,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL1pRazoringMargin(double newL1pRazoringMargin)
-	{
+	@Override
+	public void setL1pRazoringMargin(double newL1pRazoringMargin) {
 		double oldL1pRazoringMargin = l1pRazoringMargin;
 		l1pRazoringMargin = newL1pRazoringMargin;
 		if (eNotificationRequired())
@@ -2820,8 +2905,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL2pSolutionsCount()
-	{
+	@Override
+	public int getL2pSolutionsCount() {
 		return l2pSolutionsCount;
 	}
 
@@ -2830,8 +2915,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL2pSolutionsCount(int newL2pSolutionsCount)
-	{
+	@Override
+	public void setL2pSolutionsCount(int newL2pSolutionsCount) {
 		int oldL2pSolutionsCount = l2pSolutionsCount;
 		l2pSolutionsCount = newL2pSolutionsCount;
 		if (eNotificationRequired())
@@ -2843,8 +2928,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL2pFunctionSplittingSeed()
-	{
+	@Override
+	public int getL2pFunctionSplittingSeed() {
 		return l2pFunctionSplittingSeed;
 	}
 
@@ -2853,8 +2938,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL2pFunctionSplittingSeed(int newL2pFunctionSplittingSeed)
-	{
+	@Override
+	public void setL2pFunctionSplittingSeed(int newL2pFunctionSplittingSeed) {
 		int oldL2pFunctionSplittingSeed = l2pFunctionSplittingSeed;
 		l2pFunctionSplittingSeed = newL2pFunctionSplittingSeed;
 		if (eNotificationRequired())
@@ -2866,8 +2951,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean isL2pStartFromL1pSolution()
-	{
+	@Override
+	public boolean isL2pStartFromL1pSolution() {
 		return l2pStartFromL1pSolution;
 	}
 
@@ -2876,8 +2961,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL2pStartFromL1pSolution(boolean newL2pStartFromL1pSolution)
-	{
+	@Override
+	public void setL2pStartFromL1pSolution(boolean newL2pStartFromL1pSolution) {
 		boolean oldL2pStartFromL1pSolution = l2pStartFromL1pSolution;
 		l2pStartFromL1pSolution = newL2pStartFromL1pSolution;
 		if (eNotificationRequired())
@@ -2889,8 +2974,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL2pSolutionLimit()
-	{
+	@Override
+	public int getL2pSolutionLimit() {
 		return l2pSolutionLimit;
 	}
 
@@ -2899,8 +2984,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL2pSolutionLimit(int newL2pSolutionLimit)
-	{
+	@Override
+	public void setL2pSolutionLimit(int newL2pSolutionLimit) {
 		int oldL2pSolutionLimit = l2pSolutionLimit;
 		l2pSolutionLimit = newL2pSolutionLimit;
 		if (eNotificationRequired())
@@ -2912,8 +2997,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL2pTimeLimit()
-	{
+	@Override
+	public int getL2pTimeLimit() {
 		return l2pTimeLimit;
 	}
 
@@ -2922,8 +3007,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL2pTimeLimit(int newL2pTimeLimit)
-	{
+	@Override
+	public void setL2pTimeLimit(int newL2pTimeLimit) {
 		int oldL2pTimeLimit = l2pTimeLimit;
 		l2pTimeLimit = newL2pTimeLimit;
 		if (eNotificationRequired())
@@ -2935,8 +3020,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public double getL2pGapLimit()
-	{
+	@Override
+	public double getL2pGapLimit() {
 		return l2pGapLimit;
 	}
 
@@ -2945,8 +3030,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL2pGapLimit(double newL2pGapLimit)
-	{
+	@Override
+	public void setL2pGapLimit(double newL2pGapLimit) {
 		double oldL2pGapLimit = l2pGapLimit;
 		l2pGapLimit = newL2pGapLimit;
 		if (eNotificationRequired())
@@ -2958,8 +3043,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL2pUpperBound()
-	{
+	@Override
+	public int getL2pUpperBound() {
 		return l2pUpperBound;
 	}
 
@@ -2968,8 +3053,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL2pUpperBound(int newL2pUpperBound)
-	{
+	@Override
+	public void setL2pUpperBound(int newL2pUpperBound) {
 		int oldL2pUpperBound = l2pUpperBound;
 		l2pUpperBound = newL2pUpperBound;
 		if (eNotificationRequired())
@@ -2981,8 +3066,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL2pFunctionSplittingMediumCodeBlockLength()
-	{
+	@Override
+	public int getL2pFunctionSplittingMediumCodeBlockLength() {
 		return l2pFunctionSplittingMediumCodeBlockLength;
 	}
 
@@ -2991,8 +3076,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL2pFunctionSplittingMediumCodeBlockLength(int newL2pFunctionSplittingMediumCodeBlockLength)
-	{
+	@Override
+	public void setL2pFunctionSplittingMediumCodeBlockLength(int newL2pFunctionSplittingMediumCodeBlockLength) {
 		int oldL2pFunctionSplittingMediumCodeBlockLength = l2pFunctionSplittingMediumCodeBlockLength;
 		l2pFunctionSplittingMediumCodeBlockLength = newL2pFunctionSplittingMediumCodeBlockLength;
 		if (eNotificationRequired())
@@ -3004,8 +3089,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL2pFunctionSplittingCodeBlockLengthRandomizationDenominator()
-	{
+	@Override
+	public int getL2pFunctionSplittingCodeBlockLengthRandomizationDenominator() {
 		return l2pFunctionSplittingCodeBlockLengthRandomizationDenominator;
 	}
 
@@ -3014,8 +3099,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL2pFunctionSplittingCodeBlockLengthRandomizationDenominator(int newL2pFunctionSplittingCodeBlockLengthRandomizationDenominator)
-	{
+	@Override
+	public void setL2pFunctionSplittingCodeBlockLengthRandomizationDenominator(int newL2pFunctionSplittingCodeBlockLengthRandomizationDenominator) {
 		int oldL2pFunctionSplittingCodeBlockLengthRandomizationDenominator = l2pFunctionSplittingCodeBlockLengthRandomizationDenominator;
 		l2pFunctionSplittingCodeBlockLengthRandomizationDenominator = newL2pFunctionSplittingCodeBlockLengthRandomizationDenominator;
 		if (eNotificationRequired())
@@ -3027,8 +3112,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getL2pFunctionSplittingDepthLevel()
-	{
+	@Override
+	public int getL2pFunctionSplittingDepthLevel() {
 		return l2pFunctionSplittingDepthLevel;
 	}
 
@@ -3037,8 +3122,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setL2pFunctionSplittingDepthLevel(int newL2pFunctionSplittingDepthLevel)
-	{
+	@Override
+	public void setL2pFunctionSplittingDepthLevel(int newL2pFunctionSplittingDepthLevel) {
 		int oldL2pFunctionSplittingDepthLevel = l2pFunctionSplittingDepthLevel;
 		l2pFunctionSplittingDepthLevel = newL2pFunctionSplittingDepthLevel;
 		if (eNotificationRequired())
@@ -3050,8 +3135,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int hashCode()
-	{
+	@Override
+	public int hashCode() {
 		int result = 17;
 		int _hashCode = "preferences".hashCode();
 		int _plus = ((31 * result) + _hashCode);
@@ -3064,20 +3149,16 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean equals(final Object object)
-	{
-		if ((object == null))
-		{
+	@Override
+	public boolean equals(final Object object) {
+		if ((object == null)) {
 			return false;
 		}
-		else
-		{
-			if ((object instanceof Preferences))
-			{
+		else {
+			if ((object instanceof Preferences)) {
 				return (this == object);
 			}
-			else
-			{
+			else {
 				return false;
 			}
 		}
@@ -3089,10 +3170,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case KbPackage.PREFERENCES__WORKING_DIRECTORY:
 				return getWorkingDirectory();
 			case KbPackage.PREFERENCES__ACTC_CONFIGURATION_FILE:
@@ -3117,6 +3196,10 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 				return getRemoteFileSeparator();
 			case KbPackage.PREFERENCES__COMMAND_ACTC:
 				return getCommandACTC();
+			case KbPackage.PREFERENCES__COMMAND_TIGRESS:
+				return getCommandTigress();
+			case KbPackage.PREFERENCES__COMMAND_CILLY:
+				return getCommandCilly();
 			case KbPackage.PREFERENCES__COMMAND_PERL:
 				return getCommandPerl();
 			case KbPackage.PREFERENCES__COMMAND_DOT:
@@ -3239,10 +3322,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case KbPackage.PREFERENCES__WORKING_DIRECTORY:
 				setWorkingDirectory((String)newValue);
 				return;
@@ -3278,6 +3359,12 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 				return;
 			case KbPackage.PREFERENCES__COMMAND_ACTC:
 				setCommandACTC((String)newValue);
+				return;
+			case KbPackage.PREFERENCES__COMMAND_TIGRESS:
+				setCommandTigress((String)newValue);
+				return;
+			case KbPackage.PREFERENCES__COMMAND_CILLY:
+				setCommandCilly((String)newValue);
 				return;
 			case KbPackage.PREFERENCES__COMMAND_PERL:
 				setCommandPerl((String)newValue);
@@ -3457,10 +3544,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case KbPackage.PREFERENCES__WORKING_DIRECTORY:
 				setWorkingDirectory(WORKING_DIRECTORY_EDEFAULT);
 				return;
@@ -3496,6 +3581,12 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 				return;
 			case KbPackage.PREFERENCES__COMMAND_ACTC:
 				setCommandACTC(COMMAND_ACTC_EDEFAULT);
+				return;
+			case KbPackage.PREFERENCES__COMMAND_TIGRESS:
+				setCommandTigress(COMMAND_TIGRESS_EDEFAULT);
+				return;
+			case KbPackage.PREFERENCES__COMMAND_CILLY:
+				setCommandCilly(COMMAND_CILLY_EDEFAULT);
 				return;
 			case KbPackage.PREFERENCES__COMMAND_PERL:
 				setCommandPerl(COMMAND_PERL_EDEFAULT);
@@ -3675,10 +3766,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case KbPackage.PREFERENCES__WORKING_DIRECTORY:
 				return WORKING_DIRECTORY_EDEFAULT == null ? workingDirectory != null : !WORKING_DIRECTORY_EDEFAULT.equals(workingDirectory);
 			case KbPackage.PREFERENCES__ACTC_CONFIGURATION_FILE:
@@ -3703,6 +3792,10 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 				return REMOTE_FILE_SEPARATOR_EDEFAULT == null ? remoteFileSeparator != null : !REMOTE_FILE_SEPARATOR_EDEFAULT.equals(remoteFileSeparator);
 			case KbPackage.PREFERENCES__COMMAND_ACTC:
 				return COMMAND_ACTC_EDEFAULT == null ? commandACTC != null : !COMMAND_ACTC_EDEFAULT.equals(commandACTC);
+			case KbPackage.PREFERENCES__COMMAND_TIGRESS:
+				return COMMAND_TIGRESS_EDEFAULT == null ? commandTigress != null : !COMMAND_TIGRESS_EDEFAULT.equals(commandTigress);
+			case KbPackage.PREFERENCES__COMMAND_CILLY:
+				return COMMAND_CILLY_EDEFAULT == null ? commandCilly != null : !COMMAND_CILLY_EDEFAULT.equals(commandCilly);
 			case KbPackage.PREFERENCES__COMMAND_PERL:
 				return COMMAND_PERL_EDEFAULT == null ? commandPerl != null : !COMMAND_PERL_EDEFAULT.equals(commandPerl);
 			case KbPackage.PREFERENCES__COMMAND_DOT:
@@ -3825,10 +3918,8 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * @generated
 	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException
-	{
-		switch (operationID)
-		{
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
 			case KbPackage.PREFERENCES___HASH_CODE:
 				return hashCode();
 			case KbPackage.PREFERENCES___EQUALS__OBJECT:
@@ -3843,11 +3934,10 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
+		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (workingDirectory: ");
 		result.append(workingDirectory);
 		result.append(", actcConfigurationFile: ");
@@ -3872,6 +3962,10 @@ public class PreferencesImpl extends MinimalEObjectImpl.Container implements Pre
 		result.append(remoteFileSeparator);
 		result.append(", commandACTC: ");
 		result.append(commandACTC);
+		result.append(", commandTigress: ");
+		result.append(commandTigress);
+		result.append(", commandCilly: ");
+		result.append(commandCilly);
 		result.append(", commandPerl: ");
 		result.append(commandPerl);
 		result.append(", commandDot: ");

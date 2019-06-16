@@ -24,7 +24,9 @@ Require-Bundle: org.eclipse.core.runtime,
  it.polito.security.ontologies;bundle-version="0.2.0",
  org.eclipse.cdt.core;bundle-version="5.11.0",
  org.apache.log4j;bundle-version="1.2.15",
- org.apache.commons.logging;bundle-version="1.1.1"
+ org.apache.commons.logging;bundle-version="1.1.1",
+ com.sun.xml.bind;bundle-version="2.2.0",
+ javax.xml.bind;bundle-version="2.2.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: it.polito.security.esp,
  it.polito.security.esp.connectors

@@ -350,7 +350,13 @@ public class UseTargetImpl extends MinimalEObjectImpl.Container implements UseTa
 	{
 		if (parameters == null)
 		{
-			parameters = new EObjectResolvingEList<ApplicationPart>(ApplicationPart.class, this, KbPackage.USE_TARGET__PARAMETERS);
+			parameters = new EObjectResolvingEList<ApplicationPart>(ApplicationPart.class, this, KbPackage.USE_TARGET__PARAMETERS)
+					{
+						@Override
+						public boolean isUnique() {
+							return false;
+						}
+					};
 		}
 		return parameters;
 	}

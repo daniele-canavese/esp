@@ -49,7 +49,7 @@ public class RemoteConnectionPage extends WizardPage
 		remoteConnectionButton = new Button(composite, SWT.CHECK);
 		remoteConnectionButton.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 2, 1));
 		remoteConnectionButton.setText("Remote connection");
-		remoteConnectionButton.setSelection(true);
+		remoteConnectionButton.setSelection(false);
 
 		Label labelRemoteHost = new Label(composite, SWT.NONE);
 		labelRemoteHost.setText("Remote host:");

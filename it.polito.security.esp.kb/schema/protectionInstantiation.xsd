@@ -25,6 +25,10 @@
 				    					<enumeration value="staticRemoteAttestation"/>
 				    					<enumeration value="controlFlowGraphTagging"/>
 				    					<enumeration value="antiCloning"/>
+				    					<enumeration value="sourceCodeControlFlowObfuscation"/>
+				    					<enumeration value="sourceCodeLiteralObfuscation"/>
+				    					<enumeration value="sourceCodeVariableObfuscation"/>
+				    					<enumeration value="sourceCodeVirtualization"/>
 				    				</restriction>
 				    			</simpleType>
 				    		</element>
@@ -32,6 +36,7 @@
 				    		<element name="codeRegionAnnotation" type="string" maxOccurs="1" minOccurs="0"/>
 				    		<element name="attestatorAnnotation" type="string" maxOccurs="1" minOccurs="0"/>
 				    		<element name="verifierAnnotation" type="string" maxOccurs="1" minOccurs="0"/>
+				    		<element name="toolCommand" type="string" maxOccurs="1" minOccurs="0"/>
 				    		<element name="toolForDeployment" type="string" minOccurs="1" maxOccurs="unbounded"/>
 				    		<element name="clientTimeOverhead" type="string" minOccurs="1" maxOccurs="1" />
 				    		<element name="clientMemoryOverhead" type="string" minOccurs="1" maxOccurs="1"/>

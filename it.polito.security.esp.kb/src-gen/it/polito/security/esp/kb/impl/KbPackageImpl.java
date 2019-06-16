@@ -59,8 +59,7 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
  * <!-- end-user-doc -->
  * @generated
  */
-public class KbPackageImpl extends EPackageImpl implements KbPackage
-{
+public class KbPackageImpl extends EPackageImpl implements KbPackage {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -349,8 +348,7 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * @see #init()
 	 * @generated
 	 */
-	private KbPackageImpl()
-	{
+	private KbPackageImpl() {
 		super(eNS_URI, KbFactory.eINSTANCE);
 	}
 
@@ -363,7 +361,7 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link KbPackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -373,12 +371,12 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * @see #initializePackageContents()
 	 * @generated
 	 */
-	public static KbPackage init()
-	{
+	public static KbPackage init() {
 		if (isInited) return (KbPackage)EPackage.Registry.INSTANCE.getEPackage(KbPackage.eNS_URI);
 
 		// Obtain or create and register package
-		KbPackageImpl theKbPackage = (KbPackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof KbPackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new KbPackageImpl());
+		Object registeredKbPackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		KbPackageImpl theKbPackage = registeredKbPackage instanceof KbPackageImpl ? (KbPackageImpl)registeredKbPackage : new KbPackageImpl();
 
 		isInited = true;
 
@@ -394,7 +392,6 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 		// Mark meta-data to indicate it can't be changed
 		theKbPackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(KbPackage.eNS_URI, theKbPackage);
 		return theKbPackage;
@@ -405,8 +402,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getModel()
-	{
+	@Override
+	public EClass getModel() {
 		return modelEClass;
 	}
 
@@ -415,8 +412,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_Ontology()
-	{
+	@Override
+	public EAttribute getModel_Ontology() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -425,8 +422,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_ApplicationParts()
-	{
+	@Override
+	public EReference getModel_ApplicationParts() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -435,8 +432,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_ApplicationPartSets()
-	{
+	@Override
+	public EReference getModel_ApplicationPartSets() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -445,8 +442,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_AttackPaths()
-	{
+	@Override
+	public EReference getModel_AttackPaths() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -455,8 +452,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_AttackStepTypes()
-	{
+	@Override
+	public EReference getModel_AttackStepTypes() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -465,8 +462,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_AttackSteps()
-	{
+	@Override
+	public EReference getModel_AttackSteps() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -475,8 +472,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Protections()
-	{
+	@Override
+	public EReference getModel_Protections() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -485,8 +482,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Preferences()
-	{
+	@Override
+	public EReference getModel_Preferences() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -495,8 +492,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Rules()
-	{
+	@Override
+	public EReference getModel_Rules() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -505,8 +502,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_ProtectionObjectives()
-	{
+	@Override
+	public EReference getModel_ProtectionObjectives() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -515,8 +512,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_AppliedProtectionInstantiations()
-	{
+	@Override
+	public EReference getModel_AppliedProtectionInstantiations() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -525,8 +522,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_AvailableProtections()
-	{
+	@Override
+	public EReference getModel_AvailableProtections() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -535,8 +532,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_AvailableSecondLevelProtections()
-	{
+	@Override
+	public EReference getModel_AvailableSecondLevelProtections() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -545,8 +542,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Assets()
-	{
+	@Override
+	public EReference getModel_Assets() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -555,8 +552,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Attacker()
-	{
+	@Override
+	public EReference getModel_Attacker() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -565,8 +562,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_AttackerToolTypes()
-	{
+	@Override
+	public EReference getModel_AttackerToolTypes() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -575,8 +572,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_AttackerTools()
-	{
+	@Override
+	public EReference getModel_AttackerTools() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -585,8 +582,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_VanillaSolution()
-	{
+	@Override
+	public EReference getModel_VanillaSolution() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -595,8 +592,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_Solutions()
-	{
+	@Override
+	public EReference getModel_Solutions() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -605,8 +602,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_AttackStepProbabilities()
-	{
+	@Override
+	public EReference getModel_AttackStepProbabilities() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -615,8 +612,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_AvailableTools()
-	{
+	@Override
+	public EReference getModel_AvailableTools() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(20);
 	}
 
@@ -625,8 +622,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_ApplicationPartsCount()
-	{
+	@Override
+	public EAttribute getModel_ApplicationPartsCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(21);
 	}
 
@@ -635,8 +632,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_AllApplicationParts()
-	{
+	@Override
+	public EReference getModel_AllApplicationParts() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(22);
 	}
 
@@ -645,8 +642,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_AssetsCount()
-	{
+	@Override
+	public EAttribute getModel_AssetsCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(23);
 	}
 
@@ -655,8 +652,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_DataCount()
-	{
+	@Override
+	public EAttribute getModel_DataCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(24);
 	}
 
@@ -665,8 +662,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_CodesCount()
-	{
+	@Override
+	public EAttribute getModel_CodesCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(25);
 	}
 
@@ -675,8 +672,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_ProtectionsCount()
-	{
+	@Override
+	public EAttribute getModel_ProtectionsCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(26);
 	}
 
@@ -685,8 +682,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_AttackerToolsCount()
-	{
+	@Override
+	public EAttribute getModel_AttackerToolsCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(27);
 	}
 
@@ -695,8 +692,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_AttackerToolTypesCount()
-	{
+	@Override
+	public EAttribute getModel_AttackerToolTypesCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(28);
 	}
 
@@ -705,8 +702,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_AvailableAttackerToolsCount()
-	{
+	@Override
+	public EAttribute getModel_AvailableAttackerToolsCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(29);
 	}
 
@@ -715,8 +712,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_AvailableProtectionsCount()
-	{
+	@Override
+	public EAttribute getModel_AvailableProtectionsCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(30);
 	}
 
@@ -725,8 +722,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_AttackPathsCount()
-	{
+	@Override
+	public EAttribute getModel_AttackPathsCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(31);
 	}
 
@@ -735,8 +732,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_AttackStepsCount()
-	{
+	@Override
+	public EAttribute getModel_AttackStepsCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(32);
 	}
 
@@ -745,8 +742,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_AttackStepTypesCount()
-	{
+	@Override
+	public EAttribute getModel_AttackStepTypesCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(33);
 	}
 
@@ -755,8 +752,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_ProtectionObjectivesCount()
-	{
+	@Override
+	public EAttribute getModel_ProtectionObjectivesCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(34);
 	}
 
@@ -765,8 +762,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_AppliedProtectionInstantiationsCount()
-	{
+	@Override
+	public EAttribute getModel_AppliedProtectionInstantiationsCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(35);
 	}
 
@@ -775,8 +772,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_ProtectionInstantiationsCount()
-	{
+	@Override
+	public EAttribute getModel_ProtectionInstantiationsCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(36);
 	}
 
@@ -785,8 +782,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getModel_SolutionsCount()
-	{
+	@Override
+	public EAttribute getModel_SolutionsCount() {
 		return (EAttribute)modelEClass.getEStructuralFeatures().get(37);
 	}
 
@@ -795,8 +792,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getModel_KeyAttackPaths()
-	{
+	@Override
+	public EReference getModel_KeyAttackPaths() {
 		return (EReference)modelEClass.getEStructuralFeatures().get(38);
 	}
 
@@ -805,8 +802,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getApplicationPart()
-	{
+	@Override
+	public EClass getApplicationPart() {
 		return applicationPartEClass;
 	}
 
@@ -815,8 +812,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_Id()
-	{
+	@Override
+	public EAttribute getApplicationPart_Id() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -825,8 +822,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_Name()
-	{
+	@Override
+	public EAttribute getApplicationPart_Name() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -835,8 +832,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationPart_Sets()
-	{
+	@Override
+	public EReference getApplicationPart_Sets() {
 		return (EReference)applicationPartEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -845,8 +842,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_Type()
-	{
+	@Override
+	public EAttribute getApplicationPart_Type() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -855,8 +852,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_Index()
-	{
+	@Override
+	public EAttribute getApplicationPart_Index() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -865,8 +862,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_Properties()
-	{
+	@Override
+	public EAttribute getApplicationPart_Properties() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -875,8 +872,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_SourceFilePath()
-	{
+	@Override
+	public EAttribute getApplicationPart_SourceFilePath() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -885,8 +882,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationPart_DeclaringCode()
-	{
+	@Override
+	public EReference getApplicationPart_DeclaringCode() {
 		return (EReference)applicationPartEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -895,8 +892,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_StartLine()
-	{
+	@Override
+	public EAttribute getApplicationPart_StartLine() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -905,8 +902,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_EndLine()
-	{
+	@Override
+	public EAttribute getApplicationPart_EndLine() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -915,8 +912,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_DatumSize()
-	{
+	@Override
+	public EAttribute getApplicationPart_DatumSize() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -925,8 +922,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_DatumLowerBound()
-	{
+	@Override
+	public EAttribute getApplicationPart_DatumLowerBound() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -935,8 +932,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_DatumUpperBound()
-	{
+	@Override
+	public EAttribute getApplicationPart_DatumUpperBound() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -945,8 +942,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_InSystemFile()
-	{
+	@Override
+	public EAttribute getApplicationPart_InSystemFile() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -955,8 +952,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_Global()
-	{
+	@Override
+	public EAttribute getApplicationPart_Global() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -965,8 +962,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_ShortLocation()
-	{
+	@Override
+	public EAttribute getApplicationPart_ShortLocation() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -975,8 +972,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_Weight()
-	{
+	@Override
+	public EAttribute getApplicationPart_Weight() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -985,8 +982,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_SecurityProperties()
-	{
+	@Override
+	public EAttribute getApplicationPart_SecurityProperties() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -995,8 +992,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationPart_Parameters()
-	{
+	@Override
+	public EReference getApplicationPart_Parameters() {
 		return (EReference)applicationPartEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -1005,8 +1002,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_Asset()
-	{
+	@Override
+	public EAttribute getApplicationPart_Asset() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -1015,8 +1012,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_DisabledAsset()
-	{
+	@Override
+	public EAttribute getApplicationPart_DisabledAsset() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(20);
 	}
 
@@ -1025,8 +1022,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationPart_ApplicationParts()
-	{
+	@Override
+	public EReference getApplicationPart_ApplicationParts() {
 		return (EReference)applicationPartEClass.getEStructuralFeatures().get(21);
 	}
 
@@ -1035,8 +1032,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationPart_Uses()
-	{
+	@Override
+	public EReference getApplicationPart_Uses() {
 		return (EReference)applicationPartEClass.getEStructuralFeatures().get(22);
 	}
 
@@ -1045,8 +1042,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationPart_TargetOf()
-	{
+	@Override
+	public EReference getApplicationPart_TargetOf() {
 		return (EReference)applicationPartEClass.getEStructuralFeatures().get(23);
 	}
 
@@ -1055,8 +1052,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationPart_Body()
-	{
+	@Override
+	public EReference getApplicationPart_Body() {
 		return (EReference)applicationPartEClass.getEStructuralFeatures().get(24);
 	}
 
@@ -1065,8 +1062,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_ContainsIfdef()
-	{
+	@Override
+	public EAttribute getApplicationPart_ContainsIfdef() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(25);
 	}
 
@@ -1075,8 +1072,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPart_ApplicationPartsCount()
-	{
+	@Override
+	public EAttribute getApplicationPart_ApplicationPartsCount() {
 		return (EAttribute)applicationPartEClass.getEStructuralFeatures().get(26);
 	}
 
@@ -1085,8 +1082,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationPart_Assets()
-	{
+	@Override
+	public EReference getApplicationPart_Assets() {
 		return (EReference)applicationPartEClass.getEStructuralFeatures().get(27);
 	}
 
@@ -1095,8 +1092,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplicationPart__Contains__ApplicationPart()
-	{
+	@Override
+	public EOperation getApplicationPart__Contains__ApplicationPart() {
 		return applicationPartEClass.getEOperations().get(0);
 	}
 
@@ -1105,8 +1102,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplicationPart__HashCode()
-	{
+	@Override
+	public EOperation getApplicationPart__HashCode() {
 		return applicationPartEClass.getEOperations().get(1);
 	}
 
@@ -1115,8 +1112,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplicationPart__Equals__Object()
-	{
+	@Override
+	public EOperation getApplicationPart__Equals__Object() {
 		return applicationPartEClass.getEOperations().get(2);
 	}
 
@@ -1125,8 +1122,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplicationPart__ToString()
-	{
+	@Override
+	public EOperation getApplicationPart__ToString() {
 		return applicationPartEClass.getEOperations().get(3);
 	}
 
@@ -1135,8 +1132,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplicationPart__IsDatum()
-	{
+	@Override
+	public EOperation getApplicationPart__IsDatum() {
 		return applicationPartEClass.getEOperations().get(4);
 	}
 
@@ -1145,8 +1142,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplicationPart__IsCode()
-	{
+	@Override
+	public EOperation getApplicationPart__IsCode() {
 		return applicationPartEClass.getEOperations().get(5);
 	}
 
@@ -1155,8 +1152,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplicationPart__ContainsAsset()
-	{
+	@Override
+	public EOperation getApplicationPart__ContainsAsset() {
 		return applicationPartEClass.getEOperations().get(6);
 	}
 
@@ -1165,8 +1162,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getUseTarget()
-	{
+	@Override
+	public EClass getUseTarget() {
 		return useTargetEClass;
 	}
 
@@ -1175,8 +1172,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUseTarget_Target()
-	{
+	@Override
+	public EReference getUseTarget_Target() {
 		return (EReference)useTargetEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1185,8 +1182,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUseTarget_UsedBy()
-	{
+	@Override
+	public EReference getUseTarget_UsedBy() {
 		return (EReference)useTargetEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1195,8 +1192,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUseTarget_Line()
-	{
+	@Override
+	public EAttribute getUseTarget_Line() {
 		return (EAttribute)useTargetEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1205,8 +1202,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUseTarget_SourceFilePath()
-	{
+	@Override
+	public EAttribute getUseTarget_SourceFilePath() {
 		return (EAttribute)useTargetEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1215,8 +1212,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getUseTarget_Type()
-	{
+	@Override
+	public EAttribute getUseTarget_Type() {
 		return (EAttribute)useTargetEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1225,8 +1222,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getUseTarget_Parameters()
-	{
+	@Override
+	public EReference getUseTarget_Parameters() {
 		return (EReference)useTargetEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1235,8 +1232,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUseTarget__HashCode()
-	{
+	@Override
+	public EOperation getUseTarget__HashCode() {
 		return useTargetEClass.getEOperations().get(0);
 	}
 
@@ -1245,8 +1242,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUseTarget__Equals__Object()
-	{
+	@Override
+	public EOperation getUseTarget__Equals__Object() {
 		return useTargetEClass.getEOperations().get(1);
 	}
 
@@ -1255,8 +1252,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getUseTarget__ToString()
-	{
+	@Override
+	public EOperation getUseTarget__ToString() {
 		return useTargetEClass.getEOperations().get(2);
 	}
 
@@ -1265,8 +1262,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAttackStep()
-	{
+	@Override
+	public EClass getAttackStep() {
 		return attackStepEClass;
 	}
 
@@ -1275,8 +1272,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackStep_Name()
-	{
+	@Override
+	public EAttribute getAttackStep_Name() {
 		return (EAttribute)attackStepEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1285,8 +1282,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackStep_Type()
-	{
+	@Override
+	public EAttribute getAttackStep_Type() {
 		return (EAttribute)attackStepEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1295,8 +1292,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttackStep_ApplicationParts()
-	{
+	@Override
+	public EReference getAttackStep_ApplicationParts() {
 		return (EReference)attackStepEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1305,8 +1302,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackStep__HashCode()
-	{
+	@Override
+	public EOperation getAttackStep__HashCode() {
 		return attackStepEClass.getEOperations().get(0);
 	}
 
@@ -1315,8 +1312,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackStep__Equals__Object()
-	{
+	@Override
+	public EOperation getAttackStep__Equals__Object() {
 		return attackStepEClass.getEOperations().get(1);
 	}
 
@@ -1325,8 +1322,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackStep__ToString()
-	{
+	@Override
+	public EOperation getAttackStep__ToString() {
 		return attackStepEClass.getEOperations().get(2);
 	}
 
@@ -1335,8 +1332,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAttackStepType()
-	{
+	@Override
+	public EClass getAttackStepType() {
 		return attackStepTypeEClass;
 	}
 
@@ -1345,8 +1342,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackStepType_Name()
-	{
+	@Override
+	public EAttribute getAttackStepType_Name() {
 		return (EAttribute)attackStepTypeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1355,8 +1352,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackStepType_Regex()
-	{
+	@Override
+	public EAttribute getAttackStepType_Regex() {
 		return (EAttribute)attackStepTypeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1365,8 +1362,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttackStepType_AttackerTools()
-	{
+	@Override
+	public EReference getAttackStepType_AttackerTools() {
 		return (EReference)attackStepTypeEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1375,8 +1372,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttackStepType_Probabilities()
-	{
+	@Override
+	public EReference getAttackStepType_Probabilities() {
 		return (EReference)attackStepTypeEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1385,8 +1382,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackStepType__HashCode()
-	{
+	@Override
+	public EOperation getAttackStepType__HashCode() {
 		return attackStepTypeEClass.getEOperations().get(0);
 	}
 
@@ -1395,8 +1392,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackStepType__Equals__Object()
-	{
+	@Override
+	public EOperation getAttackStepType__Equals__Object() {
 		return attackStepTypeEClass.getEOperations().get(1);
 	}
 
@@ -1405,8 +1402,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackStepType__ToString()
-	{
+	@Override
+	public EOperation getAttackStepType__ToString() {
 		return attackStepTypeEClass.getEOperations().get(2);
 	}
 
@@ -1415,8 +1412,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAttackStepProbability()
-	{
+	@Override
+	public EClass getAttackStepProbability() {
 		return attackStepProbabilityEClass;
 	}
 
@@ -1425,8 +1422,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackStepProbability_Name()
-	{
+	@Override
+	public EAttribute getAttackStepProbability_Name() {
 		return (EAttribute)attackStepProbabilityEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1435,8 +1432,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackStepProbability_Expertise()
-	{
+	@Override
+	public EAttribute getAttackStepProbability_Expertise() {
 		return (EAttribute)attackStepProbabilityEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1445,8 +1442,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackStepProbability_Probability()
-	{
+	@Override
+	public EAttribute getAttackStepProbability_Probability() {
 		return (EAttribute)attackStepProbabilityEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1455,8 +1452,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackStepProbability__HashCode()
-	{
+	@Override
+	public EOperation getAttackStepProbability__HashCode() {
 		return attackStepProbabilityEClass.getEOperations().get(0);
 	}
 
@@ -1465,8 +1462,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackStepProbability__Equals__Object()
-	{
+	@Override
+	public EOperation getAttackStepProbability__Equals__Object() {
 		return attackStepProbabilityEClass.getEOperations().get(1);
 	}
 
@@ -1475,8 +1472,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAttackPath()
-	{
+	@Override
+	public EClass getAttackPath() {
 		return attackPathEClass;
 	}
 
@@ -1485,8 +1482,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttackPath_AttackSteps()
-	{
+	@Override
+	public EReference getAttackPath_AttackSteps() {
 		return (EReference)attackPathEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1495,8 +1492,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttackPath_ProtectionObjectives()
-	{
+	@Override
+	public EReference getAttackPath_ProtectionObjectives() {
 		return (EReference)attackPathEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1505,8 +1502,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttackPath_AttackerToolTypes()
-	{
+	@Override
+	public EReference getAttackPath_AttackerToolTypes() {
 		return (EReference)attackPathEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1515,8 +1512,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackPath_Cost()
-	{
+	@Override
+	public EAttribute getAttackPath_Cost() {
 		return (EAttribute)attackPathEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1525,8 +1522,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttackPath_AppliedProtectionInstantiations()
-	{
+	@Override
+	public EReference getAttackPath_AppliedProtectionInstantiations() {
 		return (EReference)attackPathEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1535,8 +1532,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackPath_Key()
-	{
+	@Override
+	public EAttribute getAttackPath_Key() {
 		return (EAttribute)attackPathEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1545,8 +1542,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackPath_Id()
-	{
+	@Override
+	public EAttribute getAttackPath_Id() {
 		return (EAttribute)attackPathEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1555,8 +1552,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackPath_Mitigations()
-	{
+	@Override
+	public EAttribute getAttackPath_Mitigations() {
 		return (EAttribute)attackPathEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -1565,8 +1562,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackPath_Level()
-	{
+	@Override
+	public EAttribute getAttackPath_Level() {
 		return (EAttribute)attackPathEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -1575,8 +1572,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackPath__HashCode()
-	{
+	@Override
+	public EOperation getAttackPath__HashCode() {
 		return attackPathEClass.getEOperations().get(0);
 	}
 
@@ -1585,8 +1582,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackPath__Equals__Object()
-	{
+	@Override
+	public EOperation getAttackPath__Equals__Object() {
 		return attackPathEClass.getEOperations().get(1);
 	}
 
@@ -1595,8 +1592,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackPath__ToString()
-	{
+	@Override
+	public EOperation getAttackPath__ToString() {
 		return attackPathEClass.getEOperations().get(2);
 	}
 
@@ -1605,8 +1602,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAttackMitigation()
-	{
+	@Override
+	public EClass getAttackMitigation() {
 		return attackMitigationEClass;
 	}
 
@@ -1615,8 +1612,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackMitigation_Name()
-	{
+	@Override
+	public EAttribute getAttackMitigation_Name() {
 		return (EAttribute)attackMitigationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1625,8 +1622,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackMitigation_Level()
-	{
+	@Override
+	public EAttribute getAttackMitigation_Level() {
 		return (EAttribute)attackMitigationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1635,8 +1632,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttackMitigation_Type()
-	{
+	@Override
+	public EReference getAttackMitigation_Type() {
 		return (EReference)attackMitigationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1645,8 +1642,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttackMitigation_AttackPaths()
-	{
+	@Override
+	public EReference getAttackMitigation_AttackPaths() {
 		return (EReference)attackMitigationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1655,8 +1652,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttackMitigation_Protection()
-	{
+	@Override
+	public EReference getAttackMitigation_Protection() {
 		return (EReference)attackMitigationEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1665,8 +1662,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackMitigation__HashCode()
-	{
+	@Override
+	public EOperation getAttackMitigation__HashCode() {
 		return attackMitigationEClass.getEOperations().get(0);
 	}
 
@@ -1675,8 +1672,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackMitigation__Equals__Object()
-	{
+	@Override
+	public EOperation getAttackMitigation__Equals__Object() {
 		return attackMitigationEClass.getEOperations().get(1);
 	}
 
@@ -1685,8 +1682,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProtection()
-	{
+	@Override
+	public EClass getProtection() {
 		return protectionEClass;
 	}
 
@@ -1695,8 +1692,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_Id()
-	{
+	@Override
+	public EAttribute getProtection_Id() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1705,8 +1702,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_Name()
-	{
+	@Override
+	public EAttribute getProtection_Name() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1715,8 +1712,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_Enabled()
-	{
+	@Override
+	public EAttribute getProtection_Enabled() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1725,8 +1722,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_AutomaticallyDeployable()
-	{
+	@Override
+	public EAttribute getProtection_AutomaticallyDeployable() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1735,8 +1732,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_SecondLevel()
-	{
+	@Override
+	public EAttribute getProtection_SecondLevel() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1745,8 +1742,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_SecondLevelEnlargmentUsefulness()
-	{
+	@Override
+	public EAttribute getProtection_SecondLevelEnlargmentUsefulness() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -1755,8 +1752,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_SecondLevelCallGraphEnlargmentUsefulness()
-	{
+	@Override
+	public EAttribute getProtection_SecondLevelCallGraphEnlargmentUsefulness() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -1765,8 +1762,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_SecondLevelRepetitionUsefulness()
-	{
+	@Override
+	public EAttribute getProtection_SecondLevelRepetitionUsefulness() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -1775,8 +1772,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtection_SecondLevelRepetitionInstantiation()
-	{
+	@Override
+	public EReference getProtection_SecondLevelRepetitionInstantiation() {
 		return (EReference)protectionEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -1785,8 +1782,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_ApplicationPartTypes()
-	{
+	@Override
+	public EAttribute getProtection_ApplicationPartTypes() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -1795,8 +1792,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtection_Mitigations()
-	{
+	@Override
+	public EReference getProtection_Mitigations() {
 		return (EReference)protectionEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -1805,8 +1802,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_EnforcedSecurityRequirements()
-	{
+	@Override
+	public EAttribute getProtection_EnforcedSecurityRequirements() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -1815,8 +1812,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtection_ForbiddenPrecedences()
-	{
+	@Override
+	public EReference getProtection_ForbiddenPrecedences() {
 		return (EReference)protectionEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -1825,8 +1822,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtection_DiscouragedPrecedences()
-	{
+	@Override
+	public EReference getProtection_DiscouragedPrecedences() {
 		return (EReference)protectionEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -1835,8 +1832,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtection_EncouragedPrecedences()
-	{
+	@Override
+	public EReference getProtection_EncouragedPrecedences() {
 		return (EReference)protectionEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -1845,8 +1842,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtection_ActcPrecedences()
-	{
+	@Override
+	public EReference getProtection_ActcPrecedences() {
 		return (EReference)protectionEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -1855,8 +1852,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_Singleton()
-	{
+	@Override
+	public EAttribute getProtection_Singleton() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -1865,8 +1862,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtection_DefeatedAttackerToolTypes()
-	{
+	@Override
+	public EReference getProtection_DefeatedAttackerToolTypes() {
 		return (EReference)protectionEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -1875,8 +1872,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtection_BlockedAttackerToolTypes()
-	{
+	@Override
+	public EReference getProtection_BlockedAttackerToolTypes() {
 		return (EReference)protectionEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -1885,8 +1882,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtection_Instantiations()
-	{
+	@Override
+	public EReference getProtection_Instantiations() {
 		return (EReference)protectionEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -1895,8 +1892,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_Actions()
-	{
+	@Override
+	public EAttribute getProtection_Actions() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(20);
 	}
 
@@ -1905,8 +1902,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_Flags()
-	{
+	@Override
+	public EAttribute getProtection_Flags() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(21);
 	}
 
@@ -1915,8 +1912,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtection_InstantiationsCount()
-	{
+	@Override
+	public EAttribute getProtection_InstantiationsCount() {
 		return (EAttribute)protectionEClass.getEStructuralFeatures().get(22);
 	}
 
@@ -1925,8 +1922,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getProtection__HashCode()
-	{
+	@Override
+	public EOperation getProtection__HashCode() {
 		return protectionEClass.getEOperations().get(0);
 	}
 
@@ -1935,8 +1932,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getProtection__Equals__Object()
-	{
+	@Override
+	public EOperation getProtection__Equals__Object() {
 		return protectionEClass.getEOperations().get(1);
 	}
 
@@ -1945,8 +1942,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getProtection__ToString()
-	{
+	@Override
+	public EOperation getProtection__ToString() {
 		return protectionEClass.getEOperations().get(2);
 	}
 
@@ -1955,8 +1952,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProtectionInstantiation()
-	{
+	@Override
+	public EClass getProtectionInstantiation() {
 		return protectionInstantiationEClass;
 	}
 
@@ -1965,8 +1962,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtectionInstantiation_Name()
-	{
+	@Override
+	public EAttribute getProtectionInstantiation_Name() {
 		return (EAttribute)protectionInstantiationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1975,8 +1972,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtectionInstantiation_Protection()
-	{
+	@Override
+	public EReference getProtectionInstantiation_Protection() {
 		return (EReference)protectionInstantiationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1985,8 +1982,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtectionInstantiation_VariableAnnotation()
-	{
+	@Override
+	public EAttribute getProtectionInstantiation_VariableAnnotation() {
 		return (EAttribute)protectionInstantiationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -1995,8 +1992,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtectionInstantiation_CodeAnnotation()
-	{
+	@Override
+	public EAttribute getProtectionInstantiation_CodeAnnotation() {
 		return (EAttribute)protectionInstantiationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -2005,8 +2002,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtectionInstantiation_VerifierAnnotation()
-	{
+	@Override
+	public EAttribute getProtectionInstantiation_VerifierAnnotation() {
 		return (EAttribute)protectionInstantiationEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -2015,8 +2012,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtectionInstantiation_AttestatorAnnotation()
-	{
+	@Override
+	public EAttribute getProtectionInstantiation_AttestatorAnnotation() {
 		return (EAttribute)protectionInstantiationEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -2025,8 +2022,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtectionInstantiation_ClientTimeOverhead()
-	{
+	@Override
+	public EAttribute getProtectionInstantiation_ToolCommand() {
 		return (EAttribute)protectionInstantiationEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -2035,8 +2032,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtectionInstantiation_ServerTimeOverhead()
-	{
+	@Override
+	public EAttribute getProtectionInstantiation_ClientTimeOverhead() {
 		return (EAttribute)protectionInstantiationEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -2045,8 +2042,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtectionInstantiation_ClientMemoryOverhead()
-	{
+	@Override
+	public EAttribute getProtectionInstantiation_ServerTimeOverhead() {
 		return (EAttribute)protectionInstantiationEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -2055,8 +2052,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtectionInstantiation_ServerMemoryOverhead()
-	{
+	@Override
+	public EAttribute getProtectionInstantiation_ClientMemoryOverhead() {
 		return (EAttribute)protectionInstantiationEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -2065,8 +2062,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtectionInstantiation_NetworkOverhead()
-	{
+	@Override
+	public EAttribute getProtectionInstantiation_ServerMemoryOverhead() {
 		return (EAttribute)protectionInstantiationEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -2075,8 +2072,18 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getProtectionInstantiation__HashCode()
-	{
+	@Override
+	public EAttribute getProtectionInstantiation_NetworkOverhead() {
+		return (EAttribute)protectionInstantiationEClass.getEStructuralFeatures().get(11);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getProtectionInstantiation__HashCode() {
 		return protectionInstantiationEClass.getEOperations().get(0);
 	}
 
@@ -2085,8 +2092,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getProtectionInstantiation__Equals__Object()
-	{
+	@Override
+	public EOperation getProtectionInstantiation__Equals__Object() {
 		return protectionInstantiationEClass.getEOperations().get(1);
 	}
 
@@ -2095,8 +2102,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getProtectionInstantiation__ToString()
-	{
+	@Override
+	public EOperation getProtectionInstantiation__ToString() {
 		return protectionInstantiationEClass.getEOperations().get(2);
 	}
 
@@ -2105,8 +2112,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAttacker()
-	{
+	@Override
+	public EClass getAttacker() {
 		return attackerEClass;
 	}
 
@@ -2115,8 +2122,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttacker_Expertise()
-	{
+	@Override
+	public EAttribute getAttacker_Expertise() {
 		return (EAttribute)attackerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2125,8 +2132,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttacker_BudgetLimit()
-	{
+	@Override
+	public EAttribute getAttacker_BudgetLimit() {
 		return (EAttribute)attackerEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2135,8 +2142,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttacker__HashCode()
-	{
+	@Override
+	public EOperation getAttacker__HashCode() {
 		return attackerEClass.getEOperations().get(0);
 	}
 
@@ -2145,8 +2152,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttacker__Equals__Object()
-	{
+	@Override
+	public EOperation getAttacker__Equals__Object() {
 		return attackerEClass.getEOperations().get(1);
 	}
 
@@ -2155,8 +2162,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAttackerTool()
-	{
+	@Override
+	public EClass getAttackerTool() {
 		return attackerToolEClass;
 	}
 
@@ -2165,8 +2172,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackerTool_Name()
-	{
+	@Override
+	public EAttribute getAttackerTool_Name() {
 		return (EAttribute)attackerToolEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2175,8 +2182,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAttackerTool_Types()
-	{
+	@Override
+	public EReference getAttackerTool_Types() {
 		return (EReference)attackerToolEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2185,8 +2192,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackerTool_Expertise()
-	{
+	@Override
+	public EAttribute getAttackerTool_Expertise() {
 		return (EAttribute)attackerToolEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -2195,8 +2202,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackerTool_Cost()
-	{
+	@Override
+	public EAttribute getAttackerTool_Cost() {
 		return (EAttribute)attackerToolEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -2205,8 +2212,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackerTool_Enabled()
-	{
+	@Override
+	public EAttribute getAttackerTool_Enabled() {
 		return (EAttribute)attackerToolEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -2215,8 +2222,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackerTool__HashCode()
-	{
+	@Override
+	public EOperation getAttackerTool__HashCode() {
 		return attackerToolEClass.getEOperations().get(0);
 	}
 
@@ -2225,8 +2232,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackerTool__Equals__Object()
-	{
+	@Override
+	public EOperation getAttackerTool__Equals__Object() {
 		return attackerToolEClass.getEOperations().get(1);
 	}
 
@@ -2235,8 +2242,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAttackerToolType()
-	{
+	@Override
+	public EClass getAttackerToolType() {
 		return attackerToolTypeEClass;
 	}
 
@@ -2245,8 +2252,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAttackerToolType_Name()
-	{
+	@Override
+	public EAttribute getAttackerToolType_Name() {
 		return (EAttribute)attackerToolTypeEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2255,8 +2262,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackerToolType__HashCode()
-	{
+	@Override
+	public EOperation getAttackerToolType__HashCode() {
 		return attackerToolTypeEClass.getEOperations().get(0);
 	}
 
@@ -2265,8 +2272,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackerToolType__Equals__Object()
-	{
+	@Override
+	public EOperation getAttackerToolType__Equals__Object() {
 		return attackerToolTypeEClass.getEOperations().get(1);
 	}
 
@@ -2275,8 +2282,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAttackerToolType__ToString()
-	{
+	@Override
+	public EOperation getAttackerToolType__ToString() {
 		return attackerToolTypeEClass.getEOperations().get(2);
 	}
 
@@ -2285,8 +2292,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPreferences()
-	{
+	@Override
+	public EClass getPreferences() {
 		return preferencesEClass;
 	}
 
@@ -2295,8 +2302,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_WorkingDirectory()
-	{
+	@Override
+	public EAttribute getPreferences_WorkingDirectory() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -2305,8 +2312,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_ActcConfigurationFile()
-	{
+	@Override
+	public EAttribute getPreferences_ActcConfigurationFile() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -2315,8 +2322,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_EspPatchFile()
-	{
+	@Override
+	public EAttribute getPreferences_EspPatchFile() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -2325,8 +2332,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_EspJSONFile()
-	{
+	@Override
+	public EAttribute getPreferences_EspJSONFile() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -2335,8 +2342,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_Architecture()
-	{
+	@Override
+	public EAttribute getPreferences_Architecture() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -2345,8 +2352,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_RemoteConnection()
-	{
+	@Override
+	public EAttribute getPreferences_RemoteConnection() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -2355,8 +2362,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_RemoteUsername()
-	{
+	@Override
+	public EAttribute getPreferences_RemoteUsername() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -2365,8 +2372,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_RemotePassword()
-	{
+	@Override
+	public EAttribute getPreferences_RemotePassword() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -2375,8 +2382,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_RemoteHost()
-	{
+	@Override
+	public EAttribute getPreferences_RemoteHost() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -2385,8 +2392,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_RemotePort()
-	{
+	@Override
+	public EAttribute getPreferences_RemotePort() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -2395,8 +2402,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_RemoteFileSeparator()
-	{
+	@Override
+	public EAttribute getPreferences_RemoteFileSeparator() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -2405,8 +2412,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_CommandACTC()
-	{
+	@Override
+	public EAttribute getPreferences_CommandACTC() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -2415,8 +2422,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_CommandPerl()
-	{
+	@Override
+	public EAttribute getPreferences_CommandTigress() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -2425,8 +2432,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_CommandDot()
-	{
+	@Override
+	public EAttribute getPreferences_CommandCilly() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -2435,8 +2442,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_MetricsFile()
-	{
+	@Override
+	public EAttribute getPreferences_CommandPerl() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -2445,8 +2452,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_MetricsTransformationDegree()
-	{
+	@Override
+	public EAttribute getPreferences_CommandDot() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(15);
 	}
 
@@ -2455,8 +2462,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_MetricsPseudoInverseSensitivity()
-	{
+	@Override
+	public EAttribute getPreferences_MetricsFile() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(16);
 	}
 
@@ -2465,8 +2472,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_MetricsDerivativeSensitivity()
-	{
+	@Override
+	public EAttribute getPreferences_MetricsTransformationDegree() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(17);
 	}
 
@@ -2475,8 +2482,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_MetricsFitter()
-	{
+	@Override
+	public EAttribute getPreferences_MetricsPseudoInverseSensitivity() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(18);
 	}
 
@@ -2485,8 +2492,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_MetricsNonLinearMaximumIterations()
-	{
+	@Override
+	public EAttribute getPreferences_MetricsDerivativeSensitivity() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(19);
 	}
 
@@ -2495,8 +2502,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_MetricsNonLinearStepSize()
-	{
+	@Override
+	public EAttribute getPreferences_MetricsFitter() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(20);
 	}
 
@@ -2505,8 +2512,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_MetricsNonLinearMinimumError()
-	{
+	@Override
+	public EAttribute getPreferences_MetricsNonLinearMaximumIterations() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(21);
 	}
 
@@ -2515,8 +2522,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_MetricsNonLinearMinimumChange()
-	{
+	@Override
+	public EAttribute getPreferences_MetricsNonLinearStepSize() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(22);
 	}
 
@@ -2525,8 +2532,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_ParserHeaderParsing()
-	{
+	@Override
+	public EAttribute getPreferences_MetricsNonLinearMinimumError() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(23);
 	}
 
@@ -2535,8 +2542,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_ParserSystemFilesIgnoration()
-	{
+	@Override
+	public EAttribute getPreferences_MetricsNonLinearMinimumChange() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(24);
 	}
 
@@ -2545,8 +2552,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_AttacksTimeLimit()
-	{
+	@Override
+	public EAttribute getPreferences_ParserHeaderParsing() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(25);
 	}
 
@@ -2555,8 +2562,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_AttacksMaximumDepth()
-	{
+	@Override
+	public EAttribute getPreferences_ParserSystemFilesIgnoration() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(26);
 	}
 
@@ -2565,8 +2572,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_AttacksIncludedProtectionObjectivesRemoval()
-	{
+	@Override
+	public EAttribute getPreferences_AttacksTimeLimit() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(27);
 	}
 
@@ -2575,8 +2582,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_ProtectionsMinimumAttackMitigation()
-	{
+	@Override
+	public EAttribute getPreferences_AttacksMaximumDepth() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(28);
 	}
 
@@ -2585,8 +2592,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_MaxAttestatorsPerProtectionInstantiation()
-	{
+	@Override
+	public EAttribute getPreferences_AttacksIncludedProtectionObjectivesRemoval() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(29);
 	}
 
@@ -2595,8 +2602,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_ClientTimeOverhead()
-	{
+	@Override
+	public EAttribute getPreferences_ProtectionsMinimumAttackMitigation() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(30);
 	}
 
@@ -2605,8 +2612,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_ServerTimeOverhead()
-	{
+	@Override
+	public EAttribute getPreferences_MaxAttestatorsPerProtectionInstantiation() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(31);
 	}
 
@@ -2615,8 +2622,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_ClientMemoryOverhead()
-	{
+	@Override
+	public EAttribute getPreferences_ClientTimeOverhead() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(32);
 	}
 
@@ -2625,8 +2632,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_ServerMemoryOverhead()
-	{
+	@Override
+	public EAttribute getPreferences_ServerTimeOverhead() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(33);
 	}
 
@@ -2635,8 +2642,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_NetworkOverhead()
-	{
+	@Override
+	public EAttribute getPreferences_ClientMemoryOverhead() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(34);
 	}
 
@@ -2645,8 +2652,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pSolutionsCount()
-	{
+	@Override
+	public EAttribute getPreferences_ServerMemoryOverhead() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(35);
 	}
 
@@ -2655,8 +2662,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pTimeLimit()
-	{
+	@Override
+	public EAttribute getPreferences_NetworkOverhead() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(36);
 	}
 
@@ -2665,8 +2672,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pSolutionsLimit()
-	{
+	@Override
+	public EAttribute getPreferences_L1pSolutionsCount() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(37);
 	}
 
@@ -2675,8 +2682,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pGapLimit()
-	{
+	@Override
+	public EAttribute getPreferences_L1pTimeLimit() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(38);
 	}
 
@@ -2685,8 +2692,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pClientTimeOverheadPercentage()
-	{
+	@Override
+	public EAttribute getPreferences_L1pSolutionsLimit() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(39);
 	}
 
@@ -2695,8 +2702,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pServerTimeOverheadPercentage()
-	{
+	@Override
+	public EAttribute getPreferences_L1pGapLimit() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(40);
 	}
 
@@ -2705,8 +2712,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pClientMemoryOverheadPercentage()
-	{
+	@Override
+	public EAttribute getPreferences_L1pClientTimeOverheadPercentage() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(41);
 	}
 
@@ -2715,8 +2722,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pServerMemoryOverheadPercentage()
-	{
+	@Override
+	public EAttribute getPreferences_L1pServerTimeOverheadPercentage() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(42);
 	}
 
@@ -2725,8 +2732,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pNetworkOverheadPercentage()
-	{
+	@Override
+	public EAttribute getPreferences_L1pClientMemoryOverheadPercentage() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(43);
 	}
 
@@ -2735,8 +2742,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pDiscouragedPrecedencesIgnoration()
-	{
+	@Override
+	public EAttribute getPreferences_L1pServerMemoryOverheadPercentage() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(44);
 	}
 
@@ -2745,8 +2752,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pEncouragedPrecedencesFocusing()
-	{
+	@Override
+	public EAttribute getPreferences_L1pNetworkOverheadPercentage() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(45);
 	}
 
@@ -2755,8 +2762,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pUseACTCPrecedences()
-	{
+	@Override
+	public EAttribute getPreferences_L1pDiscouragedPrecedencesIgnoration() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(46);
 	}
 
@@ -2765,8 +2772,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pIgnoreApplicationPartOrder()
-	{
+	@Override
+	public EAttribute getPreferences_L1pEncouragedPrecedencesFocusing() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(47);
 	}
 
@@ -2775,8 +2782,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pMaximumInstantiationsPerProtectionObjective()
-	{
+	@Override
+	public EAttribute getPreferences_L1pUseACTCPrecedences() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(48);
 	}
 
@@ -2785,8 +2792,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pMainSearchMaximumDepth()
-	{
+	@Override
+	public EAttribute getPreferences_L1pIgnoreApplicationPartOrder() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(49);
 	}
 
@@ -2795,8 +2802,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pMultiTreeMultiplier()
-	{
+	@Override
+	public EAttribute getPreferences_L1pMaximumInstantiationsPerProtectionObjective() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(50);
 	}
 
@@ -2805,8 +2812,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pInitialAlpha()
-	{
+	@Override
+	public EAttribute getPreferences_L1pMainSearchMaximumDepth() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(51);
 	}
 
@@ -2815,8 +2822,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pInitialBeta()
-	{
+	@Override
+	public EAttribute getPreferences_L1pMultiTreeMultiplier() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(52);
 	}
 
@@ -2825,8 +2832,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pResearchDelta()
-	{
+	@Override
+	public EAttribute getPreferences_L1pInitialAlpha() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(53);
 	}
 
@@ -2835,8 +2842,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pTranspositionTableMaximumSize()
-	{
+	@Override
+	public EAttribute getPreferences_L1pInitialBeta() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(54);
 	}
 
@@ -2845,8 +2852,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pFutilityMargin()
-	{
+	@Override
+	public EAttribute getPreferences_L1pResearchDelta() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(55);
 	}
 
@@ -2855,8 +2862,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pExtendedFutilityMargin()
-	{
+	@Override
+	public EAttribute getPreferences_L1pTranspositionTableMaximumSize() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(56);
 	}
 
@@ -2865,8 +2872,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L1pRazoringMargin()
-	{
+	@Override
+	public EAttribute getPreferences_L1pFutilityMargin() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(57);
 	}
 
@@ -2875,8 +2882,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L2pSolutionsCount()
-	{
+	@Override
+	public EAttribute getPreferences_L1pExtendedFutilityMargin() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(58);
 	}
 
@@ -2885,8 +2892,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L2pFunctionSplittingSeed()
-	{
+	@Override
+	public EAttribute getPreferences_L1pRazoringMargin() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(59);
 	}
 
@@ -2895,8 +2902,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L2pStartFromL1pSolution()
-	{
+	@Override
+	public EAttribute getPreferences_L2pSolutionsCount() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(60);
 	}
 
@@ -2905,8 +2912,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L2pSolutionLimit()
-	{
+	@Override
+	public EAttribute getPreferences_L2pFunctionSplittingSeed() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(61);
 	}
 
@@ -2915,8 +2922,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L2pTimeLimit()
-	{
+	@Override
+	public EAttribute getPreferences_L2pStartFromL1pSolution() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(62);
 	}
 
@@ -2925,8 +2932,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L2pGapLimit()
-	{
+	@Override
+	public EAttribute getPreferences_L2pSolutionLimit() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(63);
 	}
 
@@ -2935,8 +2942,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L2pUpperBound()
-	{
+	@Override
+	public EAttribute getPreferences_L2pTimeLimit() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(64);
 	}
 
@@ -2945,8 +2952,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L2pFunctionSplittingMediumCodeBlockLength()
-	{
+	@Override
+	public EAttribute getPreferences_L2pGapLimit() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(65);
 	}
 
@@ -2955,8 +2962,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L2pFunctionSplittingCodeBlockLengthRandomizationDenominator()
-	{
+	@Override
+	public EAttribute getPreferences_L2pUpperBound() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(66);
 	}
 
@@ -2965,8 +2972,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getPreferences_L2pFunctionSplittingDepthLevel()
-	{
+	@Override
+	public EAttribute getPreferences_L2pFunctionSplittingMediumCodeBlockLength() {
 		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(67);
 	}
 
@@ -2975,8 +2982,28 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPreferences__HashCode()
-	{
+	@Override
+	public EAttribute getPreferences_L2pFunctionSplittingCodeBlockLengthRandomizationDenominator() {
+		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(68);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPreferences_L2pFunctionSplittingDepthLevel() {
+		return (EAttribute)preferencesEClass.getEStructuralFeatures().get(69);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getPreferences__HashCode() {
 		return preferencesEClass.getEOperations().get(0);
 	}
 
@@ -2985,8 +3012,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getPreferences__Equals__Object()
-	{
+	@Override
+	public EOperation getPreferences__Equals__Object() {
 		return preferencesEClass.getEOperations().get(1);
 	}
 
@@ -2995,8 +3022,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getAppliedProtectionInstantiation()
-	{
+	@Override
+	public EClass getAppliedProtectionInstantiation() {
 		return appliedProtectionInstantiationEClass;
 	}
 
@@ -3005,8 +3032,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAppliedProtectionInstantiation_ProtectionInstantiation()
-	{
+	@Override
+	public EReference getAppliedProtectionInstantiation_ProtectionInstantiation() {
 		return (EReference)appliedProtectionInstantiationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3015,8 +3042,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAppliedProtectionInstantiation_ApplicationPart()
-	{
+	@Override
+	public EReference getAppliedProtectionInstantiation_ApplicationPart() {
 		return (EReference)appliedProtectionInstantiationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -3025,8 +3052,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAppliedProtectionInstantiation_ProtectionObjectives()
-	{
+	@Override
+	public EReference getAppliedProtectionInstantiation_ProtectionObjectives() {
 		return (EReference)appliedProtectionInstantiationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -3035,8 +3062,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAppliedProtectionInstantiation_AttackMitigations()
-	{
+	@Override
+	public EReference getAppliedProtectionInstantiation_AttackMitigations() {
 		return (EReference)appliedProtectionInstantiationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -3045,8 +3072,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getAppliedProtectionInstantiation_SecondLevelMotivation()
-	{
+	@Override
+	public EReference getAppliedProtectionInstantiation_SecondLevelMotivation() {
 		return (EReference)appliedProtectionInstantiationEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -3055,8 +3082,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAppliedProtectionInstantiation_VariableAnnotation()
-	{
+	@Override
+	public EAttribute getAppliedProtectionInstantiation_VariableAnnotation() {
 		return (EAttribute)appliedProtectionInstantiationEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -3065,8 +3092,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAppliedProtectionInstantiation_CodeAnnotation()
-	{
+	@Override
+	public EAttribute getAppliedProtectionInstantiation_CodeAnnotation() {
 		return (EAttribute)appliedProtectionInstantiationEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -3075,8 +3102,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAppliedProtectionInstantiation_VerifierAnnotation()
-	{
+	@Override
+	public EAttribute getAppliedProtectionInstantiation_VerifierAnnotation() {
 		return (EAttribute)appliedProtectionInstantiationEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -3085,8 +3112,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getAppliedProtectionInstantiation_AttestatorAnnotation()
-	{
+	@Override
+	public EAttribute getAppliedProtectionInstantiation_AttestatorAnnotation() {
 		return (EAttribute)appliedProtectionInstantiationEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -3095,8 +3122,18 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAppliedProtectionInstantiation__ToString()
-	{
+	@Override
+	public EAttribute getAppliedProtectionInstantiation_ToolCommand() {
+		return (EAttribute)appliedProtectionInstantiationEClass.getEStructuralFeatures().get(9);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EOperation getAppliedProtectionInstantiation__ToString() {
 		return appliedProtectionInstantiationEClass.getEOperations().get(0);
 	}
 
@@ -3105,8 +3142,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAppliedProtectionInstantiation__HashCode()
-	{
+	@Override
+	public EOperation getAppliedProtectionInstantiation__HashCode() {
 		return appliedProtectionInstantiationEClass.getEOperations().get(1);
 	}
 
@@ -3115,8 +3152,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getAppliedProtectionInstantiation__Equals__Object()
-	{
+	@Override
+	public EOperation getAppliedProtectionInstantiation__Equals__Object() {
 		return appliedProtectionInstantiationEClass.getEOperations().get(2);
 	}
 
@@ -3125,8 +3162,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSecondLevelMotivation()
-	{
+	@Override
+	public EClass getSecondLevelMotivation() {
 		return secondLevelMotivationEClass;
 	}
 
@@ -3135,8 +3172,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSecondLevelMotivation_MotivationType()
-	{
+	@Override
+	public EAttribute getSecondLevelMotivation_MotivationType() {
 		return (EAttribute)secondLevelMotivationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3145,8 +3182,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSecondLevelMotivation_FirstLevelAppliedProtectionInstantiations()
-	{
+	@Override
+	public EReference getSecondLevelMotivation_FirstLevelAppliedProtectionInstantiations() {
 		return (EReference)secondLevelMotivationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -3155,8 +3192,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSecondLevelMotivation__ToString()
-	{
+	@Override
+	public EOperation getSecondLevelMotivation__ToString() {
 		return secondLevelMotivationEClass.getEOperations().get(0);
 	}
 
@@ -3165,8 +3202,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSecondLevelMotivation__HashCode()
-	{
+	@Override
+	public EOperation getSecondLevelMotivation__HashCode() {
 		return secondLevelMotivationEClass.getEOperations().get(1);
 	}
 
@@ -3175,8 +3212,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSecondLevelMotivation__Equals__Object()
-	{
+	@Override
+	public EOperation getSecondLevelMotivation__Equals__Object() {
 		return secondLevelMotivationEClass.getEOperations().get(2);
 	}
 
@@ -3185,8 +3222,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSolutionSequence()
-	{
+	@Override
+	public EClass getSolutionSequence() {
 		return solutionSequenceEClass;
 	}
 
@@ -3195,8 +3232,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSolutionSequence_AppliedProtectionInstantiations()
-	{
+	@Override
+	public EReference getSolutionSequence_AppliedProtectionInstantiations() {
 		return (EReference)solutionSequenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3205,8 +3242,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolutionSequence__ToString()
-	{
+	@Override
+	public EOperation getSolutionSequence__ToString() {
 		return solutionSequenceEClass.getEOperations().get(0);
 	}
 
@@ -3215,8 +3252,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolutionSequence__HashCode()
-	{
+	@Override
+	public EOperation getSolutionSequence__HashCode() {
 		return solutionSequenceEClass.getEOperations().get(1);
 	}
 
@@ -3225,8 +3262,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolutionSequence__Equals__Object()
-	{
+	@Override
+	public EOperation getSolutionSequence__Equals__Object() {
 		return solutionSequenceEClass.getEOperations().get(2);
 	}
 
@@ -3235,8 +3272,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSolution()
-	{
+	@Override
+	public EClass getSolution() {
 		return solutionEClass;
 	}
 
@@ -3245,8 +3282,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSolution_SolutionSequences()
-	{
+	@Override
+	public EReference getSolution_SolutionSequences() {
 		return (EReference)solutionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3255,8 +3292,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSolution_AttackPaths()
-	{
+	@Override
+	public EReference getSolution_AttackPaths() {
 		return (EReference)solutionEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -3265,8 +3302,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSolution_ApplicationMetrics()
-	{
+	@Override
+	public EReference getSolution_ApplicationMetrics() {
 		return (EReference)solutionEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -3275,8 +3312,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSolution_ApplicationPartMetricSets()
-	{
+	@Override
+	public EReference getSolution_ApplicationPartMetricSets() {
 		return (EReference)solutionEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -3285,8 +3322,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getSolution_FirstLevelSolution()
-	{
+	@Override
+	public EReference getSolution_FirstLevelSolution() {
 		return (EReference)solutionEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -3295,8 +3332,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolution_L1pScore()
-	{
+	@Override
+	public EAttribute getSolution_L1pScore() {
 		return (EAttribute)solutionEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -3305,8 +3342,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolution_L1pTime()
-	{
+	@Override
+	public EAttribute getSolution_L1pTime() {
 		return (EAttribute)solutionEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -3315,8 +3352,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolution_L2pScore()
-	{
+	@Override
+	public EAttribute getSolution_L2pScore() {
 		return (EAttribute)solutionEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -3325,8 +3362,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolution_L2pTime()
-	{
+	@Override
+	public EAttribute getSolution_L2pTime() {
 		return (EAttribute)solutionEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -3335,8 +3372,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolution_ClientTimeOverhead()
-	{
+	@Override
+	public EAttribute getSolution_ClientTimeOverhead() {
 		return (EAttribute)solutionEClass.getEStructuralFeatures().get(9);
 	}
 
@@ -3345,8 +3382,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolution_ServerTimeOverhead()
-	{
+	@Override
+	public EAttribute getSolution_ServerTimeOverhead() {
 		return (EAttribute)solutionEClass.getEStructuralFeatures().get(10);
 	}
 
@@ -3355,8 +3392,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolution_ClientMemoryOverhead()
-	{
+	@Override
+	public EAttribute getSolution_ClientMemoryOverhead() {
 		return (EAttribute)solutionEClass.getEStructuralFeatures().get(11);
 	}
 
@@ -3365,8 +3402,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolution_ServerMemoryOverhead()
-	{
+	@Override
+	public EAttribute getSolution_ServerMemoryOverhead() {
 		return (EAttribute)solutionEClass.getEStructuralFeatures().get(12);
 	}
 
@@ -3375,8 +3412,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolution_NetworkOverhead()
-	{
+	@Override
+	public EAttribute getSolution_NetworkOverhead() {
 		return (EAttribute)solutionEClass.getEStructuralFeatures().get(13);
 	}
 
@@ -3385,8 +3422,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSolution_Id()
-	{
+	@Override
+	public EAttribute getSolution_Id() {
 		return (EAttribute)solutionEClass.getEStructuralFeatures().get(14);
 	}
 
@@ -3395,8 +3432,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolution__ToString()
-	{
+	@Override
+	public EOperation getSolution__ToString() {
 		return solutionEClass.getEOperations().get(0);
 	}
 
@@ -3405,8 +3442,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolution__HashCode()
-	{
+	@Override
+	public EOperation getSolution__HashCode() {
 		return solutionEClass.getEOperations().get(1);
 	}
 
@@ -3415,8 +3452,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getSolution__Equals__Object()
-	{
+	@Override
+	public EOperation getSolution__Equals__Object() {
 		return solutionEClass.getEOperations().get(2);
 	}
 
@@ -3425,8 +3462,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getApplicationPartMetricSet()
-	{
+	@Override
+	public EClass getApplicationPartMetricSet() {
 		return applicationPartMetricSetEClass;
 	}
 
@@ -3435,8 +3472,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationPartMetricSet_ApplicationPart()
-	{
+	@Override
+	public EReference getApplicationPartMetricSet_ApplicationPart() {
 		return (EReference)applicationPartMetricSetEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3445,8 +3482,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationPartMetricSet_Metrics()
-	{
+	@Override
+	public EReference getApplicationPartMetricSet_Metrics() {
 		return (EReference)applicationPartMetricSetEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -3455,8 +3492,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplicationPartMetricSet__HashCode()
-	{
+	@Override
+	public EOperation getApplicationPartMetricSet__HashCode() {
 		return applicationPartMetricSetEClass.getEOperations().get(0);
 	}
 
@@ -3465,8 +3502,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplicationPartMetricSet__Equals__Object()
-	{
+	@Override
+	public EOperation getApplicationPartMetricSet__Equals__Object() {
 		return applicationPartMetricSetEClass.getEOperations().get(1);
 	}
 
@@ -3475,8 +3512,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMetric()
-	{
+	@Override
+	public EClass getMetric() {
 		return metricEClass;
 	}
 
@@ -3485,8 +3522,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMetric_Name()
-	{
+	@Override
+	public EAttribute getMetric_Name() {
 		return (EAttribute)metricEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3495,8 +3532,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getMetric_Value()
-	{
+	@Override
+	public EAttribute getMetric_Value() {
 		return (EAttribute)metricEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -3505,8 +3542,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getMetric__HashCode()
-	{
+	@Override
+	public EOperation getMetric__HashCode() {
 		return metricEClass.getEOperations().get(0);
 	}
 
@@ -3515,8 +3552,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getMetric__Equals__Object()
-	{
+	@Override
+	public EOperation getMetric__Equals__Object() {
 		return metricEClass.getEOperations().get(1);
 	}
 
@@ -3525,8 +3562,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCodeBlock()
-	{
+	@Override
+	public EClass getCodeBlock() {
 		return codeBlockEClass;
 	}
 
@@ -3535,8 +3572,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCodeBlock_Type()
-	{
+	@Override
+	public EAttribute getCodeBlock_Type() {
 		return (EAttribute)codeBlockEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3545,8 +3582,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCodeBlock_CodeBlocks()
-	{
+	@Override
+	public EReference getCodeBlock_CodeBlocks() {
 		return (EReference)codeBlockEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -3555,8 +3592,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCodeBlock_StartLine()
-	{
+	@Override
+	public EAttribute getCodeBlock_StartLine() {
 		return (EAttribute)codeBlockEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -3565,8 +3602,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCodeBlock_EndLine()
-	{
+	@Override
+	public EAttribute getCodeBlock_EndLine() {
 		return (EAttribute)codeBlockEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -3575,8 +3612,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCodeBlock_SourceFilePath()
-	{
+	@Override
+	public EAttribute getCodeBlock_SourceFilePath() {
 		return (EAttribute)codeBlockEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -3585,8 +3622,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCodeBlock__HashCode()
-	{
+	@Override
+	public EOperation getCodeBlock__HashCode() {
 		return codeBlockEClass.getEOperations().get(0);
 	}
 
@@ -3595,8 +3632,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCodeBlock__Equals__Object()
-	{
+	@Override
+	public EOperation getCodeBlock__Equals__Object() {
 		return codeBlockEClass.getEOperations().get(1);
 	}
 
@@ -3605,8 +3642,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getCodeBlock__ToString()
-	{
+	@Override
+	public EOperation getCodeBlock__ToString() {
 		return codeBlockEClass.getEOperations().get(2);
 	}
 
@@ -3615,8 +3652,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getRule()
-	{
+	@Override
+	public EClass getRule() {
 		return ruleEClass;
 	}
 
@@ -3625,8 +3662,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getRule_Action()
-	{
+	@Override
+	public EAttribute getRule_Action() {
 		return (EAttribute)ruleEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3635,8 +3672,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRule_FunctionDeclarations()
-	{
+	@Override
+	public EReference getRule_FunctionDeclarations() {
 		return (EReference)ruleEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -3645,8 +3682,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRule__HashCode()
-	{
+	@Override
+	public EOperation getRule__HashCode() {
 		return ruleEClass.getEOperations().get(0);
 	}
 
@@ -3655,8 +3692,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getRule__Equals__Object()
-	{
+	@Override
+	public EOperation getRule__Equals__Object() {
 		return ruleEClass.getEOperations().get(1);
 	}
 
@@ -3665,8 +3702,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getFunctionDeclaration()
-	{
+	@Override
+	public EClass getFunctionDeclaration() {
 		return functionDeclarationEClass;
 	}
 
@@ -3675,8 +3712,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFunctionDeclaration_Name()
-	{
+	@Override
+	public EAttribute getFunctionDeclaration_Name() {
 		return (EAttribute)functionDeclarationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3685,8 +3722,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getFunctionDeclaration_Parameters()
-	{
+	@Override
+	public EAttribute getFunctionDeclaration_Parameters() {
 		return (EAttribute)functionDeclarationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -3695,8 +3732,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFunctionDeclaration__HashCode()
-	{
+	@Override
+	public EOperation getFunctionDeclaration__HashCode() {
 		return functionDeclarationEClass.getEOperations().get(0);
 	}
 
@@ -3705,8 +3742,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getFunctionDeclaration__Equals__Object()
-	{
+	@Override
+	public EOperation getFunctionDeclaration__Equals__Object() {
 		return functionDeclarationEClass.getEOperations().get(1);
 	}
 
@@ -3715,8 +3752,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getApplicationPartSet()
-	{
+	@Override
+	public EClass getApplicationPartSet() {
 		return applicationPartSetEClass;
 	}
 
@@ -3725,8 +3762,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getApplicationPartSet_ApplicationParts()
-	{
+	@Override
+	public EReference getApplicationPartSet_ApplicationParts() {
 		return (EReference)applicationPartSetEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3735,8 +3772,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getApplicationPartSet_Action()
-	{
+	@Override
+	public EAttribute getApplicationPartSet_Action() {
 		return (EAttribute)applicationPartSetEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -3745,8 +3782,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplicationPartSet__HashCode()
-	{
+	@Override
+	public EOperation getApplicationPartSet__HashCode() {
 		return applicationPartSetEClass.getEOperations().get(0);
 	}
 
@@ -3755,8 +3792,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getApplicationPartSet__Equals__Object()
-	{
+	@Override
+	public EOperation getApplicationPartSet__Equals__Object() {
 		return applicationPartSetEClass.getEOperations().get(1);
 	}
 
@@ -3765,8 +3802,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getProtectionObjective()
-	{
+	@Override
+	public EClass getProtectionObjective() {
 		return protectionObjectiveEClass;
 	}
 
@@ -3775,8 +3812,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getProtectionObjective_ApplicationPart()
-	{
+	@Override
+	public EReference getProtectionObjective_ApplicationPart() {
 		return (EReference)protectionObjectiveEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -3785,8 +3822,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getProtectionObjective_Property()
-	{
+	@Override
+	public EAttribute getProtectionObjective_Property() {
 		return (EAttribute)protectionObjectiveEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -3795,8 +3832,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getProtectionObjective__HashCode()
-	{
+	@Override
+	public EOperation getProtectionObjective__HashCode() {
 		return protectionObjectiveEClass.getEOperations().get(0);
 	}
 
@@ -3805,8 +3842,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getProtectionObjective__Equals__Object()
-	{
+	@Override
+	public EOperation getProtectionObjective__Equals__Object() {
 		return protectionObjectiveEClass.getEOperations().get(1);
 	}
 
@@ -3815,8 +3852,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EOperation getProtectionObjective__ToString()
-	{
+	@Override
+	public EOperation getProtectionObjective__ToString() {
 		return protectionObjectiveEClass.getEOperations().get(2);
 	}
 
@@ -3825,8 +3862,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getUseType()
-	{
+	@Override
+	public EEnum getUseType() {
 		return useTypeEEnum;
 	}
 
@@ -3835,8 +3872,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getProperty()
-	{
+	@Override
+	public EEnum getProperty() {
 		return propertyEEnum;
 	}
 
@@ -3845,8 +3882,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getProtectionFlag()
-	{
+	@Override
+	public EEnum getProtectionFlag() {
 		return protectionFlagEEnum;
 	}
 
@@ -3855,8 +3892,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getApplicationPartType()
-	{
+	@Override
+	public EEnum getApplicationPartType() {
 		return applicationPartTypeEEnum;
 	}
 
@@ -3865,8 +3902,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getLevel()
-	{
+	@Override
+	public EEnum getLevel() {
 		return levelEEnum;
 	}
 
@@ -3875,8 +3912,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getExpertiseLevel()
-	{
+	@Override
+	public EEnum getExpertiseLevel() {
 		return expertiseLevelEEnum;
 	}
 
@@ -3885,8 +3922,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getSecondLevelMotivationType()
-	{
+	@Override
+	public EEnum getSecondLevelMotivationType() {
 		return secondLevelMotivationTypeEEnum;
 	}
 
@@ -3895,8 +3932,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getCodeBlockType()
-	{
+	@Override
+	public EEnum getCodeBlockType() {
 		return codeBlockTypeEEnum;
 	}
 
@@ -3905,8 +3942,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getActionType()
-	{
+	@Override
+	public EEnum getActionType() {
 		return actionTypeEEnum;
 	}
 
@@ -3915,8 +3952,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EEnum getFitterType()
-	{
+	@Override
+	public EEnum getFitterType() {
 		return fitterTypeEEnum;
 	}
 
@@ -3925,8 +3962,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getOntology()
-	{
+	@Override
+	public EDataType getOntology() {
 		return ontologyEDataType;
 	}
 
@@ -3935,8 +3972,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getInteger()
-	{
+	@Override
+	public EDataType getInteger() {
 		return integerEDataType;
 	}
 
@@ -3945,8 +3982,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getAttackStepTypeWithNull()
-	{
+	@Override
+	public EDataType getAttackStepTypeWithNull() {
 		return attackStepTypeWithNullEDataType;
 	}
 
@@ -3955,8 +3992,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EDataType getLevelWithNull()
-	{
+	@Override
+	public EDataType getLevelWithNull() {
 		return levelWithNullEDataType;
 	}
 
@@ -3965,8 +4002,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public KbFactory getKbFactory()
-	{
+	@Override
+	public KbFactory getKbFactory() {
 		return (KbFactory)getEFactoryInstance();
 	}
 
@@ -3984,8 +4021,7 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void createPackageContents()
-	{
+	public void createPackageContents() {
 		if (isCreated) return;
 		isCreated = true;
 
@@ -4161,6 +4197,7 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 		createEAttribute(protectionInstantiationEClass, PROTECTION_INSTANTIATION__CODE_ANNOTATION);
 		createEAttribute(protectionInstantiationEClass, PROTECTION_INSTANTIATION__VERIFIER_ANNOTATION);
 		createEAttribute(protectionInstantiationEClass, PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION);
+		createEAttribute(protectionInstantiationEClass, PROTECTION_INSTANTIATION__TOOL_COMMAND);
 		createEAttribute(protectionInstantiationEClass, PROTECTION_INSTANTIATION__CLIENT_TIME_OVERHEAD);
 		createEAttribute(protectionInstantiationEClass, PROTECTION_INSTANTIATION__SERVER_TIME_OVERHEAD);
 		createEAttribute(protectionInstantiationEClass, PROTECTION_INSTANTIATION__CLIENT_MEMORY_OVERHEAD);
@@ -4204,6 +4241,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 		createEAttribute(preferencesEClass, PREFERENCES__REMOTE_PORT);
 		createEAttribute(preferencesEClass, PREFERENCES__REMOTE_FILE_SEPARATOR);
 		createEAttribute(preferencesEClass, PREFERENCES__COMMAND_ACTC);
+		createEAttribute(preferencesEClass, PREFERENCES__COMMAND_TIGRESS);
+		createEAttribute(preferencesEClass, PREFERENCES__COMMAND_CILLY);
 		createEAttribute(preferencesEClass, PREFERENCES__COMMAND_PERL);
 		createEAttribute(preferencesEClass, PREFERENCES__COMMAND_DOT);
 		createEAttribute(preferencesEClass, PREFERENCES__METRICS_FILE);
@@ -4273,6 +4312,7 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 		createEAttribute(appliedProtectionInstantiationEClass, APPLIED_PROTECTION_INSTANTIATION__CODE_ANNOTATION);
 		createEAttribute(appliedProtectionInstantiationEClass, APPLIED_PROTECTION_INSTANTIATION__VERIFIER_ANNOTATION);
 		createEAttribute(appliedProtectionInstantiationEClass, APPLIED_PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION);
+		createEAttribute(appliedProtectionInstantiationEClass, APPLIED_PROTECTION_INSTANTIATION__TOOL_COMMAND);
 		createEOperation(appliedProtectionInstantiationEClass, APPLIED_PROTECTION_INSTANTIATION___TO_STRING);
 		createEOperation(appliedProtectionInstantiationEClass, APPLIED_PROTECTION_INSTANTIATION___HASH_CODE);
 		createEOperation(appliedProtectionInstantiationEClass, APPLIED_PROTECTION_INSTANTIATION___EQUALS__OBJECT);
@@ -4390,8 +4430,7 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void initializePackageContents()
-	{
+	public void initializePackageContents() {
 		if (isInitialized) return;
 		isInitialized = true;
 
@@ -4616,6 +4655,7 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 		initEAttribute(getProtectionInstantiation_CodeAnnotation(), theEcorePackage.getEString(), "codeAnnotation", null, 0, 1, ProtectionInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProtectionInstantiation_VerifierAnnotation(), theEcorePackage.getEString(), "verifierAnnotation", null, 0, 1, ProtectionInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProtectionInstantiation_AttestatorAnnotation(), theEcorePackage.getEString(), "attestatorAnnotation", null, 0, 1, ProtectionInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getProtectionInstantiation_ToolCommand(), theEcorePackage.getEString(), "toolCommand", null, 0, 1, ProtectionInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProtectionInstantiation_ClientTimeOverhead(), theEcorePackage.getEString(), "clientTimeOverhead", null, 0, 1, ProtectionInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProtectionInstantiation_ServerTimeOverhead(), theEcorePackage.getEString(), "serverTimeOverhead", null, 0, 1, ProtectionInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getProtectionInstantiation_ClientMemoryOverhead(), theEcorePackage.getEString(), "clientMemoryOverhead", null, 0, 1, ProtectionInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4666,13 +4706,15 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 		initEAttribute(getPreferences_EspPatchFile(), theEcorePackage.getEString(), "espPatchFile", "esp.patch", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPreferences_EspJSONFile(), theEcorePackage.getEString(), "espJSONFile", "esp.json", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPreferences_Architecture(), theEcorePackage.getEString(), "architecture", "", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPreferences_RemoteConnection(), theEcorePackage.getEBoolean(), "remoteConnection", "true", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPreferences_RemoteConnection(), theEcorePackage.getEBoolean(), "remoteConnection", "false", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPreferences_RemoteUsername(), theEcorePackage.getEString(), "remoteUsername", "aspire", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPreferences_RemotePassword(), theEcorePackage.getEString(), "remotePassword", "aspire", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPreferences_RemoteHost(), theEcorePackage.getEString(), "remoteHost", "127.0.1.1", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPreferences_RemotePort(), theEcorePackage.getEInt(), "remotePort", "3022", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPreferences_RemoteFileSeparator(), theEcorePackage.getEString(), "remoteFileSeparator", "/", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPreferences_CommandACTC(), theEcorePackage.getEString(), "commandACTC", "/opt/ACTC/actc.py", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPreferences_CommandACTC(), theEcorePackage.getEString(), "commandACTC", "docker-compose -f ~/git/framework/docker-compose.yml exec -T actc /opt/ACTC/actc.py", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPreferences_CommandTigress(), theEcorePackage.getEString(), "commandTigress", "docker-compose -f ~/git/framework/docker-compose.yml exec -T actc env TIGRESS_HOME=/projects/tigress-unstable PATH=$PATH:/projects/tigress-unstable /projects/tigress-unstable/tigress", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPreferences_CommandCilly(), theEcorePackage.getEString(), "commandCilly", "docker-compose -f ~/git/framework/docker-compose.yml exec -T actc env TIGRESS_HOME=/projects/tigress-unstable PATH=$PATH:/projects/tigress-unstable /projects/tigress-unstable/cilly", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPreferences_CommandPerl(), theEcorePackage.getEString(), "commandPerl", "/usr/bin/perl", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPreferences_CommandDot(), theEcorePackage.getEString(), "commandDot", "/usr/bin/dot", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPreferences_MetricsFile(), theEcorePackage.getEString(), "metricsFile", "+gammas.csv", 0, 1, Preferences.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -4745,6 +4787,7 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 		initEAttribute(getAppliedProtectionInstantiation_CodeAnnotation(), theEcorePackage.getEString(), "codeAnnotation", null, 0, 1, AppliedProtectionInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAppliedProtectionInstantiation_VerifierAnnotation(), theEcorePackage.getEString(), "verifierAnnotation", null, 0, 1, AppliedProtectionInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAppliedProtectionInstantiation_AttestatorAnnotation(), theEcorePackage.getEString(), "attestatorAnnotation", null, 0, 1, AppliedProtectionInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAppliedProtectionInstantiation_ToolCommand(), theEcorePackage.getEString(), "toolCommand", null, 0, 1, AppliedProtectionInstantiation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEOperation(getAppliedProtectionInstantiation__ToString(), theEcorePackage.getEString(), "toString", 0, 1, !IS_UNIQUE, IS_ORDERED);
 
@@ -4891,6 +4934,8 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 		addEEnumLiteral(protectionFlagEEnum, ProtectionFlag.WHOLE_FUNCTION);
 		addEEnumLiteral(protectionFlagEEnum, ProtectionFlag.ONE_PER_FUNCTION);
 		addEEnumLiteral(protectionFlagEEnum, ProtectionFlag.MERGE_ATTESTATORS);
+		addEEnumLiteral(protectionFlagEEnum, ProtectionFlag.NO_CONTAINED_CODE_REGIONS);
+		addEEnumLiteral(protectionFlagEEnum, ProtectionFlag.NO_CONTAINED_ASSETS);
 
 		initEEnum(applicationPartTypeEEnum, ApplicationPartType.class, "ApplicationPartType");
 		addEEnumLiteral(applicationPartTypeEEnum, ApplicationPartType.CODE_REGION);
@@ -4907,6 +4952,7 @@ public class KbPackageImpl extends EPackageImpl implements KbPackage
 		addEEnumLiteral(applicationPartTypeEEnum, ApplicationPartType.REFERENCE);
 		addEEnumLiteral(applicationPartTypeEEnum, ApplicationPartType.IGNORE);
 		addEEnumLiteral(applicationPartTypeEEnum, ApplicationPartType.ATTESTATOR);
+		addEEnumLiteral(applicationPartTypeEEnum, ApplicationPartType.CONSTANT);
 
 		initEEnum(levelEEnum, Level.class, "Level");
 		addEEnumLiteral(levelEEnum, Level.HIGH);

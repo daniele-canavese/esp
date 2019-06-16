@@ -3,10 +3,7 @@
 package it.polito.security.esp.kb;
 
 import org.eclipse.emf.ecore.EObject;
-
-import it.polito.security.ontologies.annotations.MapsToIndividual;
-import it.polito.security.ontologies.annotations.MapsToDataProperty;;
-
+import it.polito.security.ontologies.annotations.*;
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Protection Instantiation</b></em>'.
@@ -26,6 +23,7 @@ import it.polito.security.ontologies.annotations.MapsToDataProperty;;
  *   <li>{@link it.polito.security.esp.kb.ProtectionInstantiation#getCodeAnnotation <em>Code Annotation</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.ProtectionInstantiation#getVerifierAnnotation <em>Verifier Annotation</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.ProtectionInstantiation#getAttestatorAnnotation <em>Attestator Annotation</em>}</li>
+ *   <li>{@link it.polito.security.esp.kb.ProtectionInstantiation#getToolCommand <em>Tool Command</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.ProtectionInstantiation#getClientTimeOverhead <em>Client Time Overhead</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.ProtectionInstantiation#getServerTimeOverhead <em>Server Time Overhead</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.ProtectionInstantiation#getClientMemoryOverhead <em>Client Memory Overhead</em>}</li>
@@ -48,6 +46,7 @@ import it.polito.security.ontologies.annotations.MapsToDataProperty;;
 		@MapsToDataProperty(id = KbPackage.PROTECTION_INSTANTIATION__CODE_ANNOTATION, iri = "http://security.polito.it/esp/kb#hasCodeAnnotation"),
 		@MapsToDataProperty(id = KbPackage.PROTECTION_INSTANTIATION__VERIFIER_ANNOTATION, iri = "http://security.polito.it/esp/kb#hasVerifierAnnotation"),
 		@MapsToDataProperty(id = KbPackage.PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION, iri = "http://security.polito.it/esp/kb#hasAttestatorAnnotation"),
+		@MapsToDataProperty(id = KbPackage.PROTECTION_INSTANTIATION__TOOL_COMMAND, iri = "http://security.polito.it/esp/kb#hasToolCommand"),	
 		@MapsToDataProperty(id = KbPackage.PROTECTION_INSTANTIATION__CLIENT_TIME_OVERHEAD, iri = "http://security.polito.it/esp/kb#hasClientTimeOverhead"),
 		@MapsToDataProperty(id = KbPackage.PROTECTION_INSTANTIATION__SERVER_TIME_OVERHEAD, iri = "http://security.polito.it/esp/kb#hasServerTimeOverhead"),
 		@MapsToDataProperty(id = KbPackage.PROTECTION_INSTANTIATION__CLIENT_MEMORY_OVERHEAD, iri = "http://security.polito.it/esp/kb#hasClientMemoryOverhead"),
@@ -55,8 +54,7 @@ import it.polito.security.ontologies.annotations.MapsToDataProperty;;
 		@MapsToDataProperty(id = KbPackage.PROTECTION_INSTANTIATION__NETWORK_OVERHEAD, iri = "http://security.polito.it/esp/kb#hasNetworkOverhead")
 	}
 )
-public interface ProtectionInstantiation extends EObject
-{
+public interface ProtectionInstantiation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
@@ -210,6 +208,31 @@ public interface ProtectionInstantiation extends EObject
 	void setAttestatorAnnotation(String value);
 
 	/**
+	 * Returns the value of the '<em><b>Tool Command</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The protection tool command.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Tool Command</em>' attribute.
+	 * @see #setToolCommand(String)
+	 * @see it.polito.security.esp.kb.KbPackage#getProtectionInstantiation_ToolCommand()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getToolCommand();
+
+	/**
+	 * Sets the value of the '{@link it.polito.security.esp.kb.ProtectionInstantiation#getToolCommand <em>Tool Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Tool Command</em>' attribute.
+	 * @see #getToolCommand()
+	 * @generated
+	 */
+	void setToolCommand(String value);
+
+	/**
 	 * Returns the value of the '<em><b>Client Time Overhead</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -338,22 +361,9 @@ public interface ProtectionInstantiation extends EObject
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * Compares another object with the current one.
-	 * <!-- end-model-doc -->
-	 * @model unique="false" objectUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='boolean _equals = <%com.google.common.base.Objects%>.equal(object, null);\nif (_equals)\n{\n\treturn false;\n}\nelse\n{\n\tif ((object instanceof <%it.polito.security.esp.kb.ProtectionInstantiation%>))\n\t{\n\t\t<%java.lang.String%> _name = this.getName();\n\t\t<%java.lang.String%> _name_1 = ((<%it.polito.security.esp.kb.ProtectionInstantiation%>)object).getName();\n\t\treturn _name.equals(_name_1);\n\t}\n\telse\n\t{\n\t\treturn false;\n\t}\n}'"
-	 * @generated
-	 */
-	boolean equals(Object object);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
 	 * Retrieves the object hash code.
 	 * <!-- end-model-doc -->
 	 * @model unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='<%java.lang.String%> _variableAnnotation = this.getVariableAnnotation();\nint _hashCode = _variableAnnotation.hashCode();\n<%java.lang.String%> _codeAnnotation = this.getCodeAnnotation();\nint _hashCode_1 = _codeAnnotation.hashCode();\nint _plus = (_hashCode + _hashCode_1);\n<%java.lang.String%> _verifierAnnotation = this.getVerifierAnnotation();\nint _hashCode_2 = _verifierAnnotation.hashCode();\nint _plus_1 = (_plus + _hashCode_2);\n<%java.lang.String%> _attestatorAnnotation = this.getAttestatorAnnotation();\nint _hashCode_3 = _attestatorAnnotation.hashCode();\nreturn (_plus_1 + _hashCode_3);'"
 	 * @generated
 	 */
 	int hashCode();
@@ -362,10 +372,20 @@ public interface ProtectionInstantiation extends EObject
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
+	 * Compares another object with the current one.
+	 * <!-- end-model-doc -->
+	 * @model unique="false" objectUnique="false"
+	 * @generated
+	 */
+	boolean equals(Object object);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
 	 * Translates the object into a string.
 	 * <!-- end-model-doc -->
 	 * @model unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='return this.getName();'"
 	 * @generated
 	 */
 	String toString();

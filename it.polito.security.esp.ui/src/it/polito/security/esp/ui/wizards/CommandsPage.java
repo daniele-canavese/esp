@@ -54,7 +54,7 @@ public class CommandsPage extends WizardPage
 
 		textACTCCommand = new Text(composite, SWT.BORDER);
 		textACTCCommand.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		textACTCCommand.setText("/opt/ACTC/actc.py");
+		textACTCCommand.setText("docker-compose -f "+System.getProperty("user.home")+"/git/framework/docker-compose.yml exec -T actc /opt/ACTC/actc.py");
 
 		final Button buttonACTCCommand = new Button(composite, SWT.NONE);
 		buttonACTCCommand.setText("Browse...");
@@ -112,7 +112,7 @@ public class CommandsPage extends WizardPage
 					public void run()
 					{
 						FileDialog dialog = new FileDialog(Display.getCurrent().getActiveShell());
-						dialog.setText("CodeSurfer command");
+						dialog.setText("Perl command");
 						String file = dialog.open();
 						if (file != null)
 							textPerlCommand.setText(file);
@@ -140,6 +140,64 @@ public class CommandsPage extends WizardPage
 			}
 		});
 
+		Label labelTigressCommand = new Label(composite, SWT.NONE);
+		labelTigressCommand.setText("Tigress command:");
+
+		textTigressCommand = new Text(composite, SWT.BORDER);
+		textTigressCommand.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		textTigressCommand.setText("docker-compose -f ~/git/framework/docker-compose.yml exec -T actc env TIGRESS_HOME=/projects/tigress-unstable PATH=$PATH:/projects/tigress-unstable /projects/tigress-unstable/tigress");
+
+		final Button buttonTigressCommand = new Button(composite, SWT.NONE);
+		buttonTigressCommand.setText("Browse...");
+		buttonTigressCommand.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				Display.getCurrent().syncExec(new Runnable()
+				{
+					@Override
+					public void run()
+					{
+						FileDialog dialog = new FileDialog(Display.getCurrent().getActiveShell());
+						dialog.setText("Tigress command");
+						String file = dialog.open();
+						if (file != null)
+							textTigressCommand.setText(file);
+					}
+				});
+			}
+		});
+		
+		Label labelCillyCommand = new Label(composite, SWT.NONE);
+		labelCillyCommand.setText("Cilly command:");
+
+		textCillyCommand = new Text(composite, SWT.BORDER);
+		textCillyCommand.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		textCillyCommand.setText("docker-compose -f ~/git/framework/docker-compose.yml exec -T actc env TIGRESS_HOME=/projects/tigress-unstable PATH=$PATH:/projects/tigress-unstable /projects/tigress-unstable/cilly");
+
+		final Button buttonCillyCommand = new Button(composite, SWT.NONE);
+		buttonCillyCommand.setText("Browse...");
+		buttonCillyCommand.addSelectionListener(new SelectionAdapter()
+		{
+			@Override
+			public void widgetSelected(SelectionEvent e)
+			{
+				Display.getCurrent().syncExec(new Runnable()
+				{
+					@Override
+					public void run()
+					{
+						FileDialog dialog = new FileDialog(Display.getCurrent().getActiveShell());
+						dialog.setText("Cilly command");
+						String file = dialog.open();
+						if (file != null)
+							textCillyCommand.setText(file);
+					}
+				});
+			}
+		});
+		
 		ModifyListener completiontLister = new ModifyListener()
 		{
 			@Override
@@ -151,6 +209,10 @@ public class CommandsPage extends WizardPage
 					setPageComplete(false);
 				else if (textDotCommand.getText().isEmpty())
 					setPageComplete(false);
+				else if (textTigressCommand.getText().isEmpty())
+					setPageComplete(false);
+				else if (textCillyCommand.getText().isEmpty())
+					setPageComplete(false);
 				else
 					setPageComplete(true);
 			}
@@ -158,6 +220,8 @@ public class CommandsPage extends WizardPage
 		textACTCCommand.addModifyListener(completiontLister);
 		textPerlCommand.addModifyListener(completiontLister);
 		textDotCommand.addModifyListener(completiontLister);
+		textTigressCommand.addModifyListener(completiontLister);
+		textCillyCommand.addModifyListener(completiontLister);
 	}
 
 	/** The ACTC command text. **/
@@ -166,7 +230,12 @@ public class CommandsPage extends WizardPage
 	private Text textPerlCommand;
 	/** The Dot utility text. **/
 	private Text textDotCommand;
+	/** The Tigress utility text. **/
+	private Text textTigressCommand;
+	/** The Cilly utility text. **/
+	private Text textCillyCommand;
 
+	
 	/**
 	 * Retrieves the ACTC command.
 	 * @return The ACTC command.
@@ -192,5 +261,23 @@ public class CommandsPage extends WizardPage
 	public String getDotCommand()
 	{
 		return textDotCommand.getText();
+	}
+	
+	/**
+	 * Retrieves the Tigress command.
+	 * @return The Tigress command.
+	 **/
+	public String getTigressCommand()
+	{
+		return textTigressCommand.getText();
+	}
+	
+	/**
+	 * Retrieves the Cilly command.
+	 * @return The Cilly command.
+	 **/
+	public String getCillyCommand()
+	{
+		return textCillyCommand.getText();
 	}
 }

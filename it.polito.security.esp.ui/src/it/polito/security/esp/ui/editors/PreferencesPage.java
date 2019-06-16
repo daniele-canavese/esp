@@ -182,6 +182,8 @@ public class PreferencesPage extends FormPage
 		createTextField(composite, "ACTC command:", "Specifies the ACTC command.", KbPackage.PREFERENCES__COMMAND_ACTC);
 		createTextField(composite, "Perl interpreter:", "Specifies the Perl interpreter.", KbPackage.PREFERENCES__COMMAND_PERL);
 		createTextField(composite, "Local dot utility:", "Specifies the Dot utility.", KbPackage.PREFERENCES__COMMAND_DOT);
+		createTextField(composite, "Tigress command:", "Specifies the Tigress command.", KbPackage.PREFERENCES__COMMAND_TIGRESS);
+		createTextField(composite, "Cilly command:", "Specifies the Cilly command.", KbPackage.PREFERENCES__COMMAND_CILLY);
 	}
 
 	/**

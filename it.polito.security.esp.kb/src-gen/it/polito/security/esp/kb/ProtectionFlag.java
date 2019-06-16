@@ -28,8 +28,7 @@ import it.polito.security.ontologies.annotations.MapsToIndividual;
 	name = "http://security.polito.it/esp/kb#",
 	singleton = true
 )
-public enum ProtectionFlag implements Enumerator
-{
+public enum ProtectionFlag implements Enumerator {
 	/**
 	 * The '<em><b>WHOLE FUNCTION</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -58,15 +57,31 @@ public enum ProtectionFlag implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	MERGE_ATTESTATORS(0, "MERGE_ATTESTATORS", "mergeAttestators");
+	MERGE_ATTESTATORS(0, "MERGE_ATTESTATORS", "mergeAttestators"),
+
+	/**
+	 * The '<em><b>NO CONTAINED CODE REGIONS</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NO_CONTAINED_CODE_REGIONS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NO_CONTAINED_CODE_REGIONS(0, "NO_CONTAINED_CODE_REGIONS", "noContainedCodeRegions"),
+
+	/**
+	 * The '<em><b>NO CONTAINED ASSETS</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NO_CONTAINED_ASSETS_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	NO_CONTAINED_ASSETS(0, "NO_CONTAINED_ASSETS", "noContainedAssets");
 
 	/**
 	 * The '<em><b>WHOLE FUNCTION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>WHOLE FUNCTION</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #WHOLE_FUNCTION
 	 * @model literal="wholeFunction"
@@ -78,10 +93,6 @@ public enum ProtectionFlag implements Enumerator
 	/**
 	 * The '<em><b>ONE PER FUNCTION</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>ONE PER FUNCTION</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #ONE_PER_FUNCTION
 	 * @model literal="onePerFunction"
@@ -93,10 +104,6 @@ public enum ProtectionFlag implements Enumerator
 	/**
 	 * The '<em><b>MERGE ATTESTATORS</b></em>' literal value.
 	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of '<em><b>MERGE ATTESTATORS</b></em>' literal object isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
 	 * <!-- end-user-doc -->
 	 * @see #MERGE_ATTESTATORS
 	 * @model literal="mergeAttestators"
@@ -106,17 +113,40 @@ public enum ProtectionFlag implements Enumerator
 	public static final int MERGE_ATTESTATORS_VALUE = 0;
 
 	/**
+	 * The '<em><b>NO CONTAINED CODE REGIONS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NO_CONTAINED_CODE_REGIONS
+	 * @model literal="noContainedCodeRegions"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NO_CONTAINED_CODE_REGIONS_VALUE = 0;
+
+	/**
+	 * The '<em><b>NO CONTAINED ASSETS</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NO_CONTAINED_ASSETS
+	 * @model literal="noContainedAssets"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int NO_CONTAINED_ASSETS_VALUE = 0;
+
+	/**
 	 * An array of all the '<em><b>Protection Flag</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	private static final ProtectionFlag[] VALUES_ARRAY =
-		new ProtectionFlag[]
-		{
+		new ProtectionFlag[] {
 			WHOLE_FUNCTION,
 			ONE_PER_FUNCTION,
 			MERGE_ATTESTATORS,
+			NO_CONTAINED_CODE_REGIONS,
+			NO_CONTAINED_ASSETS,
 		};
 
 	/**
@@ -135,13 +165,10 @@ public enum ProtectionFlag implements Enumerator
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static ProtectionFlag get(String literal)
-	{
-		for (int i = 0; i < VALUES_ARRAY.length; ++i)
-		{
+	public static ProtectionFlag get(String literal) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			ProtectionFlag result = VALUES_ARRAY[i];
-			if (result.toString().equals(literal))
-			{
+			if (result.toString().equals(literal)) {
 				return result;
 			}
 		}
@@ -156,13 +183,10 @@ public enum ProtectionFlag implements Enumerator
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static ProtectionFlag getByName(String name)
-	{
-		for (int i = 0; i < VALUES_ARRAY.length; ++i)
-		{
+	public static ProtectionFlag getByName(String name) {
+		for (int i = 0; i < VALUES_ARRAY.length; ++i) {
 			ProtectionFlag result = VALUES_ARRAY[i];
-			if (result.getName().equals(name))
-			{
+			if (result.getName().equals(name)) {
 				return result;
 			}
 		}
@@ -177,10 +201,8 @@ public enum ProtectionFlag implements Enumerator
 	 * @return the matching enumerator or <code>null</code>.
 	 * @generated
 	 */
-	public static ProtectionFlag get(int value)
-	{
-		switch (value)
-		{
+	public static ProtectionFlag get(int value) {
+		switch (value) {
 			case WHOLE_FUNCTION_VALUE: return WHOLE_FUNCTION;
 		}
 		return null;
@@ -213,8 +235,7 @@ public enum ProtectionFlag implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private ProtectionFlag(int value, String name, String literal)
-	{
+	private ProtectionFlag(int value, String name, String literal) {
 		this.value = value;
 		this.name = name;
 		this.literal = literal;
@@ -225,8 +246,8 @@ public enum ProtectionFlag implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int getValue()
-	{
+	@Override
+	public int getValue() {
 	  return value;
 	}
 
@@ -235,8 +256,8 @@ public enum ProtectionFlag implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName()
-	{
+	@Override
+	public String getName() {
 	  return name;
 	}
 
@@ -245,8 +266,8 @@ public enum ProtectionFlag implements Enumerator
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getLiteral()
-	{
+	@Override
+	public String getLiteral() {
 	  return literal;
 	}
 
@@ -257,8 +278,7 @@ public enum ProtectionFlag implements Enumerator
 	 * @generated
 	 */
 	@Override
-	public String toString()
-	{
+	public String toString() {
 		return literal;
 	}
 	

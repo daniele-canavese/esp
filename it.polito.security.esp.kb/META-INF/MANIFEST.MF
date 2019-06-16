@@ -1,10 +1,11 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: ESP KB
+Bundle-Name: %pluginName
 Bundle-SymbolicName: it.polito.security.esp.kb;singleton:=true
+Automatic-Module-Name: it.polito.security.esp.kb
 Bundle-Version: 0.0.1.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: Politecnico di Torino
+Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: it.polito.security.esp.kb,
@@ -24,6 +25,7 @@ Require-Bundle: org.eclipse.core.resources;bundle-version="3.7.101",
  org.eclipse.core.databinding.property;bundle-version="1.4.0",
  org.eclipse.jface.databinding;bundle-version="1.5.0",
  com.ibm.icu;bundle-version="4.4.2",
- org.eclipse.emf.ecore.xcore;bundle-version="1.3.1"
+ org.eclipse.emf.ecore.xcore;bundle-version="1.3.1",
+ javax.xml.bind;bundle-version="2.2.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: it.polito.security.esp.kb.Activator

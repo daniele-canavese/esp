@@ -37,6 +37,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *   <li>{@link it.polito.security.esp.kb.impl.ProtectionInstantiationImpl#getCodeAnnotation <em>Code Annotation</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.impl.ProtectionInstantiationImpl#getVerifierAnnotation <em>Verifier Annotation</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.impl.ProtectionInstantiationImpl#getAttestatorAnnotation <em>Attestator Annotation</em>}</li>
+ *   <li>{@link it.polito.security.esp.kb.impl.ProtectionInstantiationImpl#getToolCommand <em>Tool Command</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.impl.ProtectionInstantiationImpl#getClientTimeOverhead <em>Client Time Overhead</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.impl.ProtectionInstantiationImpl#getServerTimeOverhead <em>Server Time Overhead</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.impl.ProtectionInstantiationImpl#getClientMemoryOverhead <em>Client Memory Overhead</em>}</li>
@@ -46,8 +47,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container implements ProtectionInstantiation
-{
+public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container implements ProtectionInstantiation {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -147,6 +147,26 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * @ordered
 	 */
 	protected String attestatorAnnotation = ATTESTATOR_ANNOTATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getToolCommand() <em>Tool Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToolCommand()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TOOL_COMMAND_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getToolCommand() <em>Tool Command</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getToolCommand()
+	 * @generated
+	 * @ordered
+	 */
+	protected String toolCommand = TOOL_COMMAND_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getClientTimeOverhead() <em>Client Time Overhead</em>}' attribute.
@@ -253,8 +273,7 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ProtectionInstantiationImpl()
-	{
+	protected ProtectionInstantiationImpl() {
 		super();
 	}
 
@@ -264,8 +283,7 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	protected EClass eStaticClass()
-	{
+	protected EClass eStaticClass() {
 		return KbPackage.Literals.PROTECTION_INSTANTIATION;
 	}
 
@@ -274,8 +292,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getName()
-	{
+	@Override
+	public String getName() {
 		return name;
 	}
 
@@ -284,8 +302,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setName(String newName)
-	{
+	@Override
+	public void setName(String newName) {
 		String oldName = name;
 		name = newName;
 		if (eNotificationRequired())
@@ -297,8 +315,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Protection getProtection()
-	{
+	@Override
+	public Protection getProtection() {
 		if (eContainerFeatureID() != KbPackage.PROTECTION_INSTANTIATION__PROTECTION) return null;
 		return (Protection)eContainer();
 	}
@@ -308,8 +326,7 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Protection basicGetProtection()
-	{
+	public Protection basicGetProtection() {
 		if (eContainerFeatureID() != KbPackage.PROTECTION_INSTANTIATION__PROTECTION) return null;
 		return (Protection)eInternalContainer();
 	}
@@ -319,8 +336,7 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetProtection(Protection newProtection, NotificationChain msgs)
-	{
+	public NotificationChain basicSetProtection(Protection newProtection, NotificationChain msgs) {
 		msgs = eBasicSetContainer((InternalEObject)newProtection, KbPackage.PROTECTION_INSTANTIATION__PROTECTION, msgs);
 		return msgs;
 	}
@@ -330,10 +346,9 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setProtection(Protection newProtection)
-	{
-		if (newProtection != eInternalContainer() || (eContainerFeatureID() != KbPackage.PROTECTION_INSTANTIATION__PROTECTION && newProtection != null))
-		{
+	@Override
+	public void setProtection(Protection newProtection) {
+		if (newProtection != eInternalContainer() || (eContainerFeatureID() != KbPackage.PROTECTION_INSTANTIATION__PROTECTION && newProtection != null)) {
 			if (EcoreUtil.isAncestor(this, newProtection))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
@@ -353,8 +368,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getVariableAnnotation()
-	{
+	@Override
+	public String getVariableAnnotation() {
 		return variableAnnotation;
 	}
 
@@ -363,8 +378,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVariableAnnotation(String newVariableAnnotation)
-	{
+	@Override
+	public void setVariableAnnotation(String newVariableAnnotation) {
 		String oldVariableAnnotation = variableAnnotation;
 		variableAnnotation = newVariableAnnotation;
 		if (eNotificationRequired())
@@ -376,8 +391,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getCodeAnnotation()
-	{
+	@Override
+	public String getCodeAnnotation() {
 		return codeAnnotation;
 	}
 
@@ -386,8 +401,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCodeAnnotation(String newCodeAnnotation)
-	{
+	@Override
+	public void setCodeAnnotation(String newCodeAnnotation) {
 		String oldCodeAnnotation = codeAnnotation;
 		codeAnnotation = newCodeAnnotation;
 		if (eNotificationRequired())
@@ -399,8 +414,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getVerifierAnnotation()
-	{
+	@Override
+	public String getVerifierAnnotation() {
 		return verifierAnnotation;
 	}
 
@@ -409,8 +424,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setVerifierAnnotation(String newVerifierAnnotation)
-	{
+	@Override
+	public void setVerifierAnnotation(String newVerifierAnnotation) {
 		String oldVerifierAnnotation = verifierAnnotation;
 		verifierAnnotation = newVerifierAnnotation;
 		if (eNotificationRequired())
@@ -422,8 +437,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getAttestatorAnnotation()
-	{
+	@Override
+	public String getAttestatorAnnotation() {
 		return attestatorAnnotation;
 	}
 
@@ -432,8 +447,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setAttestatorAnnotation(String newAttestatorAnnotation)
-	{
+	@Override
+	public void setAttestatorAnnotation(String newAttestatorAnnotation) {
 		String oldAttestatorAnnotation = attestatorAnnotation;
 		attestatorAnnotation = newAttestatorAnnotation;
 		if (eNotificationRequired())
@@ -445,8 +460,31 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getClientTimeOverhead()
-	{
+	@Override
+	public String getToolCommand() {
+		return toolCommand;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setToolCommand(String newToolCommand) {
+		String oldToolCommand = toolCommand;
+		toolCommand = newToolCommand;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, KbPackage.PROTECTION_INSTANTIATION__TOOL_COMMAND, oldToolCommand, toolCommand));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getClientTimeOverhead() {
 		return clientTimeOverhead;
 	}
 
@@ -455,8 +493,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClientTimeOverhead(String newClientTimeOverhead)
-	{
+	@Override
+	public void setClientTimeOverhead(String newClientTimeOverhead) {
 		String oldClientTimeOverhead = clientTimeOverhead;
 		clientTimeOverhead = newClientTimeOverhead;
 		if (eNotificationRequired())
@@ -468,8 +506,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getServerTimeOverhead()
-	{
+	@Override
+	public String getServerTimeOverhead() {
 		return serverTimeOverhead;
 	}
 
@@ -478,8 +516,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setServerTimeOverhead(String newServerTimeOverhead)
-	{
+	@Override
+	public void setServerTimeOverhead(String newServerTimeOverhead) {
 		String oldServerTimeOverhead = serverTimeOverhead;
 		serverTimeOverhead = newServerTimeOverhead;
 		if (eNotificationRequired())
@@ -491,8 +529,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getClientMemoryOverhead()
-	{
+	@Override
+	public String getClientMemoryOverhead() {
 		return clientMemoryOverhead;
 	}
 
@@ -501,8 +539,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setClientMemoryOverhead(String newClientMemoryOverhead)
-	{
+	@Override
+	public void setClientMemoryOverhead(String newClientMemoryOverhead) {
 		String oldClientMemoryOverhead = clientMemoryOverhead;
 		clientMemoryOverhead = newClientMemoryOverhead;
 		if (eNotificationRequired())
@@ -514,8 +552,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getServerMemoryOverhead()
-	{
+	@Override
+	public String getServerMemoryOverhead() {
 		return serverMemoryOverhead;
 	}
 
@@ -524,8 +562,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setServerMemoryOverhead(String newServerMemoryOverhead)
-	{
+	@Override
+	public void setServerMemoryOverhead(String newServerMemoryOverhead) {
 		String oldServerMemoryOverhead = serverMemoryOverhead;
 		serverMemoryOverhead = newServerMemoryOverhead;
 		if (eNotificationRequired())
@@ -537,8 +575,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String getNetworkOverhead()
-	{
+	@Override
+	public String getNetworkOverhead() {
 		return networkOverhead;
 	}
 
@@ -547,8 +585,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNetworkOverhead(String newNetworkOverhead)
-	{
+	@Override
+	public void setNetworkOverhead(String newNetworkOverhead) {
 		String oldNetworkOverhead = networkOverhead;
 		networkOverhead = newNetworkOverhead;
 		if (eNotificationRequired())
@@ -560,8 +598,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public int hashCode()
-	{
+	@Override
+	public int hashCode() {
 		int result = 17;
 		int _hashCode = this.getName().hashCode();
 		int _plus = ((31 * result) + _hashCode);
@@ -574,23 +612,18 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean equals(final Object object)
-	{
-		boolean _equals = Objects.equal(object, null);
-		if (_equals)
-		{
+	@Override
+	public boolean equals(final Object object) {
+		if ((object == null)) {
 			return false;
 		}
-		else
-		{
-			if ((object instanceof ProtectionInstantiation))
-			{
+		else {
+			if ((object instanceof ProtectionInstantiation)) {
 				String _name = this.getName();
 				String _name_1 = ((ProtectionInstantiation)object).getName();
 				return Objects.equal(_name, _name_1);
 			}
-			else
-			{
+			else {
 				return false;
 			}
 		}
@@ -601,8 +634,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public String toString()
-	{
+	@Override
+	public String toString() {
 		return this.getName();
 	}
 
@@ -612,10 +645,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
 			case KbPackage.PROTECTION_INSTANTIATION__PROTECTION:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -630,10 +661,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-	{
-		switch (featureID)
-		{
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
 			case KbPackage.PROTECTION_INSTANTIATION__PROTECTION:
 				return basicSetProtection(null, msgs);
 		}
@@ -646,10 +675,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs)
-	{
-		switch (eContainerFeatureID())
-		{
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
 			case KbPackage.PROTECTION_INSTANTIATION__PROTECTION:
 				return eInternalContainer().eInverseRemove(this, KbPackage.PROTECTION__INSTANTIATIONS, Protection.class, msgs);
 		}
@@ -662,10 +689,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public Object eGet(int featureID, boolean resolve, boolean coreType)
-	{
-		switch (featureID)
-		{
+	public Object eGet(int featureID, boolean resolve, boolean coreType) {
+		switch (featureID) {
 			case KbPackage.PROTECTION_INSTANTIATION__NAME:
 				return getName();
 			case KbPackage.PROTECTION_INSTANTIATION__PROTECTION:
@@ -679,6 +704,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 				return getVerifierAnnotation();
 			case KbPackage.PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION:
 				return getAttestatorAnnotation();
+			case KbPackage.PROTECTION_INSTANTIATION__TOOL_COMMAND:
+				return getToolCommand();
 			case KbPackage.PROTECTION_INSTANTIATION__CLIENT_TIME_OVERHEAD:
 				return getClientTimeOverhead();
 			case KbPackage.PROTECTION_INSTANTIATION__SERVER_TIME_OVERHEAD:
@@ -699,10 +726,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public void eSet(int featureID, Object newValue)
-	{
-		switch (featureID)
-		{
+	public void eSet(int featureID, Object newValue) {
+		switch (featureID) {
 			case KbPackage.PROTECTION_INSTANTIATION__NAME:
 				setName((String)newValue);
 				return;
@@ -720,6 +745,9 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 				return;
 			case KbPackage.PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION:
 				setAttestatorAnnotation((String)newValue);
+				return;
+			case KbPackage.PROTECTION_INSTANTIATION__TOOL_COMMAND:
+				setToolCommand((String)newValue);
 				return;
 			case KbPackage.PROTECTION_INSTANTIATION__CLIENT_TIME_OVERHEAD:
 				setClientTimeOverhead((String)newValue);
@@ -746,10 +774,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public void eUnset(int featureID)
-	{
-		switch (featureID)
-		{
+	public void eUnset(int featureID) {
+		switch (featureID) {
 			case KbPackage.PROTECTION_INSTANTIATION__NAME:
 				setName(NAME_EDEFAULT);
 				return;
@@ -767,6 +793,9 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 				return;
 			case KbPackage.PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION:
 				setAttestatorAnnotation(ATTESTATOR_ANNOTATION_EDEFAULT);
+				return;
+			case KbPackage.PROTECTION_INSTANTIATION__TOOL_COMMAND:
+				setToolCommand(TOOL_COMMAND_EDEFAULT);
 				return;
 			case KbPackage.PROTECTION_INSTANTIATION__CLIENT_TIME_OVERHEAD:
 				setClientTimeOverhead(CLIENT_TIME_OVERHEAD_EDEFAULT);
@@ -793,10 +822,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public boolean eIsSet(int featureID)
-	{
-		switch (featureID)
-		{
+	public boolean eIsSet(int featureID) {
+		switch (featureID) {
 			case KbPackage.PROTECTION_INSTANTIATION__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case KbPackage.PROTECTION_INSTANTIATION__PROTECTION:
@@ -809,6 +836,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 				return VERIFIER_ANNOTATION_EDEFAULT == null ? verifierAnnotation != null : !VERIFIER_ANNOTATION_EDEFAULT.equals(verifierAnnotation);
 			case KbPackage.PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION:
 				return ATTESTATOR_ANNOTATION_EDEFAULT == null ? attestatorAnnotation != null : !ATTESTATOR_ANNOTATION_EDEFAULT.equals(attestatorAnnotation);
+			case KbPackage.PROTECTION_INSTANTIATION__TOOL_COMMAND:
+				return TOOL_COMMAND_EDEFAULT == null ? toolCommand != null : !TOOL_COMMAND_EDEFAULT.equals(toolCommand);
 			case KbPackage.PROTECTION_INSTANTIATION__CLIENT_TIME_OVERHEAD:
 				return CLIENT_TIME_OVERHEAD_EDEFAULT == null ? clientTimeOverhead != null : !CLIENT_TIME_OVERHEAD_EDEFAULT.equals(clientTimeOverhead);
 			case KbPackage.PROTECTION_INSTANTIATION__SERVER_TIME_OVERHEAD:
@@ -829,10 +858,8 @@ public class ProtectionInstantiationImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 */
 	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException
-	{
-		switch (operationID)
-		{
+	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
+		switch (operationID) {
 			case KbPackage.PROTECTION_INSTANTIATION___HASH_CODE:
 				return hashCode();
 			case KbPackage.PROTECTION_INSTANTIATION___EQUALS__OBJECT:

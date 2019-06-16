@@ -33,6 +33,8 @@ import it.polito.security.ontologies.annotations.MapsToObjectProperty;
  *   <li>{@link it.polito.security.esp.kb.Preferences#getRemotePort <em>Remote Port</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.Preferences#getRemoteFileSeparator <em>Remote File Separator</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.Preferences#getCommandACTC <em>Command ACTC</em>}</li>
+ *   <li>{@link it.polito.security.esp.kb.Preferences#getCommandTigress <em>Command Tigress</em>}</li>
+ *   <li>{@link it.polito.security.esp.kb.Preferences#getCommandCilly <em>Command Cilly</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.Preferences#getCommandPerl <em>Command Perl</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.Preferences#getCommandDot <em>Command Dot</em>}</li>
  *   <li>{@link it.polito.security.esp.kb.Preferences#getMetricsFile <em>Metrics File</em>}</li>
@@ -116,6 +118,8 @@ import it.polito.security.ontologies.annotations.MapsToObjectProperty;
 		@MapsToDataProperty(id = KbPackage.PREFERENCES__COMMAND_ACTC, iri = "http://security.polito.it/esp/kb#hasCommandACTC"),
 		@MapsToDataProperty(id = KbPackage.PREFERENCES__COMMAND_PERL, iri = "http://security.polito.it/esp/kb#hasCommandPerl"),
 		@MapsToDataProperty(id = KbPackage.PREFERENCES__COMMAND_DOT, iri = "http://security.polito.it/esp/kb#hasCommandDot"),
+		@MapsToDataProperty(id = KbPackage.PREFERENCES__COMMAND_TIGRESS, iri = "http://security.polito.it/esp/kb#hasCommandTigress"),
+		@MapsToDataProperty(id = KbPackage.PREFERENCES__COMMAND_CILLY, iri = "http://security.polito.it/esp/kb#hasCommandCilly"),
 		@MapsToDataProperty(id = KbPackage.PREFERENCES__METRICS_FILE, iri = "http://security.polito.it/esp/kb#hasMetricsFile"),
 		@MapsToDataProperty(id = KbPackage.PREFERENCES__METRICS_TRANSFORMATION_DEGREE, iri = "http://security.polito.it/esp/kb#hasMetricsTransformationDegree"),
 		@MapsToDataProperty(id = KbPackage.PREFERENCES__METRICS_PSEUDO_INVERSE_SENSITIVITY, iri = "http://security.polito.it/esp/kb#hasMetricsPseudoInverseSensititivy"),
@@ -174,8 +178,8 @@ import it.polito.security.ontologies.annotations.MapsToObjectProperty;
 		@MapsToObjectProperty(id = KbPackage.PREFERENCES__PROTECTIONS_MINIMUM_ATTACK_MITIGATION, iri = "http://security.polito.it/esp/kb#hasProtectionsMinimumAttackMitigation"),
 		@MapsToObjectProperty(id = KbPackage.PREFERENCES__METRICS_FITTER, iri = "http://security.polito.it/esp/kb#hasMetricsFitterType")
 	}
-)public interface Preferences extends EObject
-{
+)
+public interface Preferences extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Working Directory</b></em>' attribute.
 	 * The default value is <code>"/home/aspire/test"</code>.
@@ -308,7 +312,7 @@ import it.polito.security.ontologies.annotations.MapsToObjectProperty;
 
 	/**
 	 * Returns the value of the '<em><b>Remote Connection</b></em>' attribute.
-	 * The default value is <code>"true"</code>.
+	 * The default value is <code>"false"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -317,7 +321,7 @@ import it.polito.security.ontologies.annotations.MapsToObjectProperty;
 	 * @return the value of the '<em>Remote Connection</em>' attribute.
 	 * @see #setRemoteConnection(boolean)
 	 * @see it.polito.security.esp.kb.KbPackage#getPreferences_RemoteConnection()
-	 * @model default="true" unique="false"
+	 * @model default="false" unique="false"
 	 * @generated
 	 */
 	boolean isRemoteConnection();
@@ -464,7 +468,7 @@ import it.polito.security.ontologies.annotations.MapsToObjectProperty;
 
 	/**
 	 * Returns the value of the '<em><b>Command ACTC</b></em>' attribute.
-	 * The default value is <code>"/opt/ACTC/actc.py"</code>.
+	 * The default value is <code>"docker-compose -f ~/git/framework/docker-compose.yml exec -T actc /opt/ACTC/actc.py"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -473,7 +477,7 @@ import it.polito.security.ontologies.annotations.MapsToObjectProperty;
 	 * @return the value of the '<em>Command ACTC</em>' attribute.
 	 * @see #setCommandACTC(String)
 	 * @see it.polito.security.esp.kb.KbPackage#getPreferences_CommandACTC()
-	 * @model default="/opt/ACTC/actc.py" unique="false"
+	 * @model default="docker-compose -f ~/git/framework/docker-compose.yml exec -T actc /opt/ACTC/actc.py" unique="false"
 	 * @generated
 	 */
 	String getCommandACTC();
@@ -487,6 +491,58 @@ import it.polito.security.ontologies.annotations.MapsToObjectProperty;
 	 * @generated
 	 */
 	void setCommandACTC(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Command Tigress</b></em>' attribute.
+	 * The default value is <code>"docker-compose -f ~/git/framework/docker-compose.yml exec -T actc env TIGRESS_HOME=/projects/tigress-unstable PATH=$PATH:/projects/tigress-unstable /projects/tigress-unstable/tigress"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Tigress command.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Command Tigress</em>' attribute.
+	 * @see #setCommandTigress(String)
+	 * @see it.polito.security.esp.kb.KbPackage#getPreferences_CommandTigress()
+	 * @model default="docker-compose -f ~/git/framework/docker-compose.yml exec -T actc env TIGRESS_HOME=/projects/tigress-unstable PATH=$PATH:/projects/tigress-unstable /projects/tigress-unstable/tigress" unique="false"
+	 * @generated
+	 */
+	String getCommandTigress();
+
+	/**
+	 * Sets the value of the '{@link it.polito.security.esp.kb.Preferences#getCommandTigress <em>Command Tigress</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Command Tigress</em>' attribute.
+	 * @see #getCommandTigress()
+	 * @generated
+	 */
+	void setCommandTigress(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Command Cilly</b></em>' attribute.
+	 * The default value is <code>"docker-compose -f ~/git/framework/docker-compose.yml exec -T actc env TIGRESS_HOME=/projects/tigress-unstable PATH=$PATH:/projects/tigress-unstable /projects/tigress-unstable/cilly"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * The Cilly command.
+	 * <!-- end-model-doc -->
+	 * @return the value of the '<em>Command Cilly</em>' attribute.
+	 * @see #setCommandCilly(String)
+	 * @see it.polito.security.esp.kb.KbPackage#getPreferences_CommandCilly()
+	 * @model default="docker-compose -f ~/git/framework/docker-compose.yml exec -T actc env TIGRESS_HOME=/projects/tigress-unstable PATH=$PATH:/projects/tigress-unstable /projects/tigress-unstable/cilly" unique="false"
+	 * @generated
+	 */
+	String getCommandCilly();
+
+	/**
+	 * Sets the value of the '{@link it.polito.security.esp.kb.Preferences#getCommandCilly <em>Command Cilly</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Command Cilly</em>' attribute.
+	 * @see #getCommandCilly()
+	 * @generated
+	 */
+	void setCommandCilly(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Command Perl</b></em>' attribute.
@@ -1957,7 +2013,6 @@ import it.polito.security.ontologies.annotations.MapsToObjectProperty;
 	 * Retrieves the object hash code.
 	 * <!-- end-model-doc -->
 	 * @model unique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='int result = 17;\nint _hashCode = \"preferences\".hashCode();\nint _plus = ((31 * result) + _hashCode);\nresult = _plus;\nreturn result;'"
 	 * @generated
 	 */
 	int hashCode();
@@ -1969,7 +2024,6 @@ import it.polito.security.ontologies.annotations.MapsToObjectProperty;
 	 * Compares another object with the current one.
 	 * <!-- end-model-doc -->
 	 * @model unique="false" objectUnique="false"
-	 *        annotation="http://www.eclipse.org/emf/2002/GenModel body='if ((object == null))\n{\n\treturn false;\n}\nelse\n{\n\tif ((object instanceof &lt;%it.polito.security.esp.kb.Preferences%&gt;))\n\t{\n\t\treturn (this == object);\n\t}\n\telse\n\t{\n\t\treturn false;\n\t}\n}'"
 	 * @generated
 	 */
 	boolean equals(Object object);

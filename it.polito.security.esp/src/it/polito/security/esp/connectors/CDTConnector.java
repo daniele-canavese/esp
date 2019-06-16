@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -19,11 +20,14 @@ import java.util.regex.Pattern;
 
 import org.apache.commons.io.FilenameUtils;
 import org.eclipse.cdt.core.dom.ast.ASTVisitor;
+import org.eclipse.cdt.core.dom.ast.ExpansionOverlapsBoundaryException;
+import org.eclipse.cdt.core.dom.ast.IASTArrayDeclarator;
 import org.eclipse.cdt.core.dom.ast.IASTCompoundStatement;
 import org.eclipse.cdt.core.dom.ast.IASTDeclaration;
 import org.eclipse.cdt.core.dom.ast.IASTDeclarator;
 import org.eclipse.cdt.core.dom.ast.IASTFunctionDefinition;
 import org.eclipse.cdt.core.dom.ast.IASTInitializerClause;
+import org.eclipse.cdt.core.dom.ast.IASTLiteralExpression;
 import org.eclipse.cdt.core.dom.ast.IASTNode;
 import org.eclipse.cdt.core.dom.ast.IASTParameterDeclaration;
 import org.eclipse.cdt.core.dom.ast.IASTPreprocessorStatement;
@@ -96,6 +100,7 @@ import it.polito.security.esp.ESP;
 import it.polito.security.esp.kb.ActionType;
 import it.polito.security.esp.kb.Activator;
 import it.polito.security.esp.kb.KbFactory;
+import it.polito.security.esp.kb.Preferences;
 import it.polito.security.esp.kb.ApplicationPart;
 import it.polito.security.esp.kb.ApplicationPartSet;
 import it.polito.security.esp.kb.ApplicationPartType;
@@ -119,6 +124,9 @@ public class CDTConnector
 	/** The ESP. **/
 	private ESP esp;
 
+	/** The function map. **/
+	private Map<ASTNode, ApplicationPart> functionMap;
+	
 	/**
 	 * Creates the connector.
 	 * @param esp
@@ -417,6 +425,246 @@ public class CDTConnector
 	}
 
 	/**
+	 * Parses a Tigress protected source file to extract a protected self-contained function, along with the needed declarations.
+	 * @param function
+	 * 				The application part representing the protected function.
+	 * @throws IOException
+	 *             If some I/O error occurs.
+	 * @throws CoreException
+	 *             If a source file cannot be parsed.
+	 * @return A map associating the true boolean value with the self-contained code of a Tigress protected function, and the false one to the needed declaration that must be placed outside+before the function.
+	 */
+	public Map<String,List<String>> parseTigress(ApplicationPart function) throws IOException, CoreException
+	{
+		Preferences preferences = esp.getModel().getPreferences();
+		String i = preferences.getWorkingDirectory()+esp.getRunner().getSeparator()+"tempTigress"+esp.getRunner().getSeparator()+"merged_comb_tigress_"+function.getName()+".c";
+		FileContent fileContent = FileContent.createForExternalFileLocation(i);
+		Map<String, String> definedSymbols = new HashMap<>();
+		String[] includePaths = new String[0];
+		IScannerInfo info = new ScannerInfo(definedSymbols, includePaths);
+		IncludeFileContentProvider emptyIncludes = new SavedFilesProvider();
+		int opts = 8;
+		IParserLogService logService = new DefaultLogService();
+		IASTTranslationUnit translationUnit = null;
+		translationUnit = GCCLanguage.getDefault().getASTTranslationUnit(fileContent, info, emptyIncludes, null, opts, logService);
+		
+		Map<String, List<String>> retValue = new HashMap<String, List<String>>();
+		List<String> declarations = new LinkedList<String>();
+		List<String> functionDecl = new LinkedList<String>();
+		List<String> functionBody = new LinkedList<String>();
+		retValue.put("declarations",declarations);
+		retValue.put("functionBody",functionBody);
+		retValue.put("functionDecl",functionDecl);
+//		int adcjuani=0;
+		//Global stuff
+		
+		//Local stuff
+//		for(ApplicationPart function : functions)
+//		{
+//			
+//		}
+		
+		
+		for (IASTDeclaration j : translationUnit.getDeclarations())
+		{
+			if(j instanceof CASTFunctionDefinition)
+			{
+				if(((CASTFunctionDefinition) j).getDeclarator().getName().toString().equals(function.getName()))
+				{
+					functionDecl.add(j.getRawSignature().replace(((CASTFunctionDefinition) j).getBody().getRawSignature(),""));
+//					((CASTFunctionDefinition) j).getDeclSpecifier().getRawSignature();
+					
+					functionDecl.add("{");
+					for(IASTNode bodyStatement : ((CASTFunctionDefinition) j).getBody().getChildren())
+						if(!bodyStatement.getRawSignature().contains("megaInit"))
+							functionBody.add(bodyStatement.getRawSignature());
+				}
+				else if(((CASTFunctionDefinition) j).getDeclarator().getName().toString().equals("__ESP_"+function.getName()+"__stringEncoder"))
+				{
+					declarations.add(j.getRawSignature());
+				}
+//					functionBody.add(((CASTFunctionDefinition) j).getBody().getRawSignature().toString());
+			}
+//			else if(j.getRawSignature().contains("__ESP_"+function.getName()+"__stringEncoder"))
+//				declarations.add(j.getRawSignature());
+//			else if (j instanceof CASTSimpleDeclaration)
+//			{
+//				if(((CASTSimpleDeclaration)j).getDeclarators().length>0)
+//				{
+//					if(((CASTSimpleDeclaration)j).getDeclarators()[0].getName().toString().contains("i$nit"))
+//						continue;
+//					if(((CASTSimpleDeclaration)j).getDeclarators()[0].getName().toString().contains("encodeStrings_litStr"))
+//						declarations.add(j.getRawSignature());
+//				}
+//				else if(j.getRawSignature().contains("_ESP_"+function.getName()))
+//					functionBody.add(j.getRawSignature());
+//				
+//			}
+			else if(j.getRawSignature().contains("_ESP_"+function.getName()))
+				functionBody.add(j.getRawSignature());
+			else if(function.getName().contentEquals("main") &&
+						(j.getRawSignature().contains("_global_argc") || j.getRawSignature().contains("_global_argv") || j.getRawSignature().contains("_global_envp"))
+					)
+					functionBody.add(j.getRawSignature());
+			else if (j instanceof CASTSimpleDeclaration)
+			{
+				if(((CASTSimpleDeclaration)j).getDeclarators().length>0)
+					if(((CASTSimpleDeclaration)j).getDeclarators()[0].getName().toString().contains("encodeStrings_litStr") &&
+							!((CASTSimpleDeclaration)j).getDeclarators()[0].getName().toString().contains("i$nit"))
+						declarations.add(j.getRawSignature());
+			}
+			
+//			String location = j.getRawSignature() + " @ " + j.getFileLocation().getFileName() + " : "
+//					+ j.getFileLocation().getStartingLineNumber() + "-" + j.getFileLocation().getEndingLineNumber();
+//			
+//			if (j instanceof CPPASTFunctionDefinition)
+//			{
+//				if(((CPPASTFunctionDefinition) j).getDeclarator().getName().toString().contains(function.getName()))
+//					{
+//						log.info("CPPASTFunctionDefinition: "+ ((CPPASTFunctionDefinition) j).getDeclarator().getName()+ " @ " + j.getFileLocation().getFileName() + " : " + j.getFileLocation().getStartingLineNumber() + "-" + j.getFileLocation().getEndingLineNumber()+"\n"+((CPPASTFunctionDefinition) j).getBody().getRawSignature());
+//						
+//						log.info(j.getClass().getCanonicalName()+"\n"+j.getRawSignature());
+//					}
+//			}
+//			else if (j instanceof CASTFunctionDefinition)
+//			{
+//				if(((CASTFunctionDefinition) j).getDeclarator().getName().toString().contains(function.getName()))
+//					{
+//						log.info("CASTFunctionDefinition: "+ ((CASTFunctionDefinition) j).getDeclarator().getName()+ " @ " + j.getFileLocation().getFileName() + " : " + j.getFileLocation().getStartingLineNumber() + "-" + j.getFileLocation().getEndingLineNumber()+"\n"+((CASTFunctionDefinition) j).getBody().getRawSignature());
+//						log.info(j.getClass().getCanonicalName()+"\n"+j.getRawSignature());
+//					}
+//			}
+//			else if (j instanceof CPPASTSimpleDeclaration)
+//			{
+//				for(int c = 0; c < ((CPPASTSimpleDeclaration) j).getDeclarators().length; c++)//IASTDeclarator decl : ((CPPASTSimpleDeclaration) j).getDeclarators())
+//					if(((CPPASTSimpleDeclaration) j).getDeclarators()[c].getName().toString().contains(function.getName()))
+//						{
+//							log.info("CPPASTSimpleDeclaration "+c+": "+ ((CPPASTSimpleDeclaration) j).getDeclarators()[c].getName()+ " @ " + j.getFileLocation().getFileName() + " : " + j.getFileLocation().getStartingLineNumber() + "-" + j.getFileLocation().getEndingLineNumber()+"\n"+((CPPASTSimpleDeclaration) j).getRawSignature());
+//							log.info(j.getClass().getCanonicalName()+"\n"+j.getRawSignature());
+//						}
+//			}
+//			else if (j instanceof CASTSimpleDeclaration)
+//			{
+//				for(int c = 0; c < ((CASTSimpleDeclaration) j).getDeclarators().length; c++)//IASTDeclarator decl : ((CPPASTSimpleDeclaration) j).getDeclarators())
+//					if(((CASTSimpleDeclaration) j).getDeclarators()[c].getName().toString().contains(function.getName()))
+//						{
+//							log.info("CASTSimpleDeclaration "+c+": "+ ((CASTSimpleDeclaration) j).getDeclarators()[c].getName()+ " @ " + j.getFileLocation().getFileName() + " : " + j.getFileLocation().getStartingLineNumber() + "-" + j.getFileLocation().getEndingLineNumber()+"\n"+((CASTSimpleDeclaration) j).getRawSignature());
+//							log.info(j.getClass().getCanonicalName()+"\n"+j.getRawSignature());
+//						}
+//			}
+			
+			
+		}
+		return retValue;
+	}
+	
+	
+//	/**
+//	 * Parses a Tigress protected source file to extract a protected self-contained function, along with the needed declarations.
+//	 * @param function
+//	 * 				The application part representing the protected function.
+//	 * @throws IOException
+//	 *             If some I/O error occurs.
+//	 * @throws CoreException
+//	 *             If a source file cannot be parsed.
+//	 * @return A map associating the true boolean value with the self-contained code of a Tigress protected function, and the false one to the needed declaration that must be placed outside+before the function.
+//	 */
+//	public List<Integer> parseTigressVariables(ApplicationPart function, List<ApplicationPart> ) throws IOException, CoreException
+//	{
+//		Preferences preferences = esp.getModel().getPreferences();
+//		String i = preferences.getWorkingDirectory()+esp.getRunner().getSeparator()+"tempTigress"+esp.getRunner().getSeparator()+"merged_comb_tigress_"+function.getName()+".c";
+//		FileContent fileContent = FileContent.createForExternalFileLocation(i);
+//		Map<String, String> definedSymbols = new HashMap<>();
+//		String[] includePaths = new String[0];
+//		IScannerInfo info = new ScannerInfo(definedSymbols, includePaths);
+//		IncludeFileContentProvider emptyIncludes = new SavedFilesProvider();
+//		int opts = 8;
+//		IParserLogService logService = new DefaultLogService();
+//		IASTTranslationUnit translationUnit = null;
+//		translationUnit = GCCLanguage.getDefault().getASTTranslationUnit(fileContent, info, emptyIncludes, null, opts, logService);
+//		
+//		List<Integer> retValue = new LinkedList<Integer>();
+//		//Global stuff
+//		
+//		//Local stuff
+////		for(ApplicationPart function : functions)
+////		{
+////			
+////		}
+//		
+//		
+//		for (IASTDeclaration j : translationUnit.getDeclarations())
+//		{
+////			if(j instanceof CASTFunctionDefinition)
+////			{
+////				if(((CASTFunctionDefinition) j).getDeclarator().getName().toString().equals(function.getName()))
+////				{
+////					for(IASTNode bodyStatement : ((CASTFunctionDefinition) j).getBody().getChildren())
+////						functionBody.add(bodyStatement.getRawSignature());
+////				}
+////				else if(((CASTFunctionDefinition) j).getDeclarator().getName().toString().equals("__ESP_"+function.getName()+"__stringEncoder"))
+////				{
+////					declarations.add(j.getRawSignature());
+////				}
+//////					functionBody.add(((CASTFunctionDefinition) j).getBody().getRawSignature().toString());
+////			}
+//////			else if(j.getRawSignature().contains("__ESP_"+function.getName()+"__stringEncoder"))
+//////				declarations.add(j.getRawSignature());
+////			else if (j instanceof CASTSimpleDeclaration)
+////			{
+////				if(((CASTSimpleDeclaration)j).getDeclarators().length>0)
+////					if(((CASTSimpleDeclaration)j).getDeclarators()[0].getName().toString().contains("encodeStrings_litStr") &&
+////							!((CASTSimpleDeclaration)j).getDeclarators()[0].getName().toString().contains("i$nit"))
+////						declarations.add(j.getRawSignature());
+////			}
+////			else if(j.getRawSignature().contains("_ESP_"+function.getName()))
+////				functionBody.add(j.getRawSignature());
+////			String location = j.getRawSignature() + " @ " + j.getFileLocation().getFileName() + " : "
+////					+ j.getFileLocation().getStartingLineNumber() + "-" + j.getFileLocation().getEndingLineNumber();
+////			
+////			if (j instanceof CPPASTFunctionDefinition)
+////			{
+////				if(((CPPASTFunctionDefinition) j).getDeclarator().getName().toString().contains(function.getName()))
+////					{
+////						log.info("CPPASTFunctionDefinition: "+ ((CPPASTFunctionDefinition) j).getDeclarator().getName()+ " @ " + j.getFileLocation().getFileName() + " : " + j.getFileLocation().getStartingLineNumber() + "-" + j.getFileLocation().getEndingLineNumber()+"\n"+((CPPASTFunctionDefinition) j).getBody().getRawSignature());
+////						
+////						log.info(j.getClass().getCanonicalName()+"\n"+j.getRawSignature());
+////					}
+////			}
+////			else if (j instanceof CASTFunctionDefinition)
+////			{
+////				if(((CASTFunctionDefinition) j).getDeclarator().getName().toString().contains(function.getName()))
+////					{
+////						log.info("CASTFunctionDefinition: "+ ((CASTFunctionDefinition) j).getDeclarator().getName()+ " @ " + j.getFileLocation().getFileName() + " : " + j.getFileLocation().getStartingLineNumber() + "-" + j.getFileLocation().getEndingLineNumber()+"\n"+((CASTFunctionDefinition) j).getBody().getRawSignature());
+////						log.info(j.getClass().getCanonicalName()+"\n"+j.getRawSignature());
+////					}
+////			}
+//			if (j instanceof CPPASTSimpleDeclaration)
+//			{
+//				for(int c = 0; c < ((CPPASTSimpleDeclaration) j).getDeclarators().length; c++)//IASTDeclarator decl : ((CPPASTSimpleDeclaration) j).getDeclarators())
+//					if(((CPPASTSimpleDeclaration) j).getDeclarators()[c].getName().toString().contains(function.getName()))
+//						{
+//							log.info("CPPASTSimpleDeclaration "+c+": "+ ((CPPASTSimpleDeclaration) j).getDeclarators()[c].getName()+ " @ " + j.getFileLocation().getFileName() + " : " + j.getFileLocation().getStartingLineNumber() + "-" + j.getFileLocation().getEndingLineNumber()+"\n"+((CPPASTSimpleDeclaration) j).getRawSignature());
+//							log.info(j.getClass().getCanonicalName()+"\n"+j.getRawSignature());
+//						}
+//			}
+//			else if (j instanceof CASTSimpleDeclaration)
+//			{
+//				for(int c = 0; c < ((CASTSimpleDeclaration) j).getDeclarators().length; c++)//IASTDeclarator decl : ((CPPASTSimpleDeclaration) j).getDeclarators())
+//					if(((CASTSimpleDeclaration) j).getDeclarators()[c].getName().toString().contains(function.getName()))
+//						{
+//							log.info("CASTSimpleDeclaration "+c+": "+ ((CASTSimpleDeclaration) j).getDeclarators()[c].getName()+ " @ " + j.getFileLocation().getFileName() + " : " + j.getFileLocation().getStartingLineNumber() + "-" + j.getFileLocation().getEndingLineNumber()+"\n"+((CASTSimpleDeclaration) j).getRawSignature());
+//							log.info(j.getClass().getCanonicalName()+"\n"+j.getRawSignature());
+//						}
+//			}
+//			
+//			
+//		}
+//		return retValue;
+//	}
+//	
+	
+	/**
 	 * Parses a project.
 	 * @throws IOException
 	 *             If some I/O error occurs.
@@ -498,7 +746,7 @@ public class CDTConnector
 
 		// 2. Finds all the application parts.
 		Set<String> locations = new HashSet<>();
-		Map<ASTNode, ApplicationPart> functionMap = new HashMap<>();
+		functionMap = new HashMap<>();
 		for (Entry<String, IASTTranslationUnit> i : unitMap.entrySet())
 			findApplicationParts(i.getKey(), i.getValue(), functionMap, filesMap, standardHeaders, locations);
 		log.info("Application parts parsed");
@@ -1224,7 +1472,50 @@ public class CDTConnector
 		findApplicationParts(applicationPart, declaration.getBody(), filesMap, functionMap, standardHeaders);
 		log.finest("New C function = " + applicationPart.getName());
 	}
-
+	
+	/**
+	 * Finds metrics about literal values in a node and all its childrens.
+	 * @param function The application part representing the function containing the node;
+	 * @param node The node to analyze, can be null.
+	 * @param literalMetrics The initial literal metrics array, can be null.
+	 * @return An array with metrics about literals in the node, in order: 
+	 * 			[0] count of integer literals in the node;
+	 * 			[1] count of string literals in the node;
+	 * 			[2] total size in characters of string literals in the node.
+	 */
+	public int[] findLiteralMetrics(ApplicationPart function, IASTNode node, int[] literalMetrics)
+	{
+		if(literalMetrics==null)
+			literalMetrics = new int[]{0, 0, 0};
+		if(node==null)
+			node = functionMap.entrySet().stream().filter((Entry<ASTNode, ApplicationPart> e) -> e.getValue().equals(function)).findFirst()
+							.orElseGet(() -> {log.fine("function "+ function.getName()+" CDT AST node not found"); return null;}).getKey();
+		
+		for(IASTNode children: node.getChildren())
+		{
+			if(children instanceof IASTLiteralExpression)
+			{
+				IASTLiteralExpression literalChildren = (IASTLiteralExpression) children;
+				if(literalChildren.getKind() == IASTLiteralExpression.lk_integer_constant)
+					literalMetrics[0]++;
+				else if (literalChildren.getKind() == IASTLiteralExpression.lk_char_constant)
+				{
+					literalMetrics[1]++;
+					literalMetrics[2]++;
+				}
+				else if (literalChildren.getKind() == IASTLiteralExpression.lk_string_literal)
+				{
+					literalMetrics[1]++;
+					//count chars excluding backslashes from the count (\n is one ascii char!)
+					literalMetrics[2]+=String.valueOf(literalChildren.getValue()).replace("\\","").length();
+				}
+			}
+			
+			findLiteralMetrics(function, children, literalMetrics);
+		}
+		return literalMetrics;
+	}
+	
 	/**
 	 * Finds the application parts in a node.
 	 * @param code

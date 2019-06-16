@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.jpl7.Compound;
 import org.jpl7.JPL;
+import org.jpl7.JPLException;
 import org.jpl7.Query;
 import org.jpl7.Term;
 
@@ -192,6 +193,7 @@ public class AttackFinder
 		{
 			// Loads the base Prolog files.
 			JPL.setTraditional();
+			JPL.init();
 			assertProlog("consult('" + Eclipse.getPath(Activator.PLUGIN_ID, "pl/attackPaths.pl").replace('\\', '/') + "')");
 			assertProlog("consult('" + Eclipse.getPath(Activator.PLUGIN_ID, "pl/baseClauses.pl").replace('\\', '/') + "')");
 
@@ -242,8 +244,10 @@ public class AttackFinder
 							parameters.add("constant(" + j.getName() + ")");
 						else
 							parameters.add(j.getName());
+					//TODO: something is definitely wrong in parsing, empty parameters in calls sometimes
+					List<String> parameters2 = parameters.stream().filter(s -> !s.isEmpty()).collect(java.util.stream.Collectors.toList());
 					assertProlog("assertz(calls('" + applicationPart.getName() + "'(User), '" + i.getTarget().getName() + "'(User), ["
-							+ Strings.join(parameters, ",") + "]))");
+							+ Strings.join(parameters2, ",") + "]))");
 					assertProlog("assertz(isCalledBy('" + i.getTarget().getName() + "'(User), '" + applicationPart.getName() + "'(User)))");
 					usedParts.add(i.getTarget());
 				}
@@ -280,6 +284,7 @@ public class AttackFinder
 	private void assertProlog(String clause) throws IOException
 	{
 		Query query = new Query(clause);
+//		log.fine(clause);
 		if (!query.hasSolution())
 			throw new IOException("Unable to assert " + clause);
 	}
@@ -308,8 +313,8 @@ public class AttackFinder
 		// assertProlog("assertz(enables/2)");
 		// assertProlog("assertz(isEnabledBy/2)");
 		assertProlog("assertz(hasProperty/2)");
-		assertProlog("assertz(calls/2)");
-		assertProlog("assertz(isCalledBy/2)");
+		assertProlog("assertz(calls/3)");
+		assertProlog("assertz(isCalledBy/3)");
 	}
 
 	/**
@@ -338,8 +343,8 @@ public class AttackFinder
 			// assertProlog("retractall(enables(_, _))");
 			// assertProlog("retractall(isEnabledBy(_, _))");
 			assertProlog("retractall(hasProperty(_, _))");
-			assertProlog("retractall(calls(_, _))");
-			assertProlog("retractall(isCalledBy(_, _))");
+			assertProlog("retractall(calls(_, _, _))");
+			assertProlog("retractall(isCalledBy(_, _, _))");
 
 			assertProlog("retractall(application/1)");
 			assertProlog("retractall(contains/2)");
@@ -358,8 +363,8 @@ public class AttackFinder
 			// assertProlog("retractall(enables/2)");
 			// assertProlog("retractall(isEnabledBy/2)");
 			assertProlog("retractall(hasProperty/2)");
-			assertProlog("retractall(calls/2)");
-			assertProlog("retractall(isCalledBy/2)");
+			assertProlog("retractall(calls/3)");
+			assertProlog("retractall(isCalledBy/3)");
 		}
 		catch (Exception e)
 		{
@@ -416,123 +421,132 @@ public class AttackFinder
 				+ protectionObjective.getProperty().getLiteral() + ")";
 		Query attackPathsQuery = new Query("getAttackPath(" + attackFact + ", AttackPath)");
 		Vector<Map<?, ?>> attackPathsSolutions = new Vector<>();
-
-		while (attackPathsQuery.hasMoreSolutions())
+		
+		int oldAttackSize = esp.getModel().getAttackPaths().size();
+		
+		try 
 		{
-			Map<?, ?> attackPathSolution = attackPathsQuery.nextSolution();
-
-			if (attackPathSolution.get("AttackPath") instanceof Compound)
+			while (attackPathsQuery.hasMoreSolutions())
 			{
-
-				Compound compound = (Compound) attackPathSolution.get("AttackPath");
-				boolean differentPaths = true;
-
-				for (Map<?, ?> attackPathSolution2 : attackPathsSolutions)
+				Map<?, ?> attackPathSolution = attackPathsQuery.nextSolution();
+	
+				if (attackPathSolution.get("AttackPath") instanceof Compound)
 				{
-					differentPaths = false;
-					Compound compound2 = (Compound) attackPathSolution2.get("AttackPath");
-					for (Term m : compound.toTermArray())
+	
+					Compound compound = (Compound) attackPathSolution.get("AttackPath");
+					boolean differentPaths = true;
+	
+					for (Map<?, ?> attackPathSolution2 : attackPathsSolutions)
 					{
-						boolean mIsInPath2 = false;
-						for (Term m2 : compound2.toTermArray())
+						differentPaths = false;
+						Compound compound2 = (Compound) attackPathSolution2.get("AttackPath");
+						for (Term m : compound.toTermArray())
 						{
-							if (m.toString().equals(m2.toString()))
+							boolean mIsInPath2 = false;
+							for (Term m2 : compound2.toTermArray())
 							{
-								mIsInPath2 = true;
+								if (m.toString().equals(m2.toString()))
+								{
+									mIsInPath2 = true;
+									break;
+								}
+							}
+							if (!mIsInPath2)
+							{
+								differentPaths = true;
 								break;
 							}
 						}
-						if (!mIsInPath2)
-						{
-							differentPaths = true;
+						if (!differentPaths)
 							break;
-						}
 					}
-					if (!differentPaths)
-						break;
+					if (differentPaths)
+						attackPathsSolutions.add(attackPathSolution);
 				}
-				if (differentPaths)
-					attackPathsSolutions.add(attackPathSolution);
+				if (timeLimit != null && System.currentTimeMillis() - startTime > timeLimit)
+					break;
 			}
-			if (timeLimit != null && System.currentTimeMillis() - startTime > timeLimit)
-				break;
-		}
-
-		int oldAttackSize = esp.getModel().getAttackPaths().size();
-		for (Map<?, ?> i : attackPathsSolutions)
-		{
-			Compound compound = (Compound) i.get("AttackPath");
-			ArrayList<AttackStep> steps = new ArrayList<>();
-
-			for (Term m : compound.toTermArray())
+	
+			for (Map<?, ?> i : attackPathsSolutions)
 			{
-				AttackStep attackStep;
-				if (attackSteps.containsKey(m.toString().hashCode()))
-					attackStep = attackSteps.get(m.toString().hashCode());
+				Compound compound = (Compound) i.get("AttackPath");
+				ArrayList<AttackStep> steps = new ArrayList<>();
+	
+				for (Term m : compound.toTermArray())
+				{
+					AttackStep attackStep;
+					if (attackSteps.containsKey(m.toString().hashCode()))
+						attackStep = attackSteps.get(m.toString().hashCode());
+					else
+					{
+						attackStep = KbFactory.eINSTANCE.createAttackStep();
+						attackStep.setName(m.toString());
+						for (Term j : m.args())
+							if (j.arity() == 1 && (j.arg(1).toString().equals("attacker") || j.arg(1).toString().equals("victim")))
+							{
+								ApplicationPart applicationPart = findApplicationPart(j.name());
+								if (applicationPart != null)
+									Collections.addUnique(attackStep.getApplicationParts(), applicationPart);
+							}
+	
+						attackSteps.put(m.toString().hashCode(), attackStep);
+						esp.getModel().getAttackSteps().add(attackStep);
+					}
+					steps.add(attackStep);
+				}
+	
+				AttackPath attackPath;
+				if (attackPaths.containsKey(steps.hashCode()))
+					attackPath = attackPaths.get(steps.hashCode());
 				else
 				{
-					attackStep = KbFactory.eINSTANCE.createAttackStep();
-					attackStep.setName(m.toString());
-					for (Term j : m.args())
-						if (j.arity() == 1 && (j.arg(1).toString().equals("attacker") || j.arg(1).toString().equals("victim")))
-						{
-							ApplicationPart applicationPart = findApplicationPart(j.name());
-							if (applicationPart != null)
-								Collections.addUnique(attackStep.getApplicationParts(), applicationPart);
-						}
-
-					attackSteps.put(m.toString().hashCode(), attackStep);
-					esp.getModel().getAttackSteps().add(attackStep);
+					attackPath = KbFactory.eINSTANCE.createAttackPath();
+					attackPath.getAttackSteps().addAll(steps);
+					attackPaths.put(steps.hashCode(), attackPath);
+					if (!esp.getModel().getAttackPaths().contains(attackPath))
+					
+						for (ProtectionObjective j : esp.getModel().getProtectionObjectives())
+							if (j.getApplicationPart() == protectionObjective.getApplicationPart()
+									&& j.getProperty() == protectionObjective.getProperty())
+							{
+								esp.getModel().getAttackPaths().add(attackPath);
+								attackPath.getProtectionObjectives().add(j);
+								computeAttackPathCost(attackPath);
+								break;
+							}
 				}
-				steps.add(attackStep);
 			}
-
-			AttackPath attackPath;
-			if (attackPaths.containsKey(steps.hashCode()))
-				attackPath = attackPaths.get(steps.hashCode());
+	
+			long stop = System.currentTimeMillis();
+			log.fine(String.format("% 9d  % 9d  %65s  % 9d  % 9.3f", depth, relatedParts.size(), protectionObjective,
+					esp.getModel().getAttackPaths().size() - oldAttackSize, (stop - startTime) / 1000.0f));
+	
+			if (relatedParts.isEmpty())
+			{
+				relatedParts.add(protectionObjective.getApplicationPart());
+				assertApplicationPart(protectionObjective.getApplicationPart());
+			}
 			else
 			{
-				attackPath = KbFactory.eINSTANCE.createAttackPath();
-				attackPath.getAttackSteps().addAll(steps);
-				attackPaths.put(steps.hashCode(), attackPath);
-				if (!esp.getModel().getAttackPaths().contains(attackPath))
-					for (ProtectionObjective j : esp.getModel().getProtectionObjectives())
-						if (j.getApplicationPart() == protectionObjective.getApplicationPart()
-								&& j.getProperty() == protectionObjective.getProperty())
-						{
-							esp.getModel().getAttackPaths().add(attackPath);
-							attackPath.getProtectionObjectives().add(j);
-							computeAttackPathCost(attackPath);
-							break;
-						}
+				Set<ApplicationPart> related = new HashSet<>();
+				for (ApplicationPart i : relatedParts)
+					related.addAll(findDirectlyRelatedParts(i));
+	
+				related.removeAll(relatedParts);
+	
+				if (related.isEmpty())
+					return true;
+				else
+				{
+					for (ApplicationPart i : related)
+						assertApplicationPart(i);
+					relatedParts.addAll(related);
+				}
 			}
 		}
-
-		long stop = System.currentTimeMillis();
-		log.fine(String.format("% 9d  % 9d  %65s  % 9d  % 9.3f", depth, relatedParts.size(), protectionObjective,
-				esp.getModel().getAttackPaths().size() - oldAttackSize, (stop - startTime) / 1000.0f));
-
-		if (relatedParts.isEmpty())
+		catch(JPLException e)
 		{
-			relatedParts.add(protectionObjective.getApplicationPart());
-			assertApplicationPart(protectionObjective.getApplicationPart());
-		}
-		else
-		{
-			Set<ApplicationPart> related = new HashSet<>();
-			for (ApplicationPart i : relatedParts)
-				related.addAll(findDirectlyRelatedParts(i));
-
-			related.removeAll(relatedParts);
-
-			if (related.isEmpty())
-				return true;
-			else
-			{
-				for (ApplicationPart i : related)
-					assertApplicationPart(i);
-				relatedParts.addAll(related);
-			}
+			log.severe("JPL Exception with query "+"getAttackPath(" + attackFact + ", AttackPath)");
 		}
 
 		return depth > 1 && oldAttackSize == esp.getModel().getAttackPaths().size();

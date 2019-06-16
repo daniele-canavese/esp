@@ -766,6 +766,8 @@ enum ProtectionFlag
 	WHOLE_FUNCTION as "wholeFunction"
 	ONE_PER_FUNCTION as "onePerFunction"
 	MERGE_ATTESTATORS as "mergeAttestators"
+	NO_CONTAINED_CODE_REGIONS as "noContainedCodeRegions"
+	NO_CONTAINED_ASSETS as "noContainedAssets"
 }
 
 @GenModel(documentation="The application part types.")
@@ -812,6 +814,8 @@ class ProtectionInstantiation
 	String verifierAnnotation
 	@GenModel(documentation="The attestator annotation.")
 	String attestatorAnnotation
+	@GenModel(documentation="The protection tool command.")
+	String toolCommand
 	@GenModel(documentation="The client time overhead.")
 	String clientTimeOverhead
 	@GenModel(documentation="The server time overhead.")
@@ -982,7 +986,7 @@ class Preferences
 	String architecture = ""
 	// Remote connection preferences.
 	@GenModel(documentation="The use of a remote connection.")
-	boolean remoteConnection = "true"
+	boolean remoteConnection = "false"
 	@GenModel(documentation="The username for the remote server.")
 	String remoteUsername = "aspire"
 	@GenModel(documentation="The password for the remote server.")
@@ -995,10 +999,14 @@ class Preferences
 	String remoteFileSeparator = "/"
 	// Commands preferences.
 	@GenModel(documentation="The ACTC command.")
-	String commandACTC = "/opt/ACTC/actc.py"
+	String commandACTC = "docker-compose -f ~/git/framework/docker-compose.yml exec -T actc /opt/ACTC/actc.py"
+	@GenModel(documentation="The Tigress command.")
+	String commandTigress = "docker-compose -f ~/git/framework/docker-compose.yml exec -T actc env TIGRESS_HOME=/projects/tigress-unstable PATH=$PATH:/projects/tigress-unstable /projects/tigress-unstable/tigress"
+	@GenModel(documentation="The Cilly command.")
+	String commandCilly = "docker-compose -f ~/git/framework/docker-compose.yml exec -T actc env TIGRESS_HOME=/projects/tigress-unstable PATH=$PATH:/projects/tigress-unstable /projects/tigress-unstable/cilly"
 	@GenModel(documentation="The Perl interpreter.")
 	String commandPerl = "/usr/bin/perl"
-	@GenModel(documentation="The dot command.")
+	@GenModel(documentation="The dot command." )
 	String commandDot = "/usr/bin/dot"
 	// Metrics preferences.
 	@GenModel(documentation="The metrics coefficients file name.")
@@ -1162,6 +1170,8 @@ class AppliedProtectionInstantiation
 	String verifierAnnotation
 	@GenModel(documentation="The real attestator annotation.")
 	String attestatorAnnotation 
+	@GenModel(documentation="The protection tool command.")
+	String toolCommand
 	@GenModel(documentation="Translates the object into a string.")
 	op String toString()
 	{

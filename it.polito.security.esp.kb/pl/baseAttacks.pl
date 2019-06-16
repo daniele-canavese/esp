@@ -50,7 +50,7 @@ fact(executedKnowingAllDataOrChangedCode(Code)) :-
 	(fact(codeExecuted(Code)), forall((datum(Datum),arg(1,Datum,victim),accesses(Code,Datum)),(fact(contentRetrieved(Datum))))).
 
 % The attacker can statically locate a hardcoded part in its code.
-attackStep(staticallyLocate(Part), [], [staticallyLocated(Part)], '10:0.1*SCZ') :-
+attackStep(staticallyLocate(Part), [], [staticallyLocated(Part)]) :-
 	fact(attackerHardcodedAsset(Part)),
 	functor(Part,_,_).
 	

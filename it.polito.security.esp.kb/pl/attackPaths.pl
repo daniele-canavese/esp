@@ -31,7 +31,7 @@ getAttackPath(Fact, Path) :-
 % Finds an attack path that can reach a KB.
 getAttackPath([], Acc, Acc).
 getAttackPath(KB, Acc, Path) :-
-	attackStep(Step, Requirements, Productions, _),
+	attackStep(Step, Requirements, Productions),
 	% At least one production must be in the KB.
 	forall(member(Production, Productions), assertz(fact(Production))),
 	findall(Production, fact(Production), XProductions),

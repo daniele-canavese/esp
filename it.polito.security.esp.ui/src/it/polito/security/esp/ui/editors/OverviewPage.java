@@ -723,15 +723,15 @@ public class OverviewPage extends FormPage
 					}
 					finally
 					{
-						Display.getDefault().syncExec(new Runnable()
-						{
-							@Override
-							public void run()
-							{
-								MessageDialog.openInformation(Display.getDefault().getActiveShell(), "ESP",
-										"Solution deployment completed!");
-							}
-						});
+//						Display.getDefault().syncExec(new Runnable()
+//						{
+//							@Override
+//							public void run()
+//							{
+//								MessageDialog.openInformation(Display.getDefault().getActiveShell(), "ESP",
+//										"Solution deployment completed!");
+//							}
+//						});
 					}
 				}
 				updateEnables();

@@ -27,8 +27,7 @@ import org.eclipse.emf.ecore.EReference;
  *        annotation="http://www.eclipse.org/emf/2002/GenModel basePackage='it.polito.security.esp'"
  * @generated
  */
-public interface KbPackage extends EPackage
-{
+public interface KbPackage extends EPackage {
 	/**
 	 * The package name.
 	 * <!-- begin-user-doc -->
@@ -1692,13 +1691,22 @@ public interface KbPackage extends EPackage
 	int PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION = 5;
 
 	/**
+	 * The feature id for the '<em><b>Tool Command</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROTECTION_INSTANTIATION__TOOL_COMMAND = 6;
+
+	/**
 	 * The feature id for the '<em><b>Client Time Overhead</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROTECTION_INSTANTIATION__CLIENT_TIME_OVERHEAD = 6;
+	int PROTECTION_INSTANTIATION__CLIENT_TIME_OVERHEAD = 7;
 
 	/**
 	 * The feature id for the '<em><b>Server Time Overhead</b></em>' attribute.
@@ -1707,7 +1715,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PROTECTION_INSTANTIATION__SERVER_TIME_OVERHEAD = 7;
+	int PROTECTION_INSTANTIATION__SERVER_TIME_OVERHEAD = 8;
 
 	/**
 	 * The feature id for the '<em><b>Client Memory Overhead</b></em>' attribute.
@@ -1716,7 +1724,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PROTECTION_INSTANTIATION__CLIENT_MEMORY_OVERHEAD = 8;
+	int PROTECTION_INSTANTIATION__CLIENT_MEMORY_OVERHEAD = 9;
 
 	/**
 	 * The feature id for the '<em><b>Server Memory Overhead</b></em>' attribute.
@@ -1725,7 +1733,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PROTECTION_INSTANTIATION__SERVER_MEMORY_OVERHEAD = 9;
+	int PROTECTION_INSTANTIATION__SERVER_MEMORY_OVERHEAD = 10;
 
 	/**
 	 * The feature id for the '<em><b>Network Overhead</b></em>' attribute.
@@ -1734,7 +1742,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PROTECTION_INSTANTIATION__NETWORK_OVERHEAD = 10;
+	int PROTECTION_INSTANTIATION__NETWORK_OVERHEAD = 11;
 
 	/**
 	 * The number of structural features of the '<em>Protection Instantiation</em>' class.
@@ -1743,7 +1751,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PROTECTION_INSTANTIATION_FEATURE_COUNT = 11;
+	int PROTECTION_INSTANTIATION_FEATURE_COUNT = 12;
 
 	/**
 	 * The operation id for the '<em>Hash Code</em>' operation.
@@ -2119,13 +2127,31 @@ public interface KbPackage extends EPackage
 	int PREFERENCES__COMMAND_ACTC = 11;
 
 	/**
+	 * The feature id for the '<em><b>Command Tigress</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREFERENCES__COMMAND_TIGRESS = 12;
+
+	/**
+	 * The feature id for the '<em><b>Command Cilly</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PREFERENCES__COMMAND_CILLY = 13;
+
+	/**
 	 * The feature id for the '<em><b>Command Perl</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__COMMAND_PERL = 12;
+	int PREFERENCES__COMMAND_PERL = 14;
 
 	/**
 	 * The feature id for the '<em><b>Command Dot</b></em>' attribute.
@@ -2134,7 +2160,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__COMMAND_DOT = 13;
+	int PREFERENCES__COMMAND_DOT = 15;
 
 	/**
 	 * The feature id for the '<em><b>Metrics File</b></em>' attribute.
@@ -2143,7 +2169,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__METRICS_FILE = 14;
+	int PREFERENCES__METRICS_FILE = 16;
 
 	/**
 	 * The feature id for the '<em><b>Metrics Transformation Degree</b></em>' attribute.
@@ -2152,7 +2178,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__METRICS_TRANSFORMATION_DEGREE = 15;
+	int PREFERENCES__METRICS_TRANSFORMATION_DEGREE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Metrics Pseudo Inverse Sensitivity</b></em>' attribute.
@@ -2161,7 +2187,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__METRICS_PSEUDO_INVERSE_SENSITIVITY = 16;
+	int PREFERENCES__METRICS_PSEUDO_INVERSE_SENSITIVITY = 18;
 
 	/**
 	 * The feature id for the '<em><b>Metrics Derivative Sensitivity</b></em>' attribute.
@@ -2170,7 +2196,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__METRICS_DERIVATIVE_SENSITIVITY = 17;
+	int PREFERENCES__METRICS_DERIVATIVE_SENSITIVITY = 19;
 
 	/**
 	 * The feature id for the '<em><b>Metrics Fitter</b></em>' attribute.
@@ -2179,7 +2205,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__METRICS_FITTER = 18;
+	int PREFERENCES__METRICS_FITTER = 20;
 
 	/**
 	 * The feature id for the '<em><b>Metrics Non Linear Maximum Iterations</b></em>' attribute.
@@ -2188,7 +2214,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__METRICS_NON_LINEAR_MAXIMUM_ITERATIONS = 19;
+	int PREFERENCES__METRICS_NON_LINEAR_MAXIMUM_ITERATIONS = 21;
 
 	/**
 	 * The feature id for the '<em><b>Metrics Non Linear Step Size</b></em>' attribute.
@@ -2197,7 +2223,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__METRICS_NON_LINEAR_STEP_SIZE = 20;
+	int PREFERENCES__METRICS_NON_LINEAR_STEP_SIZE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Metrics Non Linear Minimum Error</b></em>' attribute.
@@ -2206,7 +2232,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__METRICS_NON_LINEAR_MINIMUM_ERROR = 21;
+	int PREFERENCES__METRICS_NON_LINEAR_MINIMUM_ERROR = 23;
 
 	/**
 	 * The feature id for the '<em><b>Metrics Non Linear Minimum Change</b></em>' attribute.
@@ -2215,7 +2241,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__METRICS_NON_LINEAR_MINIMUM_CHANGE = 22;
+	int PREFERENCES__METRICS_NON_LINEAR_MINIMUM_CHANGE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Parser Header Parsing</b></em>' attribute.
@@ -2224,7 +2250,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__PARSER_HEADER_PARSING = 23;
+	int PREFERENCES__PARSER_HEADER_PARSING = 25;
 
 	/**
 	 * The feature id for the '<em><b>Parser System Files Ignoration</b></em>' attribute.
@@ -2233,7 +2259,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__PARSER_SYSTEM_FILES_IGNORATION = 24;
+	int PREFERENCES__PARSER_SYSTEM_FILES_IGNORATION = 26;
 
 	/**
 	 * The feature id for the '<em><b>Attacks Time Limit</b></em>' attribute.
@@ -2242,7 +2268,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__ATTACKS_TIME_LIMIT = 25;
+	int PREFERENCES__ATTACKS_TIME_LIMIT = 27;
 
 	/**
 	 * The feature id for the '<em><b>Attacks Maximum Depth</b></em>' attribute.
@@ -2251,7 +2277,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__ATTACKS_MAXIMUM_DEPTH = 26;
+	int PREFERENCES__ATTACKS_MAXIMUM_DEPTH = 28;
 
 	/**
 	 * The feature id for the '<em><b>Attacks Included Protection Objectives Removal</b></em>' attribute.
@@ -2260,7 +2286,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__ATTACKS_INCLUDED_PROTECTION_OBJECTIVES_REMOVAL = 27;
+	int PREFERENCES__ATTACKS_INCLUDED_PROTECTION_OBJECTIVES_REMOVAL = 29;
 
 	/**
 	 * The feature id for the '<em><b>Protections Minimum Attack Mitigation</b></em>' attribute.
@@ -2269,7 +2295,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__PROTECTIONS_MINIMUM_ATTACK_MITIGATION = 28;
+	int PREFERENCES__PROTECTIONS_MINIMUM_ATTACK_MITIGATION = 30;
 
 	/**
 	 * The feature id for the '<em><b>Max Attestators Per Protection Instantiation</b></em>' attribute.
@@ -2278,7 +2304,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__MAX_ATTESTATORS_PER_PROTECTION_INSTANTIATION = 29;
+	int PREFERENCES__MAX_ATTESTATORS_PER_PROTECTION_INSTANTIATION = 31;
 
 	/**
 	 * The feature id for the '<em><b>Client Time Overhead</b></em>' attribute.
@@ -2287,7 +2313,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__CLIENT_TIME_OVERHEAD = 30;
+	int PREFERENCES__CLIENT_TIME_OVERHEAD = 32;
 
 	/**
 	 * The feature id for the '<em><b>Server Time Overhead</b></em>' attribute.
@@ -2296,7 +2322,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__SERVER_TIME_OVERHEAD = 31;
+	int PREFERENCES__SERVER_TIME_OVERHEAD = 33;
 
 	/**
 	 * The feature id for the '<em><b>Client Memory Overhead</b></em>' attribute.
@@ -2305,7 +2331,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__CLIENT_MEMORY_OVERHEAD = 32;
+	int PREFERENCES__CLIENT_MEMORY_OVERHEAD = 34;
 
 	/**
 	 * The feature id for the '<em><b>Server Memory Overhead</b></em>' attribute.
@@ -2314,7 +2340,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__SERVER_MEMORY_OVERHEAD = 33;
+	int PREFERENCES__SERVER_MEMORY_OVERHEAD = 35;
 
 	/**
 	 * The feature id for the '<em><b>Network Overhead</b></em>' attribute.
@@ -2323,7 +2349,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__NETWORK_OVERHEAD = 34;
+	int PREFERENCES__NETWORK_OVERHEAD = 36;
 
 	/**
 	 * The feature id for the '<em><b>L1p Solutions Count</b></em>' attribute.
@@ -2332,7 +2358,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_SOLUTIONS_COUNT = 35;
+	int PREFERENCES__L1P_SOLUTIONS_COUNT = 37;
 
 	/**
 	 * The feature id for the '<em><b>L1p Time Limit</b></em>' attribute.
@@ -2341,7 +2367,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_TIME_LIMIT = 36;
+	int PREFERENCES__L1P_TIME_LIMIT = 38;
 
 	/**
 	 * The feature id for the '<em><b>L1p Solutions Limit</b></em>' attribute.
@@ -2350,7 +2376,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_SOLUTIONS_LIMIT = 37;
+	int PREFERENCES__L1P_SOLUTIONS_LIMIT = 39;
 
 	/**
 	 * The feature id for the '<em><b>L1p Gap Limit</b></em>' attribute.
@@ -2359,7 +2385,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_GAP_LIMIT = 38;
+	int PREFERENCES__L1P_GAP_LIMIT = 40;
 
 	/**
 	 * The feature id for the '<em><b>L1p Client Time Overhead Percentage</b></em>' attribute.
@@ -2368,7 +2394,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_CLIENT_TIME_OVERHEAD_PERCENTAGE = 39;
+	int PREFERENCES__L1P_CLIENT_TIME_OVERHEAD_PERCENTAGE = 41;
 
 	/**
 	 * The feature id for the '<em><b>L1p Server Time Overhead Percentage</b></em>' attribute.
@@ -2377,7 +2403,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_SERVER_TIME_OVERHEAD_PERCENTAGE = 40;
+	int PREFERENCES__L1P_SERVER_TIME_OVERHEAD_PERCENTAGE = 42;
 
 	/**
 	 * The feature id for the '<em><b>L1p Client Memory Overhead Percentage</b></em>' attribute.
@@ -2386,7 +2412,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_CLIENT_MEMORY_OVERHEAD_PERCENTAGE = 41;
+	int PREFERENCES__L1P_CLIENT_MEMORY_OVERHEAD_PERCENTAGE = 43;
 
 	/**
 	 * The feature id for the '<em><b>L1p Server Memory Overhead Percentage</b></em>' attribute.
@@ -2395,7 +2421,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_SERVER_MEMORY_OVERHEAD_PERCENTAGE = 42;
+	int PREFERENCES__L1P_SERVER_MEMORY_OVERHEAD_PERCENTAGE = 44;
 
 	/**
 	 * The feature id for the '<em><b>L1p Network Overhead Percentage</b></em>' attribute.
@@ -2404,7 +2430,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_NETWORK_OVERHEAD_PERCENTAGE = 43;
+	int PREFERENCES__L1P_NETWORK_OVERHEAD_PERCENTAGE = 45;
 
 	/**
 	 * The feature id for the '<em><b>L1p Discouraged Precedences Ignoration</b></em>' attribute.
@@ -2413,7 +2439,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_DISCOURAGED_PRECEDENCES_IGNORATION = 44;
+	int PREFERENCES__L1P_DISCOURAGED_PRECEDENCES_IGNORATION = 46;
 
 	/**
 	 * The feature id for the '<em><b>L1p Encouraged Precedences Focusing</b></em>' attribute.
@@ -2422,7 +2448,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_ENCOURAGED_PRECEDENCES_FOCUSING = 45;
+	int PREFERENCES__L1P_ENCOURAGED_PRECEDENCES_FOCUSING = 47;
 
 	/**
 	 * The feature id for the '<em><b>L1p Use ACTC Precedences</b></em>' attribute.
@@ -2431,7 +2457,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_USE_ACTC_PRECEDENCES = 46;
+	int PREFERENCES__L1P_USE_ACTC_PRECEDENCES = 48;
 
 	/**
 	 * The feature id for the '<em><b>L1p Ignore Application Part Order</b></em>' attribute.
@@ -2440,7 +2466,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_IGNORE_APPLICATION_PART_ORDER = 47;
+	int PREFERENCES__L1P_IGNORE_APPLICATION_PART_ORDER = 49;
 
 	/**
 	 * The feature id for the '<em><b>L1p Maximum Instantiations Per Protection Objective</b></em>' attribute.
@@ -2449,7 +2475,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_MAXIMUM_INSTANTIATIONS_PER_PROTECTION_OBJECTIVE = 48;
+	int PREFERENCES__L1P_MAXIMUM_INSTANTIATIONS_PER_PROTECTION_OBJECTIVE = 50;
 
 	/**
 	 * The feature id for the '<em><b>L1p Main Search Maximum Depth</b></em>' attribute.
@@ -2458,7 +2484,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_MAIN_SEARCH_MAXIMUM_DEPTH = 49;
+	int PREFERENCES__L1P_MAIN_SEARCH_MAXIMUM_DEPTH = 51;
 
 	/**
 	 * The feature id for the '<em><b>L1p Multi Tree Multiplier</b></em>' attribute.
@@ -2467,7 +2493,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_MULTI_TREE_MULTIPLIER = 50;
+	int PREFERENCES__L1P_MULTI_TREE_MULTIPLIER = 52;
 
 	/**
 	 * The feature id for the '<em><b>L1p Initial Alpha</b></em>' attribute.
@@ -2476,7 +2502,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_INITIAL_ALPHA = 51;
+	int PREFERENCES__L1P_INITIAL_ALPHA = 53;
 
 	/**
 	 * The feature id for the '<em><b>L1p Initial Beta</b></em>' attribute.
@@ -2485,7 +2511,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_INITIAL_BETA = 52;
+	int PREFERENCES__L1P_INITIAL_BETA = 54;
 
 	/**
 	 * The feature id for the '<em><b>L1p Research Delta</b></em>' attribute.
@@ -2494,7 +2520,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_RESEARCH_DELTA = 53;
+	int PREFERENCES__L1P_RESEARCH_DELTA = 55;
 
 	/**
 	 * The feature id for the '<em><b>L1p Transposition Table Maximum Size</b></em>' attribute.
@@ -2503,7 +2529,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_TRANSPOSITION_TABLE_MAXIMUM_SIZE = 54;
+	int PREFERENCES__L1P_TRANSPOSITION_TABLE_MAXIMUM_SIZE = 56;
 
 	/**
 	 * The feature id for the '<em><b>L1p Futility Margin</b></em>' attribute.
@@ -2512,7 +2538,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_FUTILITY_MARGIN = 55;
+	int PREFERENCES__L1P_FUTILITY_MARGIN = 57;
 
 	/**
 	 * The feature id for the '<em><b>L1p Extended Futility Margin</b></em>' attribute.
@@ -2521,7 +2547,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_EXTENDED_FUTILITY_MARGIN = 56;
+	int PREFERENCES__L1P_EXTENDED_FUTILITY_MARGIN = 58;
 
 	/**
 	 * The feature id for the '<em><b>L1p Razoring Margin</b></em>' attribute.
@@ -2530,7 +2556,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L1P_RAZORING_MARGIN = 57;
+	int PREFERENCES__L1P_RAZORING_MARGIN = 59;
 
 	/**
 	 * The feature id for the '<em><b>L2p Solutions Count</b></em>' attribute.
@@ -2539,7 +2565,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L2P_SOLUTIONS_COUNT = 58;
+	int PREFERENCES__L2P_SOLUTIONS_COUNT = 60;
 
 	/**
 	 * The feature id for the '<em><b>L2p Function Splitting Seed</b></em>' attribute.
@@ -2548,7 +2574,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L2P_FUNCTION_SPLITTING_SEED = 59;
+	int PREFERENCES__L2P_FUNCTION_SPLITTING_SEED = 61;
 
 	/**
 	 * The feature id for the '<em><b>L2p Start From L1p Solution</b></em>' attribute.
@@ -2557,7 +2583,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L2P_START_FROM_L1P_SOLUTION = 60;
+	int PREFERENCES__L2P_START_FROM_L1P_SOLUTION = 62;
 
 	/**
 	 * The feature id for the '<em><b>L2p Solution Limit</b></em>' attribute.
@@ -2566,7 +2592,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L2P_SOLUTION_LIMIT = 61;
+	int PREFERENCES__L2P_SOLUTION_LIMIT = 63;
 
 	/**
 	 * The feature id for the '<em><b>L2p Time Limit</b></em>' attribute.
@@ -2575,7 +2601,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L2P_TIME_LIMIT = 62;
+	int PREFERENCES__L2P_TIME_LIMIT = 64;
 
 	/**
 	 * The feature id for the '<em><b>L2p Gap Limit</b></em>' attribute.
@@ -2584,7 +2610,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L2P_GAP_LIMIT = 63;
+	int PREFERENCES__L2P_GAP_LIMIT = 65;
 
 	/**
 	 * The feature id for the '<em><b>L2p Upper Bound</b></em>' attribute.
@@ -2593,7 +2619,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L2P_UPPER_BOUND = 64;
+	int PREFERENCES__L2P_UPPER_BOUND = 66;
 
 	/**
 	 * The feature id for the '<em><b>L2p Function Splitting Medium Code Block Length</b></em>' attribute.
@@ -2602,7 +2628,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L2P_FUNCTION_SPLITTING_MEDIUM_CODE_BLOCK_LENGTH = 65;
+	int PREFERENCES__L2P_FUNCTION_SPLITTING_MEDIUM_CODE_BLOCK_LENGTH = 67;
 
 	/**
 	 * The feature id for the '<em><b>L2p Function Splitting Code Block Length Randomization Denominator</b></em>' attribute.
@@ -2611,7 +2637,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L2P_FUNCTION_SPLITTING_CODE_BLOCK_LENGTH_RANDOMIZATION_DENOMINATOR = 66;
+	int PREFERENCES__L2P_FUNCTION_SPLITTING_CODE_BLOCK_LENGTH_RANDOMIZATION_DENOMINATOR = 68;
 
 	/**
 	 * The feature id for the '<em><b>L2p Function Splitting Depth Level</b></em>' attribute.
@@ -2620,7 +2646,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES__L2P_FUNCTION_SPLITTING_DEPTH_LEVEL = 67;
+	int PREFERENCES__L2P_FUNCTION_SPLITTING_DEPTH_LEVEL = 69;
 
 	/**
 	 * The number of structural features of the '<em>Preferences</em>' class.
@@ -2629,7 +2655,7 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 * @ordered
 	 */
-	int PREFERENCES_FEATURE_COUNT = 68;
+	int PREFERENCES_FEATURE_COUNT = 70;
 
 	/**
 	 * The operation id for the '<em>Hash Code</em>' operation.
@@ -2750,13 +2776,22 @@ public interface KbPackage extends EPackage
 	int APPLIED_PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION = 8;
 
 	/**
+	 * The feature id for the '<em><b>Tool Command</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int APPLIED_PROTECTION_INSTANTIATION__TOOL_COMMAND = 9;
+
+	/**
 	 * The number of structural features of the '<em>Applied Protection Instantiation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int APPLIED_PROTECTION_INSTANTIATION_FEATURE_COUNT = 9;
+	int APPLIED_PROTECTION_INSTANTIATION_FEATURE_COUNT = 10;
 
 	/**
 	 * The operation id for the '<em>To String</em>' operation.
@@ -5502,6 +5537,17 @@ public interface KbPackage extends EPackage
 	EAttribute getProtectionInstantiation_AttestatorAnnotation();
 
 	/**
+	 * Returns the meta object for the attribute '{@link it.polito.security.esp.kb.ProtectionInstantiation#getToolCommand <em>Tool Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tool Command</em>'.
+	 * @see it.polito.security.esp.kb.ProtectionInstantiation#getToolCommand()
+	 * @see #getProtectionInstantiation()
+	 * @generated
+	 */
+	EAttribute getProtectionInstantiation_ToolCommand();
+
+	/**
 	 * Returns the meta object for the attribute '{@link it.polito.security.esp.kb.ProtectionInstantiation#getClientTimeOverhead <em>Client Time Overhead</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -5915,6 +5961,28 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getPreferences_CommandACTC();
+
+	/**
+	 * Returns the meta object for the attribute '{@link it.polito.security.esp.kb.Preferences#getCommandTigress <em>Command Tigress</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Command Tigress</em>'.
+	 * @see it.polito.security.esp.kb.Preferences#getCommandTigress()
+	 * @see #getPreferences()
+	 * @generated
+	 */
+	EAttribute getPreferences_CommandTigress();
+
+	/**
+	 * Returns the meta object for the attribute '{@link it.polito.security.esp.kb.Preferences#getCommandCilly <em>Command Cilly</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Command Cilly</em>'.
+	 * @see it.polito.security.esp.kb.Preferences#getCommandCilly()
+	 * @see #getPreferences()
+	 * @generated
+	 */
+	EAttribute getPreferences_CommandCilly();
 
 	/**
 	 * Returns the meta object for the attribute '{@link it.polito.security.esp.kb.Preferences#getCommandPerl <em>Command Perl</em>}'.
@@ -6660,6 +6728,17 @@ public interface KbPackage extends EPackage
 	 * @generated
 	 */
 	EAttribute getAppliedProtectionInstantiation_AttestatorAnnotation();
+
+	/**
+	 * Returns the meta object for the attribute '{@link it.polito.security.esp.kb.AppliedProtectionInstantiation#getToolCommand <em>Tool Command</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Tool Command</em>'.
+	 * @see it.polito.security.esp.kb.AppliedProtectionInstantiation#getToolCommand()
+	 * @see #getAppliedProtectionInstantiation()
+	 * @generated
+	 */
+	EAttribute getAppliedProtectionInstantiation_ToolCommand();
 
 	/**
 	 * Returns the meta object for the '{@link it.polito.security.esp.kb.AppliedProtectionInstantiation#toString() <em>To String</em>}' operation.
@@ -7592,8 +7671,7 @@ public interface KbPackage extends EPackage
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	interface Literals
-	{
+	interface Literals {
 		/**
 		 * The meta object literal for the '{@link it.polito.security.esp.kb.impl.ModelImpl <em>Model</em>}' class.
 		 * <!-- begin-user-doc -->
@@ -8911,6 +8989,14 @@ public interface KbPackage extends EPackage
 		EAttribute PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION = eINSTANCE.getProtectionInstantiation_AttestatorAnnotation();
 
 		/**
+		 * The meta object literal for the '<em><b>Tool Command</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PROTECTION_INSTANTIATION__TOOL_COMMAND = eINSTANCE.getProtectionInstantiation_ToolCommand();
+
+		/**
 		 * The meta object literal for the '<em><b>Client Time Overhead</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -9229,6 +9315,22 @@ public interface KbPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute PREFERENCES__COMMAND_ACTC = eINSTANCE.getPreferences_CommandACTC();
+
+		/**
+		 * The meta object literal for the '<em><b>Command Tigress</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PREFERENCES__COMMAND_TIGRESS = eINSTANCE.getPreferences_CommandTigress();
+
+		/**
+		 * The meta object literal for the '<em><b>Command Cilly</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PREFERENCES__COMMAND_CILLY = eINSTANCE.getPreferences_CommandCilly();
 
 		/**
 		 * The meta object literal for the '<em><b>Command Perl</b></em>' attribute feature.
@@ -9775,6 +9877,14 @@ public interface KbPackage extends EPackage
 		 * @generated
 		 */
 		EAttribute APPLIED_PROTECTION_INSTANTIATION__ATTESTATOR_ANNOTATION = eINSTANCE.getAppliedProtectionInstantiation_AttestatorAnnotation();
+
+		/**
+		 * The meta object literal for the '<em><b>Tool Command</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute APPLIED_PROTECTION_INSTANTIATION__TOOL_COMMAND = eINSTANCE.getAppliedProtectionInstantiation_ToolCommand();
 
 		/**
 		 * The meta object literal for the '<em><b>To String</b></em>' operation.

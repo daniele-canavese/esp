@@ -95,7 +95,9 @@ public class NewWizard extends Wizard implements INewWizard, IExecutableExtensio
 			project.setSessionProperty(new QualifiedName("ESP", "actcCommand"), page3.getACTCCommand());
 			project.setSessionProperty(new QualifiedName("ESP", "perlCommand"), page3.getPerlCommand());
 			project.setSessionProperty(new QualifiedName("ESP", "dotCommand"), page3.getDotCommand());
-
+			project.setSessionProperty(new QualifiedName("ESP", "tigressCommand"), page3.getTigressCommand());
+			project.setSessionProperty(new QualifiedName("ESP", "cillyCommand"), page3.getCillyCommand());
+			
 			// Sets the nature.
 			IProjectDescription description = project.getDescription();
 			String[] natures = description.getNatureIds();

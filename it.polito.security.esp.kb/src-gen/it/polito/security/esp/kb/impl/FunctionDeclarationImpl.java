@@ -122,7 +122,13 @@ public class FunctionDeclarationImpl extends MinimalEObjectImpl.Container implem
 	{
 		if (parameters == null)
 		{
-			parameters = new EDataTypeEList<ApplicationPartType>(ApplicationPartType.class, this, KbPackage.FUNCTION_DECLARATION__PARAMETERS);
+			parameters = new EDataTypeEList<ApplicationPartType>(ApplicationPartType.class, this, KbPackage.FUNCTION_DECLARATION__PARAMETERS)
+			{
+				@Override
+				public boolean isUnique() {
+					return false;
+				}
+			};
 		}
 		return parameters;
 	}

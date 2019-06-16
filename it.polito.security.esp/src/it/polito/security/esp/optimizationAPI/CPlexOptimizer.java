@@ -571,7 +571,7 @@ public class CPlexOptimizer implements Optimizer {
 	@Override
 	public void addConstraints(Object[] constraints, int start, int num) throws OptimizerException {
 		IloAddable[] addables = new IloAddable[constraints.length];
-		for(int i = 0; i<constraints.length; i++)
+		for(int i = start; i<num; i++)
 		{
 			if(!(constraints[i] instanceof IloAddable))
 				throw new OptimizerException("One of the objects "+constraints[i]+" in the passed vector is not an instance of IloAddable");

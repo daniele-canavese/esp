@@ -17,9 +17,12 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import org.eclipse.core.runtime.CoreException;
 
 import it.polito.security.esp.ESP;
 import it.polito.security.esp.kb.ActionType;
@@ -28,6 +31,7 @@ import it.polito.security.esp.kb.ApplicationPartSet;
 import it.polito.security.esp.kb.ApplicationPartType;
 import it.polito.security.esp.kb.AppliedProtectionInstantiation;
 import it.polito.security.esp.kb.CodeBlock;
+import it.polito.security.esp.kb.Protection;
 import it.polito.security.esp.kb.ProtectionInstantiation;
 import it.polito.security.esp.kb.Solution;
 import it.polito.security.esp.kb.SolutionSequence;
@@ -151,14 +155,18 @@ public class AnnotationRewriter
 	 *            The solution for deploying a full patch or <code>null</code> to deploy a partial one.
 	 * @throws IOException
 	 *             If a source file cannot be read.
+	 * @throws CoreException 
 	 */
-	public void deployPatch(Solution solution) throws IOException
+	public void deployPatch(Solution solution) throws IOException, CoreException
 	{
 		HashSet<Integer> deployedPartsId = new HashSet<>();
 		StringBuilder sb = new StringBuilder();
 
 		for (String i : getSourceFiles())
 		{
+			Set<ApplicationPart> tigressProtectedFunctions = new HashSet<ApplicationPart>();
+			Set<ApplicationPart> tigressProtectedVariables = new HashSet<ApplicationPart>();
+			
 			List<ApplicationPart> parts = getPartsToUpdate(i);
 			List<SimpleEntry<Integer, SimpleEntry<ApplicationPart, String>>> annotations = new LinkedList<>();
 			if (!parts.isEmpty())
@@ -183,6 +191,7 @@ public class AnnotationRewriter
 
 				for (ApplicationPart j : parts)
 				{
+					
 					String startLine = content[j.getStartLine() - 1];
 					String endLine = content[j.getEndLine() - 1];
 					if (deployedPartsId.contains(j.getId()))
@@ -193,24 +202,33 @@ public class AnnotationRewriter
 
 					List<AppliedProtectionInstantiation> apis = getAPIs(solution, j);
 
+					for (AppliedProtectionInstantiation k : apis)
+						if(k.getProtectionInstantiation().getName().contains("Tigress"))
+						{	
+							if(j.isCode())
+								tigressProtectedFunctions.add(j);
+							else if(j.isDatum())
+								tigressProtectedVariables.add(j);
+						}
+					
 					if (j.getType().equals(ApplicationPartType.ATTESTATOR))
 					{
-						if (solution == null)
+//						if (solution == null)
 							annotation1 += "+_Pragma(\"ASPIRE begin protection(placeHolder, id(" + j.getId()
 									+ "))\")\n+_Pragma(\"ASPIRE end\")\n";
-						else
-						{
-							List<String> protections = new ArrayList<>();
-							for (AppliedProtectionInstantiation k : apis)
-								if (k.getCodeAnnotation() == null || !k.getAttestatorAnnotation().isEmpty())
-									protections.add("protection(" + k.getAttestatorAnnotation() + ")");
-							if (!protections.isEmpty())
-								annotation1 += "+_Pragma(\"ASPIRE begin " + Strings.join(protections, ", ")
-										+ "\")\n+_Pragma(\"ASPIRE end\")\n";
-							else
-								annotation1 += "+_Pragma(\"ASPIRE begin protection(placeHolder, id(" + j.getId()
-										+ "))\")\n+_Pragma(\"ASPIRE end\")\n";
-						}
+//						else
+//						{
+//							List<String> protections = new ArrayList<>();
+//							for (AppliedProtectionInstantiation k : apis)
+//								if (k.getCodeAnnotation() == null || !k.getAttestatorAnnotation().isEmpty())
+//									protections.add("protection(" + k.getAttestatorAnnotation() + ")");
+//							if (!protections.isEmpty())
+//								annotation1 += "+_Pragma(\"ASPIRE begin " + Strings.join(protections, ", ")
+//										+ "\")\n+_Pragma(\"ASPIRE end\")\n";
+//							else
+//								annotation1 += "+_Pragma(\"ASPIRE begin protection(placeHolder, id(" + j.getId()
+//										+ "))\")\n+_Pragma(\"ASPIRE end\")\n";
+//						}
 						// if(attestatorHostPart==null)
 						// {
 						// attestatorHostPart = j;
@@ -228,33 +246,36 @@ public class AnnotationRewriter
 
 						// annotation1 += "@@ -" + j.getStartLine() + ",1 +" + j.getStartLine() + ",1 @@\n";
 						// annotation1 += "-" + startLine + "\n";
-						if (solution == null)
-						{
+//						if (solution == null)
+//						{
 							startLine = startLine.replaceFirst("(weight\\(.*?\\)\\s*,\\s*)?requirement\\(.*?\\)(\\s*,\\s*weight\\(.*?\\))?",
 									"protection(placeHolder, id(" + j.getId() + "))");
 							annotation1 += "+" + startLine + "\n";
-						}
-						else
-						{
-							List<String> protections = new ArrayList<>();
-							for (AppliedProtectionInstantiation k : apis)
-								if (k.getCodeAnnotation() == null || !k.getCodeAnnotation().isEmpty())
-									protections.add("protection(" + k.getCodeAnnotation() + ")");
-							if (!protections.isEmpty())
-							{
-								startLine = startLine.replaceFirst(
-										"(weight\\(.*?\\)\\s*,\\s*)?requirement\\(.*?\\)(\\s*,\\s*weight\\(.*?\\))?",
-										Strings.join(protections, ", "));
-								annotation1 += "+" + startLine + "\n";
-							}
-							else
-							{
-								startLine = startLine.replaceFirst(
-										"(weight\\(.*?\\)\\s*,\\s*)?requirement\\(.*?\\)(\\s*,\\s*weight\\(.*?\\))?",
-										"protection(placeHolder, id(" + j.getId() + "))");
-								annotation1 += "+" + startLine + "\n";
-							}
-						}
+//						}
+//						else
+//						{
+//							List<String> protections = new ArrayList<>();
+//							for (AppliedProtectionInstantiation k : apis)
+//							{
+//								if (k.getCodeAnnotation() == null || !k.getCodeAnnotation().isEmpty())
+//									protections.add("protection(" + k.getCodeAnnotation() + ")");
+//							}
+//							
+//							if (!protections.isEmpty())
+//							{
+//								startLine = startLine.replaceFirst(
+//										"(weight\\(.*?\\)\\s*,\\s*)?requirement\\(.*?\\)(\\s*,\\s*weight\\(.*?\\))?",
+//										Strings.join(protections, ", "));
+//								annotation1 += "+" + startLine + "\n";
+//							}
+//							else
+//							{
+//								startLine = startLine.replaceFirst(
+//										"(weight\\(.*?\\)\\s*,\\s*)?requirement\\(.*?\\)(\\s*,\\s*weight\\(.*?\\))?",
+//										"protection(placeHolder, id(" + j.getId() + "))");
+//								annotation1 += "+" + startLine + "\n";
+//							}
+//						}
 					}
 					else if (j.isDatum())
 					{
@@ -283,33 +304,34 @@ public class AnnotationRewriter
 						// {
 						// annotation1 += "@@ -" + j.getStartLine() + ",1 +" + j.getStartLine() + ",2 @@\n";
 						// annotation1 += "-" + startLine + "\n";
-						if (solution == null)
-						{
+//						if (solution == null)
+//						{
 							startLine = "_Pragma(\"ASPIRE begin protection(placeHolder, id(" + j.getId() + "))\")\n+" + startLine;
 							annotation1 += "+" + startLine + "\n";
-						}
-						else
-						{
-							List<String> protections = new ArrayList<>();
-							for (AppliedProtectionInstantiation k : apis)
-								if (k.getCodeAnnotation() == null || !k.getCodeAnnotation().isEmpty())
-									protections.add("protection(" + k.getCodeAnnotation() + ")");
-
-							if (!protections.isEmpty())
-							{
-								startLine = startLine.replaceFirst(
-										"(weight\\(.*?\\)\\s*,\\s*)?requirement\\(.*?\\)(\\s*,\\s*weight\\(.*?\\))?",
-										Strings.join(protections, ", "));
-								annotation1 += "+" + startLine + "\n";
-							}
-							else
-							{
-								startLine = startLine.replaceFirst(
-										"(weight\\(.*?\\)\\s*,\\s*)?requirement\\(.*?\\)(\\s*,\\s*weight\\(.*?\\))?",
-										"protection(placeHolder, id(" + j.getId() + "))");
-								annotation1 += "+" + startLine + "\n";
-							}
-						}
+//						}
+//						else
+//						{
+//							List<String> protections = new ArrayList<>();
+//							for (AppliedProtectionInstantiation k : apis)
+//								if (k.getCodeAnnotation() == null || !k.getCodeAnnotation().isEmpty())
+//									protections.add("protection(" + k.getCodeAnnotation() + ")");
+//								
+//								
+//							if (!protections.isEmpty())
+//							{
+//								startLine = startLine.replaceFirst(
+//										"(weight\\(.*?\\)\\s*,\\s*)?requirement\\(.*?\\)(\\s*,\\s*weight\\(.*?\\))?",
+//										Strings.join(protections, ", "));
+//								annotation1 += "+" + startLine + "\n";
+//							}
+//							else
+//							{
+//								startLine = startLine.replaceFirst(
+//										"(weight\\(.*?\\)\\s*,\\s*)?requirement\\(.*?\\)(\\s*,\\s*weight\\(.*?\\))?",
+//										"protection(placeHolder, id(" + j.getId() + "))");
+//								annotation1 += "+" + startLine + "\n";
+//							}
+//						}
 
 						// annotation2 += "@@ -" + j.getEndLine() + ",1 +" + j.getEndLine() + ",2 @@\n";
 						// annotation2 += "-" + endLine + "\n";
@@ -378,6 +400,75 @@ public class AnnotationRewriter
 				{
 					SimpleEntry<Integer, SimpleEntry<ApplicationPart, String>> annotation = annotations.get(n);
 					ApplicationPart part = annotation.getValue().getKey();
+					
+					if(tigressProtectedFunctions.contains(part))
+					{
+						int variableCounter = 1;
+						
+						log.info(part.getName());
+						
+						//retrieve the original function content
+						ApplicationPart function = part.getDeclaringCode();
+						while(!function.getType().equals(ApplicationPartType.FUNCTION))
+							function = function.getDeclaringCode();
+						List<String> originalFunction = new LinkedList<String>();
+						for(int line=function.getStartLine()-1; line<function.getEndLine(); line++)
+							originalFunction.add(content[line]);
+						
+						//prepare the protected function content
+						Map<String, List<String>> protectedCode = esp.getCDTConnector().parseTigress(function);
+						List<String> protectedFunction =  new ArrayList<>();
+						
+						for(String protectedHeaderLines: protectedCode.get("declarations"))//protected header
+							for(String line : protectedHeaderLines.split("\n"))
+								protectedFunction.add(line);
+//						for(int line = function.getStartLine()-1; line < annotation.getKey()-1; line++) //protected function header
+//							protectedFunction.add(content[line]);
+						for(String protectedHeaderLines: protectedCode.get("functionDecl"))//protected function header
+							for(String line : protectedHeaderLines.split("\n"))
+								protectedFunction.add(line);
+						
+						protectedFunction.add(annotation.getValue().getValue().substring(1,annotation.getValue().getValue().length()-1));//new actc annotation
+						for(String protectedBodyLines: protectedCode.get("functionBody"))//protected body
+							for(String line : protectedBodyLines.split("\n"))
+							{
+								if(variableCounter<=tigressProtectedVariables.size() && line.split("\\s+").length>1)
+								{
+									if(annotations.get(variableCounter).getValue().getValue().split("\\s+")[2].contentEquals(line.split("\\s+")[1]))
+									{
+										protectedFunction.add(annotations.get(variableCounter).getValue().getValue().substring(1,annotations.get(variableCounter).getValue().getValue().length()-1));
+										++variableCounter;
+//										int cadsnjuo=0;
+										continue;
+									}
+								}
+								
+								protectedFunction.add(line);;
+							}
+						n+=tigressProtectedVariables.size();
+						
+						protectedFunction.add(content[part.getEndLine()-1]);//actc annotation end
+						for(int line=part.getEndLine(); line<function.getEndLine(); line++)//end of original function after actc annotation end
+							protectedFunction.add(content[line]);
+						
+						
+						//patch chunk header
+						int protectedFunctionLines = protectedFunction.size();
+						int originalFunctionLines = function.getEndLine()-function.getStartLine()+1;
+						sb.append("@@ -" + function.getStartLine() + ","+ originalFunctionLines +" +" + function.getStartLine() + "," + protectedFunctionLines + " @@\n");
+						
+						//remove all lines of the original function
+						for(String originalFunctionLine : originalFunction)
+							sb.append("-" + originalFunctionLine + "\n");
+						
+						//add all lines of the protected function
+						for(String protectedFunctionLine : protectedFunction)
+							sb.append("+" + protectedFunctionLine + "\n");
+						
+						log.fine(function.getName());
+						continue;
+					}
+					
 					ApplicationPart previousPart = null;
 					if (n > 0)
 						previousPart = annotations.get(n - 1).getValue().getKey();
@@ -618,7 +709,7 @@ public class AnnotationRewriter
 						annotationContent.add("protection(" + expandedContent + ")");
 				}
 				if (annotationContent.isEmpty())
-					continue;
+					annotationContent.add("");
 
 				if (first)
 					first = false;
@@ -633,6 +724,45 @@ public class AnnotationRewriter
 				sb.append("\t}");
 			}
 		}
+//		else
+//		{
+//			List<ApplicationPart> parts = new ArrayList<>();
+//			
+//			for(ApplicationPart asset : esp.getModel().getAssets())
+//				parts.add(asset);
+//			
+//			for(Protection p : esp.getModel().getProtections())
+//				if(p.getName().contains("Attestation"))
+//					for(ProtectionInstantiation pi : p.)
+//			
+//			Collections.sort(parts, new Comparator<ApplicationPart>()
+//			{
+//				@Override
+//				public int compare(ApplicationPart o1, ApplicationPart o2)
+//				{
+//					if (!o1.getSourceFilePath().equals(o2.getSourceFilePath()))
+//						return o1.getSourceFilePath().compareTo(o2.getSourceFilePath());
+//					else
+//						return 0;
+//				}
+//			});
+//			
+//			boolean first = true;
+//			for (ApplicationPart i : parts)
+//			{
+//				if (first)
+//					first = false;
+//				else
+//					sb.append(",\n");
+//				sb.append("\t{\n");
+//				String path = i.getSourceFilePath();
+//				path = path.substring(path.lastIndexOf(esp.getRunner().getSeparator()) + 1);
+//				sb.append("\t\t\"file name\": \"" + path + "\",\n");
+//				sb.append("\t\t\"id\": \"" + i.getId() + "\",\n");
+//				sb.append("\t\t\"annotation content\": \""+"\"\n");
+//				sb.append("\t}");
+//			}
+//		}
 
 		sb.append("\n]\n");
 

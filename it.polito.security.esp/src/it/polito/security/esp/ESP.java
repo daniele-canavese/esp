@@ -23,6 +23,7 @@ import it.polito.security.esp.connectors.ACTCConnector;
 import it.polito.security.esp.connectors.AnnotationRewriter;
 import it.polito.security.esp.connectors.CDTConnector;
 import it.polito.security.esp.connectors.Runner;
+import it.polito.security.esp.connectors.TigressConnector;
 import it.polito.security.esp.kb.KBUtil;
 import it.polito.security.esp.kb.Activator;
 import it.polito.security.esp.kb.ApplicationPart;
@@ -124,6 +125,8 @@ public class ESP
 	private ProtectionFinder protectionFinder;
 	/** The ACTC connector. **/
 	private ACTCConnector actcConnector;
+	/** The Tigress connector. **/
+	private TigressConnector tigressConnector;
 	/** The CDT connector. **/
 	private CDTConnector cdtConnector;
 	/** The annotation rewriter. **/
@@ -175,6 +178,7 @@ public class ESP
 		protectionFinder = new ProtectionFinder(this);
 		this.model = model;
 		actcConnector = new ACTCConnector(this);
+		tigressConnector = new TigressConnector(this);
 		cdtConnector = new CDTConnector(this);
 		annotationRewriter = new AnnotationRewriter(this);
 		runner = new Runner(this);
@@ -192,6 +196,7 @@ public class ESP
 	 **/
 	public void analyzeSourceCode() throws IOException, CoreException
 	{
+
 		cdtConnector.parse();
 
 		// int functions = 0;
@@ -420,10 +425,12 @@ public class ESP
 	public void deploySolution(Solution solution) throws IOException, CoreException
 	{
 		actcConnector.clean();
+		tigressConnector.clean();
+		tigressConnector.build("tigress.log", solution);
 		// annotationRewriter.deployPatch(null);
 		annotationRewriter.deployPatch(solution);
-		// annotationRewriter.deployJSON(solution);
-		annotationRewriter.deployJSON(null);
+		 annotationRewriter.deployJSON(solution);
+//		annotationRewriter.deployJSON(null);
 		// actcConnector.build("actc-deployed.log");
 		log.info("Solution deployed");
 	}
@@ -493,6 +500,15 @@ public class ESP
 	}
 
 	/**
+	 * Retrieves the Tigress connector.
+	 * @return The Tigress connector.
+	 **/
+	public TigressConnector getTigressConnector()
+	{
+		return tigressConnector;
+	}
+	
+	/**
 	 * Retrieves the metrics framework.
 	 * @return The metrics framework.
 	 **/
@@ -508,6 +524,15 @@ public class ESP
 	public AnnotationRewriter getAnnotationRewriter()
 	{
 		return annotationRewriter;
+	}
+
+	/**
+	 * Retrieves the CDT connector.
+	 * @return The CDT connector.
+	 **/
+	public CDTConnector getCDTConnector()
+	{
+		return cdtConnector;
 	}
 
 	/**

@@ -50,6 +50,18 @@
       <protectionInstantiationFile
             xmlFile="protectionInstantiations/dataObfuscation.xml">
       </protectionInstantiationFile>
+      <protectionInstantiationFile
+            xmlFile="protectionInstantiations/sourceCodeControlFlowObfuscation.xml">
+      </protectionInstantiationFile>
+      <protectionInstantiationFile
+            xmlFile="protectionInstantiations/sourceCodeLiteralObfuscation.xml">
+      </protectionInstantiationFile>
+      <protectionInstantiationFile
+            xmlFile="protectionInstantiations/sourceCodeVariableObfuscation.xml">
+      </protectionInstantiationFile>
+      <protectionInstantiationFile
+            xmlFile="protectionInstantiations/sourceCodeVirtualization.xml">
+      </protectionInstantiationFile>
    </extension>
    <extension
          point="it.polito.security.esp.kb.architectures">
