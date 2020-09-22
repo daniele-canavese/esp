@@ -377,6 +377,11 @@ public class ProtectionFinder
 								body.setInSystemFile(function.isInSystemFile());
 								body.setType(ApplicationPartType.CODE_REGION);
 								body.setWeight(0.0);
+								Integer id = 0;
+								for (ApplicationPart asset : esp.getModel().getAllApplicationParts())
+									if (asset.getId() > id)
+										id = asset.getId();
+								body.setId(id+1);
 								body.setStartLine(function.getBody().getStartLine());
 								body.setEndLine(function.getBody().getEndLine());
 								LinkedList<ApplicationPart> list = new LinkedList<>();

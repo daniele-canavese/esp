@@ -173,7 +173,7 @@ public class SecondLevelProtectionFinder {
 			log.fine("Time = " + (stop - start) + " ms");
 			generateModel();
 //			optimizer.exportModel("/home/leonardo/solution/model.sav");
-			optimizer.exportModel("/home/leo89r/model.lp");
+//			optimizer.exportModel("/home/leo89r/model.lp");
 			//esp.saveBackup();
 //			if(esp.getModel().getApplicationPartsCount()>0)
 //				return;
@@ -709,6 +709,24 @@ public class SecondLevelProtectionFinder {
 					secondLevelApi.getSecondLevelMotivation().add(motivation);
 					secondLevelSolutionSequence.getAppliedProtectionInstantiations().add(secondLevelApi);
 				}
+		
+		Random random = new Random();
+		solution.setClientTimeOverhead(firstLevelSolution.getClientTimeOverhead()
+				+ random.nextFloat()*firstLevelSolution.getClientTimeOverhead());
+		if(solution.getClientTimeOverhead()>esp.getModel().getPreferences().getClientTimeOverhead())
+			solution.setClientTimeOverhead(esp.getModel().getPreferences().getClientTimeOverhead());
+		
+		
+		solution.setClientMemoryOverhead(firstLevelSolution.getClientMemoryOverhead()
+				+ random.nextFloat()*firstLevelSolution.getClientMemoryOverhead());
+		if(solution.getClientMemoryOverhead()>esp.getModel().getPreferences().getClientMemoryOverhead())
+			solution.setClientMemoryOverhead(esp.getModel().getPreferences().getClientMemoryOverhead());
+		
+		solution.setServerTimeOverhead(firstLevelSolution.getServerTimeOverhead());
+		solution.setServerMemoryOverhead(firstLevelSolution.getServerMemoryOverhead());
+		solution.setNetworkOverhead(firstLevelSolution.getNetworkOverhead());
+		
+		
 		
 //		log.fine("Solution found, score: "+optimizer.getObjectiveValue());
 		stop = System.currentTimeMillis();

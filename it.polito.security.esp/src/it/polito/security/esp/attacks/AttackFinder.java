@@ -43,6 +43,8 @@ public class AttackFinder
 	/** The ESP. **/
 	private ESP esp;
 
+	private float[] times =  new float[5];
+	
 	/**
 	 * Creates the finder.
 	 * @param esp
@@ -67,13 +69,14 @@ public class AttackFinder
 		long start = System.currentTimeMillis();
 		clear();
 		inferProtectionObjectives();
-		Double timeLimit = null;
-		if (esp.getModel().getPreferences().getAttacksTimeLimit() > 0)
-		{
-			timeLimit = (double) esp.getModel().getPreferences().getAttacksTimeLimit() / esp.getModel().getProtectionObjectivesCount();
-			inferAttackPaths((int) (timeLimit * 1000));
-		}
-		else
+		log.info("Searching attacks with maximum depth "+esp.getModel().getPreferences().getAttacksMaximumDepth());
+//		Double timeLimit = null;
+//		if (esp.getModel().getPreferences().getAttacksTimeLimit() > 0)
+//		{
+//			timeLimit = (double) esp.getModel().getPreferences().getAttacksTimeLimit() / esp.getModel().getProtectionObjectivesCount();
+//			inferAttackPaths((int) (timeLimit * 1000));
+//		}
+//		else
 			inferAttackPaths(null);
 		realizeAttackSteps();
 		long stop = System.currentTimeMillis();
@@ -175,6 +178,9 @@ public class AttackFinder
 		}
 		if (!unattackableProtectionObjectives.isEmpty())
 			log.warning("Unattackable POs = " + unattackableProtectionObjectives.size() + " " + unattackableProtectionObjectives);
+		
+		for(int i=0; i<5; i++)
+			log.fine("Depth "+(i+1)+": "+times[i]+" s");
 	}
 
 	/** The initialized state of the Prolog engine. **/
@@ -332,16 +338,16 @@ public class AttackFinder
 			assertProlog("retractall(datum(_))");
 			assertProlog("retractall(accesses(_, _))");
 			assertProlog("retractall(isAccessedBy(_, _))");
-			// assertProlog("retractall(decrypts(_, _))");
-			// assertProlog("retractall(isDecryptedBy(_, _))");
-			// assertProlog("retractall(enforcesExecutionOnlyOnceAfterInstall(_, _))");
-			// assertProlog("retractall(hasExecutionOnlyAfterInstallEnforcedBy(_, _))");
-			// assertProlog("retractall(initializes(_, _))");
-			// assertProlog("retractall(isInitializedBy(_, _))");
-			// assertProlog("retractall(receivesFromServerAsCypherText(_, _))");
-			// assertProlog("retractall(receivesFromServerAsPlainText(_, _))");
-			// assertProlog("retractall(enables(_, _))");
-			// assertProlog("retractall(isEnabledBy(_, _))");
+			 assertProlog("retractall(decrypts(_, _))");
+			 assertProlog("retractall(isDecryptedBy(_, _))");
+			 assertProlog("retractall(enforcesExecutionOnlyOnceAfterInstall(_, _))");
+			 assertProlog("retractall(hasExecutionOnlyAfterInstallEnforcedBy(_, _))");
+			 assertProlog("retractall(initializes(_, _))");
+			 assertProlog("retractall(isInitializedBy(_, _))");
+			 assertProlog("retractall(receivesFromServerAsCypherText(_, _))");
+			 assertProlog("retractall(receivesFromServerAsPlainText(_, _))");
+			 assertProlog("retractall(enables(_, _))");
+			 assertProlog("retractall(isEnabledBy(_, _))");
 			assertProlog("retractall(hasProperty(_, _))");
 			assertProlog("retractall(calls(_, _, _))");
 			assertProlog("retractall(isCalledBy(_, _, _))");
@@ -352,16 +358,16 @@ public class AttackFinder
 			assertProlog("retractall(datum/1)");
 			assertProlog("retractall(accesses/2)");
 			assertProlog("retractall(isAccessedBy/2)");
-			// assertProlog("retractall(decrypts/2)");
-			// assertProlog("retractall(isDecryptedBy/2)");
-			// assertProlog("retractall(enforcesExecutionOnlyOnceAfterInstall/2)");
-			// assertProlog("retractall(hasExecutionOnlyAfterInstallEnforcedBy/2)");
-			// assertProlog("retractall(initializes/2)");
-			// assertProlog("retractall(isInitializedBy/2)");
-			// assertProlog("retractall(receivesFromServerAsCypherText/2)");
-			// assertProlog("retractall(receivesFromServerAsPlainText/2)");
-			// assertProlog("retractall(enables/2)");
-			// assertProlog("retractall(isEnabledBy/2)");
+			 assertProlog("retractall(decrypts/2)");
+			 assertProlog("retractall(isDecryptedBy/2)");
+			 assertProlog("retractall(enforcesExecutionOnlyOnceAfterInstall/2)");
+			 assertProlog("retractall(hasExecutionOnlyAfterInstallEnforcedBy/2)");
+			 assertProlog("retractall(initializes/2)");
+			 assertProlog("retractall(isInitializedBy/2)");
+			 assertProlog("retractall(receivesFromServerAsCypherText/2)");
+			 assertProlog("retractall(receivesFromServerAsPlainText/2)");
+			 assertProlog("retractall(enables/2)");
+			 assertProlog("retractall(isEnabledBy/2)");
 			assertProlog("retractall(hasProperty/2)");
 			assertProlog("retractall(calls/3)");
 			assertProlog("retractall(isCalledBy/3)");
@@ -521,6 +527,9 @@ public class AttackFinder
 			log.fine(String.format("% 9d  % 9d  %65s  % 9d  % 9.3f", depth, relatedParts.size(), protectionObjective,
 					esp.getModel().getAttackPaths().size() - oldAttackSize, (stop - startTime) / 1000.0f));
 	
+			for(int i = 1; i<depth; i++)
+				times[i-1] += (stop - startTime) / 1000.0f;
+			
 			if (relatedParts.isEmpty())
 			{
 				relatedParts.add(protectionObjective.getApplicationPart());
@@ -550,6 +559,7 @@ public class AttackFinder
 		}
 
 		return depth > 1 && oldAttackSize == esp.getModel().getAttackPaths().size();
+//		return false;
 	}
 
 	/**

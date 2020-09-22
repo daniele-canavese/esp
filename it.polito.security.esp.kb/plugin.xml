@@ -23,9 +23,6 @@
       <prologFile
             plFile="pl/baseAttacks.pl">
       </prologFile>
-      <prologFile
-            plFile="pl/stealAttacks.pl">
-      </prologFile>
    </extension>
    <extension
          point="it.polito.security.esp.kb.protectionInstantiations">

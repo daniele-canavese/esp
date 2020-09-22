@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.nio.file.FileAlreadyExistsException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -507,7 +508,7 @@ public class ACTCConnector
 		URL url1 = new URL("platform:/plugin/it.polito.security.esp.kb/files/list.pl");
 		String list = preferences.getWorkingDirectory() + preferences.getRemoteFileSeparator() + "list.pl";
 		runner.createFile(list, url1.openConnection().getInputStream());
-
+		
 		// Launches the script.
 		List<String> command = new ArrayList<>();
 		command.add("cd");

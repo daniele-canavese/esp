@@ -407,6 +407,7 @@ public class ESP
 	{
 		log.fine("Inferring second level protection linear programming model");
 		long start = System.currentTimeMillis();
+//		deploySolution(solution);
 		SecondLevelProtectionFinder secondFinder = new SecondLevelProtectionFinder(this, solution);
 		secondFinder.findSecondLevelProtectionWithCompleteModel();
 		long stop = System.currentTimeMillis();
@@ -431,7 +432,7 @@ public class ESP
 		annotationRewriter.deployPatch(solution);
 		 annotationRewriter.deployJSON(solution);
 //		annotationRewriter.deployJSON(null);
-		// actcConnector.build("actc-deployed.log");
+		actcConnector.build(null);
 		log.info("Solution deployed");
 	}
 

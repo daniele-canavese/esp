@@ -1865,7 +1865,7 @@ public class CDTConnector
 		List<ApplicationPart> parts = new ArrayList<>();
 		// Adds the assets, all the code regions and the application parts in their sets.
 		for (ApplicationPart i : esp.getModel().getAllApplicationParts())
-			if (i.isAsset() || i.getType() == ApplicationPartType.CODE_REGION)
+			if (i.isAsset())// || i.getType() == ApplicationPartType.CODE_REGION)
 			{
 				Collections.addUnique(parts, i);
 				for (ApplicationPartSet j : i.getSets())

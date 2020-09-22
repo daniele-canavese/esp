@@ -859,7 +859,7 @@ public class OverviewPage extends FormPage
 	private void createLogo(IManagedForm managedForm) throws Exception
 	{
 		Label logoImage = managedForm.getToolkit().createLabel(managedForm.getForm().getBody(), "");
-		logoImage.setImage(Eclipse.getImage(it.polito.security.esp.ui.Activator.PLUGIN_ID, "icons/logo.png"));
+		logoImage.setImage(Eclipse.getImage(it.polito.security.esp.ui.Activator.PLUGIN_ID, "icons/logo1.png"));
 		logoImage.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true, 2, 1));
 	}
 }
