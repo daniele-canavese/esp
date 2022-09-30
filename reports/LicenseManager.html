@@ -1,0 +1,4848 @@
+<html>
+	<head>
+		<title>ADSS Full report: libdiamante5</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link href="https://cdn.datatables.net/plug-ins/1.10.12/integration/bootstrap/3/dataTables.bootstrap.css" rel="stylesheet"/>
+		<script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+		<script src="https://cdn.datatables.net/plug-ins/1.10.12/integration/bootstrap/3/dataTables.bootstrap.js"></script>
+		<script src="https://cdn.datatables.net/plug-ins/1.10.12/sorting/enum.js"></script>
+		<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
+		<script>
+			$(document).ready(function() {
+				$('#assetsTable').dataTable({ "order": [[ 5, "desc" ]], "aLengthMenu": [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]], "iDisplayLength": 25 });
+				$('#applicationPartsTable').dataTable({ "order": [[ 0, "asc" ]], "aLengthMenu": [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]], "iDisplayLength": 25 });
+				$.fn.dataTable.enum( [ 'high', 'medium', 'low', 'unblockable' ] );
+				$('#enum-example').DataTable();
+				$('#attacksTable').dataTable({ "order": [[ 4, "asc" ],[ 3, "desc" ]], "aLengthMenu": [[25, 50, 100, 200, -1], [25, 50, 100, 200, "All"]], "iDisplayLength": 25 });
+				$('#l1pTable').dataTable({ "order": [[ 2, "desc" ]], "aLengthMenu": [[1, 5, 10, 25, 50, 100, 200, -1], [1, 10, 25, 50, 100, 200, "All"]], "iDisplayLength": 1 });
+				$('#l2pTable').dataTable({ "order": [[ 2, "desc" ]], "aLengthMenu": [[1, 5, 10, 25, 50, 100, 200, -1], [1, 10, 25, 50, 100, 200, "All"]], "iDisplayLength": 1 });
+			});
+		</script>
+		<style>
+			.anchor { padding-top: 50px; }
+			.panel .dl-horizontal dt { white-space: normal; }
+		</style>
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#"><img src="https://aspire-fp7.eu/sites/default/files/aspire-small.png" style="height: 20px; width: auto;"></a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="#top">Top</a></li>
+					<li><a href="#assets">Assets</a></li>
+					<li><a href="#applicationParts">Application Parts</a></li>
+					<li><a href="#attacks">Attacks</a></li>
+					<li><a href="#l1Protections">Level 1 Protections</a></li>
+					<li><a href="#l2Protections">Level 2 Protections</a></li>
+				</ul>
+			</div>
+		</nav>
+		<a class="anchor" name="top"></a>
+		<div class="page-header">
+			<div class="container">
+				<h1>ADSS Full Report: libdiamante5</h1>
+			</div>
+		</div>
+		<div class="panel-group">
+			<div class="panel panel-info">
+					<div id="collapse0">
+					<div class="panel-body">
+							<dl class="dl-horizontal">
+								<dt>Date</dt>
+								<dd>Tue Oct 11 18:50:57 CEST 2016</dd>
+								<dt>Assets</dt>
+								<dd>40</dd>
+								<dt>Attack paths</dt>
+								<dd>111</dd>
+								<dt>Solutions</dt>
+								<dd>11</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		<a class="anchor" name="assets"></a><h2>Assets</h2>
+		<div class="panel-group">
+			<div class="panel panel-info">
+					<div id="collapse1">
+					<div class="panel-body">
+							<dl class="dl-horizontal">
+								<dt>Assets</dt>
+								<dd>40</dd>
+								<dt>Application parts</dt>
+								<dd>418</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		<table id="assetsTable" class="table table-condensed table-hover">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Parent</th>
+					<th>Type</th>
+					<th>Source File : Line</th>
+					<th>Properties</th>
+					<th>Weight</th>
+				</tr>
+			</thead>
+			<tbody>
+			<tr>
+			<td>region81 <span class="label label-info">asset</span></td>
+			<td>region80</td>
+			<td>code region</td>
+			<td>source350.c : 1512</td>
+			<td>confidentiality, integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region79 <span class="label label-info">asset</span></td>
+			<td>region78</td>
+			<td>code region</td>
+			<td>source350.c : 1056</td>
+			<td>confidentiality, integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region77 <span class="label label-info">asset</span></td>
+			<td>region76</td>
+			<td>code region</td>
+			<td>source350.c : 1395</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region73 <span class="label label-info">asset</span></td>
+			<td>region72</td>
+			<td>code region</td>
+			<td>source350.c : 326</td>
+			<td>confidentiality, integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region74 <span class="label label-info">asset</span></td>
+			<td>region73</td>
+			<td>code region</td>
+			<td>source350.c : 368</td>
+			<td>integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region75 <span class="label label-info">asset</span></td>
+			<td>region74</td>
+			<td>code region</td>
+			<td>source350.c : 370</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region71 <span class="label label-info">asset</span></td>
+			<td>region70</td>
+			<td>code region</td>
+			<td>source350.c : 1240</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region69 <span class="label label-info">asset</span></td>
+			<td>region68</td>
+			<td>code region</td>
+			<td>source350.c : 1152</td>
+			<td>confidentiality, integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region67 <span class="label label-info">asset</span></td>
+			<td>region66</td>
+			<td>code region</td>
+			<td>source350.c : 1482</td>
+			<td>confidentiality, integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region60 <span class="label label-info">asset</span></td>
+			<td>region59</td>
+			<td>code region</td>
+			<td>source350.c : 493</td>
+			<td>confidentiality, integrity</td>
+			<td>2.0</td>
+			</tr>
+			<tr>
+			<td>region58 <span class="label label-info">asset</span></td>
+			<td>region57</td>
+			<td>code region</td>
+			<td>source350.c : 452</td>
+			<td>confidentiality, integrity</td>
+			<td>2.0</td>
+			</tr>
+			<tr>
+			<td>region56 <span class="label label-info">asset</span></td>
+			<td>region55</td>
+			<td>code region</td>
+			<td>source350.c : 1254</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region54 <span class="label label-info">asset</span></td>
+			<td>region53</td>
+			<td>code region</td>
+			<td>source350.c : 423</td>
+			<td>confidentiality, integrity</td>
+			<td>2.0</td>
+			</tr>
+			<tr>
+			<td>region50 <span class="label label-info">asset</span></td>
+			<td>region49</td>
+			<td>code region</td>
+			<td>source350.c : 1447</td>
+			<td>confidentiality, integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region48 <span class="label label-info">asset</span></td>
+			<td>region47</td>
+			<td>code region</td>
+			<td>source218.c : 17</td>
+			<td>integrity</td>
+			<td>3.0</td>
+			</tr>
+			<tr>
+			<td>region45 <span class="label label-info">asset</span></td>
+			<td>region44</td>
+			<td>code region</td>
+			<td>source350.c : 146</td>
+			<td>confidentiality, integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region46 <span class="label label-info">asset</span></td>
+			<td>region45</td>
+			<td>code region</td>
+			<td>source350.c : 157</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>variable100 <span class="label label-info">asset</span></td>
+			<td> </td>
+			<td>integer array</td>
+			<td>source350.c : 38</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>variable96 <span class="label label-info">asset</span></td>
+			<td> </td>
+			<td>integer array</td>
+			<td>source218.c : 8</td>
+			<td>confidentiality</td>
+			<td>3.0</td>
+			</tr>
+			<tr>
+			<td>region36 <span class="label label-info">asset</span></td>
+			<td>region35</td>
+			<td>code region</td>
+			<td>source350.c : 205</td>
+			<td>confidentiality, integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region37 <span class="label label-info">asset</span></td>
+			<td>region36</td>
+			<td>code region</td>
+			<td>source350.c : 241</td>
+			<td>integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region38 <span class="label label-info">asset</span></td>
+			<td>region37</td>
+			<td>code region</td>
+			<td>source350.c : 244</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region32 <span class="label label-info">asset</span></td>
+			<td>region31</td>
+			<td>code region</td>
+			<td>source350.c : 549</td>
+			<td>confidentiality, integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region33 <span class="label label-info">asset</span></td>
+			<td>region32</td>
+			<td>code region</td>
+			<td>source350.c : 609</td>
+			<td>integrity</td>
+			<td>2.0</td>
+			</tr>
+			<tr>
+			<td>variable70 <span class="label label-info">asset</span></td>
+			<td> </td>
+			<td>integer</td>
+			<td>source350.c : 47</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region27 <span class="label label-info">asset</span></td>
+			<td>region26</td>
+			<td>code region</td>
+			<td>source138.c : 19</td>
+			<td>integrity</td>
+			<td>3.0</td>
+			</tr>
+			<tr>
+			<td>region22 <span class="label label-info">asset</span></td>
+			<td>region21</td>
+			<td>code region</td>
+			<td>source350.c : 1546</td>
+			<td>confidentiality, integrity</td>
+			<td>2.0</td>
+			</tr>
+			<tr>
+			<td>variable43 <span class="label label-info">asset</span></td>
+			<td> </td>
+			<td>integer array</td>
+			<td>source350.c : 43</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>variable42 <span class="label label-info">asset</span></td>
+			<td> </td>
+			<td>integer</td>
+			<td>source350.c : 59</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>variable41 <span class="label label-info">asset</span></td>
+			<td> </td>
+			<td>integer</td>
+			<td>source350.c : 55</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region19 <span class="label label-info">asset</span></td>
+			<td>region18</td>
+			<td>code region</td>
+			<td>source350.c : 974</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>variable31 <span class="label label-info">asset</span></td>
+			<td> </td>
+			<td>cryptographic key</td>
+			<td>source138.c : 8</td>
+			<td>confidentiality</td>
+			<td>3.0</td>
+			</tr>
+			<tr>
+			<td>region15 <span class="label label-info">asset</span></td>
+			<td>region14</td>
+			<td>code region</td>
+			<td>source350.c : 68</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>variable28 <span class="label label-info">asset</span></td>
+			<td> </td>
+			<td>integer</td>
+			<td>source350.c : 51</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region12 <span class="label label-info">asset</span></td>
+			<td>region11</td>
+			<td>code region</td>
+			<td>source350.c : 1348</td>
+			<td>confidentiality, integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region6 <span class="label label-info">asset</span></td>
+			<td>region5</td>
+			<td>code region</td>
+			<td>source350.c : 780</td>
+			<td>confidentiality, integrity</td>
+			<td>2.0</td>
+			</tr>
+			<tr>
+			<td>region7 <span class="label label-info">asset</span></td>
+			<td>region6</td>
+			<td>code region</td>
+			<td>source350.c : 890</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region8 <span class="label label-info">asset</span></td>
+			<td>region6</td>
+			<td>code region</td>
+			<td>source350.c : 929</td>
+			<td>integrity</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region9 <span class="label label-info">asset</span></td>
+			<td>region6</td>
+			<td>code region</td>
+			<td>source350.c : 781</td>
+			<td>confidentiality</td>
+			<td>1.0</td>
+			</tr>
+			<tr>
+			<td>region3 <span class="label label-info">asset</span></td>
+			<td>region2</td>
+			<td>code region</td>
+			<td>source350.c : 1412</td>
+			<td>confidentiality, integrity</td>
+			<td>1.0</td>
+			</tr>
+			</tbody>
+		</table>
+		<a class="anchor" name="applicationParts"></a><h2>All the Application Parts</h2>
+		<div class="alert alert-warning"><strong>Note:</strong> we name application part all the entities in the application that may deserve to be protected, including variables, functions, external references, relevant code regions and assets.</div>
+		<div class="panel-group">
+			<div class="panel panel-info">
+					<div id="collapse2">
+					<div class="panel-body">
+							<dl class="dl-horizontal">
+								<dt>Assets</dt>
+								<dd>40</dd>
+								<dt>Application parts</dt>
+								<dd>418</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		<table id="applicationPartsTable" class="table table-condensed table-hover">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Parent</th>
+					<th>Type</th>
+					<th>Source File : Line</th>
+					<th>Properties</th>
+					<th>Weight</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				<td>reference0</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference1</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference2</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference3</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference4</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>variable0</td>
+				<td> </td>
+				<td>integer</td>
+				<td>source350.c : 25</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable1</td>
+				<td> </td>
+				<td>static integer array</td>
+				<td>source350.c : 35</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region0</td>
+				<td> </td>
+				<td>function</td>
+				<td>source5.c : 127</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter0</td>
+				<td>region0</td>
+				<td>parameter</td>
+				<td>source5.c : 127</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable2</td>
+				<td>region0</td>
+				<td>other data type</td>
+				<td>source5.c : 130</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter1</td>
+				<td>region0</td>
+				<td>parameter</td>
+				<td>source5.c : 127</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region1</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 764</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable3</td>
+				<td>region1</td>
+				<td>other data type</td>
+				<td>source350.c : 765</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable4</td>
+				<td>region1</td>
+				<td>other data type</td>
+				<td>source350.c : 766</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region2</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1409</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter2</td>
+				<td>region2</td>
+				<td>parameter</td>
+				<td>source350.c : 1409</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable5</td>
+				<td>region2</td>
+				<td>integer</td>
+				<td>source350.c : 1415</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region3 <span class="label label-info">asset</span></td>
+				<td>region2</td>
+				<td>code region</td>
+				<td>source350.c : 1412</td>
+				<td>confidentiality, integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter3</td>
+				<td>region2</td>
+				<td>parameter</td>
+				<td>source350.c : 1409</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter4</td>
+				<td>region2</td>
+				<td>parameter</td>
+				<td>source350.c : 1409</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable6</td>
+				<td>region2</td>
+				<td>other data type</td>
+				<td>source350.c : 1413</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable7</td>
+				<td>region2</td>
+				<td>other data type</td>
+				<td>source350.c : 1414</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter5</td>
+				<td>region2</td>
+				<td>parameter</td>
+				<td>source350.c : 1409</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region4</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1037</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable8</td>
+				<td>region4</td>
+				<td>integer</td>
+				<td>source350.c : 1040</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter6</td>
+				<td>region4</td>
+				<td>parameter</td>
+				<td>source350.c : 1037</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable9</td>
+				<td>region4</td>
+				<td>integer</td>
+				<td>source350.c : 1039</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable10</td>
+				<td>region4</td>
+				<td>integer</td>
+				<td>source350.c : 1040</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region5</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 778</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable11</td>
+				<td>region5</td>
+				<td>integer</td>
+				<td>source350.c : 788</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter7</td>
+				<td>region5</td>
+				<td>parameter</td>
+				<td>source350.c : 778</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable12</td>
+				<td>region5</td>
+				<td>other data type</td>
+				<td>source350.c : 792</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter8</td>
+				<td>region5</td>
+				<td>parameter</td>
+				<td>source350.c : 778</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter9</td>
+				<td>region5</td>
+				<td>parameter</td>
+				<td>source350.c : 778</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable13</td>
+				<td>region5</td>
+				<td>integer</td>
+				<td>source350.c : 790</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable14</td>
+				<td>region5</td>
+				<td>other data type</td>
+				<td>source350.c : 787</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter10</td>
+				<td>region5</td>
+				<td>parameter</td>
+				<td>source350.c : 778</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region6 <span class="label label-info">asset</span></td>
+				<td>region5</td>
+				<td>code region</td>
+				<td>source350.c : 780</td>
+				<td>confidentiality, integrity</td>
+				<td>2.0</td>
+				</tr>
+				<tr>
+				<td>region7 <span class="label label-info">asset</span></td>
+				<td>region6</td>
+				<td>code region</td>
+				<td>source350.c : 890</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region8 <span class="label label-info">asset</span></td>
+				<td>region6</td>
+				<td>code region</td>
+				<td>source350.c : 929</td>
+				<td>integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region9 <span class="label label-info">asset</span></td>
+				<td>region6</td>
+				<td>code region</td>
+				<td>source350.c : 781</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable15</td>
+				<td>region5</td>
+				<td>integer</td>
+				<td>source350.c : 789</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable16</td>
+				<td>region5</td>
+				<td>other data type</td>
+				<td>source350.c : 785</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable17</td>
+				<td>region5</td>
+				<td>other data type</td>
+				<td>source350.c : 784</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable18</td>
+				<td>region5</td>
+				<td>other data type</td>
+				<td>source350.c : 786</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable19</td>
+				<td>region5</td>
+				<td>integer array</td>
+				<td>source350.c : 782</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable20</td>
+				<td>region5</td>
+				<td>integer array</td>
+				<td>source350.c : 782</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable21</td>
+				<td>region5</td>
+				<td>integer array</td>
+				<td>source350.c : 783</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference5</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference6</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference7</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference8</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region10</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 103</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter11</td>
+				<td>region10</td>
+				<td>parameter</td>
+				<td>source350.c : 103</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter12</td>
+				<td>region10</td>
+				<td>parameter</td>
+				<td>source350.c : 103</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter13</td>
+				<td>region10</td>
+				<td>parameter</td>
+				<td>source350.c : 103</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter14</td>
+				<td>region10</td>
+				<td>parameter</td>
+				<td>source350.c : 103</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region11</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1346</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter15</td>
+				<td>region11</td>
+				<td>parameter</td>
+				<td>source350.c : 1346</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable22</td>
+				<td>region11</td>
+				<td>integer</td>
+				<td>source350.c : 1355</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable23</td>
+				<td>region11</td>
+				<td>other data type</td>
+				<td>source350.c : 1350</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable24</td>
+				<td>region11</td>
+				<td>other data type</td>
+				<td>source350.c : 1351</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter16</td>
+				<td>region11</td>
+				<td>parameter</td>
+				<td>source350.c : 1346</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region12 <span class="label label-info">asset</span></td>
+				<td>region11</td>
+				<td>code region</td>
+				<td>source350.c : 1348</td>
+				<td>confidentiality, integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter17</td>
+				<td>region11</td>
+				<td>parameter</td>
+				<td>source350.c : 1346</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable25</td>
+				<td>region11</td>
+				<td>other data type</td>
+				<td>source350.c : 1353</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference9</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>variable26</td>
+				<td> </td>
+				<td>other data type</td>
+				<td>source57.c : 17</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region13</td>
+				<td> </td>
+				<td>function</td>
+				<td>source60.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable27</td>
+				<td>region13</td>
+				<td>integer</td>
+				<td>source60.c : 25</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter18</td>
+				<td>region13</td>
+				<td>parameter</td>
+				<td>source60.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable28 <span class="label label-info">asset</span></td>
+				<td> </td>
+				<td>integer</td>
+				<td>source350.c : 51</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region14</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 66</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter19</td>
+				<td>region14</td>
+				<td>parameter</td>
+				<td>source350.c : 66</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter20</td>
+				<td>region14</td>
+				<td>parameter</td>
+				<td>source350.c : 66</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable29</td>
+				<td>region14</td>
+				<td>integer</td>
+				<td>source350.c : 69</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region15 <span class="label label-info">asset</span></td>
+				<td>region14</td>
+				<td>code region</td>
+				<td>source350.c : 68</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter21</td>
+				<td>region14</td>
+				<td>parameter</td>
+				<td>source350.c : 66</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference10</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference11</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region16</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 115</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable30</td>
+				<td>region16</td>
+				<td>integer</td>
+				<td>source350.c : 117</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter22</td>
+				<td>region16</td>
+				<td>parameter</td>
+				<td>source350.c : 115</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter23</td>
+				<td>region16</td>
+				<td>parameter</td>
+				<td>source350.c : 115</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable31 <span class="label label-info">asset</span></td>
+				<td> </td>
+				<td>cryptographic key</td>
+				<td>source138.c : 8</td>
+				<td>confidentiality</td>
+				<td>3.0</td>
+				</tr>
+				<tr>
+				<td>region17</td>
+				<td> </td>
+				<td>function</td>
+				<td>source75.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter24</td>
+				<td>region17</td>
+				<td>parameter</td>
+				<td>source75.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable32</td>
+				<td>region17</td>
+				<td>integer</td>
+				<td>source75.c : 25</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region18</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 973</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region19 <span class="label label-info">asset</span></td>
+				<td>region18</td>
+				<td>code region</td>
+				<td>source350.c : 974</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable33</td>
+				<td>region18</td>
+				<td>integer array</td>
+				<td>source350.c : 980</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable34</td>
+				<td>region18</td>
+				<td>integer array</td>
+				<td>source350.c : 978</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable35</td>
+				<td>region18</td>
+				<td>integer array</td>
+				<td>source350.c : 976</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable36</td>
+				<td>region18</td>
+				<td>integer array</td>
+				<td>source350.c : 977</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter25</td>
+				<td>region18</td>
+				<td>parameter</td>
+				<td>source350.c : 973</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable37</td>
+				<td>region18</td>
+				<td>integer</td>
+				<td>source350.c : 982</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable38</td>
+				<td>region18</td>
+				<td>integer array</td>
+				<td>source350.c : 975</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable39</td>
+				<td>region18</td>
+				<td>other data type</td>
+				<td>source350.c : 979</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable40</td>
+				<td>region18</td>
+				<td>other data type</td>
+				<td>source350.c : 985</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable41 <span class="label label-info">asset</span></td>
+				<td> </td>
+				<td>integer</td>
+				<td>source350.c : 55</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable42 <span class="label label-info">asset</span></td>
+				<td> </td>
+				<td>integer</td>
+				<td>source350.c : 59</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference12</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference13</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference14</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference15</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>variable43 <span class="label label-info">asset</span></td>
+				<td> </td>
+				<td>integer array</td>
+				<td>source350.c : 43</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference16</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference17</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region20</td>
+				<td> </td>
+				<td>function</td>
+				<td>source97.c : 27</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter26</td>
+				<td>region20</td>
+				<td>parameter</td>
+				<td>source97.c : 27</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable44</td>
+				<td>region20</td>
+				<td>other data type</td>
+				<td>source97.c : 29</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable45</td>
+				<td>region20</td>
+				<td>integer</td>
+				<td>source97.c : 30</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter27</td>
+				<td>region20</td>
+				<td>parameter</td>
+				<td>source97.c : 27</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter28</td>
+				<td>region20</td>
+				<td>parameter</td>
+				<td>source97.c : 27</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter29</td>
+				<td>region20</td>
+				<td>parameter</td>
+				<td>source97.c : 27</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter30</td>
+				<td>region20</td>
+				<td>parameter</td>
+				<td>source97.c : 27</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable46</td>
+				<td> </td>
+				<td>other data type</td>
+				<td>source350.c : 29</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable47</td>
+				<td> </td>
+				<td>other data type</td>
+				<td>source99.c : 13</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region21</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1543</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable48</td>
+				<td>region21</td>
+				<td>integer array</td>
+				<td>source350.c : 1548</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable49</td>
+				<td>region21</td>
+				<td>integer array</td>
+				<td>source350.c : 1550</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable50</td>
+				<td>region21</td>
+				<td>other data type</td>
+				<td>source350.c : 1549</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable51</td>
+				<td>region21</td>
+				<td>other data type</td>
+				<td>source350.c : 1552</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable52</td>
+				<td>region21</td>
+				<td>integer array</td>
+				<td>source350.c : 1547</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable53</td>
+				<td>region21</td>
+				<td>integer</td>
+				<td>source350.c : 1555</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter31</td>
+				<td>region21</td>
+				<td>parameter</td>
+				<td>source350.c : 1543</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter32</td>
+				<td>region21</td>
+				<td>parameter</td>
+				<td>source350.c : 1543</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region22 <span class="label label-info">asset</span></td>
+				<td>region21</td>
+				<td>code region</td>
+				<td>source350.c : 1546</td>
+				<td>confidentiality, integrity</td>
+				<td>2.0</td>
+				</tr>
+				<tr>
+				<td>variable54</td>
+				<td>region21</td>
+				<td>other data type</td>
+				<td>source350.c : 1554</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable55</td>
+				<td>region21</td>
+				<td>other data type</td>
+				<td>source350.c : 1553</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable56</td>
+				<td>region21</td>
+				<td>integer array</td>
+				<td>source350.c : 1551</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable57</td>
+				<td>region21</td>
+				<td>integer array</td>
+				<td>source350.c : 1547</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference18</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference19</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region23</td>
+				<td> </td>
+				<td>function</td>
+				<td>source122.c : 20</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter33</td>
+				<td>region23</td>
+				<td>parameter</td>
+				<td>source122.c : 20</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable58</td>
+				<td>region23</td>
+				<td>integer</td>
+				<td>source122.c : 22</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter34</td>
+				<td>region23</td>
+				<td>parameter</td>
+				<td>source122.c : 20</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter35</td>
+				<td>region23</td>
+				<td>parameter</td>
+				<td>source122.c : 20</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter36</td>
+				<td>region23</td>
+				<td>parameter</td>
+				<td>source122.c : 20</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable59</td>
+				<td>region23</td>
+				<td>integer</td>
+				<td>source122.c : 22</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable60</td>
+				<td>region23</td>
+				<td>integer</td>
+				<td>source122.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable61</td>
+				<td>region23</td>
+				<td>integer</td>
+				<td>source122.c : 22</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference20</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>variable62</td>
+				<td> </td>
+				<td>other data type</td>
+				<td>source123.c : 18</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region24</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 748</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter37</td>
+				<td>region24</td>
+				<td>parameter</td>
+				<td>source350.c : 748</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable63</td>
+				<td>region24</td>
+				<td>other data type</td>
+				<td>source350.c : 749</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable64</td>
+				<td>region24</td>
+				<td>other data type</td>
+				<td>source350.c : 750</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference21</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region25</td>
+				<td> </td>
+				<td>function</td>
+				<td>source129.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter38</td>
+				<td>region25</td>
+				<td>parameter</td>
+				<td>source129.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region26</td>
+				<td> </td>
+				<td>function</td>
+				<td>source138.c : 16</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter39</td>
+				<td>region26</td>
+				<td>parameter</td>
+				<td>source138.c : 16</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable65</td>
+				<td>region26</td>
+				<td>other data type</td>
+				<td>source138.c : 21</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable66</td>
+				<td>region26</td>
+				<td>ciphertext</td>
+				<td>source138.c : 24</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter40</td>
+				<td>region26</td>
+				<td>parameter</td>
+				<td>source138.c : 16</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region27 <span class="label label-info">asset</span></td>
+				<td>region26</td>
+				<td>code region</td>
+				<td>source138.c : 19</td>
+				<td>integrity</td>
+				<td>3.0</td>
+				</tr>
+				<tr>
+				<td>parameter41</td>
+				<td>region26</td>
+				<td>parameter</td>
+				<td>source138.c : 16</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable67</td>
+				<td>region26</td>
+				<td>plaintext</td>
+				<td>source138.c : 25</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable68</td>
+				<td>region26</td>
+				<td>integer</td>
+				<td>source138.c : 22</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region28</td>
+				<td> </td>
+				<td>function</td>
+				<td>source141.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter42</td>
+				<td>region28</td>
+				<td>parameter</td>
+				<td>source141.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable69</td>
+				<td>region28</td>
+				<td>integer</td>
+				<td>source141.c : 25</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable70 <span class="label label-info">asset</span></td>
+				<td> </td>
+				<td>integer</td>
+				<td>source350.c : 47</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference22</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region29</td>
+				<td> </td>
+				<td>function</td>
+				<td>source145.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter43</td>
+				<td>region29</td>
+				<td>parameter</td>
+				<td>source145.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable71</td>
+				<td>region29</td>
+				<td>integer</td>
+				<td>source145.c : 25</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference23</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference24</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference25</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference26</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region30</td>
+				<td> </td>
+				<td>function</td>
+				<td>source147.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter44</td>
+				<td>region30</td>
+				<td>parameter</td>
+				<td>source147.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference27</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region31</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 547</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter45</td>
+				<td>region31</td>
+				<td>parameter</td>
+				<td>source350.c : 547</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable72</td>
+				<td>region31</td>
+				<td>integer</td>
+				<td>source350.c : 560</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable73</td>
+				<td>region31</td>
+				<td>other data type</td>
+				<td>source350.c : 555</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable74</td>
+				<td>region31</td>
+				<td>integer</td>
+				<td>source350.c : 562</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable75</td>
+				<td>region31</td>
+				<td>integer array</td>
+				<td>source350.c : 554</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable76</td>
+				<td>region31</td>
+				<td>other data type</td>
+				<td>source350.c : 565</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable77</td>
+				<td>region31</td>
+				<td>other data type</td>
+				<td>source350.c : 551</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable78</td>
+				<td>region31</td>
+				<td>integer</td>
+				<td>source350.c : 559</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable79</td>
+				<td>region31</td>
+				<td>other data type</td>
+				<td>source350.c : 553</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable80</td>
+				<td>region31</td>
+				<td>integer</td>
+				<td>source350.c : 563</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region32 <span class="label label-info">asset</span></td>
+				<td>region31</td>
+				<td>code region</td>
+				<td>source350.c : 549</td>
+				<td>confidentiality, integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region33 <span class="label label-info">asset</span></td>
+				<td>region32</td>
+				<td>code region</td>
+				<td>source350.c : 609</td>
+				<td>integrity</td>
+				<td>2.0</td>
+				</tr>
+				<tr>
+				<td>variable81</td>
+				<td>region31</td>
+				<td>integer array</td>
+				<td>source350.c : 552</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable82</td>
+				<td>region31</td>
+				<td>other data type</td>
+				<td>source350.c : 557</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter46</td>
+				<td>region31</td>
+				<td>parameter</td>
+				<td>source350.c : 547</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable83</td>
+				<td>region31</td>
+				<td>integer array</td>
+				<td>source350.c : 550</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference28</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference29</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region34</td>
+				<td> </td>
+				<td>function</td>
+				<td>source167.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter47</td>
+				<td>region34</td>
+				<td>parameter</td>
+				<td>source167.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable84</td>
+				<td>region34</td>
+				<td>integer</td>
+				<td>source167.c : 25</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable85</td>
+				<td> </td>
+				<td>integer</td>
+				<td>source350.c : 26</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference30</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference31</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference32</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region35</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 202</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable86</td>
+				<td>region35</td>
+				<td>integer array</td>
+				<td>source350.c : 207</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable87</td>
+				<td>region35</td>
+				<td>integer array</td>
+				<td>source350.c : 213</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable88</td>
+				<td>region35</td>
+				<td>other data type</td>
+				<td>source350.c : 206</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter48</td>
+				<td>region35</td>
+				<td>parameter</td>
+				<td>source350.c : 202</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter49</td>
+				<td>region35</td>
+				<td>parameter</td>
+				<td>source350.c : 202</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region36 <span class="label label-info">asset</span></td>
+				<td>region35</td>
+				<td>code region</td>
+				<td>source350.c : 205</td>
+				<td>confidentiality, integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region37 <span class="label label-info">asset</span></td>
+				<td>region36</td>
+				<td>code region</td>
+				<td>source350.c : 241</td>
+				<td>integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region38 <span class="label label-info">asset</span></td>
+				<td>region37</td>
+				<td>code region</td>
+				<td>source350.c : 244</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable89</td>
+				<td>region35</td>
+				<td>integer</td>
+				<td>source350.c : 215</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable90</td>
+				<td>region35</td>
+				<td>integer array</td>
+				<td>source350.c : 211</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable91</td>
+				<td>region35</td>
+				<td>integer</td>
+				<td>source350.c : 214</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable92</td>
+				<td>region35</td>
+				<td>integer array</td>
+				<td>source350.c : 208</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter50</td>
+				<td>region35</td>
+				<td>parameter</td>
+				<td>source350.c : 202</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region39</td>
+				<td> </td>
+				<td>function</td>
+				<td>source186.c : 20</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter51</td>
+				<td>region39</td>
+				<td>parameter</td>
+				<td>source186.c : 20</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter52</td>
+				<td>region39</td>
+				<td>parameter</td>
+				<td>source186.c : 20</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter53</td>
+				<td>region39</td>
+				<td>parameter</td>
+				<td>source186.c : 20</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region40</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 644</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable93</td>
+				<td>region40</td>
+				<td>other data type</td>
+				<td>source350.c : 646</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter54</td>
+				<td>region40</td>
+				<td>parameter</td>
+				<td>source350.c : 644</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable94</td>
+				<td>region40</td>
+				<td>other data type</td>
+				<td>source350.c : 649</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable95</td>
+				<td>region40</td>
+				<td>other data type</td>
+				<td>source350.c : 647</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference33</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference34</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference35</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>variable96 <span class="label label-info">asset</span></td>
+				<td> </td>
+				<td>integer array</td>
+				<td>source218.c : 8</td>
+				<td>confidentiality</td>
+				<td>3.0</td>
+				</tr>
+				<tr>
+				<td>reference36</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference37</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region41</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1112</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter55</td>
+				<td>region41</td>
+				<td>parameter</td>
+				<td>source350.c : 1112</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable97</td>
+				<td>region41</td>
+				<td>integer</td>
+				<td>source350.c : 1116</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable98</td>
+				<td>region41</td>
+				<td>integer</td>
+				<td>source350.c : 1114</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference38</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference39</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference40</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>variable99</td>
+				<td> </td>
+				<td>other data type</td>
+				<td>source197.c : 18</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference41</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region42</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1628</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter56</td>
+				<td>region42</td>
+				<td>parameter</td>
+				<td>source350.c : 1628</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter57</td>
+				<td>region42</td>
+				<td>parameter</td>
+				<td>source350.c : 1628</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable100 <span class="label label-info">asset</span></td>
+				<td> </td>
+				<td>integer array</td>
+				<td>source350.c : 38</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference42</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region43</td>
+				<td> </td>
+				<td>function</td>
+				<td>source203.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter58</td>
+				<td>region43</td>
+				<td>parameter</td>
+				<td>source203.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference43</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference44</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region44</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 143</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter59</td>
+				<td>region44</td>
+				<td>parameter</td>
+				<td>source350.c : 143</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable101</td>
+				<td>region44</td>
+				<td>integer</td>
+				<td>source350.c : 152</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter60</td>
+				<td>region44</td>
+				<td>parameter</td>
+				<td>source350.c : 143</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region45 <span class="label label-info">asset</span></td>
+				<td>region44</td>
+				<td>code region</td>
+				<td>source350.c : 146</td>
+				<td>confidentiality, integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region46 <span class="label label-info">asset</span></td>
+				<td>region45</td>
+				<td>code region</td>
+				<td>source350.c : 157</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable102</td>
+				<td>region44</td>
+				<td>other data type</td>
+				<td>source350.c : 151</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter61</td>
+				<td>region44</td>
+				<td>parameter</td>
+				<td>source350.c : 143</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter62</td>
+				<td>region44</td>
+				<td>parameter</td>
+				<td>source350.c : 143</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable103</td>
+				<td>region44</td>
+				<td>other data type</td>
+				<td>source350.c : 148</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter63</td>
+				<td>region44</td>
+				<td>parameter</td>
+				<td>source350.c : 143</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region47</td>
+				<td> </td>
+				<td>function</td>
+				<td>source218.c : 15</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable104</td>
+				<td>region47</td>
+				<td>other data type</td>
+				<td>source218.c : 18</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region48 <span class="label label-info">asset</span></td>
+				<td>region47</td>
+				<td>code region</td>
+				<td>source218.c : 17</td>
+				<td>integrity</td>
+				<td>3.0</td>
+				</tr>
+				<tr>
+				<td>parameter64</td>
+				<td>region47</td>
+				<td>parameter</td>
+				<td>source218.c : 15</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference45</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference46</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference47</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>variable105</td>
+				<td> </td>
+				<td>integer</td>
+				<td>source350.c : 24</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference48</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference49</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference50</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region49</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1444</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable106</td>
+				<td>region49</td>
+				<td>integer</td>
+				<td>source350.c : 1450</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region50 <span class="label label-info">asset</span></td>
+				<td>region49</td>
+				<td>code region</td>
+				<td>source350.c : 1447</td>
+				<td>confidentiality, integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable107</td>
+				<td>region49</td>
+				<td>other data type</td>
+				<td>source350.c : 1448</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter65</td>
+				<td>region49</td>
+				<td>parameter</td>
+				<td>source350.c : 1444</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter66</td>
+				<td>region49</td>
+				<td>parameter</td>
+				<td>source350.c : 1444</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter67</td>
+				<td>region49</td>
+				<td>parameter</td>
+				<td>source350.c : 1444</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter68</td>
+				<td>region49</td>
+				<td>parameter</td>
+				<td>source350.c : 1444</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable108</td>
+				<td>region49</td>
+				<td>other data type</td>
+				<td>source350.c : 1449</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region51</td>
+				<td> </td>
+				<td>function</td>
+				<td>source231.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable109</td>
+				<td>region51</td>
+				<td>integer</td>
+				<td>source231.c : 25</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter69</td>
+				<td>region51</td>
+				<td>parameter</td>
+				<td>source231.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region52</td>
+				<td> </td>
+				<td>function</td>
+				<td>source235.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter70</td>
+				<td>region52</td>
+				<td>parameter</td>
+				<td>source235.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable110</td>
+				<td>region52</td>
+				<td>integer</td>
+				<td>source235.c : 25</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter71</td>
+				<td>region52</td>
+				<td>parameter</td>
+				<td>source235.c : 23</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region53</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 421</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable111</td>
+				<td>region53</td>
+				<td>integer</td>
+				<td>source350.c : 426</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable112</td>
+				<td>region53</td>
+				<td>other data type</td>
+				<td>source350.c : 425</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter72</td>
+				<td>region53</td>
+				<td>parameter</td>
+				<td>source350.c : 421</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region54 <span class="label label-info">asset</span></td>
+				<td>region53</td>
+				<td>code region</td>
+				<td>source350.c : 423</td>
+				<td>confidentiality, integrity</td>
+				<td>2.0</td>
+				</tr>
+				<tr>
+				<td>parameter73</td>
+				<td>region53</td>
+				<td>parameter</td>
+				<td>source350.c : 421</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region55</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1252</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region56 <span class="label label-info">asset</span></td>
+				<td>region55</td>
+				<td>code region</td>
+				<td>source350.c : 1254</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable113</td>
+				<td>region55</td>
+				<td>other data type</td>
+				<td>source350.c : 1258</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter74</td>
+				<td>region55</td>
+				<td>parameter</td>
+				<td>source350.c : 1252</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable114</td>
+				<td>region55</td>
+				<td>other data type</td>
+				<td>source350.c : 1256</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter75</td>
+				<td>region55</td>
+				<td>parameter</td>
+				<td>source350.c : 1252</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable115</td>
+				<td>region55</td>
+				<td>other data type</td>
+				<td>source350.c : 1263</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable116</td>
+				<td>region55</td>
+				<td>integer</td>
+				<td>source350.c : 1265</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter76</td>
+				<td>region55</td>
+				<td>parameter</td>
+				<td>source350.c : 1252</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable117</td>
+				<td>region55</td>
+				<td>other data type</td>
+				<td>source350.c : 1268</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable118</td>
+				<td>region55</td>
+				<td>integer</td>
+				<td>source350.c : 1264</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter77</td>
+				<td>region55</td>
+				<td>parameter</td>
+				<td>source350.c : 1252</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable119</td>
+				<td>region55</td>
+				<td>other data type</td>
+				<td>source350.c : 1260</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable120</td>
+				<td>region55</td>
+				<td>integer array</td>
+				<td>source350.c : 1257</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable121</td>
+				<td>region55</td>
+				<td>other data type</td>
+				<td>source350.c : 1261</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable122</td>
+				<td>region55</td>
+				<td>integer</td>
+				<td>source350.c : 1262</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable123</td>
+				<td>region55</td>
+				<td>integer array</td>
+				<td>source350.c : 1255</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable124</td>
+				<td>region55</td>
+				<td>integer</td>
+				<td>source350.c : 1266</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable125</td>
+				<td>region55</td>
+				<td>integer array</td>
+				<td>source350.c : 1259</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference51</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference52</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>variable126</td>
+				<td> </td>
+				<td>integer</td>
+				<td>source290.c : 4</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region57</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 449</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter78</td>
+				<td>region57</td>
+				<td>parameter</td>
+				<td>source350.c : 449</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable127</td>
+				<td>region57</td>
+				<td>integer</td>
+				<td>source350.c : 454</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter79</td>
+				<td>region57</td>
+				<td>parameter</td>
+				<td>source350.c : 449</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable128</td>
+				<td>region57</td>
+				<td>integer array</td>
+				<td>source350.c : 453</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region58 <span class="label label-info">asset</span></td>
+				<td>region57</td>
+				<td>code region</td>
+				<td>source350.c : 452</td>
+				<td>confidentiality, integrity</td>
+				<td>2.0</td>
+				</tr>
+				<tr>
+				<td>variable129</td>
+				<td> </td>
+				<td>integer</td>
+				<td>source350.c : 32</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference53</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region59</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 491</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable130</td>
+				<td>region59</td>
+				<td>other data type</td>
+				<td>source350.c : 496</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region60 <span class="label label-info">asset</span></td>
+				<td>region59</td>
+				<td>code region</td>
+				<td>source350.c : 493</td>
+				<td>confidentiality, integrity</td>
+				<td>2.0</td>
+				</tr>
+				<tr>
+				<td>parameter80</td>
+				<td>region59</td>
+				<td>parameter</td>
+				<td>source350.c : 491</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable131</td>
+				<td>region59</td>
+				<td>other data type</td>
+				<td>source350.c : 495</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable132</td>
+				<td>region59</td>
+				<td>integer</td>
+				<td>source350.c : 494</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable133</td>
+				<td>region59</td>
+				<td>other data type</td>
+				<td>source350.c : 497</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference54</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region61</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 674</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable134</td>
+				<td>region61</td>
+				<td>integer array</td>
+				<td>source350.c : 681</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter81</td>
+				<td>region61</td>
+				<td>parameter</td>
+				<td>source350.c : 674</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable135</td>
+				<td>region61</td>
+				<td>integer</td>
+				<td>source350.c : 683</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable136</td>
+				<td>region61</td>
+				<td>other data type</td>
+				<td>source350.c : 675</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable137</td>
+				<td>region61</td>
+				<td>other data type</td>
+				<td>source350.c : 676</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable138</td>
+				<td>region61</td>
+				<td>integer array</td>
+				<td>source350.c : 679</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter82</td>
+				<td>region61</td>
+				<td>parameter</td>
+				<td>source350.c : 674</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable139</td>
+				<td>region61</td>
+				<td>other data type</td>
+				<td>source350.c : 678</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable140</td>
+				<td>region61</td>
+				<td>other data type</td>
+				<td>source350.c : 680</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter83</td>
+				<td>region61</td>
+				<td>parameter</td>
+				<td>source350.c : 674</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference55</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference56</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference57</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference58</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region62</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 478</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable141</td>
+				<td>region62</td>
+				<td>other data type</td>
+				<td>source350.c : 479</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference59</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region63</td>
+				<td> </td>
+				<td>function</td>
+				<td>source290.c : 6</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region64</td>
+				<td>region63</td>
+				<td>code region</td>
+				<td>source290.c : 10</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference60</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference61</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region65</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 85</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable142</td>
+				<td>region65</td>
+				<td>other data type</td>
+				<td>source350.c : 88</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable143</td>
+				<td>region65</td>
+				<td>integer array</td>
+				<td>source350.c : 87</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter84</td>
+				<td>region65</td>
+				<td>parameter</td>
+				<td>source350.c : 85</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable144</td>
+				<td>region65</td>
+				<td>integer</td>
+				<td>source350.c : 89</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter85</td>
+				<td>region65</td>
+				<td>parameter</td>
+				<td>source350.c : 85</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region66</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1479</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable145</td>
+				<td>region66</td>
+				<td>other data type</td>
+				<td>source350.c : 1484</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter86</td>
+				<td>region66</td>
+				<td>parameter</td>
+				<td>source350.c : 1479</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region67 <span class="label label-info">asset</span></td>
+				<td>region66</td>
+				<td>code region</td>
+				<td>source350.c : 1482</td>
+				<td>confidentiality, integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter87</td>
+				<td>region66</td>
+				<td>parameter</td>
+				<td>source350.c : 1479</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter88</td>
+				<td>region66</td>
+				<td>parameter</td>
+				<td>source350.c : 1479</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter89</td>
+				<td>region66</td>
+				<td>parameter</td>
+				<td>source350.c : 1479</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable146</td>
+				<td>region66</td>
+				<td>other data type</td>
+				<td>source350.c : 1483</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable147</td>
+				<td>region66</td>
+				<td>integer</td>
+				<td>source350.c : 1485</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region68</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1149</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable148</td>
+				<td>region68</td>
+				<td>integer array</td>
+				<td>source350.c : 1153</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable149</td>
+				<td>region68</td>
+				<td>integer</td>
+				<td>source350.c : 1154</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable150</td>
+				<td>region68</td>
+				<td>integer array</td>
+				<td>source350.c : 1153</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region69 <span class="label label-info">asset</span></td>
+				<td>region68</td>
+				<td>code region</td>
+				<td>source350.c : 1152</td>
+				<td>confidentiality, integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference62</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region70</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1238</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region71 <span class="label label-info">asset</span></td>
+				<td>region70</td>
+				<td>code region</td>
+				<td>source350.c : 1240</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region72</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 324</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable151</td>
+				<td>region72</td>
+				<td>integer</td>
+				<td>source350.c : 335</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter90</td>
+				<td>region72</td>
+				<td>parameter</td>
+				<td>source350.c : 324</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter91</td>
+				<td>region72</td>
+				<td>parameter</td>
+				<td>source350.c : 324</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable152</td>
+				<td>region72</td>
+				<td>integer array</td>
+				<td>source350.c : 330</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter92</td>
+				<td>region72</td>
+				<td>parameter</td>
+				<td>source350.c : 324</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable153</td>
+				<td>region72</td>
+				<td>integer</td>
+				<td>source350.c : 334</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region73 <span class="label label-info">asset</span></td>
+				<td>region72</td>
+				<td>code region</td>
+				<td>source350.c : 326</td>
+				<td>confidentiality, integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region74 <span class="label label-info">asset</span></td>
+				<td>region73</td>
+				<td>code region</td>
+				<td>source350.c : 368</td>
+				<td>integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region75 <span class="label label-info">asset</span></td>
+				<td>region74</td>
+				<td>code region</td>
+				<td>source350.c : 370</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable154</td>
+				<td>region72</td>
+				<td>integer array</td>
+				<td>source350.c : 333</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable155</td>
+				<td>region72</td>
+				<td>other data type</td>
+				<td>source350.c : 327</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable156</td>
+				<td>region72</td>
+				<td>integer array</td>
+				<td>source350.c : 329</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable157</td>
+				<td>region72</td>
+				<td>integer array</td>
+				<td>source350.c : 328</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference63</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference64</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>reference65</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				<tr>
+				<td>region76</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1393</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable158</td>
+				<td>region76</td>
+				<td>other data type</td>
+				<td>source350.c : 1396</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region77 <span class="label label-info">asset</span></td>
+				<td>region76</td>
+				<td>code region</td>
+				<td>source350.c : 1395</td>
+				<td>confidentiality</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter93</td>
+				<td>region76</td>
+				<td>parameter</td>
+				<td>source350.c : 1393</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region78</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1054</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable159</td>
+				<td>region78</td>
+				<td>integer</td>
+				<td>source350.c : 1063</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region79 <span class="label label-info">asset</span></td>
+				<td>region78</td>
+				<td>code region</td>
+				<td>source350.c : 1056</td>
+				<td>confidentiality, integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter94</td>
+				<td>region78</td>
+				<td>parameter</td>
+				<td>source350.c : 1054</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable160</td>
+				<td>region78</td>
+				<td>integer array</td>
+				<td>source350.c : 1058</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter95</td>
+				<td>region78</td>
+				<td>parameter</td>
+				<td>source350.c : 1054</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable161</td>
+				<td>region78</td>
+				<td>other data type</td>
+				<td>source350.c : 1066</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable162</td>
+				<td>region78</td>
+				<td>integer array</td>
+				<td>source350.c : 1061</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable163</td>
+				<td>region78</td>
+				<td>other data type</td>
+				<td>source350.c : 1060</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable164</td>
+				<td>region78</td>
+				<td>integer array</td>
+				<td>source350.c : 1059</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable165</td>
+				<td>region78</td>
+				<td>integer array</td>
+				<td>source350.c : 1057</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region80</td>
+				<td> </td>
+				<td>function</td>
+				<td>source350.c : 1510</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter96</td>
+				<td>region80</td>
+				<td>parameter</td>
+				<td>source350.c : 1510</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter97</td>
+				<td>region80</td>
+				<td>parameter</td>
+				<td>source350.c : 1510</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable166</td>
+				<td>region80</td>
+				<td>integer</td>
+				<td>source350.c : 1515</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>region81 <span class="label label-info">asset</span></td>
+				<td>region80</td>
+				<td>code region</td>
+				<td>source350.c : 1512</td>
+				<td>confidentiality, integrity</td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter98</td>
+				<td>region80</td>
+				<td>parameter</td>
+				<td>source350.c : 1510</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>parameter99</td>
+				<td>region80</td>
+				<td>parameter</td>
+				<td>source350.c : 1510</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable167</td>
+				<td>region80</td>
+				<td>other data type</td>
+				<td>source350.c : 1514</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>variable168</td>
+				<td>region80</td>
+				<td>other data type</td>
+				<td>source350.c : 1513</td>
+				<td></td>
+				<td>1.0</td>
+				</tr>
+				<tr>
+				<td>reference66</td>
+				<td> </td>
+				<td>reference</td>
+				<td></td>
+				<td></td>
+				<td>0.0</td>
+				</tr>
+				</tbody>
+
+		</table>
+		<a class="anchor" name="attacks"></a><h2>Attacks and Protections</h2>
+		<div class="panel-group">
+			<div class="panel panel-info">
+					<div id="collapse3">
+					<div class="panel-body">
+							<dl class="dl-horizontal">
+								<dt>Attack paths</dt>
+								<dd>111</dd>
+								<dt>Attack steps</dt>
+								<dd>172</dd>
+								<dt>Protections</dt>
+								<dd>11</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class="alert alert-warning">
+			<strong>Note 1:</strong> the attacker benefit is computed as the sum of the threatened assets' weights.
+		</div>
+		<div class="alert alert-warning">
+			<strong>Note 2:</strong> the Expected Maximum Mitigation is the maximum achievable protection level if only the best protection is applied to the asset.
+		</div>
+		<table id="attacksTable" class="table table-condensed table-hover">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Attack Path</th>
+					<th>Targets</th>
+					<th>Attacker Benefit</th>
+					<th data-sorter="mitigationSorter">Expected Maximum Mitigation</th>
+					<th>Suggested Protections @ Application Parts</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="info">
+				<td>443329549</td>
+				<td>setup(attackerServer(stealServer))<br/>executeCode(region53(attacker))<br/>dynamicallyLocate(region53(attacker))<br/>injectCode(region53(victim), sendTo(attackerServer(stealServer), variable43(victim)))<br/></td>
+				<td>variable43/confidentiality</td>
+				<td>1.0</td>
+				<td>unblockable</td>
+				<td></td>
+				</tr>
+				<tr class="warning">
+				<td>627164154</td>
+				<td>executeCode(region56(attacker))<br/>dynamicallyLocate(region56(attacker))<br/></td>
+				<td>region11_direct.r22/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1353359584</td>
+				<td>staticallyLocate(region69(attacker))<br/></td>
+				<td>diamante_reference20.r20/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2277864831</td>
+				<td>staticallyLocate(region60(attacker))<br/></td>
+				<td>region59.r11/confidentiality</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>396946426</td>
+				<td>executeCode(region32(attacker))<br/>dynamicallyLocate(region32(attacker))<br/></td>
+				<td>region31.r12/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>3868394361</td>
+				<td>executeCode(region50(attacker))<br/>dynamicallyLocate(region50(attacker))<br/>dynamicallyChange(region50(attacker))<br/></td>
+				<td>region49.r26/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>4128512040</td>
+				<td>staticallyLocate(region3(attacker))<br/></td>
+				<td>region2.r25/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2736049507</td>
+				<td>staticallyLocate(region67(attacker))<br/>staticallyChange(region67(attacker))<br/></td>
+				<td>diamante_reference49.r27/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>782092671</td>
+				<td>staticallyLocate(region12(attacker))<br/>staticallyChange(region12(attacker))<br/></td>
+				<td>region11.r23/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>2702213082</td>
+				<td>executeCode(region38(attacker))<br/>dynamicallyLocate(region38(attacker))<br/></td>
+				<td>region35.r3.r4.r5/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>4122300355</td>
+				<td>staticallyLocate(region45(attacker))<br/>staticallyChange(region45(attacker))<br/></td>
+				<td>region44.r1/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2678721475</td>
+				<td>staticallyLocate(region69(attacker))<br/>staticallyChange(region69(attacker))<br/></td>
+				<td>diamante_reference20.r20/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>3191055407</td>
+				<td>staticallyLocate(region73(attacker))<br/></td>
+				<td>int_reference57.r6/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>2463838842</td>
+				<td>executeCode(region6(attacker))<br/>dynamicallyLocate(region6(attacker))<br/></td>
+				<td>region5.r14/confidentiality</td>
+				<td>2.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>752518016</td>
+				<td>executeCode(region27(attacker))<br/>dynamicallyLocate(region27(attacker))<br/>dynamicallyChange(region27(attacker))<br/></td>
+				<td>region26.r0/integrity</td>
+				<td>3.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2175406093</td>
+				<td>executeCode(region81(attacker))<br/>dynamicallyLocate(region81(attacker))<br/>dynamicallyChange(region81(attacker))<br/></td>
+				<td>diamante_reference57.r28/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>4249904607</td>
+				<td>staticallyLocate(region54(attacker))<br/>staticallyChange(region54(attacker))<br/></td>
+				<td>region53.r9/integrity</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1503747619</td>
+				<td>staticallyLocate(region58(attacker))<br/>staticallyChange(region58(attacker))<br/></td>
+				<td>region57.r10/integrity</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1863582627</td>
+				<td>staticallyLocate(region8(attacker))<br/>staticallyChange(region8(attacker))<br/></td>
+				<td>region5.r14.r17/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2679266762</td>
+				<td>executeCode(region22(attacker))<br/>dynamicallyLocate(region22(attacker))<br/>dynamicallyChange(region22(attacker))<br/></td>
+				<td>region21.r29/integrity</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>287332520</td>
+				<td>executeCode(region81(attacker))<br/>dynamicallyLocate(region81(attacker))<br/></td>
+				<td>diamante_reference57.r28/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1375309251</td>
+				<td>staticallyLocate(region27(attacker))<br/>staticallyChange(region27(attacker))<br/></td>
+				<td>region26.r0/integrity</td>
+				<td>3.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>241914235</td>
+				<td>staticallyLocate(region58(attacker))<br/></td>
+				<td>region57.r10/confidentiality</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>3769311277</td>
+				<td>staticallyLocate(region15(attacker))<br/></td>
+				<td>region14.r0/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>336028968</td>
+				<td>executeCode(region79(attacker))<br/>dynamicallyLocate(region79(attacker))<br/></td>
+				<td>region78.r19/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>152662463</td>
+				<td>staticallyLocate(region3(attacker))<br/>staticallyChange(region3(attacker))<br/></td>
+				<td>region2.r25/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>3799793786</td>
+				<td>executeCode(region67(attacker))<br/>dynamicallyLocate(region67(attacker))<br/></td>
+				<td>diamante_reference49.r27/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>401205333</td>
+				<td>executeCode(region6(attacker))<br/>dynamicallyLocate(region6(attacker))<br/>dynamicallyChange(region6(attacker))<br/></td>
+				<td>region5.r14/integrity</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1400094563</td>
+				<td>staticallyLocate(region6(attacker))<br/>staticallyChange(region6(attacker))<br/></td>
+				<td>region5.r14/integrity</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2962481190</td>
+				<td>staticallyLocate(region7(attacker))<br/></td>
+				<td>region5.r14.r16/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>2373895688</td>
+				<td>executeCode(region75(attacker))<br/>dynamicallyLocate(region75(attacker))<br/></td>
+				<td>int_reference57.r6.r7.r8/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1534176746</td>
+				<td>staticallyLocate(region12(attacker))<br/></td>
+				<td>region11.r23/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1090289232</td>
+				<td>staticallyLocate(region75(attacker))<br/></td>
+				<td>int_reference57.r6.r7.r8/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1807765731</td>
+				<td>staticallyLocate(region33(attacker))<br/>staticallyChange(region33(attacker))<br/></td>
+				<td>region31.r12.r13/integrity</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="info">
+				<td>1127823429</td>
+				<td>setup(attackerServer(stealServer))<br/>staticallyLocate(region53(attacker))<br/>injectCode(region53(victim), sendTo(attackerServer(stealServer), variable43(victim)))<br/></td>
+				<td>variable43/confidentiality</td>
+				<td>1.0</td>
+				<td>unblockable</td>
+				<td></td>
+				</tr>
+				<tr class="success">
+				<td>1865293315</td>
+				<td>staticallyLocate(region74(attacker))<br/>staticallyChange(region74(attacker))<br/></td>
+				<td>int_reference57.r6.r7/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>3147852533</td>
+				<td>executeCode(region54(attacker))<br/>dynamicallyLocate(region54(attacker))<br/>dynamicallyChange(region54(attacker))<br/></td>
+				<td>region53.r9/integrity</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2684138321</td>
+				<td>staticallyLocate(region56(attacker))<br/></td>
+				<td>region11_direct.r22/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>3752981969</td>
+				<td>staticallyLocate(region50(attacker))<br/></td>
+				<td>region49.r26/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>208573927</td>
+				<td>staticallyLocate(region36(attacker))<br/></td>
+				<td>region35.r3/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1645180819</td>
+				<td>executeCode(region58(attacker))<br/>dynamicallyLocate(region58(attacker))<br/>dynamicallyChange(region58(attacker))<br/></td>
+				<td>region57.r10/integrity</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2229197400</td>
+				<td>executeCode(region69(attacker))<br/>dynamicallyLocate(region69(attacker))<br/>dynamicallyChange(region69(attacker))<br/></td>
+				<td>diamante_reference20.r20/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="info">
+				<td>1498753768</td>
+				<td>executeCode(region53(attacker))<br/>dynamicallyLocate(variable43(attacker), region53(attacker))<br/>readDatumAfterInitializazionAndDecryption(variable43(attacker))<br/></td>
+				<td>variable43/confidentiality</td>
+				<td>1.0</td>
+				<td>unblockable</td>
+				<td></td>
+				</tr>
+				<tr class="success">
+				<td>1571485439</td>
+				<td>staticallyLocate(region22(attacker))<br/>staticallyChange(region22(attacker))<br/></td>
+				<td>region21.r29/integrity</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2098825957</td>
+				<td>staticallyLocate(region81(attacker))<br/></td>
+				<td>diamante_reference57.r28/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2518720791</td>
+				<td>executeCode(region60(attacker))<br/>dynamicallyLocate(region60(attacker))<br/>dynamicallyChange(region60(attacker))<br/></td>
+				<td>region59.r11/integrity</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1382417412</td>
+				<td>staticallyLocate(region46(attacker))<br/></td>
+				<td>region44.r1.r2/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>2713807656</td>
+				<td>executeCode(region73(attacker))<br/>dynamicallyLocate(region73(attacker))<br/></td>
+				<td>int_reference57.r6/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>3814419898</td>
+				<td>executeCode(region58(attacker))<br/>dynamicallyLocate(region58(attacker))<br/></td>
+				<td>region57.r10/confidentiality</td>
+				<td>2.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>2501548354</td>
+				<td>executeCode(region26(attacker))<br/>dynamicallyLocate(variable31(attacker), region26(attacker))<br/>readDatumAfterInitializazionAndDecryption(variable31(attacker))<br/></td>
+				<td>variable31/confidentiality</td>
+				<td>3.0</td>
+				<td>medium</td>
+				<td>white box cryptography <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2744402387</td>
+				<td>staticallyLocate(region71(attacker))<br/></td>
+				<td>diamante_reference1.r21/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>3255884197</td>
+				<td>staticallyLocate(region9(attacker))<br/></td>
+				<td>region5.r14.r15/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1044587372</td>
+				<td>executeCode(region45(attacker))<br/>dynamicallyLocate(region45(attacker))<br/>dynamicallyChange(region45(attacker))<br/></td>
+				<td>region44.r1/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>434586317</td>
+				<td>staticallyLocate(region54(attacker))<br/></td>
+				<td>region53.r9/confidentiality</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="info">
+				<td>4215805898</td>
+				<td>executeCode(region21(attacker))<br/>dynamicallyLocate(variable41(attacker), region21(attacker))<br/>readDatumAfterInitializazionAndDecryption(variable41(attacker))<br/></td>
+				<td>variable41/confidentiality</td>
+				<td>1.0</td>
+				<td>unblockable</td>
+				<td></td>
+				</tr>
+				<tr class="success">
+				<td>786932421</td>
+				<td>executeCode(region67(attacker))<br/>dynamicallyLocate(region67(attacker))<br/>dynamicallyChange(region67(attacker))<br/></td>
+				<td>diamante_reference49.r27/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>3693394248</td>
+				<td>executeCode(region12(attacker))<br/>dynamicallyLocate(region12(attacker))<br/></td>
+				<td>region11.r23/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1271578147</td>
+				<td>staticallyLocate(region36(attacker))<br/>staticallyChange(region36(attacker))<br/></td>
+				<td>region35.r3/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="info">
+				<td>1265632170</td>
+				<td>executeCode(region44(attacker))<br/>dynamicallyLocate(variable100(attacker), region44(attacker))<br/>readDatumAfterInitializazionAndDecryption(variable100(attacker))<br/></td>
+				<td>variable100/confidentiality</td>
+				<td>1.0</td>
+				<td>unblockable</td>
+				<td></td>
+				</tr>
+				<tr class="success">
+				<td>1301032063</td>
+				<td>executeCode(region36(attacker))<br/>dynamicallyLocate(region36(attacker))<br/>dynamicallyChange(region36(attacker))<br/></td>
+				<td>region35.r3/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>144268574</td>
+				<td>staticallyLocate(region77(attacker))<br/></td>
+				<td>region76.r24/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2880636675</td>
+				<td>staticallyLocate(region48(attacker))<br/>staticallyChange(region48(attacker))<br/></td>
+				<td>region47.r30/integrity</td>
+				<td>3.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>678249242</td>
+				<td>executeCode(region7(attacker))<br/>dynamicallyLocate(region7(attacker))<br/></td>
+				<td>region5.r14.r16/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="info">
+				<td>2953413610</td>
+				<td>executeCode(region35(attacker))<br/>dynamicallyLocate(variable70(attacker), region35(attacker))<br/>readDatumAfterInitializazionAndDecryption(variable70(attacker))<br/></td>
+				<td>variable70/confidentiality</td>
+				<td>1.0</td>
+				<td>unblockable</td>
+				<td></td>
+				</tr>
+				<tr class="success">
+				<td>1965195679</td>
+				<td>staticallyLocate(region37(attacker))<br/>staticallyChange(region37(attacker))<br/></td>
+				<td>region35.r3.r4/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>733858325</td>
+				<td>executeCode(region79(attacker))<br/>dynamicallyLocate(region79(attacker))<br/>dynamicallyChange(region79(attacker))<br/></td>
+				<td>region78.r19/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2415289371</td>
+				<td>executeCode(region37(attacker))<br/>dynamicallyLocate(region37(attacker))<br/>dynamicallyChange(region37(attacker))<br/></td>
+				<td>region35.r3.r4/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="info">
+				<td>677340970</td>
+				<td>executeCode(region61(attacker))<br/>dynamicallyLocate(variable28(attacker), region61(attacker))<br/>readDatumAfterInitializazionAndDecryption(variable28(attacker))<br/></td>
+				<td>variable28/confidentiality</td>
+				<td>1.0</td>
+				<td>unblockable</td>
+				<td></td>
+				</tr>
+				<tr class="success">
+				<td>3087476959</td>
+				<td>staticallyLocate(region79(attacker))<br/>staticallyChange(region79(attacker))<br/></td>
+				<td>region78.r19/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="info">
+				<td>1998465294</td>
+				<td>executeCode(region72(attacker))<br/>dynamicallyLocate(variable70(attacker), region72(attacker))<br/>readDatumAfterInitializazionAndDecryption(variable70(attacker))<br/></td>
+				<td>variable70/confidentiality</td>
+				<td>1.0</td>
+				<td>unblockable</td>
+				<td></td>
+				</tr>
+				<tr class="info">
+				<td>435110517</td>
+				<td>setup(attackerServer(stealServer))<br/>staticallyLocate(region44(attacker))<br/>injectCode(region44(victim), sendTo(attackerServer(stealServer), variable100(victim)))<br/></td>
+				<td>variable100/confidentiality</td>
+				<td>1.0</td>
+				<td>unblockable</td>
+				<td></td>
+				</tr>
+				<tr class="success">
+				<td>1670998239</td>
+				<td>staticallyLocate(region81(attacker))<br/>staticallyChange(region81(attacker))<br/></td>
+				<td>diamante_reference57.r28/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>2757707880</td>
+				<td>executeCode(region50(attacker))<br/>dynamicallyLocate(region50(attacker))<br/></td>
+				<td>region49.r26/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>3772986022</td>
+				<td>executeCode(region74(attacker))<br/>dynamicallyLocate(region74(attacker))<br/>dynamicallyChange(region74(attacker))<br/></td>
+				<td>int_reference57.r6.r7/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>2105398586</td>
+				<td>executeCode(region19(attacker))<br/>dynamicallyLocate(region19(attacker))<br/></td>
+				<td>region18.r18/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>2288625672</td>
+				<td>executeCode(region46(attacker))<br/>dynamicallyLocate(region46(attacker))<br/></td>
+				<td>region44.r1.r2/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>1011195194</td>
+				<td>executeCode(region71(attacker))<br/>dynamicallyLocate(region71(attacker))<br/></td>
+				<td>diamante_reference1.r21/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1162358563</td>
+				<td>staticallyLocate(region60(attacker))<br/>staticallyChange(region60(attacker))<br/></td>
+				<td>region59.r11/integrity</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1020602079</td>
+				<td>staticallyLocate(region50(attacker))<br/>staticallyChange(region50(attacker))<br/></td>
+				<td>region49.r26/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1371317639</td>
+				<td>staticallyLocate(region32(attacker))<br/></td>
+				<td>region31.r12/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>1858861864</td>
+				<td>setup(attackerServer(stealServer))<br/>executeCode(region26(attacker))<br/>dynamicallyLocate(region26(attacker))<br/>injectCode(region26(victim), sendTo(attackerServer(stealServer), variable31(victim)))<br/></td>
+				<td>variable31/confidentiality</td>
+				<td>3.0</td>
+				<td>medium</td>
+				<td>white box cryptography <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1154385431</td>
+				<td>executeCode(region73(attacker))<br/>dynamicallyLocate(region73(attacker))<br/>dynamicallyChange(region73(attacker))<br/></td>
+				<td>int_reference57.r6/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1634495077</td>
+				<td>staticallyLocate(region19(attacker))<br/></td>
+				<td>region18.r18/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>3987282088</td>
+				<td>executeCode(region15(attacker))<br/>dynamicallyLocate(region15(attacker))<br/></td>
+				<td>region14.r0/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>3346837663</td>
+				<td>staticallyLocate(region73(attacker))<br/>staticallyChange(region73(attacker))<br/></td>
+				<td>int_reference57.r6/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>2866238888</td>
+				<td>executeCode(region54(attacker))<br/>dynamicallyLocate(region54(attacker))<br/></td>
+				<td>region53.r9/confidentiality</td>
+				<td>2.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>3107600112</td>
+				<td>executeCode(region3(attacker))<br/>dynamicallyLocate(region3(attacker))<br/>dynamicallyChange(region3(attacker))<br/></td>
+				<td>region2.r25/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>215433794</td>
+				<td>staticallyLocate(region22(attacker))<br/></td>
+				<td>region21.r29/confidentiality</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>3324215176</td>
+				<td>executeCode(region22(attacker))<br/>dynamicallyLocate(region22(attacker))<br/></td>
+				<td>region21.r29/confidentiality</td>
+				<td>2.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>1477210874</td>
+				<td>executeCode(region9(attacker))<br/>dynamicallyLocate(region9(attacker))<br/></td>
+				<td>region5.r14.r15/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>508096125</td>
+				<td>staticallyLocate(region6(attacker))<br/></td>
+				<td>region5.r14/confidentiality</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>3565616261</td>
+				<td>executeCode(region33(attacker))<br/>dynamicallyLocate(region33(attacker))<br/>dynamicallyChange(region33(attacker))<br/></td>
+				<td>region31.r12.r13/integrity</td>
+				<td>2.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2428892909</td>
+				<td>staticallyLocate(region67(attacker))<br/></td>
+				<td>diamante_reference49.r27/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>516092397</td>
+				<td>staticallyLocate(region79(attacker))<br/></td>
+				<td>region78.r19/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2342328127</td>
+				<td>executeCode(region8(attacker))<br/>dynamicallyLocate(region8(attacker))<br/>dynamicallyChange(region8(attacker))<br/></td>
+				<td>region5.r14.r17/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>4119455346</td>
+				<td>executeCode(region12(attacker))<br/>dynamicallyLocate(region12(attacker))<br/>dynamicallyChange(region12(attacker))<br/></td>
+				<td>region11.r23/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>1218394234</td>
+				<td>executeCode(region60(attacker))<br/>dynamicallyLocate(region60(attacker))<br/></td>
+				<td>region59.r11/confidentiality</td>
+				<td>2.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>1746575386</td>
+				<td>executeCode(region45(attacker))<br/>dynamicallyLocate(region45(attacker))<br/></td>
+				<td>region44.r1/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>2635948764</td>
+				<td>setup(attackerServer(stealServer))<br/>staticallyLocate(region26(attacker))<br/>injectCode(region26(victim), sendTo(attackerServer(stealServer), variable31(victim)))<br/></td>
+				<td>variable31/confidentiality</td>
+				<td>3.0</td>
+				<td>medium</td>
+				<td>white box cryptography <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="warning">
+				<td>1662790746</td>
+				<td>executeCode(region77(attacker))<br/>dynamicallyLocate(region77(attacker))<br/></td>
+				<td>region76.r24/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>4114590751</td>
+				<td>executeCode(region32(attacker))<br/>dynamicallyLocate(region32(attacker))<br/>dynamicallyChange(region32(attacker))<br/></td>
+				<td>region31.r12/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="info">
+				<td>3332022892</td>
+				<td>setup(attackerServer(stealServer))<br/>executeCode(region44(attacker))<br/>dynamicallyLocate(region44(attacker))<br/>injectCode(region44(victim), sendTo(attackerServer(stealServer), variable100(victim)))<br/></td>
+				<td>variable100/confidentiality</td>
+				<td>1.0</td>
+				<td>unblockable</td>
+				<td></td>
+				</tr>
+				<tr class="warning">
+				<td>1889768264</td>
+				<td>executeCode(region3(attacker))<br/>dynamicallyLocate(region3(attacker))<br/></td>
+				<td>region2.r25/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>1774054004</td>
+				<td>staticallyLocate(region45(attacker))<br/></td>
+				<td>region44.r1/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="info">
+				<td>42161962</td>
+				<td>executeCode(region21(attacker))<br/>dynamicallyLocate(variable42(attacker), region21(attacker))<br/>readDatumAfterInitializazionAndDecryption(variable42(attacker))<br/></td>
+				<td>variable42/confidentiality</td>
+				<td>1.0</td>
+				<td>unblockable</td>
+				<td></td>
+				</tr>
+				<tr class="warning">
+				<td>3742465754</td>
+				<td>executeCode(region69(attacker))<br/>dynamicallyLocate(region69(attacker))<br/></td>
+				<td>diamante_reference20.r20/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>2764273658</td>
+				<td>executeCode(region48(attacker))<br/>dynamicallyLocate(region48(attacker))<br/>dynamicallyChange(region48(attacker))<br/></td>
+				<td>region47.r30/integrity</td>
+				<td>3.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-success">high effectiveness</span><br/>call stack checks <span class="label label-danger">low effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>3468335336</td>
+				<td>staticallyLocate(region38(attacker))<br/></td>
+				<td>region35.r3.r4.r5/confidentiality</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-warning">medium effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				<tr class="info">
+				<td>2741814085</td>
+				<td>executeCode(region21(attacker))<br/>dynamicallyLocate(variable43(attacker), region53(attacker))<br/>readDatumAfterInitializazionAndDecryption(variable43(attacker))<br/></td>
+				<td>variable43/confidentiality</td>
+				<td>1.0</td>
+				<td>unblockable</td>
+				<td></td>
+				</tr>
+				<tr class="warning">
+				<td>3190820474</td>
+				<td>executeCode(region36(attacker))<br/>dynamicallyLocate(region36(attacker))<br/></td>
+				<td>region35.r3/confidentiality</td>
+				<td>1.0</td>
+				<td>medium</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/></td>
+				</tr>
+				<tr class="success">
+				<td>3037736227</td>
+				<td>staticallyLocate(region32(attacker))<br/>staticallyChange(region32(attacker))<br/></td>
+				<td>region31.r12/integrity</td>
+				<td>1.0</td>
+				<td>high</td>
+				<td>anti-debugging <span class="label label-warning">medium effectiveness</span><br/>soft VM <span class="label label-success">high effectiveness</span><br/>binary code control flow obfuscation <span class="label label-success">high effectiveness</span><br/></td>
+				</tr>
+				</tbody>
+		</table>
+		<h2><a class="anchor" name="l1Protections"></a>Asset Protections &mdash; Level 1 Protections</h2>
+		<div class="panel-group">
+			<div class="panel panel-info">
+					<div id="collapse4">
+					<div class="panel-body">
+							<dl class="dl-horizontal">
+								<dt>Solutions</dt>
+								<dd>10</dd>
+								<dt>Client time overehead</dt>
+								<dd>no limit</dd>
+								<dt>Server time overehead</dt>
+								<dd>no limit</dd>
+								<dt>Client memory overehead</dt>
+								<dd>no limit</dd>
+								<dt>Server memory overehead</dt>
+								<dd>no limit</dd>
+								<dt>Network overehead</dt>
+								<dd>no limit</dd>
+								<dt>Timeout</dt>
+								<dd>300 s</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class="alert alert-warning"><strong>Note:</strong> the ADSS Protection Index is an absolute value computed taking into account various factors as the protection mitigations, their synergies and the attacks probabilities.</div>
+		<div class="alert alert-warning"><strong>Note:</strong> the order of protections application in the list matters. A different but compatible order of protections may be used if protections are deployed with the ACTC.</div>
+		<table id="l1pTable" class="table table-condensed table-hover">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Protection @ Application Parts</th>
+					<th>ADSS Protection Index</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+				<td>3979670174</td>
+				<td>Binary Obfuscation (flatten function, high overhead) @ region67<br/>Anti-Debugging @ region67<br/>Binary Obfuscation (branch function, low overhead) @ region15<br/>SoftVM @ region15<br/>Anti-Debugging @ region15<br/>Binary Obfuscation (branch function, medium overhead) @ region77<br/>Anti-Debugging @ region77<br/>SoftVM @ region50<br/>Binary Obfuscation (branch function, medium overhead) @ region50<br/>SoftVM @ region48<br/>Binary Obfuscation (opaque predicate, high overhead) @ region48<br/>SoftVM @ region54<br/>Binary Obfuscation (flatten function, high overhead) @ region54<br/>Anti-Debugging @ region12<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region12<br/>SoftVM @ region81<br/>Anti-Debugging @ region81<br/>Binary Obfuscation (branch function, high overhead) @ region81<br/>Binary Obfuscation (flatten function, medium overhead) @ region3<br/>SoftVM @ region58<br/>Binary Obfuscation (flatten function, low overhead) @ region58<br/>Anti-Debugging @ region58<br/>White Box Cryptography @ variable31, variable66, region26, variable67<br/>SoftVM @ region27<br/>Anti-Debugging @ region27<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region27<br/>SoftVM @ region45<br/>Anti-Debugging @ region46<br/>Anti-Debugging @ region36<br/>Anti-Debugging @ region37<br/>SoftVM @ region38<br/>Anti-Debugging @ region73<br/>Anti-Debugging @ region74<br/>Anti-Debugging @ region75<br/>SoftVM @ region60<br/>Anti-Debugging @ region32<br/>SoftVM @ region33<br/>Anti-Debugging @ region6<br/>Anti-Debugging @ region9<br/>SoftVM @ region7<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region8<br/>Anti-Debugging @ region19<br/>Anti-Debugging @ region79<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region79<br/>SoftVM @ region69<br/>Binary Obfuscation (flatten function, medium overhead) @ region71<br/>SoftVM @ region56<br/>SoftVM @ region22<br/></td>
+				<td>48.32895891078345</td>
+				</tr>
+				<tr>
+				<td>3278575167</td>
+				<td>Binary Obfuscation (flatten function, high overhead) @ region67<br/>Anti-Debugging @ region67<br/>Binary Obfuscation (branch function, low overhead) @ region15<br/>SoftVM @ region15<br/>Anti-Debugging @ region15<br/>SoftVM @ region45<br/>Anti-Debugging @ region46<br/>Anti-Debugging @ region36<br/>Anti-Debugging @ region37<br/>SoftVM @ region38<br/>Anti-Debugging @ region73<br/>Anti-Debugging @ region74<br/>Anti-Debugging @ region75<br/>Binary Obfuscation (branch function, medium overhead) @ region60<br/>SoftVM @ region60<br/>Anti-Debugging @ region32<br/>SoftVM @ region33<br/>Anti-Debugging @ region6<br/>Anti-Debugging @ region9<br/>SoftVM @ region7<br/>Anti-Debugging @ region8<br/>Anti-Debugging @ region19<br/>Anti-Debugging @ region79<br/>Binary Obfuscation (opaque predicate, high overhead) @ region79<br/>SoftVM @ region69<br/>Binary Obfuscation (flatten function, low overhead) @ region71<br/>SoftVM @ region56<br/>SoftVM @ region22<br/>Binary Obfuscation (branch function, medium overhead) @ region77<br/>Anti-Debugging @ region77<br/>SoftVM @ region50<br/>Binary Obfuscation (branch function, medium overhead) @ region50<br/>SoftVM @ region48<br/>Binary Obfuscation (opaque predicate, high overhead) @ region48<br/>SoftVM @ region54<br/>Binary Obfuscation (flatten function, high overhead) @ region54<br/>Anti-Debugging @ region12<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region12<br/>SoftVM @ region81<br/>Anti-Debugging @ region81<br/>Binary Obfuscation (branch function, high overhead) @ region81<br/>Binary Obfuscation (flatten function, medium overhead) @ region3<br/>SoftVM @ region58<br/>Binary Obfuscation (flatten function, low overhead) @ region58<br/>Anti-Debugging @ region58<br/>White Box Cryptography @ variable31, variable66, region26, variable67<br/>SoftVM @ region27<br/>Anti-Debugging @ region27<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region27<br/></td>
+				<td>48.331233004611626</td>
+				</tr>
+				<tr>
+				<td>3391773922</td>
+				<td>SoftVM @ region45<br/>Anti-Debugging @ region46<br/>Anti-Debugging @ region36<br/>Anti-Debugging @ region37<br/>SoftVM @ region38<br/>Anti-Debugging @ region73<br/>Anti-Debugging @ region74<br/>Anti-Debugging @ region75<br/>Binary Obfuscation (flatten function, medium overhead) @ region60<br/>SoftVM @ region60<br/>Anti-Debugging @ region32<br/>SoftVM @ region33<br/>Anti-Debugging @ region6<br/>Anti-Debugging @ region9<br/>SoftVM @ region7<br/>Anti-Debugging @ region8<br/>Anti-Debugging @ region19<br/>Binary Obfuscation (branch function, high overhead) @ region79<br/>Anti-Debugging @ region79<br/>SoftVM @ region69<br/>Binary Obfuscation (opaque predicate, high overhead) @ region71<br/>SoftVM @ region56<br/>SoftVM @ region22<br/>Binary Obfuscation (flatten function, high overhead) @ region67<br/>Anti-Debugging @ region67<br/>Binary Obfuscation (branch function, low overhead) @ region15<br/>SoftVM @ region15<br/>Anti-Debugging @ region15<br/>Binary Obfuscation (branch function, medium overhead) @ region77<br/>Anti-Debugging @ region77<br/>SoftVM @ region50<br/>Binary Obfuscation (branch function, medium overhead) @ region50<br/>SoftVM @ region48<br/>Binary Obfuscation (opaque predicate, high overhead) @ region48<br/>SoftVM @ region54<br/>Binary Obfuscation (flatten function, high overhead) @ region54<br/>Anti-Debugging @ region12<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region12<br/>SoftVM @ region81<br/>Anti-Debugging @ region81<br/>Binary Obfuscation (branch function, high overhead) @ region81<br/>Binary Obfuscation (flatten function, medium overhead) @ region3<br/>SoftVM @ region58<br/>Binary Obfuscation (flatten function, low overhead) @ region58<br/>Anti-Debugging @ region58<br/>White Box Cryptography @ variable31, variable66, region26, variable67<br/>SoftVM @ region27<br/>Anti-Debugging @ region27<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region27<br/></td>
+				<td>48.33092240060629</td>
+				</tr>
+				<tr>
+				<td>3895342309</td>
+				<td>SoftVM @ region45<br/>Anti-Debugging @ region46<br/>Anti-Debugging @ region36<br/>Anti-Debugging @ region37<br/>SoftVM @ region38<br/>Anti-Debugging @ region73<br/>Anti-Debugging @ region74<br/>Anti-Debugging @ region75<br/>SoftVM @ region60<br/>Anti-Debugging @ region32<br/>SoftVM @ region33<br/>Anti-Debugging @ region6<br/>Anti-Debugging @ region9<br/>SoftVM @ region7<br/>Anti-Debugging @ region8<br/>Anti-Debugging @ region19<br/>Anti-Debugging @ region79<br/>SoftVM @ region69<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region71<br/>SoftVM @ region56<br/>SoftVM @ region22<br/>Binary Obfuscation (flatten function, high overhead) @ region67<br/>Anti-Debugging @ region67<br/>Binary Obfuscation (branch function, low overhead) @ region15<br/>SoftVM @ region15<br/>Anti-Debugging @ region15<br/>Binary Obfuscation (branch function, medium overhead) @ region77<br/>Anti-Debugging @ region77<br/>SoftVM @ region50<br/>Binary Obfuscation (branch function, medium overhead) @ region50<br/>SoftVM @ region48<br/>Binary Obfuscation (opaque predicate, high overhead) @ region48<br/>SoftVM @ region54<br/>Binary Obfuscation (flatten function, high overhead) @ region54<br/>Anti-Debugging @ region12<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region12<br/>SoftVM @ region81<br/>Anti-Debugging @ region81<br/>Binary Obfuscation (branch function, high overhead) @ region81<br/>Binary Obfuscation (flatten function, medium overhead) @ region3<br/>SoftVM @ region58<br/>Binary Obfuscation (flatten function, low overhead) @ region58<br/>Anti-Debugging @ region58<br/>White Box Cryptography @ variable31, variable66, region26, variable67<br/>SoftVM @ region27<br/>Anti-Debugging @ region27<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region27<br/></td>
+				<td>46.98083853267962</td>
+				</tr>
+				<tr>
+				<td>4149201045</td>
+				<td>Binary Obfuscation (flatten function, high overhead) @ region67<br/>Anti-Debugging @ region67<br/>Binary Obfuscation (branch function, low overhead) @ region15<br/>SoftVM @ region15<br/>Anti-Debugging @ region15<br/>SoftVM @ region45<br/>Anti-Debugging @ region46<br/>Anti-Debugging @ region36<br/>Anti-Debugging @ region37<br/>SoftVM @ region38<br/>Anti-Debugging @ region73<br/>Anti-Debugging @ region74<br/>Anti-Debugging @ region75<br/>SoftVM @ region60<br/>Anti-Debugging @ region32<br/>SoftVM @ region33<br/>Anti-Debugging @ region6<br/>Anti-Debugging @ region9<br/>SoftVM @ region7<br/>Anti-Debugging @ region8<br/>Anti-Debugging @ region19<br/>Anti-Debugging @ region79<br/>SoftVM @ region69<br/>Binary Obfuscation (opaque predicate, high overhead) @ region71<br/>SoftVM @ region56<br/>SoftVM @ region22<br/>Binary Obfuscation (branch function, medium overhead) @ region77<br/>Anti-Debugging @ region77<br/>SoftVM @ region50<br/>Binary Obfuscation (branch function, medium overhead) @ region50<br/>SoftVM @ region48<br/>Binary Obfuscation (opaque predicate, high overhead) @ region48<br/>SoftVM @ region54<br/>Binary Obfuscation (flatten function, high overhead) @ region54<br/>Anti-Debugging @ region12<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region12<br/>SoftVM @ region81<br/>Anti-Debugging @ region81<br/>Binary Obfuscation (branch function, high overhead) @ region81<br/>Binary Obfuscation (flatten function, medium overhead) @ region3<br/>SoftVM @ region58<br/>Binary Obfuscation (flatten function, low overhead) @ region58<br/>Anti-Debugging @ region58<br/>White Box Cryptography @ variable31, variable66, region26, variable67<br/>SoftVM @ region27<br/>Anti-Debugging @ region27<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region27<br/></td>
+				<td>47.7654409998607</td>
+				</tr>
+				<tr>
+				<td>3855156993</td>
+				<td>SoftVM @ region45<br/>Anti-Debugging @ region46<br/>Anti-Debugging @ region36<br/>Anti-Debugging @ region37<br/>SoftVM @ region38<br/>Anti-Debugging @ region73<br/>Anti-Debugging @ region74<br/>Anti-Debugging @ region75<br/>SoftVM @ region60<br/>Anti-Debugging @ region32<br/>SoftVM @ region33<br/>Anti-Debugging @ region6<br/>Anti-Debugging @ region9<br/>SoftVM @ region7<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region8<br/>Anti-Debugging @ region19<br/>Anti-Debugging @ region79<br/>SoftVM @ region69<br/>Binary Obfuscation (branch function, high overhead) @ region71<br/>SoftVM @ region56<br/>SoftVM @ region22<br/>Binary Obfuscation (flatten function, high overhead) @ region67<br/>Anti-Debugging @ region67<br/>Binary Obfuscation (branch function, low overhead) @ region15<br/>SoftVM @ region15<br/>Anti-Debugging @ region15<br/>Binary Obfuscation (branch function, medium overhead) @ region77<br/>Anti-Debugging @ region77<br/>SoftVM @ region50<br/>Binary Obfuscation (branch function, medium overhead) @ region50<br/>SoftVM @ region48<br/>Binary Obfuscation (opaque predicate, high overhead) @ region48<br/>SoftVM @ region54<br/>Binary Obfuscation (flatten function, high overhead) @ region54<br/>Anti-Debugging @ region12<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region12<br/>SoftVM @ region81<br/>Anti-Debugging @ region81<br/>Binary Obfuscation (branch function, high overhead) @ region81<br/>Binary Obfuscation (flatten function, medium overhead) @ region3<br/>SoftVM @ region58<br/>Binary Obfuscation (flatten function, low overhead) @ region58<br/>Anti-Debugging @ region58<br/>White Box Cryptography @ variable31, variable66, region26, variable67<br/>SoftVM @ region27<br/>Anti-Debugging @ region27<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region27<br/></td>
+				<td>48.32763604195709</td>
+				</tr>
+				<tr>
+				<td>3519726488 <span class="label label-info">golden solution</span></td>
+				<td>Binary Obfuscation (flatten function, high overhead) @ region67<br/>Anti-Debugging @ region67<br/>Binary Obfuscation (branch function, low overhead) @ region15<br/>SoftVM @ region15<br/>Anti-Debugging @ region15<br/>Binary Obfuscation (branch function, medium overhead) @ region77<br/>Anti-Debugging @ region77<br/>SoftVM @ region50<br/>Binary Obfuscation (branch function, medium overhead) @ region50<br/>SoftVM @ region48<br/>Binary Obfuscation (opaque predicate, high overhead) @ region48<br/>SoftVM @ region54<br/>Binary Obfuscation (flatten function, high overhead) @ region54<br/>SoftVM @ region45<br/>Anti-Debugging @ region46<br/>Anti-Debugging @ region36<br/>Anti-Debugging @ region37<br/>SoftVM @ region38<br/>Anti-Debugging @ region73<br/>Anti-Debugging @ region74<br/>Anti-Debugging @ region75<br/>SoftVM @ region60<br/>Binary Obfuscation (branch function, medium overhead) @ region60<br/>Anti-Debugging @ region32<br/>SoftVM @ region33<br/>Anti-Debugging @ region6<br/>Anti-Debugging @ region9<br/>SoftVM @ region7<br/>Anti-Debugging @ region8<br/>Anti-Debugging @ region19<br/>Binary Obfuscation (flatten function, medium overhead) @ region79<br/>Anti-Debugging @ region79<br/>SoftVM @ region69<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region71<br/>SoftVM @ region56<br/>SoftVM @ region22<br/>Anti-Debugging @ region12<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region12<br/>SoftVM @ region81<br/>Anti-Debugging @ region81<br/>Binary Obfuscation (branch function, high overhead) @ region81<br/>Binary Obfuscation (flatten function, medium overhead) @ region3<br/>SoftVM @ region58<br/>Binary Obfuscation (flatten function, low overhead) @ region58<br/>Anti-Debugging @ region58<br/>White Box Cryptography @ variable31, variable66, region26, variable67<br/>SoftVM @ region27<br/>Anti-Debugging @ region27<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region27<br/></td>
+				<td>48.331705806779716</td>
+				</tr>
+				<tr>
+				<td>3432258672</td>
+				<td>Binary Obfuscation (flatten function, high overhead) @ region67<br/>Anti-Debugging @ region67<br/>Binary Obfuscation (branch function, low overhead) @ region15<br/>SoftVM @ region15<br/>Anti-Debugging @ region15<br/>SoftVM @ region45<br/>Anti-Debugging @ region46<br/>Anti-Debugging @ region36<br/>Anti-Debugging @ region37<br/>SoftVM @ region38<br/>Anti-Debugging @ region73<br/>Anti-Debugging @ region74<br/>Anti-Debugging @ region75<br/>SoftVM @ region60<br/>Anti-Debugging @ region32<br/>SoftVM @ region33<br/>Anti-Debugging @ region6<br/>Anti-Debugging @ region9<br/>SoftVM @ region7<br/>Anti-Debugging @ region8<br/>Anti-Debugging @ region19<br/>Anti-Debugging @ region79<br/>SoftVM @ region69<br/>Binary Obfuscation (flatten function, medium overhead) @ region71<br/>SoftVM @ region56<br/>SoftVM @ region22<br/>Binary Obfuscation (branch function, medium overhead) @ region77<br/>Anti-Debugging @ region77<br/>SoftVM @ region50<br/>Binary Obfuscation (branch function, medium overhead) @ region50<br/>SoftVM @ region48<br/>Binary Obfuscation (opaque predicate, high overhead) @ region48<br/>SoftVM @ region54<br/>Binary Obfuscation (flatten function, high overhead) @ region54<br/>Anti-Debugging @ region12<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region12<br/>SoftVM @ region81<br/>Anti-Debugging @ region81<br/>Binary Obfuscation (branch function, high overhead) @ region81<br/>Binary Obfuscation (flatten function, medium overhead) @ region3<br/>SoftVM @ region58<br/>Binary Obfuscation (flatten function, low overhead) @ region58<br/>Anti-Debugging @ region58<br/>White Box Cryptography @ variable31, variable66, region26, variable67<br/>SoftVM @ region27<br/>Anti-Debugging @ region27<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region27<br/></td>
+				<td>47.84133866671563</td>
+				</tr>
+				<tr>
+				<td>3591084597</td>
+				<td>SoftVM @ region45<br/>Anti-Debugging @ region46<br/>Anti-Debugging @ region36<br/>Anti-Debugging @ region37<br/>SoftVM @ region38<br/>Anti-Debugging @ region73<br/>Anti-Debugging @ region74<br/>Anti-Debugging @ region75<br/>Binary Obfuscation (opaque predicate, medium overhead) @ region60<br/>Anti-Debugging @ region32<br/>SoftVM @ region33<br/>Anti-Debugging @ region6<br/>Anti-Debugging @ region9<br/>SoftVM @ region7<br/>Binary Obfuscation (flatten function, medium overhead) @ region8<br/>Anti-Debugging @ region19<br/>Anti-Debugging @ region79<br/>SoftVM @ region69<br/>Binary Obfuscation (flatten function, medium overhead) @ region71<br/>SoftVM @ region56<br/>SoftVM @ region22<br/>Binary Obfuscation (flatten function, high overhead) @ region67<br/>Anti-Debugging @ region67<br/>Binary Obfuscation (branch function, low overhead) @ region15<br/>SoftVM @ region15<br/>Anti-Debugging @ region15<br/>Binary Obfuscation (branch function, medium overhead) @ region77<br/>Anti-Debugging @ region77<br/>SoftVM @ region50<br/>Binary Obfuscation (branch function, medium overhead) @ region50<br/>SoftVM @ region48<br/>Binary Obfuscation (opaque predicate, high overhead) @ region48<br/>SoftVM @ region54<br/>Binary Obfuscation (flatten function, high overhead) @ region54<br/>Anti-Debugging @ region12<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region12<br/>SoftVM @ region81<br/>Anti-Debugging @ region81<br/>Binary Obfuscation (branch function, high overhead) @ region81<br/>Binary Obfuscation (flatten function, medium overhead) @ region3<br/>SoftVM @ region58<br/>Binary Obfuscation (flatten function, low overhead) @ region58<br/>Anti-Debugging @ region58<br/>White Box Cryptography @ variable31, variable66, region26, variable67<br/>SoftVM @ region27<br/>Anti-Debugging @ region27<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region27<br/></td>
+				<td>48.32832329374947</td>
+				</tr>
+				<tr>
+				<td>2618071307</td>
+				<td>Binary Obfuscation (flatten function, high overhead) @ region67<br/>Anti-Debugging @ region67<br/>Binary Obfuscation (branch function, low overhead) @ region15<br/>SoftVM @ region15<br/>Anti-Debugging @ region15<br/>Binary Obfuscation (branch function, medium overhead) @ region77<br/>Anti-Debugging @ region77<br/>SoftVM @ region50<br/>Binary Obfuscation (branch function, medium overhead) @ region50<br/>SoftVM @ region48<br/>Binary Obfuscation (opaque predicate, high overhead) @ region48<br/>SoftVM @ region54<br/>Binary Obfuscation (flatten function, high overhead) @ region54<br/>Anti-Debugging @ region12<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region12<br/>SoftVM @ region81<br/>Anti-Debugging @ region81<br/>Binary Obfuscation (branch function, high overhead) @ region81<br/>SoftVM @ region45<br/>Anti-Debugging @ region46<br/>Anti-Debugging @ region36<br/>Anti-Debugging @ region37<br/>SoftVM @ region38<br/>Anti-Debugging @ region73<br/>Anti-Debugging @ region74<br/>Anti-Debugging @ region75<br/>SoftVM @ region60<br/>Anti-Debugging @ region32<br/>SoftVM @ region33<br/>Anti-Debugging @ region6<br/>Anti-Debugging @ region9<br/>SoftVM @ region7<br/>Anti-Debugging @ region8<br/>Anti-Debugging @ region19<br/>Anti-Debugging @ region79<br/>SoftVM @ region69<br/>Binary Obfuscation (branch function, high overhead) @ region71<br/>SoftVM @ region56<br/>SoftVM @ region22<br/>Binary Obfuscation (flatten function, medium overhead) @ region3<br/>SoftVM @ region58<br/>Binary Obfuscation (flatten function, low overhead) @ region58<br/>Anti-Debugging @ region58<br/>White Box Cryptography @ variable31, variable66, region26, variable67<br/>SoftVM @ region27<br/>Anti-Debugging @ region27<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region27<br/></td>
+				<td>44.688185513877706</td>
+				</tr>
+			</tbody>
+		</table>
+		<a class="anchor" name="l2Protections"></a><h2>Asset Protections &mdash; Level 2 Protections</h2>
+		<div class="panel-group">
+			<div class="panel panel-info">
+					<div id="collapse5">
+					<div class="panel-body">
+							<dl class="dl-horizontal">
+								<dt>Solutions</dt>
+								<dd>1</dd>
+								<dt>Client time overehead</dt>
+								<dd>50%</dd>
+								<dt>Server time overehead</dt>
+								<dd>50%</dd>
+								<dt>Client memory overehead</dt>
+								<dd>50%</dd>
+								<dt>Server memory overehead</dt>
+								<dd>50%</dd>
+								<dt>Network overehead</dt>
+								<dd>50%</dd>
+								<dt>Timeout</dt>
+								<dd>300 s</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+			</div>
+		<div class="alert alert-warning"><strong>Note:</strong> the explanation field gives a motivation of the ADSS choice w.r.t. the level 1 protections. [kept] means that a protection was left unchanged, [enlarged] that a protected code region was made bigger and [replicated] that a random code region was added to increase the confusion level.</div>
+		<div class="alert alert-warning"><strong>Note:</strong> the order of protections application in the list matters. A different but compatible order of protections may be used if protections are deployed with the ACTC.</div>
+		<table id="l2pTable" class="table table-condensed table-hover">
+			<thead>
+				<tr>
+					<th>ID (L1P ID)</th>
+					<th>Protection @ Application Parts "Explanation"</th>
+					<th>Score</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>3519726488</td>
+					<td>Anti-Debugging @ region78  [enlarged]<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region78  [enlarged]<br/>SoftVM @ region80  [enlarged]<br/>Anti-Debugging @ region80  [enlarged]<br/>Binary Obfuscation (branch function, high overhead) @ region80  [enlarged]<br/>Binary Obfuscation (branch function, medium overhead) @ region77  [kept]<br/>Anti-Debugging @ region76  [enlarged]<br/>Anti-Debugging @ region72  [enlarged]<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region72  [enlarged]<br/>SoftVM @ region72  [enlarged]<br/>Binary Obfuscation (flatten function, medium overhead) @ region71  [kept]<br/>SoftVM @ region68  [enlarged]<br/>Binary Obfuscation (flatten function, high overhead) @ region67  [kept]<br/>Anti-Debugging @ region66  [enlarged]<br/>SoftVM @ region59  [enlarged]<br/>SoftVM @ region57  [enlarged]<br/>Binary Obfuscation (flatten function, low overhead) @ region57  [enlarged]<br/>Anti-Debugging @ region57  [enlarged]<br/>SoftVM @ region55  [enlarged]<br/>SoftVM @ region53  [enlarged]<br/>Binary Obfuscation (flatten function, high overhead) @ region53  [enlarged]<br/>SoftVM @ region49  [enlarged]<br/>Binary Obfuscation (branch function, medium overhead) @ region49  [enlarged]<br/>SoftVM @ region47  [enlarged]<br/>Binary Obfuscation (opaque predicate, high overhead) @ region47  [enlarged]<br/>Anti-Debugging @ region46  [kept]<br/>SoftVM @ region44  [enlarged]<br/>SoftVM @ region38  [kept]<br/>Anti-Debugging @ region35  [enlarged]<br/>Binary Obfuscation (branch function, low overhead) @ region35  [enlarged]<br/>SoftVM @ region33  [kept]<br/>Anti-Debugging @ region31  [enlarged]<br/>SoftVM @ region26  [enlarged]<br/>Anti-Debugging @ region26  [enlarged]<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region26  [enlarged]<br/>SoftVM @ region21  [enlarged]<br/>Anti-Debugging @ region18  [enlarged]<br/>Binary Obfuscation (branch function, low overhead) @ region14  [enlarged]<br/>SoftVM @ region14  [enlarged]<br/>Anti-Debugging @ region14  [enlarged]<br/>Anti-Debugging @ region11  [enlarged]<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region11  [enlarged]<br/>Binary Obfuscation (opaque_predicate, low overhead) @ region8  [kept]<br/>White Box Cryptography @ variable31, variable66, region26, variable67  [kept]<br/>SoftVM @ region7  [kept]<br/>Anti-Debugging @ region5  [enlarged]<br/>Binary Obfuscation (flatten function, medium overhead) @ region3  [kept]<br/></td>
+				</tr>
+			</tbody>
+		</table>
+	</body>
+</html>
