@@ -19,13 +19,17 @@ This is the project structure:
 - `it.polito.security.esp.rules.ui` contains the Eclipse UI classes for the protection rules editor;
 - `it.polito.security.esp.ui` contains most of the Eclipse UI classes of the ESP;
 - `it.polito.security.esp.util` contains several utility classes.
-- `reports` contains the original ADSS reports that we generated for the three ASPIRE use cases:
-    - `DemoPlayer.html` is the report for a video streaming library for the Nagra Kudelski
-      Group (https://www.nagra.com/);
-    - `LicenseManager.html` is the report for a license managing library for the SafeNet Inc., now Thales
-      Group (https://www.thalesgroup.com/);
-    - `OTP.html` is the report for a one time password application for Gemalto N. V., now Thales
-      Group (https://www.thalesgroup.com/).
+- `reports` contains some original ADSS reports.
+
+## Reports
+
+The `reports` folder contains the original ADSS reports that we generated for the three ASPIRE use cases:
+
+| file                  | preview                                                                                                                 | description                                                                                                  |
+|-----------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| `DemoPlayer.html`     | [click](https://htmlpreview.github.io/?https://github.com/daniele-canavese/esp/blob/master/reports/DemoPlayer.html)     | report of a video streaming library for the Nagra Kudelski Group (https://www.nagra.com/)                    |
+| `LicenseManager.html` | [click](https://htmlpreview.github.io/?https://github.com/daniele-canavese/esp/blob/master/reports/LicenseManager.html) | report of a license managing library for the SafeNet Inc., now Thales roup (https://www.thalesgroup.com/)    |
+|  `OTP.html`           | [click](https://htmlpreview.github.io/?https://github.com/daniele-canavese/esp/blob/master/reports/OTP.html)            | report of a one time password application for Gemalto N. V., now Thales Group (https://www.thalesgroup.com/) |
 
 ## Resources
 
